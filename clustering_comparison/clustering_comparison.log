@@ -1,0 +1,358 @@
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=pdflatex 2008.1.11)  3 JUL 2008 14:24
+entering extended mode
+**clustering_comparison
+(./clustering_comparison.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, b
+ahasa, basque, bulgarian, catalan, croatian, czech, danish, dutch, esperanto, e
+stonian, finnish, greek, icelandic, irish, italian, latin, magyar, norsk, polis
+h, portuges, romanian, russian, serbian, slovak, slovene, spanish, swedish, tur
+kish, ukrainian, nohyphenation, loaded.
+(./mn2e.cls
+Document Class: mn2e 2001/02/06 v2.2 LaTeX2e MN document class
+Document Style `MN' v2.2, released 2001 February 20
+\math@groups=\toks14
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/cmsy/b/n on input line 223.
+\symbmisymbols=\mathgroup4
+\SFB@measure=\dimen102
+\realparindent=\skip41
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\@indentskip=\skip42
+\smallindent=\skip43
+\@footindent=\skip44
+\@leftskip=\skip45
+\c@dummy=\count85
+(/sw/share/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2003/06/06 7.1 (PWD)
+\bibhang=\skip46
+\bibsep=\skip47
+LaTeX Info: Redefining \cite on input line 518.
+\c@NAT@ctr=\count86
+)
+\c@table=\count87
+\c@figure=\count88
+\mathindent=\dimen103
+) (./format.tex
+(/sw/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/sw/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/sw/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/sw/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/sw/share/texmf-dist/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/sw/share/texmf-dist/tex/latex/graphics/pdftex.def
+File: pdftex.def 2002/06/19 v0.03k graphics/color for pdftex
+\Gread@gobject=\count89
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/common/texinputs/psfig.sty
+\@unused=\write3
+\ps@stream=\read1
+\p@intvaluex=\dimen106
+\p@intvaluey=\dimen107
+
+psfig/tex 1.10-dvips
+) (/sw/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip48
+\f@ncyO@elh=\skip49
+\f@ncyO@erh=\skip50
+\f@ncyO@olh=\skip51
+\f@ncyO@orh=\skip52
+\f@ncyO@elf=\skip53
+\f@ncyO@erf=\skip54
+\f@ncyO@olf=\skip55
+\f@ncyO@orf=\skip56
+)
+(/sw/share/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip57
+\subfigcapskip=\skip58
+\subfigcaptopadj=\dimen108
+\subfigbottomskip=\skip59
+\subfigcapmargin=\dimen109
+\subfiglabelskip=\skip60
+\c@subfigure=\count90
+\c@lofdepth=\count91
+\c@subtable=\count92
+\c@lotdepth=\count93
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/sw/share/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip61
+\subfig@bottom=\skip62
+)
+(/sw/share/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen110
+\epsfysize=\dimen111
+)
+(/sw/share/texmf-dist/tex/generic/epsf/epsf.tex
+This is `epsf.tex' v2.7k <10 July 1997>
+\epsffilein=\read2
+\epsfframemargin=\dimen112
+\epsfframethickness=\dimen113
+\epsfrsize=\dimen114
+\epsftmp=\dimen115
+\epsftsize=\dimen116
+\epsfxsize=\dimen117
+\epsfysize=\dimen118
+\pspoints=\dimen119
+\epsfnoopenhelp=\toks16
+) (/sw/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip63
+
+For additional information on amsmath, use the `?' option.
+(/sw/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/sw/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen120
+))
+(/sw/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen121
+)
+(/sw/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count94
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count95
+\leftroot@=\count96
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count97
+\DOTSCASE@=\count98
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen122
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count99
+\c@MaxMatrixCols=\count100
+\dotsspace@=\muskip10
+\c@parentequation=\count101
+\dspbrk@lvl=\count102
+\tag@help=\toks18
+\row@=\count103
+\column@=\count104
+\maxfields@=\count105
+\andhelp@=\toks19
+\eqnshift@=\dimen123
+\alignsep@=\dimen124
+\tagshift@=\dimen125
+\tagwidth@=\dimen126
+\totwidth@=\dimen127
+\lineht@=\dimen128
+\@envbody=\toks20
+\multlinegap=\skip64
+\multlinetaggap=\skip65
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/sw/share/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2000/03/12 v2.1 Cancel math terms
+)
+(/sw/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/sw/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+))
+(/sw/share/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+))
+(./clustering_comparison.aux
+
+LaTeX Warning: Label `tab:r_nought_comp_QSOs' multiply defined.
+
+)
+\openout1 = `clustering_comparison.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+ (/sw/share/texmf-dist/tex/context/base/supp-pdf.tex
+(/sw/share/texmf-dist/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Miscellaneous (2004.10.26)
+\protectiondepth=\count106
+\scratchcounter=\count107
+\scratchtoks=\toks22
+\scratchdimen=\dimen129
+\scratchskip=\skip66
+\scratchmuskip=\muskip11
+\scratchbox=\box28
+\scratchread=\read3
+\scratchwrite=\write4
+\zeropoint=\dimen130
+\onepoint=\dimen131
+\onebasepoint=\dimen132
+\minusone=\count108
+\thousandpoint=\dimen133
+\onerealpoint=\dimen134
+\emptytoks=\toks23
+\nextbox=\box29
+\nextdepth=\dimen135
+\everyline=\toks24
+\!!counta=\count109
+\!!countb=\count110
+\recursecounter=\count111
+)
+loading : Context Support Macros / PDF (2004.03.26)
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen136
+\MPnumerator=\count115
+\everyMPtoPDFconversion=\toks25
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+ (/sw/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+
+(/sw/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+Overfull \hbox (1.6656pt too wide) in paragraph at lines 15--15
+[][]  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+<pdf/r_nought_z_labels.pdf, id=1, 614.295pt x 794.97pt>
+File: pdf/r_nought_z_labels.pdf Graphic file (type pdf)
+
+<use pdf/r_nought_z_labels.pdf>
+<pdf/r_nought_z.pdf, id=2, 614.295pt x 794.97pt>
+File: pdf/r_nought_z.pdf Graphic file (type pdf)
+ <use pdf/r_nought_z.pdf>
+Overfull \hbox (4.17116pt too wide) in paragraph at lines 80--168
+ [] 
+ []
+
+
+Package natbib Warning: Citation `Pollo04' on page 1 undefined on input line 16
+8.
+
+
+Package natbib Warning: Citation `Pollo04' on page 1 undefined on input line 16
+8.
+
+
+Package natbib Warning: Citation `Blain03' on page 1 undefined on input line 23
+5.
+
+
+Package natbib Warning: Citation `Blain03' on page 1 undefined on input line 23
+5.
+
+
+Underfull \hbox (badness 2735) in paragraph at lines 259--261
+[]$\OML/cmm/m/it/9 ^^X\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 r\OT1/cmr/m/n/9 ) = [][]$
+ what's the tag for the ``euro''
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 278.
+
+(/sw/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 278.
+ [1{/sw/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./pdf/r_nought_z_labels.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+(./clustering_comparison.bbl)
+
+Package natbib Warning: There were undefined citations.
+
+[3
+
+ <./pdf/r_nought_z.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+(./clustering_comparison.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3021 strings out of 94500
+ 34197 string characters out of 1176114
+ 108115 words of memory out of 1500000
+ 6139 multiletter control sequences out of 10000+50000
+ 17234 words of font info for 63 fonts, out of 1200000 for 2000
+ 580 hyphenation exceptions out of 8191
+ 31i,14n,43p,1246b,298s stack positions out of 5000i,500n,6000p,200000b,5000s
+PDF statistics:
+ 81 PDF objects out of 65536
+ 0 named destinations out of 20000
+ 11 words of extra memory for PDF output out of 65536
+</sw/share/texmf-dist/fonts/type1/bluesky/cm/cmti12.pfb></sw/share/texmf-dist
+/fonts/type1/bluesky/cm/cmsy8.pfb></sw/share/texmf-dist/fonts/type1/bluesky/cm/
+cmsy9.pfb></sw/share/texmf-dist/fonts/type1/bluesky/cm/cmmi8.pfb></sw/share/tex
+mf-dist/fonts/type1/bluesky/cm/cmsy6.pfb></sw/share/texmf-dist/fonts/type1/blue
+sky/cm/cmr5.pfb></sw/share/texmf-dist/fonts/type1/bluesky/cm/cmmi6.pfb></sw/sha
+re/texmf-dist/fonts/type1/bluesky/cm/cmmi9.pfb></sw/share/texmf-dist/fonts/type
+1/bluesky/cm/cmr9.pfb></sw/share/texmf-dist/fonts/type1/bluesky/cm/cmbx10.pfb><
+/sw/share/texmf-dist/fonts/type1/bluesky/cm/cmbx9.pfb></sw/share/texmf-dist/fon
+ts/type1/bluesky/cm/cmti8.pfb></sw/share/texmf-dist/fonts/type1/bluesky/cm/cmmi
+10.pfb></sw/share/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb></sw/share/texmf-
+dist/fonts/type1/bluesky/cm/cmr12.pfb></sw/share/texmf-dist/fonts/type1/bluesky
+/cm/cmbx12.pfb></sw/share/texmf-dist/fonts/type1/bluesky/cm/cmr6.pfb></sw/share
+/texmf-dist/fonts/type1/bluesky/cm/cmbx8.pfb></sw/share/texmf-dist/fonts/type1/
+bluesky/cm/cmr8.pfb>
+Output written on clustering_comparison.pdf (5 pages, 162826 bytes).

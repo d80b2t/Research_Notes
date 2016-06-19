@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+\setlength {\textwidth}{180mm} 
+\setlength {\textheight}{260mm}
+\topmargin=-35.00mm
+\oddsidemargin=-10.00mm
+\pagestyle{empty}
+
+\input{format}
+
+\begin{document}
+
+\title{A Guide to Life, Liberty and the Pursuit of Happiness}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+\begin{abstract}
+This is a simple document which will... 
+\end{abstract}
+
+
+%Section heading
+\section{The Lines}
+\citet{Croom04}
+\noindent
+N.B. 13.6 eV $\equiv$
+
+
+
+%\begin{landscape}
+\begin{table}
+  \caption{The Lines}
+  \label{tab:the_lines}
+  \begin{center}
+    \begin{tabular}{lrllll} 
+      \hline
+      \hline
+      Name & Wavelength / \AA & Transition & Rest Passband & 
+      Interpreation & Reference \\
+      \hline
+      Lyman-$\alpha$ & 1215.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      Lyman-$\beta$  & 1025.18 & 3 to 1        & $\sim$FUV &        & 1 \\
+      Lyman-$\gamma$ &  972.02 & 4 to 1        & $\sim$FUV &        & 1 \\
+      Lyman Limit    &  911.27 & $\infty$ to 1 & $\sim$FUV &        & 1 \\
+      \hline
+      H-$\alpha$     & 6563.   & 3 to 2        & R,r       & Recent major SF or AGN activity & 2 \\
+      H-$\beta$      & 4861.   & 4 to 2        & B,V,g     &  & 2 \\
+      H-$\gamma$     & 4341.   & 5 to 2        & U,B,u     &  & 2 \\
+      H-$\delta$     & 4102.   & 6 to 2        & $\sim$FUV & Previous SF history  & 3 \\
+      Balmer Limit   & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      HI              & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      HII             & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      HeI              & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      HeII             & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      HeIII            & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      CIV              & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      OII              & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      OIII             & 3646.   & $\infty$ to 2 & $\sim$FUV & Recent major SF line & 2 \\ 
+      OIII             & 5007.   & $\infty$ to 2 & $\sim$FUV & Recent major SF line & 2 \\
+      \hline
+      Ca II H          & 3999.   & $\infty$ to 2 & $\sim$FUV & Old stellar pop & 3 \\
+      Ca II K          & 4001.   & $\infty$ to 2 & $\sim$FUV & Old stellar pop & 3 \\
+      \hline
+      NII              & 5007.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      NeV              & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      $[$OIII $\lambda$ 5007/ H$\beta]$ &   &  &   & ``BPT'' diagram reliable tool for determining source & 2, 4, 5 \\
+      $[$NII $\lambda$ 6583/ H$\alpha]$ & & & & of line emission from a galaxy visually differentiate & 2,4,5 \\
+                                      & & & & between Seyferts, LINERs and SF gals. However, only at & \\
+                                      & & & & ``low'' redshifts since need H$\alpha$, (not at $z\sim1$). & \\
+                                      & & & &  Modified BPT with $(U-B)$ colour replacing & \\
+                                      & & & & $[$NII $\lambda$ 6583/ H$\alpha]$ e.g. Montero-Dorta, 0801.2769. & \\
+      \hline
+      [SII $\lambda$ 6583/ H$\alpha$]   &    & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2,4. 5  \\
+      \hline
+      [$\alpha$/Fe]             & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      NV               & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      SiIV             & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      CIV              & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      CIII]            & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      MgII             & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      \hline
+      \hline
+% GALEX FUV: 1350-1750, % GALEX NUV: 1750-2800
+%Lyman alpha forest is the sum of absorption lines arising from the Lyman alpha transition of the neutral hydrogen in the spectra of distant galaxies and quasars.
+    \end{tabular}
+  \end{center}
+\end{table}
+%\end{landscape}
+
+
+
+\section{References}
+
+
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+\end{document}
+

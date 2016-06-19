@@ -1,0 +1,100 @@
+  354  exit
+  355  ERF
+  356  ls
+  357  ls *page*
+  358  cp Lay_Report.pages ~/Desktop/
+  359  ll *pdf*
+  360  ll *.pdf*
+  361  prev erfguidance.pdf
+  362  open Lay_Report.pages 
+  363  ll *.pdf*
+  364  prev erfguidance.pdf
+  365  open Lay_Report.pages 
+  366  programs 
+  367  cd python/
+  368  mv /Users/npr1/Downloads/Miniconda-3.7.0-MacOSX-x86_64.sh .
+  369  chmod a+x Miniconda-3.7.0-MacOSX-x86_64.sh 
+  370  ./Miniconda-3.7.0-MacOSX-x86_64.sh 
+  371  exit
+  372  ls *page*
+  373  cp Lay_Report.pages ~/Desktop/
+  374  ll *pdf*
+  375  ll *.pdf*
+  376  prev erfguidance.pdf
+  377  open Lay_Report.pages 
+  378  cd prog
+  379  programs 
+  380  cd python/
+  381  sudo pip install --upgrade ipython[all]
+  382  exit
+  383  cp Lay_Report.pages ~/Desktop/
+  384  ll *pdf*
+  385  ll *.pdf*
+  386  prev erfguidance.pdf
+  387  open Lay_Report.pages 
+  388  cd prog
+  389  programs 
+  390  cd python/
+  391  sudo pip install --upgrade ipython[all]
+  392  kill -9 1546
+  393  ls
+  394  kill -9 1547
+  395  kill -9 1758
+  396  kill -9 1770
+  397  kill -9 1820
+  398  kill -9 1821
+  399  kill -9 1875
+  400  exit
+  401  exit
+  402  ll *pdf*
+  403  ll *.pdf*
+  404  prev erfguidance.pdf
+  405  open Lay_Report.pages 
+  406  cd prog
+  407  programs 
+  408  cd python/
+  409  sudo pip install --upgrade ipython[all]
+  410  ckear
+  411      pip install tornado
+  412  pip install --upgrade tornado
+  413  ls
+  414  exit
+  415  sudo pip install --upgrade ipython[all]
+  416  cl
+  417  exit
+  418  kill -9 1500
+  419  kill -9 1501
+  420  exit
+  421  iptest
+  422  iptest core
+  423  iptest utils
+  424  ps
+  425  kill -9 2227
+  426  python
+  427  ipython
+  428  conda update anaconda
+  429  conda update ipython tornado pyzmq
+  430  pip uninstall ipython
+  431  conda install ipython-notebook
+  432  clear
+  433  ll
+  434  pip uninstall pyzmq tornado
+  435  pip list
+  436  python -c 'import zmq; print(zmq.zmq_version())'
+  437  pip uninstall pyzmq
+  438  pip freeze
+  439  echo $PYTHONPATH
+  440  echo $DYLD_LIBRARY_PATH 
+  441  conda install -f pyzmq
+  442  python -c 'import zmq'
+  443  echo $PYTHONPATH 
+  444  ag PYTHONPATH ~/.bash_profile
+  445  grep PYTHONPATH ~/.bash_profile
+  446  nano ~/.bash_profile
+  447  unset PYTHONPATH
+  448  source ~/.bash_profile
+  449  python -m IPython
+  450  ipython notebook
+  451  open .bash_history 
+  452  history 100
+  453  history 100 > history_20150113.txt

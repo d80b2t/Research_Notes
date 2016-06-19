@@ -1,0 +1,195 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{natbib}
+
+\input{format}
+
+\begin{document}
+
+\title{SEDs, $f_{\nu}$ and $f_{\lambda}$'s}
+\author{Nic ``What Have I got wrong here'' Ross}
+\date{\today}
+\maketitle
+
+
+% Usually omit these for ApJ or MNRAS style files:
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\begin{abstract}
+%{\bf The} definitive document, 
+``README'' and ``Cheat Sheet'' to SEDs, $f_{\nu}$ and $f_{\lambda}$ and all that carry-on...
+\end{abstract}
+
+
+%Section heading
+\section{Definitions, terms and Units}
+
+%%\cite{Richards06b}, \citet{Richards06b}, \citep{Richards06b}
+
+\begin{table*}
+  \begin{center}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{llllr}
+      \hline
+      \hline
+      Physical Quantity & symbol & Unit name & Units & e.g. $\log$(OoM)   \\
+      \hline
+      spectral flux density$^{a}$ &  $f_{\nu}$        &             & W                  m$^{-2}$ Hz$^{-1}$                  & -27 -- -35 \\
+      spectral flux density          &  $f_{\nu}$        &             & erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$                  & -24 -- -32 \\
+      spectral flux density          &  $f_{\nu}$        & Janksy  & $10^{-26}$ W     m$^{-2}$ Hz$^{-1}$              & $\mu$ to 10's of milli \\
+      spectral flux density          &  $f_{\nu}$        & Jansky  & $10^{-23}$ erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$ & $\mu$ to 10's of milli \\
+      spectral flux density          &  $f_{\lambda}$  &             &  W                  m$^{-2}$ m$^{-1}$                  &  \\
+      spectral flux density          &  $f_{\lambda}$  &             &  W                  m$^{-2}$ $\mu$m$^{-1}$                  &  \\
+                                                &                       &             &                        & \\
+      $^{a}$energy density         & $\nu f_{\nu}$   &  erg s$^{-1}$ cm$^{-2}$       &        & -12 -- -16 \\
+     $^{b}$ --                            & $\nu F_{\nu}$ &                                            &        &      \\
+                                                &                       &             &                        & \\
+     $^{c}$ --                            &        $L_{\nu}$ &  erg s$^{-1}$ Hz$^{-1}$       &        &    26 -- 34  \\
+                                                &                       &             &                        & \\
+
+     $^{a}$Luminosity              &  $\nu L_{\nu}$ &  erg s$^{-1}$                        &       &   43 -- 47 \\
+     $^{a}$Luminosity              &  $L$ &  erg s$^{-1}$                        &       &   43 -- 47 \\
+      \hline
+      \hline
+   \end{tabular}
+    \caption{$^{a}$see e.g. Fig. 10 of \citet{Richards06b}.\\
+      $^{b}$e.g. URL [1]\\
+      $^{c}$e.g. Bourne et al. (2011)
+}
+     \label{tab:units_overview}
+  \end{center}
+\end{table*}
+
+From Table~\ref{tab:units_overview}, to get from $L_{\nu}$ to $\nu L_{\nu}$, at say 1.0$\mu$m, you just have to multiply by
+3$\times10^{14}$ (Hz), and this gives e.g. $\approx3\times10^{44}$ erg s$^{-1}$ :-) 
+
+\begin{table}
+  \begin{center}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{lrrrl}
+      \hline       \hline
+      Unit Name   & Physical Quantity & symbos & Units     \\
+      \hline
+      Janksy & spectral flux density &  $f_{\nu}$ & $10^{-26}$ W                  m$^{-2}$ Hz$^{-1}$  \\
+     Jansky  & spectral flux density &  $f_{\nu}$  & $10^{-23}$ erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$ \\
+      \hline       \hline
+    \label{tab:The_LRG_numbers}
+    \end{tabular}
+    \caption{e.g. Fig. 10 of Richards et al. (2006b).}
+  \end{center}
+\end{table}
+
+
+\begin{eqnarray}
+  m_{\rm AB} & =  & -2.5 \log_{10} \left(  \frac{f_{\nu}}{3631 \ {\rm Jy}} \right) \\
+                 & =  & -2.5 \log_{10} \left(  \frac{f_{\nu}}{  {\rm Jy}} \right) + 8.90 \\
+                 & =  &-2.5 \log_{10} f_{\nu} - 48.60 
+\end{eqnarray}
+with the -48.6 thing coming in if in $cgs$ units of erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$.\\
+
+\noindent
+So, with $\nu  f_{\nu}  = \lambda f_{\lambda}$, we can have: 
+\begin{eqnarray}
+  f_{\nu}              & = &  \frac{\lambda^{2}}{c} \ f_{\lambda}\\
+\end{eqnarray}
+Now, if $f_{\nu}$ is in Jansky's and $\lambda$ is in \AA\, then, 
+$c$ must be in \AA\ s$^{-1}$, i.e.,  $c = 3\times10^{18}$ \AA\ s$^{-1}$.  
+Then you just replace:
+\begin{eqnarray}
+%f_{\nu} & = & 1e23 \times \frac{\lambda^2}{c} f_{\lambda}\\
+  f_{\nu}                      & = &  \frac{\lambda^{2}}{c} f_{\lambda}\\
+  f_{\nu} {\rm (in\ Jy)} & = & 1  \times 10^{23}/(3e18) \ \frac{\lambda^{2}}{\AA} \ f_{\lambda}\\
+  f_{\nu} {\rm (in\ Jy)} & = & 0.3 \times10^{5} \times \lambda^{2} \times f_{\lambda} \\ 
+  f_{\nu} {\rm (in\ Jy)} & = & 3.34e4 \times \lambda^{2} \times f_{\lambda} \\
+  \frac{f_{\nu}}{ [ {\rm Jansky} ] }  & = & 33,356 \left( \frac{\lambda}{ [ {\rm \AA} ] } \right)^{2} \frac{f_{\lambda}} {\rm erg s^{-1} cm^{-2}  \AA^{-1}} 
+\end{eqnarray}
+with 1 cm being 1$\times10^{8}$\AA\ and $c=2.99792\times10^{10}$ cm s$^{-1}$. \\
+
+\noindent
+Following e.g. URL [5], 
+\begin{eqnarray}
+f_{\nu}                      & = & A \times \lambda f_{\gamma}\\
+f_{\nu} {\rm (in\ Jy)} & = & 6.626\times10^{-8} \frac{\lambda}{[\mu m]} f_{\gamma}\\
+\end{eqnarray}
+where $f_{\nu}$ is the `energy flux', aka the spectral flux density,
+measured in Janskys (10$^{-26}$ W m$^{-2}$ Hz$^{-1}$), $f_{\gamma}$ is
+the `photon flux' measured in s$^{-1}$ m$^{-2}$ $\mu$m$^{-1}$,
+$\lambda$ is the wavelength measured in $\mu$m and Planck's constant
+is 6.626$\times10^{-34}$ m$^{2}$ kg s$^{-1}$ (i.e. 6.626e-34*1e26 =
+6.626e-8).\\
+
+\noindent
+Take your $f_{\nu}$ measurements that are in Jy. (Ensure they are in
+Jy! If they're in magnitudes, convert them to Jy first; see
+'magnitude' discussion above.) Multiply by $1\times10^{-23}$ to get
+them into {\it cgs} units. Multiply these $f_{\nu}$ values by
+$\frac{c}{\lambda^{2}}$ to get them into $f_{\lambda}$. Multiply them
+by $\lambda$ to get them into $\lambda f_{\lambda}$. WATCH YOUR
+UNITS. NB: $c = 2.997924\times10^{10}$ cm sec$^{-1}$. \\
+
+\noindent
+Also note/recall, 
+\begin{equation}
+  \nu  f_{\nu}    =  \lambda  f_{\lambda}
+\end{equation}
+with units of ergs s$^{-1}$ cm$^{-2}$. 
+
+\section{Unit Conversions}
+    \subsection{Flux density to AB}
+    The flux density in Jy can be converted to a magnitude basis:\\
+    (straight from Wiki!! ;-):\\
+    \begin{eqnarray}
+      S_{\nu} [\mu {\rm Jy} ]  & = & 10^{6} \cdot 10^{23} \cdot 10^{-{{\rm AB} +48.6/2.5 }} \\
+                                        & = & 10^{(23.9 - {\rm AB})/2.5} \\
+    \end{eqnarray}
+
+%% https://en.wikipedia.org/wiki/Luminosity
+
+\section{WISE}
+The source flux density, in Jansky [Jy] units, is computed from the calibrated WISE (Vega) magnitudes, $m_{\rm Vega}$ using:
+N.B the WISE webpage (given in the URL notes below) uses $F_{\nu}$ for source flux density. I'm going to stick with my convention and use little $f$, $f_{\nu}$, 
+\begin{equation}
+  f_{\nu} [{\rm Jy}]  =  f_{\nu, 0} \times 10^{(-m_{\rm Vega}/2.5)} 
+\end{equation}
+where $f_{\nu, 0}$ is the zero magnitude flux density corresponding to the constant that gives the same response as that of Alpha Lyrae (Vega). For most sources, the zero magnitude flux density, derived using a constant power-law spectra, is appropriate and may be used to convert WISE magnitudes to flux density [Jy] units. Table 1 lists the zero magnitude flux density (column 2) for each WISE band.\\
+
+\noindent
+For sources with steeply rising MIR spectra or with spectra that deviate significantly from $f_{\nu}=$constant, including cool asteroids and dusty star-forming galaxies, a color correction is required, especially for W3 due to its wide bandpass. With a given flux correction, $f_{c}$, the flux density conversion is given by:
+\begin{equation}
+  f_{\nu} [{\rm Jy}]  = (f^{*}_{\nu, 0}/f_{c}) \times 10^{(-m_{\rm Vega}/2.5)} 
+\end{equation}
+where $f^{*}_{\nu, 0}$ is the zero magnitude flux density derived for sources with power-law spectra: $f_{\nu} \propto \nu^{2}$, listed in Table 1 (column 3) and the flux correction, $f_{c}$, listed in Table 2 for $f_{\nu} \propto \nu^{-\alpha}$, where the index $\alpha$  ranges from: -3, -2, -1, 0, 1, 2, 3, and 4, and for blackbody spectra, B$_{\nu}$(T) for a variety of temperatures, and for stars of two main-sequence spectral types (K2V and G2V). 
+
+
+\section{Links}
+%% Using \\ and square brackets seems to crash with [2] !!
+[1] \href{http://www.iasf-milano.inaf.it/$\sim$polletta/templates/images/new\_Arp220\_template.jpg}{http://www.iasf-milano.inaf.it/$\sim$polletta/templates/images/new\_Arp220\_template.jpg}
+
+\noindent
+[2] \href{http://www.astro.soton.ac.uk/$\sim$td/flux\_convert.html}{http://www.astro.soton.ac.uk/$\sim$td/flux\_convert.html}
+
+\noindent
+[3] \href{http://coolwiki.ipac.caltech.edu/index.php/Units}{http://coolwiki.ipac.caltech.edu/index.php/Units}
+
+\noindent
+[4] \href{http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec4\_4h.html}{http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec4\_4h.html}
+
+\noindent
+[5] \href{http://www.astro.ljmu.ac.uk/~ikb/convert-units/node1.html}{http://www.astro.ljmu.ac.uk/~ikb/convert-units/node1.html}
+
+\noindent
+[6] \href{http://xingxinghuang.blogspot.co.uk/2013/06/hello-everybody-if-you-still-get.html}{http://xingxinghuang.blogspot.co.uk/2013/06/hello-everybody-if-you-still-get.html}
+
+
+\bibliographystyle{mn2e}
+%\bibliography{tester_mnras}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+
+
+\end{document}
+

@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+
+\input {format}
+
+
+\begin{document}
+
+\title{On the Number Density of Very High Redshift Quasars (VH$z$Qs), or, \\
+``What do I point JWST at??''}
+\author{NPR}
+\date{\today}
+\maketitle
+
+
+% Usually omit these for ApJ or MNRAS style files:
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\begin{abstract}
+This is a sample document which demonstrates some of the basic features
+of \LaTeX.  You can easily reformat it for different document 
+or bibliography styles.
+\end{abstract}
+
+
+
+
+%Section heading
+\section{Section Heading}
+
+
+
+
+\begin{landscape}
+\begin{table*}
+  \begin{center}
+   \begin{tabular}{lrrccl}
+      \hline
+      \hline
+      Survey                      & Area (deg$^{2}$) & N$_{\rm Q}$ & Magnitude Range & $z$-range & Reference  \\
+      \hline 
+      GOODS(+SDSS)        &   0.1+(4200)  &   13(+656)    &  $22.25 < z_{850} < 25.25$  & $3.5<z<5.2$  & \citet{Fontanot07} \\
+      VVDS                       &        0.62    & 130      &  $17.5 < I_{\rm AB} < 24.0$ &  $0<z<5$    &  \citet{Bongiorno07} \\
+      COMBO-17              &       0.8     & \hbox{  192} & $R<24$                       &  $1.2 < z < 4.8$  & \citet{Wolf03} \\
+      COSMOS$^{a}$         &       1.64   & 8     & $22 < i' < 24$              & $3.7 \lesssim z \lesssim 4.7$   & \citet{Ikeda11} \\      
+      COSMOS                  &       1.64    & $^{b}$0         & $22 < i' < 24$     & $4.5 \lesssim z \lesssim 5.5$   & \citet{Ikeda12} \\   
+      COSMOS                  &       1.64    & 155              & $16 \leq  I_{\rm AB} \leq 25$      & $3<z<5$   & \citet{Masters12} \\   
+      NDWFS+DFS$^{c}$   &       4        &                24  & $R \leq 24$                    & $3.7<z<5.1$       & \citet{Glikman11} \\
+      SFQS$^{d}$               &       4        & \hbox{  414} & $g<22.5$                          & $z<5$                 & \citet{Jiang06} \\
+      BOSS$^{e}$+MMT     & 14.5+3.92 & \hbox{1 877} & $g\lesssim 23$  & $0.7<z<4.0$ & \citet{Palanque-Delabrouille12} \\ 
+      2SLAQ$^{f}$            &     105     & \hbox{ 5 645} & $18.00 < g < 21.85$         & $z\leq2.1$               & \citet{Richards05}     \\
+      SDSS$^{g}$               &    182     &                  39  &  $i\leq 20$                        &  $3.6<z<5.0$    & \citet{Fan01b} \\
+      SDSS+2SLAQ           &    192     & \hbox{10 637} & $18.00 < g < 21.85$        & $0.4<z<2.6 $    & \citet{Croom09b}     \\
+      SDSS Main+Deep     &    195     &                     6 & $z_{\rm AB} < 21.80$        & $z\sim6 $         & \citet{Jiang09}     \\
+      {\bf BOSS Stripe 82} & {\bf 220}  &{\bf \hbox{5 476}} & $i>${\bf 18.0 and} $g< ${\bf 22.3}  & {\bf 2.2}$<z<${\bf 3.5}  &\citet{Palanque-Delabrouille11} \\ 
+      CFHQS$^{h}$             & 500      &  \hbox{ 19}                  & $z'<22.63$           &  $5.74 < z < 6.42. $ & \citet{Willott10} \\
+      2QZ$^{i}$                 &   700     & \hbox{23 338} & $18.25<b_{\rm J}<20.85$   & $0.4<z<2.1$     & \citet{Boyle00, Croom04}     \\
+      SDSS DR3                 & 1622     & \hbox{15 343} &  $i\leq 19.1$ and $i\leq 20.2$ &  $0.3<z<5.0$ & \citet{Richards06} \\
+     {\bf BOSS DR9}  &  {\bf 2236}  & $^{j}${\bf \hbox{23 201}} & $g<${\bf 22.00 or }$r<${\bf 21.85}  & {\bf 2.2}$<z<${\bf 3.5}  & {\bf this paper}           \\
+     SDSS DR7                 &  6248 & \hbox{57 959}  &  $i\leq 19.1$ and $i\leq 20.2$ &  $0.3<z<5.0$ & \citet{Shen_Kelly12} \\
+      SDSS Type 2            &  6293 & \hbox{   887}  & $L_{\rm O III} \geq 10^{8.3} L_\odot$ &  $z<0.83$ & \citet{Reyes08} \\
+      SDSS DR6$^{k}$        &  8417 & $\gtrsim\hbox{850,000}$ &  $i<21.3 $        &  $z\sim2$ and $z\sim4.25$ & \citet{Richards09}
+  \\
+      \hline
+      \hline
+   \end{tabular}
+    \caption{Selected optical quasar luminosity function measurements.\\ 
+      $^{a}$Cosmic Evolution Survey \citep{Scoville07}. \\
+      $^{b}$No Type-1 quasars were identified, though a low-luminosity $z\sim5.07$ Type-2 quasar was discovered. \\
+      $^{c}$NOAO Deep Wide-Field Survey \citep{JD99} and the Deep Lens Survey \citep{Wittman02}. \\
+      $^{d}$SDSS Faint Quasar Survey. \\
+      $^{e}$The ``boss21'' area on the SDSS Stripe 82 field. \\
+      $^{f}$2dF-SDSS LRG And QSO Survey \citep{Croom09a}. \\
+      $^{g}$Photometric sample from SDSS; spectroscopic confirmation from SDSS and other telescopes.\\
+      $^{h}$Canada-France High-$z$ Quasar Survey \citep{Willott09}\\
+      $^{i}$2dF Quasar Redshift Survey \citep{Croom04}. \\
+      $^{j}$From our ``uniform'' sample defined in Section~\ref{sec:data_uniform} \\
+      $^{k}$From a catalog of $>$1,000,000 photometrically classified quasar candidates. \\}
+      \label{tab:previous_surveys}
+  \end{center}
+\end{table*}
+\end{landscape}
+
+
+\subsection{Subsection heading}
+
+The QLF is defined as the number density of quasars per unit
+luminosity. It is often described by a double power-law
+\citep[][hereafter, R06]{Boyle00,Croom04,Richards06} of the form
+\begin{equation}
+  \Phi(L, z) = \frac{ \phi_{*}^{(L)} }
+                            {  (L/L^{*})^{\alpha}    +  (L/L^{*})^{\beta}  }
+ \ \,
+ \label{eq:double_powerlaw}
+\end{equation}
+with a characteristic, or break, luminosity $L_{*}$.  An alternative
+definition of this form of the QLF gives the number density of quasars
+per unit magnitude,
+\begin{equation}
+  \Phi(M, z) = \frac{ \phi_{*}^{(M)} }
+       { 10^{0.4{(\alpha +1)[M-M^{*}(z)]}}+10^{0.4{(\beta +1)[M-M^{*}(z) ]}} }
+ \label{eq:double_powerlaw_mag}
+\end{equation}
+The dimensions of $\Phi$ differ in the two conventions.  We have
+followed R06 such that $\alpha$ describes the faint end QLF slope, and
+$\beta$ the bright end slope.  The $\alpha$/$\beta$ convention in some
+other works \citep[e.g.,][]{Croom09b} is in the opposite sense from our 
+definition. Evolution of the QLF can be encoded in the redshift dependence 
+of the break luminosity, $\phi_{*}$, and also potentially in the evolution of
+the power-law slopes.
+
+
+%\bibliographystyle{apj}
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+\end{document}
+

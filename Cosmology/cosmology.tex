@@ -1,0 +1,582 @@
+\documentclass[11pt]{article}
+
+\input{format}
+
+
+\begin{document}
+
+\title{NPR's Research Notes: \\ 
+		Cosmology}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+Some of NPRs' notes on Cosmology. 
+\end{abstract}
+
+\section{Model, parameters, and methodology} \label{sec:model}
+
+\begin{table*}[tmb] % table* does a two-column table
+\begingroup % this + \endgroup at the end keep table things local
+\newdimen\tblskip \tblskip=5pt
+\caption{Cosmological parameters used in our analysis. For each, we give the symbol, prior range, value taken in the base \lcdm\ cosmology (where appropriate), and summary definition (see text for details).
+The top block contains parameters with uniform priors that are varied in the
+MCMC chains. The ranges of these priors are listed in square brackets.
+The lower blocks define various derived parameters.}
+\label{tab:params}
+%\nointerlineskip
+\vskip -5mm
+\footnotesize % good font size for a table, but can be changed
+\setbox\tablebox=\vbox{ %
+\newdimen\digitwidth % see \S\,18.12 for the purpose of the next 10 lines
+\setbox0=\hbox{\rm 0}
+\digitwidth=\wd0
+\catcode`*=\active
+\def*{\kern\digitwidth}
+%
+\newdimen\signwidth
+\setbox0=\hbox{+}
+\signwidth=\wd0
+\catcode`!=\active
+\def!{\kern\signwidth}
+%
+\halign{\hbox to 2.7cm{#\leaderfil}\tabskip=0.4cm& \hfil#\hfil\tabskip=0.6cm&
+ \hfil#\hfil\tabskip=0.6cm&  #\hfil\tabskip=0pt\cr
+\noalign{\doubleline}
+\omit\hfil Parameter\hfil&\omit\hfil Prior range\hfil&\omit\hfil Baseline\hfil&\omit\hfil Definition\hfil\cr
+\noalign{\vskip 3pt\hrule\vskip 3pt}
+%\halign{#\hfil\tabskip=0.2cm& #\hfil\tabskip=0.2cm&#\hfil\tabskip=0.2cm& #\hfil\tabskip=0pt\cr
+% template goes here. See examples.
+%\noalign{\doubleline}
+%\noalign{\vskip -2pt}
+%Parameter& Prior range& Baseline& Definitions\cr
+%heading
+%\noalign{\vskip 3pt\hrule\vskip 3pt}
+$\omb \equiv \Omb h^2$& $[0.005, 0.1]$ & \dots& Baryon density today\cr
+$\omc \equiv \Omc h^2$& $[0.001, 0.99]$& \dots& Cold dark matter density today\cr
+$100\theta_{\mathrm{MC}}$ & $[0.5, 10.0]$ & \dots& $100\,{\times}$ approximation to $\rstar/D_{\rm A}$ (CosmoMC)\cr
+$\tau                $&   $[0.01, 0.8]$ & \dots& Thomson scattering optical depth due to reionization\cr
+$\Omk            $&  $[-0.3, 0.3]$ & 0& Curvature parameter today with $\Omtot= 1 - \Omk$\cr
+$\mnu        $& $[0, 5]$ & $0.06$ & The sum of neutrino masses in eV\cr
+$\mnusterile$&  $[0, 3]$ &0&Effective mass of sterile neutrino in eV\cr
+$w_0                $& $[-3.0, -0.3]$ & $-1$& Dark energy equation of state$^{a}$, $w(a) = w_0 + (1-a) w_a$\cr
+$w_a                 $& $[-2, 2]$ & 0&  As above (perturbations modelled using PPF)\cr
+$\neff       $& $[0.05, 10.0]$ & 3.046& Effective number of neutrino-like relativistic degrees of freedom (see text)\cr
+$\yhe                $& $[0.1, 0.5]$ & BBN& Fraction of baryonic mass in helium\cr
+%$\alpha_{-1}        $& {\tt alpha1}& 0& Correlated isocurvature parameter (see text)\cr
+%$\alpha_0            $& {\tt alpha0}& 0& Uncorrelated isocurvature parameter (see, e.g., Larson et al. 2011)\cr
+%$\Delta \zre   $& $[0.1, 3.0]$ & 0.5& Width of reionization transition (see text)\cr
+$\Alens        $& $[0,  10]$& 1& Amplitude of the lensing power relative to the physical value\cr
+%$\Aphiphi           $& {\tt Aphiphi}& 1& Amplitude of the lensing power from the 4-point function relative to the physical value\cr
+$\ns           $& $[0.9, 1.1]$ & \dots& Scalar spectrum power-law index ($k_0 = 0.05\Mpc^{-1}$)\cr
+$\nt           $& $\nt = -r_{0.05}/8$ & Inflation& Tensor spectrum power-law index ($k_0 = 0.05\Mpc^{-1}$)\cr
+$\nrun$&   $[-1, 1]$ & 0& Running of the spectral index\cr
+$\ln(10^{10}\As) $& $[2.7, 4.0]$ & \dots& Log power of the primordial curvature perturbations ($k_0 = 0.05\,\Mpc^{-1}$)\cr
+$\rpivot          $& $[0, 2]$ & 0& Ratio of tensor primordial power to curvature power at $k_0 = 0.05\,\Mpc^{-1}$\cr
+\noalign{\vskip 3pt\hrule\vskip 3pt}
+$\Oml      $&     & \dots& Dark energy density divided by the critical density today\cr
+$t_0                 $&  & \dots& Age of the Universe today (in Gyr)\cr
+$\Omm     $&  & \dots& Matter density (inc.\ massive neutrinos) today divided by the critical density\cr
+$\sigma_8            $&   & \dots& RMS matter fluctuations today in linear theory\cr
+$\zre                $&   & \dots& Redshift at which Universe is half reionized\cr
+%$r_{10}             $&   & 0& tensor-scalar $C_\ell$ amplitude at $\ell=10$\cr
+$H_0                 $&[20,100] & \dots& Current expansion rate in $\rm{km}\, \rm{s}^{-1}\Mpc^{-1}$\cr
+$r_{0.002}           $&   & 0& Ratio of tensor primordial power to curvature power at $k_0 = 0.002\,\Mpc^{-1}$\cr
+$10^9 \As      $&    & \dots& $10^9\,\times$
+dimensionless curvature power spectrum at $k_0 = 0.05\,\Mpc^{-1}$\cr
+$\omm\equiv\Omm h^2$&  & \dots& Total matter density today (inc.\ massive neutrinos)\cr
+%$\Omm h^3  $&   & \dots& $h\times $total matter density today\cr
+%$\yhe               $&   & bbn& Fraction of baryonic mass in Helium\cr
+%clamp
+\noalign{\vskip 3pt\hrule\vskip 3pt}
+$\zstar            $&   & \dots& Redshift for which the optical depth equals unity (see text)\cr
+$\rstar=\rs(\zstar) $&    & \dots& Comoving size of the sound horizon at $z = z_\ast$\cr
+$100\theta_\ast         $&    & \dots& $100\,\times$ angular size of
+sound horizon at $z=\zstar$ ($\rstar/D_{\rm A})$ \cr
+%Angular size of the sound horizon at $z=\zstar$ (see text)\cr
+$\zdrag       $&     & \dots& Redshift at which baryon-drag optical depth equals unity (see text)\cr
+$\rdrag=\rs(\zdrag)$&   & \dots& Comoving size of the sound horizon at $z = \zdrag$\cr
+$k_{\rm D}           $&   & \dots& Characteristic damping comoving wavenumber ($\Mpc^{-1}$)\cr
+$100\theta_{\rm D}      $&   & \dots& $100\,\times$ angular extent of photon diffusion at last scattering (see text)\cr
+$\zeq          $&   & \dots& Redshift of matter-radiation equality (massless neutrinos)\cr
+$100\theta_{\rm eq}     $&  & \dots& $100\,\times$ angular size of the comoving horizon at matter-radiation equality\cr
+$\rdrag/D_{\mathrm{V}}(0.57)$ &   &\dots& BAO distance
+ratio at $z=0.57$ (see Sect.~\ref{sec:BAO})\cr
+%$\Omb     $& & Density of baryons today divided by the critical density\cr
+\noalign{\vskip 3pt\hrule\vskip 3pt}}}
+\endPlancktablewide % this command is defined in Planck.tex.
+\tablenote \textit{a} For dynamical dark energy models with constant equation of state, we denote the equation of state by $w$ and adopt the same prior as for $w_0$.\par
+\endgroup
+\end{table*}
+
+\medskip
+
+
+
+To make accurate predictions for the CMB power spectra, the background
+ionization history has to be calculated to high accuracy.  Although
+the main processes that lead to recombination at $z\approx 1090$ are well
+understood, cosmological parameters from \planck\ can be sensitive to
+sub-percent differences in the ionization fraction
+$x_{\rm e}$ \citep{Hu:1995fqa,Lewis:2006ym,RubinoMartin:2009ry,Shaw:2011ez}.
+The process of recombination takes the Universe from a state of fully
+ionized hydrogen and helium in the early Universe, through to the
+completion of recombination with residual fraction $x_{\rm e} \sim 10^{-4}$.
+Sensitivity of the CMB power spectrum to $x_{\rm e}$ enters through changes
+to the sound horizon at recombination, from changes in the timing of
+recombination, and to the detailed shape of the recombination transition,
+which affects the thickness of the last-scattering surface and hence the
+amount of small-scale diffusion (Silk) damping, polarization, and line-of-sight
+averaging of the perturbations.
+
+Since the pioneering work of~\cite{Peebles:68} and \cite{Zeldovich:69},
+which identified the main physical processes involved in recombination,
+there has been significant progress in numerically modelling the many
+relevant atomic transitions and processes that can affect the details
+of the recombination process \citep{Hu:1995fqa,Seager:1999km,Wong:2007ym,Hirata:2007sp,
+Switzer:2007sn,RubinoMartin:2009ry,Grin:2009ik,Chluba:2010ca,AliHaimoud:2010ym,AliHaimoud:2010dx}.
+In recent years a consensus has emerged between the results of two
+multi-level atom codes
+\HYREC\footnote{\url{http://www.sns.ias.edu/~yacine/hyrec/hyrec.html}}~\citep{Switzer:2007sn,Hirata:2008ny,AliHaimoud:2010dx},
+and
+\COSMOREC\footnote{\url{http://www.chluba.de/CosmoRec/}}~\citep{Chluba:2010fy,Chluba:2010ca},
+demonstrating agreement at a level better than that required for
+\planck\ (differences less that $4\times 10^{-4}$ in the predicted
+temperature power spectra on small scales).
+
+These recombination codes are remarkably fast,  given the complexity of the calculation.
+However, the recombination history can be computed even more rapidly by
+using the simple effective three-level atom model developed by
+\cite{Seager:1999km} and implemented in the \RECFAST\
+code\footnote{\url{http://www.astro.ubc.ca/people/scott/recfast.html}},
+with appropriately chosen small correction functions calibrated to the
+full numerical results \citep{Wong:2007ym,RubinoMartin:2009ry,Shaw:2011ez}.
+We use \RECFAST\ in our baseline parameter analysis, with correction functions
+adjusted so that the predicted power spectra $C_\ell$ agree with those from
+the latest versions of \HYREC\ (January 2012) and \COSMOREC\ (v2) to
+better than $ 0.05\%$\footnote{The updated \RECFAST\ used here in the baseline model is
+publicly available as version 1.5.2 and is the default in \CAMB\ as of
+October 2012.}.
+We have confirmed, using importance sampling, that cosmological parameter
+constraints using \RECFAST\ are consistent with those using \COSMOREC\ at
+the $0.05\,\sigma$ level.
+Since the results of the \planck\ parameter analysis are crucially dependent
+on the accuracy of the recombination history, we have also checked, following~\cite{Lewis:2006ym},
+that there is no strong evidence for simple deviations from the assumed history. However, we note that any deviation from
+the assumed history could significantly shift parameters compared to the results presented here and we have not
+performed a detailed sensitivity analysis.
+
+The background recombination model should accurately capture the
+ionization history until the Universe is reionized at late times via
+ultra-violet photons from stars and/or active galactic nuclei.  We
+approximate reionization as being relatively sharp, with the mid-point
+parameterized by a redshift $\zre$ (where $x_{\rm e}=f/2$) and width
+parameter $\Delta z_{\rm re}=0.5$.  Hydrogen reionization and the
+first reionization of helium are assumed to occur simultaneously, so
+that when reionization is complete $x_{\rm e }= f \equiv
+1+f_{\rm{He}}\approx 1.08$ \citep{Lewis:2008wr}, where $f_{\rm He}$ is the
+helium-to-hydrogen ratio by number.  In this
+parameterization, the optical depth is almost independent of $\Delta
+z_{\rm re}$ and the only impact of the specific functional form on
+cosmological parameters comes from very small changes to the shape of
+the polarization power spectrum on large angular scales.  The second reionization of
+helium (i.e., ${\rm He}^{+}\to{\rm He}^{++}$) produces
+very small changes to the power spectra ($\Delta\tau \sim 0.001$,
+where $\tau$ is the optical depth to Thomson scattering) and does not
+need to be modelled in detail.  We include the second reionization of
+helium at a fixed redshift of $z=3.5$ (consistent with observations of
+Lyman-$\alpha$ forest lines in quasar spectra, e.g.,~\citealt{Becker:11}),
+which is sufficiently accurate for the parameter analyses described in
+this paper.
+
+\subsubsection{Initial conditions}
+
+In our baseline model we assume  purely adiabatic scalar perturbations
+at very early times, with a (dimensionless) curvature power spectrum parameterized by
+\begin{equation}
+  \clp_\clr(k) = \As
+    \left(\frac{k}{k_0}\right)^{\ns-1+(1/2)(\nrun) \ln(k/k_0)}, \label{PS1}
+\end{equation}
+with $n_{\rm s}$ and $\nrun$ taken to be constant.  For most of this paper we
+shall assume no ``running'', i.e., a power-law spectrum with $d \ns / d\ln k = 0$.
+The pivot scale, $k_0$, is chosen to be $k_0=0.05\,\Mpc^{-1}$, roughly in
+the middle of the logarithmic range of scales probed by \planck.
+With this choice, $\ns$ is not strongly degenerate with the amplitude
+parameter $\As$.
+
+
+
+The amplitude of the small-scale linear CMB power spectrum is proportional to
+$e^{-2\tau}A_{\rm s}$.  Because \planck\ measures this amplitude very
+accurately there is  a tight linear constraint between $\tau$ and
+$\ln A_{\rm s}$ (see Sect.~\ref{subsec:tau}).
+For this reason we usually use $\ln A_{\rm s}$ as a base parameter with
+a flat prior, which has a significantly more Gaussian posterior than
+$A_{\rm s}$. A linear parameter redefinition then also allows the degeneracy
+between $\tau$ and $A_{\rm s}$ to be explored efficiently.
+(The degeneracy between $\tau$ and $A_{\rm s}$ is broken by the relative
+amplitudes of large-scale temperature and polarization CMB anisotropies and by
+the non-linear effect of CMB lensing.)
+
+%In the baseline model we assume purely adiabatic scalar perturbations.
+We shall also consider  extended models with a significant amplitude of primordial
+gravitational waves (tensor modes). Throughout this paper, the (dimensionless) tensor mode spectrum
+is parameterized as a power-law with\footnote{For a transverse-traceless spatial tensor $H_{ij}$, the tensor
+  part of the metric is $ds^2 = a^2[d\eta^2 - (\delta_{ij}+2H_{ij})
+  dx^i dx^j]$, and $\clp_{\rm t}$ is defined so that $\clp_{\rm t}(k)
+  = \partial_{\ln k} \langle 2 H_{ij} 2H^{ij}\rangle$.}
+\be
+ \clp_{\rm t}(k)=\At \left(\frac{k}{k_0}\right)^{\nt} .
+% A_{\rm t}\left(\frac{k}{k_0}\right)^{n_{\rm t}+(1/2)n_{\rm t,run}\ln(k/k_0)+\cdots},
+\ee
+We define $\rpivot \equiv A_{\rm t}/A_{\rm s}$, the primordial tensor-to-scalar ratio at
+$k=k_0$.
+Our constraints are only weakly sensitive to the tensor spectral index,
+$n_{\rm t}$ (which is assumed to be close to zero), and we adopt the theoretically motivated
+single-field inflation consistency relation $n_{\rm t}=-\rpivot /8$,
+rather than varying $n_{\rm t}$ independently.
+We put a flat prior on $\rpivot$, but also report the constraint at
+$k=0.002\,\Mpc^{-1}$ (denoted $r_{0.002}$),
+which is closer to the scale at which there is some sensitivity to tensor modes in the large-angle temperature power spectrum. Most previous CMB experiments
+have reported constraints on $r_{0.002}$.
+For further discussion of the tensor-to-scalar ratio and its
+implications for inflationary models see~\citet{planck2013-p17}.
+
+
+\subsubsection{Dark energy}
+
+In our baseline model we assume that the dark energy is a cosmological
+constant with current density parameter $\Oml$. When considering a dynamical
+dark energy component,  we parameterize the equation of state either as a constant $w$ or as a function of the cosmological scale factor, $a$, with
+\be
+  w(a) \equiv \frac{p}{\rho} = w_0 + (1-a)w_a,  \label{DE0}
+\ee
+and assume that the dark energy does not interact with other constituents
+other than through gravity. Since this model allows the equation of
+state to cross below $-1$, a single-fluid model cannot be used
+self-consistently.  We therefore use the parameterized post-Friedmann (PPF)
+model of~\citet{Fang:2008sn}. For models with
+$w>-1$, the PPF model agrees with fluid
+models to significantly better accuracy than required for the
+results reported in this paper.
+
+\subsubsection{Power spectra}
+
+Over the last decades there has been significant progress in improving
+the accuracy, speed and generality of the numerical calculation of the
+CMB power spectra given an ionization history and set of cosmological
+parameters \citep[see e.g.,][]{Bond:87,Sugiyama:95,Ma:1995ey,
+Hu:1995fqa,Seljak:1996is,Hu:1997hp,Zaldarriaga:1997va,Lewis:1999bs,
+Lesgourgues:2011rh}.
+%  ,Hu:1997mn,Bucher:1999re,Hu:2000ee,Lewis:2002nc,Seljak:2003th,
+%  Doran:2005ep,Challinor:2005jy,CyrRacine:2010bk,
+%  Blas:2011rf,Lesgourgues:2011rh,Howlett:2012mh}. 
+%\citep{Bond:87,Sugiyama:95,Ma:1995ey,Seljak:1996is,Seljak:1996ve,White:96,Hu:1997hp,
+%  Zaldarriaga:1997va,Hu:1997mn,Bucher:1999re,Hu:2000ee,,Seljak:2003th,
+%  Doran:2005ep,Challinor:2005jy,CyrRacine:2010bk,
+%  Blas:2011rf,Lesgourgues:2011rh,Howlett:2012mh}. 
+Our baseline
+numerical Boltzmann code is \CAMB\footnote{\url{http://camb.info}}
+\citep[March 2013;][]{Lewis:1999bs}, a parallelized line-of-sight code
+developed from \CMBFAST\ \citep{Seljak:1996is} and \COSMICS\
+\citep{Bertschinger:1995er,Ma:1995ey}, which calculates the lensed CMB
+temperature and polarization power spectra.  The code has been
+publicly available for over a decade and has been very well tested
+(and improved) by the community.  Numerical stability and accuracy of
+the calculation at the sensitivity of \planck\ has been explored in
+detail \citep{Hamann:2009yy,Lesgourgues:2011rg,Howlett:2012mh},
+demonstrating that the raw numerical precision is sufficient for
+numerical errors on parameter constraints from \planck\ to be less
+than $10\%$ of the statistical error around the assumed cosmological
+model.  (For the high multipole CMB data at $\ell>2000$ introduced in
+Sect. \ref{sec:highell}, the default \CAMB\ settings are adequate
+because the power spectra of these experiments are dominated by
+unresolved foregrounds and have large errors at high multipoles.)  To
+test the potential impact of \CAMB\ errors, we importance-sample a
+subset of samples from the posterior parameter space using higher
+accuracy settings.  This confirms that differences purely due to
+numerical error in the theory prediction are less than $10\%$ of the
+statistical error
+for all parameters, both with and without inclusion of CMB data at
+high multipoles.
+We also performed additional tests of the robustness and accuracy of our
+ results by reproducing a fraction of them with the independent
+ Boltzmann code \CLASS\ \citep{Lesgourgues:2011re,Blas:2011rf}.
+
+In the parameter analysis, information from CMB lensing enters in two
+ways. Firstly, all the CMB power spectra are modelled using the lensed
+spectra, which includes the approximately 5\% smoothing effect on
+the acoustic peaks due to lensing. Secondly, for some results we
+include the \planck\ lensing likelihood, which encapsulates the
+lensing information in the (mostly squeezed-shape) CMB trispectrum via
+a lensing potential power spectrum \citep{planck2013-p12}.
+The theoretical predictions for the lensing potential power spectrum are
+calculated by \CAMB, optionally with corrections for the non-linear matter power spectrum, along with the (non-linear) lensed
+CMB power spectra. For the \planck\ temperature power spectrum, corrections
+to the lensing effect due to non-linear structure growth can be neglected,
+however the impact on the lensing potential reconstruction is important.
+We use the \HALOFIT\ model \citep{Smith:2002dz} as updated by
+\cite{Takahashi:2012em} to model the impact of non-linear growth on the
+theoretical prediction for the lensing potential power.
+
+\subsection{Parameter choices}
+
+\subsubsection{Base parameters}
+
+The first section of Table~\ref{tab:params}
+lists our base parameters that have flat priors
+when they are varied, along with their default values in the baseline model.
+When parameters are varied, unless otherwise stated, prior ranges are
+chosen to be much larger than the posterior, and hence do not affect
+the results of parameter estimation. In addition to these priors,
+we impose a ``hard'' prior on the Hubble constant of $[20, 100]
+\ {\rm km}\, {\rm s}^{-1}\, {\rm Mpc}^{-1}$.
+%in \COSMOMC.
+
+\subsubsection{Derived parameters}
+
+Matter-radiation equality $\zeq$ is defined as the redshift at
+which $\rho_\gamma+\rho_\nu = \rho_{\rm c}+\rho_{\rm b}$
+(where $\rho_\nu$ approximates massive neutrinos as massless).
+
+The redshift of last-scattering, $z_\ast$, is defined so that the optical
+depth to Thomson scattering from $z=0$ (conformal time $\eta = \eta_0$)
+to $z=z_\ast$ is unity, assuming no reionization.  The optical depth is
+given by
+\begin{equation}
+  \tau(\eta) \equiv \int_{\eta_0}^\eta \dot\tau\ d\eta^\prime,
+\end{equation}
+where $\dot\tau = - an_{\rm e}\sigma_{\rm T}$ (and $n_{\rm e}$ is the density of free electrons and $\sigma_{\rm T}$ is the Thomson
+cross section).  We define the angular scale of the sound horizon at last-scattering,
+$\theta_\ast =r_{\rm s}(z_\ast)/D_{\rm A}(z_\ast)$, where $r_{\rm s}$ is
+the sound horizon
+\begin{equation}
+  r_{\rm s}(z) = \int_0^{\eta(z)}  \frac{d\eta^\prime}{\sqrt{3(1+R)}},
+\end{equation}
+with $R \equiv 3 \rho_{\rm b}/(4\rho_\gamma)$. The parameter $\theta_{\mathrm{MC}}$
+in Table 1 is an approximation to $\theta_\ast$ that is used in \COSMOMC\ and
+is based on fitting formulae given in \citet{Hu:1995en}.
+
+Baryon velocities decouple from the photon dipole when Compton
+drag balances the gravitational force,  which happens at
+$\tau_{\rm d} \sim 1$, where \citep{Hu:1995en}
+\begin{equation}
+  \tau_{\rm d}(\eta) \equiv \int^\eta_{\eta_0} \dot\tau\ d\eta^\prime/R.
+\end{equation}
+Here, again, $\tau$ is from recombination only, without reionization
+contributions.
+We define a drag redshift $z_{\rm drag}$, so that
+$\tau_{\rm d}(\eta(z_{\rm drag})) = 1$.
+The sound horizon at the drag epoch is an important scale that is often
+used in studies of baryon acoustic oscillations; we denote this as
+$r_{\rm drag}=r_{\rm s}(z_{\rm drag})$.  We compute $z_{\rm drag}$ and
+$r_{\rm drag}$ numerically from \CAMB\ (see Sect.~\ref{sec:BAO} for details of application to BAO data).
+
+
+The characteristic wavenumber for damping, $k_{\rm D}$, is given by
+\begin{equation}
+k_{\rm D}^{-2}(\eta) = -\frac{1}{6} \int_0^\eta d\eta^\prime
+  \ \frac{1}{\dot\tau}\ \frac{R^2 + 16 (1+R)/15}{\left(1+R\right)^2}.
+\end{equation}
+We define the angular damping scale, $\theta_{\rm D} = \pi/(k_{\rm D} D_{\rm A})$, where $D_{\rm A}$
+is the comoving angular diameter distance to $z_\ast$.
+
+For our purposes, the normalization of the power spectrum is most conveniently
+given by $A_{\rm s}$.  However, the alternative measure
+$\sigma_8$ is often used in the literature, particularly in studies of large-scale
+structure.  By definition, $\sigma_8$ is the rms fluctuation in total matter
+(baryons + CDM + massive neutrinos) in $8\,h^{-1}$~Mpc spheres at
+$z=0$, computed in linear theory.  It is related to the dimensionless matter power spectrum,
+$\clp_{\rm m}$, by
+\begin{equation}
+  \sigma_R^2 = \int \frac{dk}{k}\ \clp_{\rm m}(k)
+  \left[ \frac{3j_1(kR)}{kR} \right]^2,
+\end{equation}
+where $R=8\,h^{-1}$Mpc and $j_1$ is the spherical Bessel function of order 1.
+
+
+In addition, we compute
+$\Omega_{\rm m}h^3$ (a well-determined combination orthogonal to the acoustic
+scale degeneracy in flat models; see e.g., \citealt{Percival:2002gq} and~\citealt{Howlett:2012mh}),
+$10^9 A_{\rm s} e^{-2\tau}$ (which determines the small-scale linear
+CMB anisotropy power),
+$r_{0.002}$ (the ratio of the tensor to primordial curvature
+power at $k = 0.002 \ {\rm Mpc}^{-1}$),
+$\Omega_\nu h^2$ (the physical density in massive neutrinos), and the value of $\yhe$ from the BBN consistency condition.
+
+
+\subsection{Likelihood}
+\label{subsec:likelihood}
+
+\cite{planck2013-p08} describes the \Planck\ temperature likelihood in
+detail.  Briefly, at high multipoles ($\ell \ge 50$) we use the $100$,
+$143$ and $217$ GHz temperature maps
+\citep[constructed using {\tt HEALPix}][]{gorski2005} to form a high multipole
+likelihood following the {\tt CamSpec} methodology described in
+\cite{planck2013-p08}. Apodized Galactic masks, including an apodized
+point source mask, are applied to individual detector/detector-set
+maps at each frequency. The masks are carefully chosen to limit
+contamination from diffuse Galactic emission to low levels (less than
+$20\, \mu{\rm K}^2$ at all multipoles \referee{used in the likelihood) before
+correction for Galactic dust emission}.\footnote{\referee{As described in
+\citet{planck2013-p08}, we use spectra calculated
+on different masks to isolate the contribution of Galactic dust at each
+frequency, which we subtract from the $143\times143$,
+$143\times 217$ and $217\times 217$ power spectra (i.e., the correction is
+applied to the power spectra, not in the map domain). 
+The Galactic dust templates are shown in Fig.~\ref{PlanckandHighL} and are
+less than $5\,\muKsq$ at high multipoles
+for the $217\times217$ spectrum and negligible at lower frequencies.
+The residual contribution from Galactic dust after correction in the
+$217\times217$ spectrum is smaller than $0.5\,\muKsq$ and smaller than the
+errors from other sources such as beam uncertainties.}}
+Thus we retain $57.8\%$ of
+the sky at $100$ GHz and $37.3\%$ of the sky at $143$ and $217$
+GHz. Mask-deconvolved and beam-corrected cross-spectra
+\citep[following][]{Hietal02} are computed
+for all detector/detector-set combinations and compressed to form
+averaged $100\times100$, $143\times143$, $143\times217$ and
+$217\times217$ pseudo-spectra (note that we do not retain the
+$100\times143$ and $100\times 217$ cross-spectra in the likelihood).
+Semi-analytic covariance matrices for these pseudo-spectra
+\citep{Efstathiou:04} are used to form a high-multipole likelihood in
+a fiducial Gaussian likelihood approximation
+\citep{DABJK00,2008PhRvD..77j3013H}.
+
+At low multipoles ($2 \le \ell \le 49$) the temperature likelihood is
+based on a Blackwell-Rao estimator applied to Gibbs samples computed
+by the {\tt Commander} algorithm \citep{Eriksen:08} from \planck\ maps
+in the frequency range $30$--$353$ GHz over 91\% of the sky. The likelihood
+at low multipoles therefore accounts for errors in foreground cleaning.
+
+Detailed consistency tests of both the high- and low-multipole components
+of the temperature likelihood are presented in \cite{planck2013-p08}.
+The high-multipole \planck\ likelihood requires a number of additional
+parameters to describe unresolved foreground components and other
+``nuisance'' parameters (such as beam eigenmodes). The model adopted
+for \planck\ is described in \cite{planck2013-p08}. A self-contained
+account is given in Sect. \ref{sec:highell} which generalizes the model
+to allow matching of the \planck\ likelihood to the likelihoods from
+high-resolution CMB experiments. A complete list of the foreground
+and  nuisance parameters is given in Table~\ref{tab:fgparams}.
+
+
+
+
+
+\subsection{Sampling and confidence intervals}
+
+We sample from the space of possible cosmological parameters with
+Markov Chain Monte Carlo (MCMC) exploration using
+\COSMOMC~\citep{Lewis:2002ah}.
+This uses a Metropolis-Hastings algorithm to generate chains of samples
+for a set of cosmological parameters, and also allows for importance
+sampling of results to explore the impact of small changes in the analysis.
+The set of parameters is internally orthogonalized to allow efficient
+exploration of parameter degeneracies, and the baseline cosmological
+parameters are chosen following \citet{Kosowsky:2002zt}, so that the
+linear orthogonalisation allows efficient exploration of the main
+geometric degeneracy \citep{Bond:97}.
+The code \referee{has been thoroughly
+tested by the community} and has recently been extended to sample efficiently
+large numbers of ``fast'' parameters by use of a speed-ordered Cholesky
+parameter rotation and a fast-parameter ``dragging'' scheme described
+by~\cite{Neal04} and \cite{Lewis:2013hha}.
+
+For our main cosmological parameter runs we execute eight chains until
+they are converged, and the tails of the distribution are well enough
+explored for the confidence intervals for each parameter to be evaluated
+consistently in the last half of each chain.
+We check that the spread in the means between chains is small
+compared to the standard deviation, using the standard Gelman and Rubin
+\citep{Gelman92} criterion $R-1 < 0.01$ in the least-converged
+orthogonalized parameter. This is sufficient for reliable importance sampling
+in most cases. We perform separate runs when the posterior volumes differ
+enough that importance sampling is unreliable. Importance-sampled and extended
+data-combination chains used for this paper satisfy $R-1 < 0.1$, and in almost
+all cases are closer to 0.01.
+We discard the first $30\%$ of each chain as burn in, where the
+chains may be still converging and the sampling may be significantly
+non-Markovian.  This is
+due to the way \COSMOMC\ learns an accurate orthogonalisation
+and proposal distribution for the parameters from the sample covariance
+of previous samples.
+
+From the samples, we generate estimates of the posterior mean of each
+parameter of interest, along with a confidence interval.
+We generally quote $68\%$ limits in the case of two-tail limits, so that
+$32\%$ of samples are outside the limit range, and
+there are $16\%$ of samples in each tail. For parameters where
+the tails are significantly different shapes, we instead quote the interval
+between extremal points with approximately equal marginalized probability density.
+For parameters with prior bounds we either quote one-tail limits or
+no constraint, depending on whether the posterior is significantly non-zero at the prior boundary. Our one-tail limits are always $95\%$ limits.
+For parameters with nearly symmetric distribution we sometimes quote the mean and standard deviation ($\pm 1\,\sigma$).
+The samples can also be used to estimate one,
+two and three-dimensional marginalized parameter posteriors.
+We use variable-width Gaussian kernel density estimates in all cases.
+
+We have also performed an alternative analysis to the one described above, using an independent statistical method based on frequentist
+profile likelihoods \citep{ProfileLik}.
+This gives fits and error bars for the baseline cosmological parameters in excellent
+agreement for both \Planck\ and \Planck\ combined with high-resolution CMB experiments,
+consistent with the Gaussian form of the posteriors found from full parameter space sampling.
+
+
+
+In addition to posterior means, we also quote maximum-likelihood
+parameter values. These are generated using the {\tt BOBYQA} bounded
+minimization
+routine\footnote{\url{http://www.damtp.cam.ac.uk/user/na/NA_papers/NA2009_06.pdf}}.
+Precision is limited by stability of the convergence, and values
+quoted are typically reliable to within $\Delta \chi^2 \sim 0.6$,
+which is the same order as differences arising from numerical errors
+in the theory calculation.  For poorly constrained parameters the
+actual value of the best-fit parameters is not very numerically stable
+and should not be over-interpreted; in particular, highly degenerate
+parameters in extended models and the foreground model can give many
+apparently different solutions within this level of
+accuracy.  The best-fit values should be interpreted as giving typical
+theory and foreground power spectra that fit the data well, but are
+generally non-unique at the numerical precision used; they are however
+generally significantly better fits than any of the samples in the
+parameter chains.  Best-fit values are useful for assessing residuals,
+and differences between the best-fit and posterior means also help to
+give an indication of the effect of asymmetries, parameter-volume and
+prior-range effects on the posterior samples. We have cross-checked a
+small subset of the best-fits with the widely used {\tt MINUIT}
+software \citep{Minuit}, which can give somewhat more stable results.
+
+
+
+
+
+
+
+
+\section{Cosmology 101}
+{\bf From Henrot-Versille and ``Planck 2015 Results'': }
+1.3 Statistical method and base $\Lambda$CDM results: The base $\Lambda$CDM model is described by 6 parameters: 
+the baryon density of the Universe $\Omega_{b} h^{2}$; 
+the Cold Dark Matter (CDM) density ½cdmh2, the characteristic angular size of the CMB fluctu- ations (?MC), the optical depth to reionization (?) and the amplitude and spectral index of the primordial spectrum (ln(1010As) and ns)
+
+
+\section{Shape of the CMB TT Power Spectrum:}
+From e.g. Wayne Hu's thesis and webpage> 
+Location of first peak due to: \\
+Location of second peak due to: \\
+Location of third peak due to: \\
+Ratio of heigh of first and second peak:\\
+Ratio of heigh of first and third peak:\\
+Ratio of heigh of second and third peak:\\
+
+
+
+
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+
+
+\end{document}

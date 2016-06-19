@@ -1,0 +1,83 @@
+% Orginally from the_paper_20060201.tex
+
+\documentclass[usenatbib]{mn2e}
+
+\input {format}
+\begin{document}
+  
+
+
+\title[Linear Bias and Growth Factor Formulae]
+      {Linear Bias and Growth Factor Formulae}
+\author[N.P. Ross et al.]
+{Nicholas P. Ross\thanks{email: Nicholas.Ross@durham.ac.uk}$^1$ \\
+$^1$Physics Department, University of Durham, 
+    South Road, Durham, DH1 3LE, UK.\\}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+We present some very simple algebraic formula manipulation, that allows us
+to evolve the (linear) bias $b$, which relates galaxy and mass clustering via
+$\xi_{\rm galaxy} = b^{2} \xi_{\rm mass}$ in the linear regime. 
+We use this for the 2SLAQ LRG as well as the AAOmega LRG Survey. 
+\end{abstract}
+
+
+
+\section{Method}
+\subsection{Page 1}
+Using \citet{Fry96}:
+
+\begin{eqnarray}
+  b(z)                          & = & 1 + [b(0) - 1] \, G(\Omm, \Omlam, z) \\
+  \Rightarrow   b(z) - 1        & = & [b(0) - 1] \, G  \\
+                                & = & b(0) \, G - G  \\
+  \Rightarrow  \frac{b(z)-1}{G} & = & b(0) - 1  \\
+  \therefore               b(0) & = & \frac{b(z)-1}{G} + 1           
+\end{eqnarray}
+\\[12pt]
+
+
+\noindent 
+e.g. 2SLAQ LRGs $\bar{z}=0.55$ with $b(0.55)=1.66$ \\[8pt]
+{\bf Case 1. EINSTEIN-DE SITTER}\\
+$(\Omega,\Lambda)\underline{ =(1,0) \Rightarrow {\rm EdS}}$, $G=1+z$ \\
+
+\begin{eqnarray}
+                b(0) & = & \frac{b(z)-1}{G} + 1 \\
+  \Rightarrow   b(0) & = & \frac{1.66-1}{1+0.55} + 1  = 1.42581
+\end{eqnarray}
+\\[8pt]
+
+
+\noindent
+    {\bf Case 2. \Lambda CDM }\\
+$\underline{ (\Omega,\Lambda)=(0.3,0.7)
+ \Rightarrow \Lambda{\rm CDM}}$,
+ $G=1.32, [1.27], {\bf 1.18}$ \\
+  \begin{eqnarray}
+              b(0) & = & \frac{b(z)-1}{G} + 1 \\
+\Rightarrow   b(0) & = & \frac{1.66-1}{G} + 1  = 1.50, [1.52], {\bf 1.56}
+ \end{eqnarray}
+[] values for $(\Omega,\Lambda) =(0.2,0.8)$ and
+{\bf bold} values for $(\Omega,\Lambda) =(0.1,0.9)$.
+
+
+\subsection{Page 2}
+
+\begin{eqnarray}
+ \xi_{\rm gg}(z=0.55) & = & 0.98 \, \xi_{\rm gg}(z=0.55) \\ 
+ \Rightarrow          & = & 0.98 \, \xi_{\rm gg}(z=0.55) \\ 
+\end{eqnarray}
+
+\bibliographystyle{mn2e}
+\bibliography{/cos/pc19a/npr/thesis/biblio/tester_mnras}
+
+
+
+
+
+\appendix{Values of $G(\Omm, \Omlam, z) $
+
+\end{document}

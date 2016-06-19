@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.4)
+The top-level auxiliary file: clustering_comparison.aux
+The style file: mn2e.bst
+Database file #1: ../../biblio/tester_mnras.bib
+Warning--I didn't find a database entry for "Pollo04"
+Warning--I didn't find a database entry for "Blain03"
+You've used 14 entries,
+            2601 wiz_defined-function locations,
+            683 strings with 5905 characters,
+and the built_in function-call counts, 5038 in all, are:
+= -- 540
+> -- 282
+< -- 13
++ -- 92
+- -- 90
+* -- 431
+:= -- 943
+add.period$ -- 0
+call.type$ -- 14
+change.case$ -- 74
+chr.to.int$ -- 12
+cite$ -- 14
+duplicate$ -- 153
+empty$ -- 224
+format.name$ -- 118
+if$ -- 941
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 14
+newline$ -- 45
+num.names$ -- 56
+pop$ -- 35
+preamble$ -- 1
+purify$ -- 88
+quote$ -- 0
+skip$ -- 194
+stack$ -- 0
+substring$ -- 295
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 30
+top$ -- 0
+type$ -- 126
+warning$ -- 0
+while$ -- 55
+width$ -- 0
+write$ -- 141
+(There were 2 warnings)

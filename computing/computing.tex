@@ -1,0 +1,158 @@
+\documentclass[11pt]{article}
+\setlength {\textwidth}{180mm} 
+\setlength {\textheight}{260mm}
+\topmargin=-35.00mm
+\oddsidemargin=-10.00mm
+\pagestyle{empty}
+
+\input{format}
+
+\begin{document}
+
+\title{Some fairly General Computing Notes}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+%%
+
+\begin{abstract}
+This is a simple document which will... 
+\end{abstract}
+
+
+%Section heading
+\section{Directory Structure}
+%% http://osxdaily.com/2007/03/30/mac-os-x-directory-structure-explained/
+
+\begin{table}[h!]
+  \caption{From http://osxdaily.com/2007/03/30/mac-os-x-directory-structure-explained/}
+  \label{tab:the_lines}
+  \begin{center}
+    \begin{tabular}{p{0.13\linewidth}p{0.77\linewidth}} 
+      \hline
+      \hline
+      Directory  &	Description \\
+      \hline
+      / 	& Root directory, present on virtually all UNIX based file systems. Parent directory of all other files\\
+      /Applications &	Self explanatory, this is where your Mac’s applications are kept\\
+      /Developer &	The Developer directory appears only if you have installed Apple’s Developer Tools, and no surprise, contains developer related tools, documentation, and files.\\
+      /Library &	Shared libraries, files necessary for the operating system to function properly, including settings, preferences, and other necessities (note: you also have a Libraries folder in your home directory, which holds files specific to that user).\\
+      /Network &	largely self explanatory, network related devices, servers, libraries, etc\\
+      /System &	System related files, libraries, preferences, critical for the proper function of Mac OS X\\
+      /Users &	All user accounts on the machine and their accompanying unique files, settings, etc. Much like /home in Linux\\
+      /Volumes &	Mounted devices and volumes, either virtual or real, such as hard disks, CD’s, DVD’s, DMG mounts, etc\\
+      /bin &	Essential common binaries, holds files and programs needed to boot the operating system and run properly\\
+      /etc &	Machine local system configuration, holds administrative, configuration, and other system files\\
+      /dev &	Device files, all files that represent peripheral devices including keyboards, mice, trackpads, etc\\
+      /usr &	Second major hierarchy, includes subdirectories that contain information, configuration files, and other essentials used by the operating system\\
+      /sbin &	Essential system binaries, contains utilities for system administration\\
+      /tmp &	Temporary files, caches, etc\\
+      /var &	Variable data, contains files whose contents change as the operating system runs\\
+      \hline
+      \hline
+   \end{tabular}
+  \end{center}
+\end{table}
+
+
+\subsection{Notes on particular (Mac) Directories}      
+/usr \\
+/usr/local \\
+/System \\
+/bin  \\
+/sbin \\
+
+
+\section{Equations}
+%% https://www.codecogs.com/latex/eqneditor.php
+
+
+\section{Definitions}
+strain $=$ fractional change in length/distance\\
+
+
+\section{LIGO}
+
+
+
+
+%\begin{landscape}
+\begin{table}
+  \caption{The Lines}
+  \label{tab:the_lines}
+  \begin{center}
+    \begin{tabular}{lrllll} 
+      \hline
+      \hline
+      Name & Wavelength / \AA & Transition & Rest Passband & 
+      Interpreation & Reference \\
+      \hline
+      Lyman-$\alpha$ & 1215.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      Lyman-$\beta$  & 1025.18 & 3 to 1        & $\sim$FUV &        & 1 \\
+      Lyman-$\gamma$ &  972.02 & 4 to 1        & $\sim$FUV &        & 1 \\
+      Lyman Limit    &  911.27 & $\infty$ to 1 & $\sim$FUV &        & 1 \\
+      \hline
+      H-$\alpha$     & 6563.   & 3 to 2        & R,r       & Recent major SF or AGN activity & 2 \\
+      H-$\beta$      & 4861.   & 4 to 2        & B,V,g     &  & 2 \\
+      H-$\gamma$     & 4341.   & 5 to 2        & U,B,u     &  & 2 \\
+      H-$\delta$     & 4102.   & 6 to 2        & $\sim$FUV & Previous SF history  & 3 \\
+      Balmer Limit   & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      HI              & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      HII             & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      HeI              & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      HeII             & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      HeIII            & 3646.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      CIV              & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      OII              & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      OIII             & 3646.   & $\infty$ to 2 & $\sim$FUV & Recent major SF line & 2 \\ 
+      OIII             & 5007.   & $\infty$ to 2 & $\sim$FUV & Recent major SF line & 2 \\
+      \hline
+      Ca II H          & 3999.   & $\infty$ to 2 & $\sim$FUV & Old stellar pop & 3 \\
+      Ca II K          & 4001.   & $\infty$ to 2 & $\sim$FUV & Old stellar pop & 3 \\
+      \hline
+      NII              & 5007.   & $\infty$ to 2 & $\sim$FUV &  & 2 \\
+      \hline
+      NeV              & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      $[$OIII $\lambda$ 5007/ H$\beta]$ &   &  &   & ``BPT'' diagram reliable tool for determining source & 2, 4, 5 \\
+      $[$NII $\lambda$ 6583/ H$\alpha]$ & & & & of line emission from a galaxy visually differentiate & 2,4,5 \\
+                                      & & & & between Seyferts, LINERs and SF gals. However, only at & \\
+                                      & & & & ``low'' redshifts since need H$\alpha$, (not at $z\sim1$). & \\
+                                      & & & &  Modified BPT with $(U-B)$ colour replacing & \\
+                                      & & & & $[$NII $\lambda$ 6583/ H$\alpha]$ e.g. Montero-Dorta, 0801.2769. & \\
+      \hline
+      [SII $\lambda$ 6583/ H$\alpha$]   &    & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2,4. 5  \\
+      \hline
+      [$\alpha$/Fe]             & 3646.   & $\infty$ to 2 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      NV               & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      SiIV             & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      CIV              & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      CIII]            & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      MgII             & 1???.67 & 2 to 1        & $\sim$FUV & Major QSO line       & 1 \\
+      \hline
+      \hline
+% GALEX FUV: 1350-1750, % GALEX NUV: 1750-2800
+%Lyman alpha forest is the sum of absorption lines arising from the Lyman alpha transition of the neutral hydrogen in the spectra of distant galaxies and quasars.
+    \end{tabular}
+  \end{center}
+\end{table}
+%\end{landscape}
+
+
+
+
+\section{References}
+\citet{Ross07}
+
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+\end{document}
+

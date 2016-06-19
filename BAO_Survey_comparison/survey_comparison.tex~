@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+
+\input{format}
+
+\begin{document}
+
+\title{A Guide to the up-and-coming BAO Surveys in the next N years
+(where 2 < N < 10)}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+\begin{abstract}
+This is a simple document which will hopefully\/eventually be a pretty complete
+list of the various Baryon Acoustic Oscillation (BAO) surveys planned, or
+even underway, over the next 2 to 10 years. 
+\end{abstract}
+
+%Section heading
+\section{The Spectroscopic Surveys}
+
+\begin{landscape}
+\begin{table}
+  \caption{The Spec-z Surveys}
+  \label{tab:the_lines}
+  \begin{center}
+    \begin{tabular}{llllll} 
+      \hline
+      \hline
+      Survey Name & Area Coverage / sq degs & No. Objects & Type of Object & 
+      TimeScale   & `Main players' \\
+      \hline
+      WiggleZ     & 1500    & $\sim10^{6}$ & ELGs & now-2009      
+                  & Glazebrook, Drinkwater, Couch, Croom \\
+      BOSS        & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+                  & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      FMOS        & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      (G)WFMOS    & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      HETDEX      & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      LAMOST (??!) & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      SKA          & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+\end{landscape}
+
+\section{The Photometric Surveys}
+
+\section{References}
+\begin{table}
+  \caption{The Photo-z Surveys}
+  \label{tab:the_lines}
+  \begin{center}
+    \begin{tabular}{llllll} 
+      \hline
+      \hline
+      Survey Name & Area Coverage / sq degs & No. Objects & Type of Object & 
+      TimeScale   & `Main players' \\
+      \hline
+      DES        & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      VST-ATLAS        & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      Pan-STARRS       & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      DUNE       & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      LSST       & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      JDEM       & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      MUSE       & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      SKA       & 6500.67 & 2 to 1 & $\sim$FUV & Major QSO line & 2 \\
+      \hline
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
+\end{document}
+

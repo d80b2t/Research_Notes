@@ -1,0 +1,345 @@
+
+%\newcommand{\omb}{A_{\rm s}}
+%\newcommand{\omc}{A_{\rm t}}
+
+\def\WMAP{\textit{WMAP}}
+
+\newcommand{\ncib}{\gamma^{\rm CIB}}
+\newcommand{\camspec}{{\tt CamSpec}}
+\newcommand{\plik}{{\tt Plik}}
+
+\newcommand{\WP}{WP}
+\newcommand{\highL}{highL}
+\newcommand{\lensing}{lensing}
+\newcommand{\planckonly}{\planck}
+\newcommand{\plancklensing}{\planck+\lensing}
+\newcommand{\HighL}{\highL}
+
+\newcommand{\As}{A_{\rm s}}
+\newcommand{\At}{A_{\rm t}}
+\newcommand{\nt}{n_{\rm t}}
+\newcommand{\ns}{n_{\rm s}}
+\newcommand{\lcdm}{$\Lambda$CDM}
+\newcommand{\rpivot}{r_{0.05}}
+\newcommand{\rzerotwo}{r_{0.002}}
+\newcommand{\Alens}{A_{\rm L}}
+\newcommand{\Aphiphi}{A_{\rm L}^{\phi\phi}}
+\newcommand{\omegak}{\Omega_K}
+\newcommand{\omegal}{\Omega_\Lambda}
+
+%\newcommand{\nrun}{n_{\text{run}}}
+\newcommand{\nrun}{d \ns / d\ln k}
+\newcommand{\zre}{z_{\text{re}}}
+\newcommand{\yhe}{Y_{\text{P}}}
+\newcommand{\zeq}{z_{\text{eq}}}
+\newcommand{\nnu}{N_{\rm eff}}
+\newcommand{\neff}{N_{\rm eff}}
+\newcommand{\mnu}{\sum m_\nu}
+\newcommand{\sumnu}{\sum m_\nu}
+\newcommand{\mnusterile}{m_{\nu,\, \mathrm{sterile}}^{\mathrm{eff}}}
+\newcommand{\meffsterile}{\mnusterile}
+\newcommand{\Tactive}{T_{\mathrm{a}}}
+\newcommand{\Tsterile}{T_{\mathrm{s}}}
+
+\newcommand{\zdrag}{z_{\rm drag}}
+\newcommand{\rdrag}{r_{\rm drag}}
+\newcommand{\zstar}{z_{\ast}}
+\newcommand{\rstar}{r_{\ast}}
+\newcommand{\rs}{r_{\rm s}}
+\newcommand{\thetastar}{\theta_{\ast}}
+\newcommand{\DAstar}{D_{\rm A}}
+
+\newcommand{\Ailensbestfit}{A_i^{\mbox{\scriptsize{theory}}}}
+\newcommand{\Alensbestfit}{A^{\mbox{\scriptsize{theory}}}}
+
+
+%\newcommand{\zeq}{z_{\rm eq}}
+
+
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of "TeX Unbound" for suggested values.
+% See pp. 199-200 of Lamport's "LaTeX" book for details.
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+    %   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+	% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+% remember to use [htp] or [htpb] for placement
+
+
+\newcommand{\fixme}[1]{{\color{Red}{ FIXME: #1}}}
+\newcommand{\quietfixme}[1]{{\color{Red} #1}}
+\newcommand{\notate}[1]{{\color{olive} NOTE: #1}}
+
+\newcommand{\fnl}{f_{\rm{NL}}}
+\newcommand{\fnlloc}{f^{\rm local}_{\rm NL}}
+\newcommand{\fnleqi}{f^{\rm equil}_{\rm NL}}
+\newcommand{\taunl}{\tau_{\rm{NL}}}
+\newcommand{\gnl}{g_{\rm{NL}}}
+\newcommand{\htaunl}{\hat{\tau}_{\rm NL}}
+
+\providecommand{\Planck}{\textit{Planck}}
+\providecommand{\planck}{\Planck}
+\newcommand{\covinvT}{\bar{\Theta}}
+\newcommand{\Ltemp}{\tilde{T}}
+\newcommand{\lensedC}{\tilde{C}}
+\newcommand{\Lmin}{{L_{\rm min}}}
+
+\providecommand{\lea}{\lesssim}
+\providecommand{\gea}{\gtrsim}
+
+
+\providecommand{\alt}{\lea}
+\providecommand{\agt}{\gea}
+\providecommand{\text}[1]{\rm{#1}}
+
+
+
+\newcommand{\Msun}{M_\odot}
+\newcommand{\tot}{{\text{tot}}}
+\newcommand{\Mpc}{\text{Mpc}}
+\newcommand{\half}{{\textstyle \frac{1}{2}}}
+\newcommand{\third}{{\textstyle \frac{1}{3}}}
+\newcommand{\numfrac}[2]{{\textstyle \frac{#1}{#2}}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\grad}{\nabla}
+\newcommand{\km}{\rm{\,km\,}}
+
+\newcommand{\Hunit}{~\text{km}~\text{s}^{-1} \Mpc^{-1}}
+\newcommand{\Gyr}{{\rm Gyr}}
+\providecommand{\muK}{\mu\rm{K}}
+\newcommand{\muKarcmin}{\,\muK\,\arcmin}
+\newcommand{\muKsq}{(\mu\rm{K})^2}
+\newcommand{\lmax}{l_{\text{max}}}
+\newcommand{\lmin}{l_{\text{min}}}
+
+\newcommand{\mpl}{m_{\text{Pl}}}
+\newcommand{\eV}{\,\text{eV}}
+
+
+\providecommand{\Omk}{\Omega_K}
+\providecommand{\Oml}{\Omega_{\Lambda}}
+\providecommand{\Omtot}{\Omega_{\mathrm{tot}}}
+\providecommand{\Omb}{\Omega_{\mathrm{b}}}
+\providecommand{\Omc}{\Omega_{\mathrm{c}}}
+\providecommand{\Omm}{\Omega_{\mathrm{m}}}
+\providecommand{\omb}{\omega_{\mathrm{b}}}
+\providecommand{\omc}{\omega_{\mathrm{c}}}
+\providecommand{\omm}{\omega_{\mathrm{m}}}
+\providecommand{\Omdm}{\Omega_{\mathrm{DM}}}
+\providecommand{\Omnu}{\Omega_{\nu}}
+
+\providecommand{\CAMB}{{\tt camb}}
+\providecommand{\COSMOMC}{{\tt CosmoMC}}
+\providecommand{\CMBFAST}{{\tt cmbfast}}
+\providecommand{\COSMICS}{{\tt Cosmics}}
+\providecommand{\CLASS}{{\tt class}}
+\providecommand{\CMBEASY}{{\tt cmbeasy}}
+\providecommand{\LCDM}{{$\rm{\Lambda CDM}$}}
+\providecommand{\COSMOREC}{{\tt CosmoRec}}
+\providecommand{\HYREC}{{\tt HyRec}}
+\providecommand{\RECFAST}{{\tt recfast}}
+\providecommand{\HALOFIT}{{\tt halofit}}
+
+
+
+\newcommand{\begm}{\begin{pmatrix}}
+\newcommand{\enm}{\end{pmatrix}}
+\newcommand{\threej}[6]{{\begm #1 & #2 & #3 \\ #4 & #5 & #6 \enm}}
+\newcommand{\threejz}[3]{{\begm #1 & #2 & #3 \\ 0 & 0 & 0 \enm}}
+
+\newcommand\ba{\begin{eqnarray}}
+\newcommand\ea{\end{eqnarray}}
+\newcommand\bea{\begin{eqnarray}}
+\newcommand\eea{\end{eqnarray}}
+
+\newcommand\be{\begin{equation}}
+\newcommand\ee{\end{equation}}
+
+
+
+
+\newcommand{\valpha}{{\boldsymbol{pha}}}
+\newcommand{\vgrad}{{\boldsymbol{\nabla}}}
+\newcommand{\vpsi}{\mathbf{\psi}}
+\newcommand{\vTheta}{\mathbf{\Theta}}
+\newcommand{\vdelta}{\boldsymbol{\delta}}
+
+
+%%%%% statistics %%%%%%%%%%%%
+
+%Variance
+\providecommand{\var}{\text{var}}
+%covariance
+\providecommand{\cov}{\text{cov}}
+
+\providecommand{\Tr}{\text{Tr}}
+%likelihood
+
+%integration
+\newcommand{\ud}{{\rm d}}
+
+
+%%%%%%% Matrices %%%%%%%%%%
+\newcommand{\mA}{\bm{A}}
+\newcommand{\mB}{\bm{B}}
+\newcommand{\mC}{\bm{C}}
+\newcommand{\mD}{\bm{D}}
+\newcommand{\mE}{\bm{E}}
+\newcommand{\mF}{\bm{F}}
+\newcommand{\mG}{\bm{G}}
+\newcommand{\mH}{\bm{H}}
+\newcommand{\mI}{\bm{I}}
+\newcommand{\mJ}{\bm{J}}
+\newcommand{\mK}{\bm{K}}
+\newcommand{\mL}{\bm{L}}
+\newcommand{\mM}{\bm{M}}
+\newcommand{\mN}{\bm{N}}
+\newcommand{\mO}{\bm{O}}
+\newcommand{\mP}{\bm{P}}
+\newcommand{\mQ}{\bm{Q}}
+\newcommand{\mR}{\bm{R}}
+\newcommand{\mS}{\bm{S}}
+\newcommand{\mT}{\bm{T}}
+\newcommand{\mU}{\bm{U}}
+\newcommand{\mV}{\bm{V}}
+\newcommand{\mW}{\bm{W}}
+\newcommand{\mX}{\bm{X}}
+\newcommand{\mY}{\bm{Y}}
+\newcommand{\mZ}{\bm{Z}}
+
+\newcommand{\mLambda}{\bm{\Lambda}}
+\newcommand{\mzero}{\bm{0}}
+
+%%%%%%%% Vectors %%%%%%%%%%
+
+\newcommand{\boldvec}[1]{{\mbox{\boldmath{$#1$}}}}
+
+\newcommand{\vA}{\boldvec{A}}
+\newcommand{\vB}{\boldvec{B}}
+\newcommand{\vC}{\boldvec{C}}
+\newcommand{\vD}{\boldvec{D}}
+\newcommand{\vE}{\boldvec{E}}
+\newcommand{\vF}{\boldvec{F}}
+\newcommand{\vG}{\boldvec{G}}
+\newcommand{\vH}{\boldvec{H}}
+\newcommand{\vI}{\boldvec{I}}
+\newcommand{\vJ}{\boldvec{J}}
+\newcommand{\vK}{\boldvec{K}}
+\newcommand{\vL}{\boldvec{L}}
+\newcommand{\vM}{\boldvec{M}}
+\newcommand{\vN}{\boldvec{N}}
+\newcommand{\vO}{\boldvec{O}}
+\newcommand{\vP}{\boldvec{P}}
+\newcommand{\vQ}{\boldvec{Q}}
+\newcommand{\vR}{\boldvec{R}}
+\newcommand{\vS}{\boldvec{S}}
+\newcommand{\vT}{\boldvec{T}}
+\newcommand{\vU}{\boldvec{U}}
+\newcommand{\vV}{\boldvec{V}}
+\newcommand{\vW}{\boldvec{W}}
+\newcommand{\vX}{\boldvec{X}}
+\newcommand{\vY}{\boldvec{Y}}
+\newcommand{\vZ}{\boldvec{Z}}
+
+\newcommand{\va}{\boldvec{a}}
+\newcommand{\vb}{\boldvec{b}}
+\newcommand{\vc}{\boldvec{c}}
+\newcommand{\vd}{\boldvec{d}}
+\newcommand{\ve}{\boldvec{e}}
+\newcommand{\vf}{\boldvec{f}}
+\newcommand{\vg}{\boldvec{g}}
+\newcommand{\vh}{\boldvec{h}}
+\newcommand{\vi}{\boldvec{i}}
+\newcommand{\vj}{\boldvec{j}}
+\newcommand{\vk}{\boldvec{k}}
+\newcommand{\vl}{\boldvec{l}}
+\newcommand{\vm}{\boldvec{m}}
+\newcommand{\vn}{\boldvec{n}}
+\newcommand{\vo}{\boldvec{o}}
+\newcommand{\vp}{\boldvec{p}}
+\newcommand{\vq}{\boldvec{q}}
+\newcommand{\vr}{\boldvec{r}}
+\newcommand{\vs}{\boldvec{s}}
+\newcommand{\vt}{\boldvec{t}}
+\newcommand{\vu}{\boldvec{u}}
+\newcommand{\vv}{\boldvec{v}}
+\newcommand{\vw}{\boldvec{w}}
+\newcommand{\vx}{\boldvec{x}}
+\newcommand{\vy}{\boldvec{y}}
+\newcommand{\vz}{\boldvec{z}}
+
+\newcommand{\cla}{\mathcal{A}}
+\newcommand{\clb}{\mathcal{B}}
+\newcommand{\clc}{\mathcal{C}}
+\newcommand{\cld}{\mathcal{D}}
+\newcommand{\cle}{\mathcal{E}}
+\newcommand{\clf}{\mathcal{F}}
+\newcommand{\clg}{\mathcal{G}}
+\newcommand{\clh}{\mathcal{H}}
+\newcommand{\cli}{\mathcal{I}}
+\newcommand{\clj}{\mathcal{J}}
+\newcommand{\clk}{\mathcal{K}}
+\newcommand{\cll}{\mathcal{L}}
+\newcommand{\clm}{\mathcal{M}}
+\newcommand{\cln}{\mathcal{N}}
+\newcommand{\clo}{\mathcal{O}}
+\newcommand{\clp}{\mathcal{P}}
+\newcommand{\clq}{\mathcal{Q}}
+\newcommand{\clr}{\mathcal{R}}
+\newcommand{\cls}{\mathcal{S}}
+\newcommand{\clt}{\mathcal{T}}
+\newcommand{\clu}{\mathcal{U}}
+\newcommand{\clv}{\mathcal{V}}
+\newcommand{\clw}{\mathcal{W}}
+\newcommand{\clx}{\mathcal{X}}
+\newcommand{\cly}{\mathcal{Y}}
+\newcommand{\clz}{\mathcal{Z}}
+
+
+
+\newcommand{\vnhat}{\hat{\vn}}
+\newcommand{\vrhat}{\hat{\vr}}
+\newcommand{\vkhat}{\hat{\vk}}
+
+\def\pmb#1{\setbox0=\hbox{#1}%
+    \kern-.025em\copy0\kern-\wd0
+    \kern.05em\copy0\kern-\wd0
+    \kern-.025em\raise.0433em\box0}
+\def\ltsima{$\; \buildrel < \over \sim \;$}
+\def\gtsima{$\; \buildrel > \over \sim \;$}
+\def\simlt{\lower.5ex\hbox{\ltsima}}
+\def\simgt{\lower.5ex\hbox{\gtsima}}
+\def\muk{$(\mu{\rm K})^2$ }
+\def\etal{{\it et al.}}
+\def\etals{{\it et al. }}
+\def\p2Y{\;_2Y}
+\def\m2Y{\;_{-2}Y}
+\newcounter{parentequation}\setcounter{parentequation}{0}
+\def\beglet{
+  \addtocounter{equation}{1}%
+  \setcounter{parentequation}{\value{equation}}%
+  \setcounter{equation}{0}%
+  \def\theequation{\arabic{parentequation}\alph{equation}}%
+  \ignorespaces
+}
+\def\endlet{
+  \setcounter{equation}{\value{parentequation}}%
+  \def\theequation{\arabic{equation}}%
+}
+
+\def\PaperI{\citep{planck2013-p08}}
+
+\def\ExpSup{\citep{lanck2013-p28}}
+
+\newcommand{\elec}{{\rm e}}

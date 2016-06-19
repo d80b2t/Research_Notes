@@ -1,0 +1,151 @@
+\documentclass[11pt,a4paper]{article}
+\bibliographystyle{apalike}
+\usepackage{epsfig, hyperref}
+\usepackage{amsmath}
+\usepackage{natbib}
+
+\begin{document}
+
+\title{Research Note on Optical/NIR and MIR Fluxes}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+% Usually omit these for ApJ or MNRAS style files:
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\begin{abstract}
+I've been keen to have a ``cheat sheet'' for some time on 
+just the raw measurement of flux from optical (read SDSS), 
+near-infrared (read UKIDSS and VISTA) and the mid-infrared
+(read {\it Spitzer} and WISE). 
+\end{abstract}
+
+
+\section{Useful Resources}
+http://idlastro.gsfc.nasa.gov/ftp/pro/astro/flux2mag.pro
+
+\section{AB magnitudes}
+It is based on flux measurements that are calibrated in absolute units, namely spectral flux densities.
+The monochromatic AB magnitude is defined as the logarithm of a spectral flux density with the usual scaling of astronomical magnitudes and a zero-point of 3631 Jansky (Oke, 1983) where 
+\begin{eqnarray}
+1 {\rm Jansky} &=& 10^{-26}\ {\rm W}\ {\rm Hz}^{-1}\ {\rm m}^{−2} \\
+              & = & 10^{-23}\ {\rm erg}\ {\rm s}^{-1}\ {\rm Hz}^{-1}\ {\rm cm}^{-2}. \\
+\end{eqnarray}
+If the spectral flux density is denoted $f_{\nu}$, the monochromatic AB magnitude is:
+\begin{eqnarray}
+m_{\rm AB} & = &- 2.5 \log_{10} \left ( \frac{{}f_{\nu}}{3631\ {\rm Jy}} \right ) \\
+             & = & -2.5 \log_{10} f + 8.9\ {\rm (magnitude\ m\ and\ flux\ in\ Jy)} \\
+             & = & -2.5 \log_{10} f + 16.4\ {\rm (magnitude\ m\ and\ flux\ in\ mJy)} \\
+             & = & -2.5 \log_{10} f + 23.9\ {\rm (magnitude\ m\ and\ flux\ in\ \mu Jy)} \\
+              & = & -2.5 \log_{10} f - 48.6\ {\rm (flux\ in\ erg\ s^{-1}\ cm^{-2} Hz^{-1})} \\
+              & = & -2.5 \log_{10} f - 56.1\ {\rm (flux\ in\ W\ Hz^{-1}\ m^{-2})} 
+\end{eqnarray}
+since $\log_{10}(3631^{-23})\times2.5 =  -48.5999)$ and factor of $\log_{10}(10^{3})\times2.5$ for the last lines. 
+In the AB system, the flux zero-point in every filter is {\it defined} to be 3631 Jy (Janskys; 
+1 Jy = 10$^{-26}$ W Hz$^{-1}$ m$^{-2}$). 
+
+
+
+%Section heading
+\section{Optical/SDSS fluxes}
+Straight from: \href{http://www.sdss3.org/dr8/algorithms/magnitudes.php}{http://www.sdss3.org/dr8/algorithms/magnitudes.php}.\\
+
+In SDSS-III, we express all fluxes in terms of nanomaggies, which are
+a convenient linear unit. For example, quantities labeled petroFlux,
+psfFlux, etc. are (unless otherwise stated) in these units. In each
+case, there is a corresponding asinh magnitude, such as petroMag,
+psfMag etc., explained further below.
+
+A ``maggy'' is the flux $f$ of the source relative to the standard
+source $f_{0}$ (which defines the zeropoint of the magnitude
+scale). Therefore, a ``nanomaggy'' is $10^{-9}$ times a maggy. These
+fluxes are in a unit of nanomaggies, a system where the zero-point
+flux is (3631 $\times10^{9})$ Jy or $10^{9}\ f_{0}$. To relate these
+quantities to standard magnitudes, an object with flux $f$ given in
+nMgy has a Pogson magnitude:
+\begin{eqnarray}
+m_{\rm SDSS} & = &  -2.5\ \log_{10} (f/10^{9}f_{0}) \\
+    & = &  -2.5\ \log10(f/f_{0}) + 2.5 \log_{10}(10^{9}) \\
+    & = &   22.5 - 2.5 \log 10(f/f0) \\
+\end{eqnarray}
+
+Note that magnitudes listed in the SDSS catalog, however, are not
+standard Pogson magnitudes, but asinh magnitudes.
+
+The standard source for each SDSS band is close to but not exactly the
+AB source (3631 Jy), {\bf meaning that a nanomaggy is approximately
+$3.631\times10^{-6}$ Jy}. However, our current understanding is that the absolute
+calibration of the SDSS system has some percent-level offsets relative
+to AB, discussed in detail in the section on AB calibration.
+
+%%Ha ha, also notes from Myers: 
+%% faraday.uwyo.edu/~admyers/.../516014.pdf‎
+So, in the SDSS datasweep files, to convert the FLUX tags to magnitudes, simply take:
+$ m = 22.5 - 2.5\ log_{10}({\rm FLUX})$.
+
+\section{Near Infrared fluxes}
+
+Double check with Coleman
+
+
+\section{Mid-Infrared fluxes}
+
+\subsection{Spitzer}
+ From Ashby et al. (2013, SSDF paper...) \\
+zero\_pt\_Ch1 = 18.789\\
+zero\_pt\_Ch2 = 18.316\\
+
+\noindent
+Ch1  = zero\_pt\_Ch1 - 2.5*alog10(flux\_ch1) \\
+Ch2  = zero\_pt\_Ch2 - 2.5*alog10(flux\_ch2) \\
+
+
+\subsection{WISE}
+Straight from: \href{http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec4\_4h.html}{wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec4\_4h.html} \\
+The source flux density, in Jansky [Jy] units, is computed from the calibrated WISE magnitudes, mvega using: 
+
+\begin{equation}
+  F_{\nu}[{\rm Jy}] = F_{\nu\,0} \times 10^{({-m_{\rm Vega}/2.5})}
+\end{equation}
+ where is the zero magnitude flux density corresponding to the constant that gives the same response as that of Alpha Lyrae (Vega). For most sources, the zero magnitude flux density, derived using a constant power-law spectra, is appropriate and may be used to convert WISE magnitudes to flux density [Jy] units. Table 1 lists the zero magnitude flux density (column 2) for each WISE band.
+
+For sources with steeply rising MIR spectra or with spectra that deviate significantly from Fν=constant, including cool asteroids and dusty star-forming galaxies, a color correction is required, especially for W3 due to its wide bandpass. With a given flux correction, fc, the flux density conversion is given by:
+\begin{equation}
+F_{\nu}[{\rm Jy}] = (F^{*}_{\nu\,0}/f_{c}) \times 10^{({-m_{\rm Vega}/2.5})}
+\end{equation}
+where is the zero magnitude flux density derived for sources with
+power-law spectra: $F_{\nu} \propto \nu^{-2}$ listed in
+Table~\ref{tab:WISE_ZMFD} (column 3) and the flux correction, $f_{c}$,
+listed in Wright et al. (2010; their Table 1) for , where the index
+$\alpha$ ranges from: -3, -2, -1, 0, 1, 2, 3, and 4, and for blackbody
+spectra, $\rm{B}_{\nu}(T)$ for a variety of temperatures, and for stars of two
+main-sequence spectral types (K2V and G2V).
+
+
+\begin{table}
+  \begin{center}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{lrr}
+      \hline\hline
+      Band  & $F_{\nu\,0} [\rm{Jy}]$ & $F^{*}_{\nu\,0} [\rm{Jy}]$\\
+      \hline
+      W1 & 309.540 & 306.682 \\
+      W2 & 171.787 & 170.663 \\
+      W3 &  31.674  &   29.045 \\
+      W4 &    8.363  &    8.284 \\
+      \hline\hline
+      \label{tab:WISE_ZMFD}
+    \end{tabular}
+    \caption{Zero Magnitude Flux Density}
+  \end{center}
+\end{table}
+
+\section*{References}
+Oke, J. B.; Gunn, J. E. 1983ApJ...266..713O\\
+
+\end{document}
+

@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper]{article}
+\bibliographystyle{apalike}
+\usepackage{epsfig}
+\usepackage{amsmath,hyperref}
+\usepackage{natbib}
+
+\begin{document}
+
+\title{{\it Spitzer} IRAC Fluxes (Research Note)}
+\author{Nicholas P. Ross, for the SpIES team}
+\date{\today}
+\maketitle
+
+
+% Usually omit these for ApJ or MNRAS style files:
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\begin{abstract}
+Discussion on the Level 2 post-BCD data, what is given in 
+e.g. DS9 and what is outputted from Source Extractor. 
+\end{abstract}
+
+\section*{General {\it Spitzer} terms}
+N.B. From 
+\href{http://irsa.ipac.caltech.edu/data/SPITZER/docs/spitzermission/missionoverview/spitzertelescopehandbook/18/}{Spitzer Telescope Handbook}. 
+
+\smallskip
+The data delivery consists of a directory hierarchy with a name unique to that AOR.  In this hierarchy are the Level 1 (Basic Calibrated Data, BCD), as well as a number of subdirectories containing the Level 0 (raw data), the calibration files, log files, and the Level 2 (post-BCD) data. The exact contents of the data delivery vary according to what the user has requested from the Spitzer Heritage Archive. 
+
+For the investigations here, we are dealing with the Level 2, or Extended Pipeline Products (Post-BCD) data products. Pipeline processing of Spitzer data by the SSC also included more advanced processing of many individual data frames together to form more “reduced” data products. Known by the generic title of ``post-BCD'' processing, this extended pipeline refined the telescope pointing, produces mosaicked images and combined spectra. 
+
+
+\section{Unit Conversions} 
+\begin{eqnarray}
+  1\ {\rm rad}  & = & (180./\pi)\ {\rm deg} = 57.295780\ {\rm deg} \\ 
+                     & = & (180./\pi)*(3600.)\ {\rm arcsecs} = 206264.81\ {\rm arcsec} \\
+\Rightarrow & & \\
+  1\ {\rm sr}  & = & (180./\pi)\ {\rm deg} = 3282.8064\ {\rm deg^2} \\ 
+                   & = & (180./\pi) *(60.*60.)\ {\rm arcsecs} =  4.25\times10^{10}\ {\rm arcsec^2}
+\end{eqnarray}
+Taking the information from the {\it Spitzer} IRAC Level 2 {\tt *maic.fits} file headers,  
+the plate scale is 0.60 arcsec/pixel. 
+%% PXSCAL1 =           -0.6000012 / [arcsec/pix] Plate scale for axis 1 at CRPIX1,C
+%% PXSCAL2 =            0.6000012 / [arcsec/pix] Plate scale for axis 2 at CRPIX1,C
+Therefore, if I have a single pixel, with total area 0.3600 arcsec$^{2}$ 
+with a ``BUNIT'' count of 1.00 MJy / sr then, this has a flux of:
+%% http://arachnoid.com/latex/
+\begin{eqnarray}
+  1 \ {\rm MJy / sr} & = & 2.35294\times10^{-11}\ {\rm MJy /arcsec^2}  \\
+                           & = & 2.35294\times10^{-05}\ {\rm Jy /arcsec^2}  \\
+                           & = & 23.52\ {\rm \mu Jy /arcsec^2}  \\
+                           & = & 8.46\ {\rm \mu Jy}  \\
+\end{eqnarray}
+Then, from GTRs email from March 04, 2014, 2:00pm:
+``I think that if you do this to the output of Sextractor, it should be right:''
+
+\smallskip
+\noindent
+1MJy/ster * 1uJy/1e-12MJy * 1ster/(180/pi)$^2$ deg$^2$ * 1deg$^2$/(3600")$^2$ * (0.6")$^2$ / apcor
+
+where ch1apcor is 0.765 and ch2apcor is 0.740
+(based on COSMOS).  We should check to see what SWIRE and SERVS used.
+
+That comes out to 11.06 for Ch1 and 11.43 for Ch2. 
+%% (which is exactly what we are off by.
+
+\section{Sensitivity and Saturation}
+A lot of this materical is from e.g. \S6.2 p100 of the IRAC Handbook.
+
+\noindent
+BUNIT gives the units (MJy/sr) of the images. For reference, 1 MJy/sr
+= $10^{-17}$ erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$ sr$^{-1}$. FLUXCONV is
+the calibration factor derived from standard star observations; its
+units are (MJy/sr)/(DN/s). The raw files are in “data numbers”
+(DN). To convert from MJy/sr back to DN, divide by FLUXCONV and
+multiply by EXPTIME. To convert DN to electrons, multiply by GAIN.
+
+%Section heading
+%\section{Sensitivity and Saturation}
+\begin{table}
+  \begin{center}
+    \begin{tabular}{lrrr}
+      \hline
+      \hline
+      Name    & Description      & Units  \\
+      \hline 
+      $\sigma$ &  & \\
+      $N_{pix}$ & No. of pixels & - \\
+      $S$  & Scale factor & & \\
+      $T_{ex}$  & exposure time & \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{To Be filled in....}
+    \label{tab:IRAC_handbook_Sec2}
+  \end{center}
+  \vspace{-8pt}
+\end{table}
+In these equations, the spectral resolving power $\lambda / \delta
+\lambda$ is from Table 2.3; the detector quantum efficiency $Q$
+(electrons per photon) is from Table 2.2; the instrumental throughput
+$\eta_{l}$ is from Table 2.3; the telescope throughput $\eta_{T}$
+=[0.889, 0.902, 0.908, 0.914] for channels 1 to 4, respectively (with
+Be primary, Al-coated secondary, and 50 nm ice contamination); the
+telescope area (including obstruction) $A=4636cm^{2}$; the equivalent
+number of noise pixels $Npix$ is from Table 2.1 (and defined in
+Section 2.2.2); h is the Planck constant; $I_{bg}$ is the background
+surface brightness in MJy/sr; $f_{S}$=1.2 is the stray light
+contribution to the background; the dark current $D$ is <0.1, 0.28, 1,
+and 3.8 e-/s for channels 1, 2, 3, and 4, respectively; the read noise
+$R$ is from Table 2.2; $\Omega_{pix}$ is the pixel solid angle (see
+Table 2.1); $f p$ is the in-flight estimated throughput correction for
+point sources(Table 2.4); $f_{ex}$ is the in-flight estimated
+throughput correction for the background (Table 2.4).
+
+The “throughput corrections” $fp$ and $fex$ were determined by comparing the observed to expected brightnessofstarsandzodiacallight. Starsweremeasuredina10-pixelradiusaperture,andthezodiacal light was measured in channels 3 and 4 for comparison to the COBE/DIRBE zodiacal light model. (This measurement was not possible in channels 1 and 2 because we could not use the shutter for absolute reference.)
+
+\begin{equation}
+  \sigma = \frac{\sqrt{N}}  {ST_{ex} f_{p}}  \sqrt{ B T_{ex} + (B T_{ex} f_{F})^{2} +R^{2} +DT_{ex}}
+\end{equation}
+
+where the scale factor is
+\begin{equation}
+  S = \frac{Q \eta_{T} \eta_{I} A \delta\lambda}{h\lambda}
+\end{equation}
+
+the background current is
+\begin{equation}
+  B = S I_{bg}. f_{S} \Omega_{pix} f_{ex}
+\end{equation}
+
+and the effective exposure time is
+\begin{equation}
+T_{ex} =T_{F} - 0.2N_{F}
+\end{equation}
+
+
+
+
+\end{document}
