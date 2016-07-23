@@ -29,7 +29,7 @@
 
 \begin{document}
 
-\title{IDL to Python ``cheat sheet''}
+\title{Python ``Cheat Sheet''}
 \author{Nicholas P. Ross}
 \date{\today}
 \maketitle
@@ -41,29 +41,27 @@
 %\listoftables
 
 \begin{abstract}
-I've been keen to have an IDL to Python ``Cheat Sheet'' for some time. 
-This is it. 
+The is my (NPR's) version of a $\sim$Python ``Cheat Sheet'', 
+(including some parts for folks that want to migrate form 
+IDL). 
 \end{abstract}
 
 \section{Real basics}
     \subsection{iPython}
-     $>$ conda update ipython
+     \$$>$ conda update ipython
 
     \subsection{Versions}
-    {\tt > python
-      
-      Python 2.7.6 |AnacondaCE 1.3.1 (x86\_64)| (default, Jan 10 2014, 11:23:15) 
+    \$$>$ python
+    \begin{lstlisting}
+    Python 2.7.6 |AnacondaCE 1.3.1 (x86\_64)| (default, Jan 10 2014, 11:23:15) 
       [GCC 4.0.1 (Apple Inc. build 5493)] on darwin 
-      Type "help", "copyright", "credits" or "license" for more information. 
-      
-      \noindent
-      >>> import numpy \\
-      >>> print numpy.\_\_version\_\_ \\
+      Type "help", "copyright", "credits" or "license" for more information.
+      >>> import numpy 
+      >>> print numpy.__version__
 
-      1.8.2 \\
-      \noindent
-      >>> import astropy \\
-      >>> print astropy.\_\_version\_\_ \\
+      1.8.2 
+      >>> import astropy 
+      >>> print astropy.__version__
 
       0.4.1 \\
       \noindent
@@ -72,7 +70,8 @@ This is it.
 
      2.7.10 (default, Oct 23 2015, 18:05:06) \\
      \lbrack GCC 4.2.1 Compatible Apple LLVM 7.0.0 (clang-700.0.59.5)]
-     }
+    \end{lstlisting}
+ 
 
     \subsection{iPython from Fernando Perez}
     Try: tmpnb.org  {\bf VERY USEFUL}\\
@@ -314,7 +313,37 @@ See 429 in history\_20150113.txt and onwards... :-)
   \end{lstlisting}
 
     \subsection{map()}  
+    {\tt map(function, iterable, ...)} \\
+    Return an iterator that applies function to every item of iterable, yielding the results.
+    \begin{lstlisting}
+   >>> def cube(x): return x*x*x
+   ... 
+   >>> map(cube,range(1,11))
+   <map object at 0x101c182e8>
+   >>> list(map(cube,range(1,11)))
+   [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+   >>> 
+  \end{lstlisting}
+    The {\tt list()} is needed in Python 3.x. 
 
+
+    \begin{lstlisting}
+   def f(x): return x % 2 != 0 and x % 3 != 0
+   ... 
+   >>> filter(f,range(2,25))
+   <filter object at 0x101c18390>
+   >>> list(filter(f,range(2,25)))
+   [5, 7, 11, 13, 17, 19, 23]
+   >>> 
+  \end{lstlisting}
+
+
+    \subsection{strip()}  
+    \begin{lstlisting}
+   >>> str = "0000000this is string example....wow!!!0000000";
+   >>> print (str.strip( '0' ))
+   this is string example....wow!!!
+  \end{lstlisting}
 
 
  
