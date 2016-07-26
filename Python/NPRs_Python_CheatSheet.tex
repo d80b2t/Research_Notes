@@ -143,58 +143,58 @@ $>>>$ dir(thing) \\
 
 %% http://tex.stackexchange.com/questions/45981/square-brackets-in-math-mode-without-the-bracket-symbols
 
+%%   Symbols in Python    % + - = ! / ( ) [ ] < > | ' :
+
+
 \subsection{Lists}
 \begin{lstlisting}
-$>>>$ super_list = [0, [3,4,5], "Hello World!", range(5)] 
-$>>>$ print super\_list 
+>>> super_list = [0, [3,4,5], "Hello World!", range(5)] 
+>>> print super_list 
 
 [0, [3, 4, 5], 'Hello World!', [0, 1, 2, 3, 4]] 
-$>>>$ print super\_list[1] 
-% + - = ! / ( ) [ ] < > | ' :
-\lbrack3, 4, 5] 
-$>>>$ print super\_list[-1]
-\lbrack0, 1, 2, 3, 4] 
-$>>>$ print super\_list[1[0]] 
+>>> print super_list[1] 
+[3, 4, 5] 
+>>> print super_list[-1]
+[0, 1, 2, 3, 4] 
+>>> print super_list[1[0]] 
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'int' object is not subscriptable
-$>>>$ print super\_list[1][0] 
+>>> print super_list[1][0] 
   3
 
-$>>>$ c = range(10) \\
-$>>>$ print c \\
-\lbrack0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\\
-$>>>$ c.append(range(3)) \\
-$>>>$ print c \\
-\lbrack0, 1, 2, 3, 4, 5, 6, 7, 8, 9, [0, 1, 2]]\\
-$>>>$ c.extend(range(3)) \\
-$>>>$ print c \\
-\lbrack0, 1, 2, 3, 4, 5, 6, 7, 8, 9, [0, 1, 2], 0, 1, 2]\\
-$>>>$ del c[4]\\
-$>>>$ print c\\
-%[0, 1, 2, 3, 5, 6, 7, 8, 9, [0, 1, 2], 0, 1, 2]\\
+>>> c = range(10) 
+>>> print c 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> c.append(range(3)) 
+>>> print c 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, [0, 1, 2]]
+>>> c.extend(range(3)) 
+>>> print c 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, [0, 1, 2], 0, 1, 2]
+>>> del c[4]
+>>> print c
+[0, 1, 2, 3, 5, 6, 7, 8, 9, [0, 1, 2], 0, 1, 2]
 
+>>> z =  [42]*5
+>>> [42, 42, 42, 42, 42]
 
-%\vspace{12pt}
-$>>>$ z =  [42]*5\\
-$>>>$ [42, 42, 42, 42, 42]\\
-
-%\vspace{12pt}
-$>>>$ print super\_list
+>>> print super_list
 [0, [3, 4, 5], 'Hello World!', [0, 1, 2, 3, 4]]
-$>>>$ print len(super\_list)
+>>> print len(super_list)
 4
-$>>>$ print len(super\_list[-1])
+>>> print len(super_list[-1])
 5
 \end{lstlisting}
 
 
 \section{Key packages}
-matplotib\\
+{\tt matplotib\\
 numpy\\
 pyds9\\
 pyFITS\\
-
+yt\\
+}
 
 \section{Class vs. an Instance}
 Difference between a class and an instance is an Object Oriented (OO)
@@ -234,12 +234,18 @@ Key links:\\
 \href{http://www.johnny-lin.com/cdat_tips/tips_array/idl2num.html}{IDL to Numeric/numarray Mapping}\\
 \href{http://www.astro.umd.edu/~mbk/idl-numpy.html}{NumPy for IDL users}\\
 
+\href{http://mathesaurus.sourceforge.net/idl-numpy.html}{http://mathesaurus.sourceforge.net/idl-numpy.html}\\
+
+\href{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}\\
+
 \begin{table}
   \begin{center}
     \setlength{\tabcolsep}{4pt}
     \begin{tabular}{ll}
       \hline\hline
       IDL code   & Python code \\
+      \hline 
+      .run 'foo.pro'  & exec(open("./findSecondLargestNo.py").read())\\
       \hline
       data=READFITS('file',header) 	 & data=pyfits.open('file')\\
       tdata  = mrdfits('SpIESch1ch2.fits',0, hdr) 	 & tdata = data[0].data \\
@@ -255,20 +261,29 @@ Key links:\\
       \label{tab:IDL2Python}
     \end{tabular}
     \caption{IDL to Python}
+    \label{table:idl_vs_python}
   \end{center}
 \end{table}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%      I N P U T
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{INPUT}
 Just some general ways to get variables read-in and different 'tricks' to Python3 input. 
 
 \begin{lstlisting}
+>>> s = eval(input())
 >>> s = input().split()
 asdf asdfasdf ddddf aa
 >>> s
 ['asdf', 'asdfasdf', 'ddddf', 'aa']
-
 \end{lstlisting}
 
 \begin{lstlisting}
@@ -276,27 +291,33 @@ asdf asdfasdf ddddf aa
 >>> x, y, z, n = (int(eval(input())) for _ in range(4))
 \end{lstlisting}
 
+\begin{lstlisting}
 
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%      O U T P U T
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 \section{OUTPUT}
 For the ``write'' statement, I think you have to put everything into 
 a string format, otherwise it just barfs... \\
 
 \noindent
 \begin{lstlisting}
-  outfile = open('WISE\_spectra\_triples\_4wget\_temp.dat', 'w') \\
-for i in range(len(ra)): 
-
+  outfile = open('WISE_spectra_triples_4wget_temp.dat', 'w') \\
+  for i in range(len(ra)): 
     print i, ra[i] 
+    plate_out = str(plate[i])
+    mjd_out = str(mjd[i]) 
+    fiberid_out = str(fiberid[i])
 
-    plate\_out = str(plate[i])
-
-    mjd\_out = str(mjd[i]) 
-
-    fiberid\_out = str(fiberid[i])
-
-    outfile.write(plate\_out+"/spec-"+plate\_out+"-"+mjd\_out+"-"+fiberid\_out.zfill(4)+".fits \textbackslash n")
+    outfile.write(plate_out+"/spec-"+plate_out+"-"+mjd_out+"-"+fiberid_out.zfill(4)+".fits \n")
 \end{lstlisting}
-
 
 
 
@@ -309,14 +330,13 @@ for i in range(len(ra)):
 \href{https://docs.python.org/3/howto/pyporting.html}{https://docs.python.org/3/howto/pyporting.html}
 
     \subsection{print}
-    print a vs. print (a)
+    {\tt print a} vs. {\tt print (a)}
     Thus, just use () all the time!!
     
     \subsection{Division}
     / = truncating (integer floor) division in P2.x when using ints; float division in P3.x
     // = truncating div in P2.x, P3.x 
     
-
 
 \section{Linear Algebra}
 \href{http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html}{http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html}
@@ -327,6 +347,13 @@ from scipy import linalg
 A = np.array([[1,2],[3,4]])
 linalg.inv(A)
 A.dot(linalg.inv(A)) #double check
+\end{lstlisting}
+
+\noindent
+\href{https://twitter.com/SciPyTip/status/756510468160774144}{https://twitter.com/SciPyTip/status/756510468160774144}
+You can solve a linear system {\bf Ax = b} with {\tt linalg.solve(A, b)}.
+\begin{lstlisting}
+
 \end{lstlisting}
 
 
@@ -342,6 +369,7 @@ See 429 in history\_20150113.txt and onwards... :-)
 
 
 
+\newpage
 \section{A few General Notes}
     \subsection{What's the difference between raw\_input() and input()?}
     The difference is that {\tt raw\_input()} does not exist in Python 3.x,
@@ -351,7 +379,15 @@ See 429 in history\_20150113.txt and onwards... :-)
     Reference: \href{http://stackoverflow.com/questions/4915361/whats-the-difference-between-raw-input-and-input-in-python3-x}{http://stackoverflow.com/questions/4915361/whats-the-difference-between-raw-input-and-input-in-python3-x}. 
    
 
-\subsection{List Comprehensions}
+    \subsection{Loops}
+    \begin{lstlisting}
+   n = eval(input())
+   for _ in range(n):
+      <indented code here>
+  \end{lstlisting}
+
+
+    \subsection{List Comprehensions}
     \begin{lstlisting}
    >>> ListOfNumbers = [ x for x in range(10) ] # List of integers from 0 to 9
    >>> ListOfNumbers
@@ -360,8 +396,24 @@ See 429 in history\_20150113.txt and onwards... :-)
    >>> ListOfThreeMultiples
    [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99]
    >>> 
-
   \end{lstlisting}  
+
+
+    \subsection{String Manipulation}
+    \begin{lstlisting}
+  s = 'abababababababababab'
+  >>> print(*s)
+  a g a f g a s d g a s d f a s d f a s d f a s d f a s d f
+  >>> type(s[1::2])
+  <class 'str'>
+  >>> s[::2]
+  'aaaaaaaaaa'
+  >>> s[1::2]
+  'bbbbbbbbbb'
+  >>> 
+  \end{lstlisting}  
+
+
 
  
 \section{A few general notes and commands}
@@ -410,7 +462,6 @@ See 429 in history\_20150113.txt and onwards... :-)
   \end{lstlisting}
     The {\tt list()} is needed in Python 3.x. 
 
-
     \begin{lstlisting}
    def f(x): return x % 2 != 0 and x % 3 != 0
    ... 
@@ -429,6 +480,16 @@ See 429 in history\_20150113.txt and onwards... :-)
    this is string example....wow!!!
   \end{lstlisting}
 
+    \subsection{exec()}  
+    Run whole programs from the python3 command prompt (see also~\ref{table:idl_vs_python}
+    \begin{lstlisting}
+   >>> exec(open("./findSecondLargestNo.py").read())
+  \end{lstlisting}
+
+
+\newpage
+\section{OUTPUT}
+
 
  
 
@@ -442,19 +503,31 @@ By convention, matplotlib is imported as mpl. Also by convention, matplotlib.pyp
 \section*{Useful Resources}
 Borrows, begs and steals from: \\
 
+
 \subsection*{IDL to Python}
 http://www.astro.umd.edu/$sim$mbk/idl-numpy.html\\
 http://www.johnny-lin.com/cdat\_tips/tips\_array/idl2num.html\\
 http://www.astrobetter.com/idl-vs-python/ \\
 http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Switchers+Guide \\
-http://mathesaurus.sourceforge.net/idl-numpy.html
-http://www.scicoder.org/mapping-idl-to-python/
+http://mathesaurus.sourceforge.net/\\
+http://mathesaurus.sourceforge.net/idl-numpy.html\\
+http://www.scicoder.org/mapping-idl-to-python/\\
+http://mathesaurus.sourceforge.net/idl-python-xref.pdf\\
 
 \subsection*{Teaching yourself Python}
-http://www.thelearningpoint.net/computer-science/learning-python-programming-and-data-structures/learning-python-programming-and-data-structures--tutorial-15--generators-and-list-comprehensions\\
-https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/\\
 http://www.tutorialspoint.com/python/\\
 http://www.tutorialspoint.com/python/python\_classes\_objects.htm\\
+http://codingbat.com/python\\
+https://wiki.python.org/moin/ProblemSets\\
+https://www.hackerrank.com/\\
+http://docs.python.org/3.5/tutorial/\\
+
+\noindent
+http://www.thelearningpoint.net/computer-science/learning-python-programming-and-data-structures/learning-python-programming-and-data-structures--tutorial-15--generators-and-list-comprehensions\\
+https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/\\
+http://learnpythonthehardway.org/\\
+http://learnpythonthehardway.org/book/ex40.html\\
+
 
 \noindent
 Also, 
