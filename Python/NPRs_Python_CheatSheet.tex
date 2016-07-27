@@ -191,6 +191,11 @@ TypeError: 'int' object is not subscriptable
 \section{Key packages}
 {\tt matplotib\\
 numpy\\
+scipy \\
+ipython \\ 
+pandas \\
+sympy \\ 
+nose \\
 pyds9\\
 pyFITS\\
 yt\\
@@ -413,6 +418,19 @@ See 429 in history\_20150113.txt and onwards... :-)
   >>> 
   \end{lstlisting}  
 
+    \subsection{Array Manipulation}
+    \begin{lstlisting}
+   >>> arr = [1,2,3,4]
+   >>> print(arr[::1])
+   [1, 2, 3, 4]
+   >>> print(arr[::-1])
+   [4, 3, 2, 1]
+   >>> print(" ".join(map(str, arr[::1])))
+   1 2 3 4
+   >>> print(" ".join(map(str, arr[::-1])))
+   4 3 2 1
+  \end{lstlisting}  
+
 
 
  
@@ -508,6 +526,19 @@ By convention, matplotlib is imported as mpl. Also by convention, matplotlib.pyp
 \section*{Useful Resources}
 Borrows, begs and steals from: \\
 
+\subsection*{General Python Resources}
+http://docs.python.org/3.5/tutorial/\\
+http://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html
+http://www.scipy-lectures.org/intro/numpy/numpy.html
+https://sites.google.com/site/aslugsguidetopython/
+https://sites.google.com/site/aslugsguidetopython/data-analysis/array-manipulation
+
+\subsection*{Teaching yourself Python}
+http://www.tutorialspoint.com/python/\\
+http://www.tutorialspoint.com/python/python\_classes\_objects.htm\\
+http://codingbat.com/python\\
+https://wiki.python.org/moin/ProblemSets\\
+https://www.hackerrank.com/\\
 
 \subsection*{IDL to Python}
 http://www.astro.umd.edu/$sim$mbk/idl-numpy.html\\
@@ -519,13 +550,6 @@ http://mathesaurus.sourceforge.net/idl-numpy.html\\
 http://www.scicoder.org/mapping-idl-to-python/\\
 http://mathesaurus.sourceforge.net/idl-python-xref.pdf\\
 
-\subsection*{Teaching yourself Python}
-http://www.tutorialspoint.com/python/\\
-http://www.tutorialspoint.com/python/python\_classes\_objects.htm\\
-http://codingbat.com/python\\
-https://wiki.python.org/moin/ProblemSets\\
-https://www.hackerrank.com/\\
-http://docs.python.org/3.5/tutorial/\\
 
 \noindent
 http://www.thelearningpoint.net/computer-science/learning-python-programming-and-data-structures/learning-python-programming-and-data-structures--tutorial-15--generators-and-list-comprehensions\\
