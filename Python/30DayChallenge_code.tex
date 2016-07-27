@@ -176,10 +176,22 @@ for i in range(int(eval(input()))):
 \newpage
 \section{Day 7: Arrays}
 \begin{lstlisting}
+'''
+Task: Given an array, A, of N integers, print A''s elements in reverse order as a single line of space-separated numbers. 
+
+http://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html
+http://www.scipy-lectures.org/intro/numpy/numpy.html
+'''
+
+import sys
+
+n = int(input().strip())
+arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
+
+# print(arr[::-1])
+print(" ".join(map(str, arr[::-1])))
 
 \end{lstlisting}
-
-
 
 
 
@@ -187,7 +199,45 @@ for i in range(int(eval(input()))):
 \newpage
 \section{Day 8: Dictionaries and Maps}
 \begin{lstlisting}
+'''
+Objective:: Today, we are learning about Key-Value pair mappings using a Map or Dictionary data structure. Check out the Tutorial tab for learning materials and an instructional video!
+
+Task:: Given N names and phone numbers, assemble a phone book that maps friends names to their respective phone numbers. You will then be given an unknown number of names to query your phone book for; for each name queried, print the associated entry from your phone book (in the form ) or  if there is no entry for .
+
+Note: Your phone book should be a Dictionary/Map/HashMap data structure.
+
+Sample Input:
+3
+sam 99912222
+tom 11122222
+harry 12299933
+sam
+edward
+harry
+'''
+
+import sys 
+
+# Read input and assemble phoneBook
+n = int(input())
+phoneBook = {}
+for i in range(n):
+    contact = input().split(' ')
+    phoneBook[contact[0]] = contact[1]
+
+# Process Queries
+lines = sys.stdin.readlines()
+for i in lines:
+    name = i.strip()
+    if name in phoneBook:
+        print(name + '=' + str( phoneBook[name] ))
+    else:
+        print('Not found')
 \end{lstlisting}
+
+
+
+
 
 \newpage
 \section{Day 9: Recursion}

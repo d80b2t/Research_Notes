@@ -117,6 +117,7 @@ http://nbviewer.ipython.org/github/ipython/ipython/blob/1.x/examples/notebooks/P
 >>> f = 123.
 >>> L = [1,2,3]
 >>> a = (1,2,3)
+>>> D = {1,2,3}
 >>> s = '1,2,3'
 
 >>> type(n)
@@ -127,6 +128,8 @@ http://nbviewer.ipython.org/github/ipython/ipython/blob/1.x/examples/notebooks/P
 <class 'list'>
 >>> type(a)
 <class 'tuple'>
+>>> type(D)
+<class 'set'>
 >>> type(s)
 <class 'str'>
 \end{lstlisting}
@@ -186,6 +189,68 @@ TypeError: 'int' object is not subscriptable
 >>> print len(super_list[-1])
 5
 \end{lstlisting}
+
+
+\subsection{Dictionaries and Maps}
+From: \href{http://learnpythonthehardway.org/book/ex39.html}{http://learnpythonthehardway.org/book/ex39.html}: 
+You are now going to learn about the Dictionary data structure in
+Python. A Dictionary (or "dict") is a way to store data just like a
+list, but instead of using only numbers to get the data, you can use
+almost anything. This lets you treat a dict like it's a database for
+storing and organizing data.
+
+From: \href{https://docs.python.org/3/tutorial/datastructures.html\#dictionaries}{https://docs.python.org/3/tutorial/datastructures.html\#dictionaries}: 
+Another useful data type built into Python is the dictionary (see
+Mapping Types — dict). Dictionaries are sometimes found in other
+languages as “associative memories” or “associative arrays”. Unlike
+sequences, which are indexed by a range of numbers, dictionaries are
+indexed by keys, which can be any immutable type; strings and numbers
+can always be keys. Tuples can be used as keys if they contain only
+strings, numbers, or tuples; if a tuple contains any mutable object
+either directly or indirectly, it cannot be used as a key. You can’t
+use lists as keys, since lists can be modified in place using index
+assignments, slice assignments, or methods like append() and extend().
+
+It is best to think of a dictionary as an unordered set of key: value
+pairs, with the requirement that the keys are unique (within one
+dictionary). A pair of braces creates an empty dictionary: {}. Placing
+a comma-separated list of key:value pairs within the braces adds
+initial key:value pairs to the dictionary; this is also the way
+dictionaries are written on output.
+
+The main operations on a dictionary are storing a value with some key
+and extracting the value given the key. It is also possible to delete
+a key:value pair with del. If you store using a key that is already in
+use, the old value associated with that key is forgotten. It is an
+error to extract a value using a non-existent key.
+
+\begin{lstlisting}
+# http://www.tutorialspoint.com/python/python_dictionary.htm
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+print("dict['Name']: ", dict['Name'])
+print("dict['Age']: ", dict['Age'])
+print("dict['Alice']: ", dict['Alice]')
+\end{lstlisting}
+
+\noindent
+From: \href{http://openbookproject.net/thinkcs/python/english3e/dictionaries.html}{http://openbookproject.net/thinkcs/python/english3e/dictionaries.html}:
+
+Hashing. The order of the pairs may not be what was expected. Python uses complex algorithms, designed for very fast access, to determine where the key:value pairs are stored in a dictionary. For our purposes we can think of this ordering as unpredictable.
+You also might wonder why we use dictionaries at all when the same concept of mapping a key to a value could be implemented using a list of tuples:
+\begin{lstlisting}
+>>> {"apples": 430, "bananas": 312, "oranges": 525, "pears": 217}
+{'pears': 217, 'apples': 430, 'oranges': 525, 'bananas': 312}
+>>> [('apples', 430), ('bananas', 312), ('oranges', 525), ('pears', 217)]
+[('apples', 430), ('bananas', 312), ('oranges', 525), ('pears', 217)]
+\end{lstlisting}
+
+The reason is dictionaries are very fast, implemented using a
+technique called hashing, which allows us to access a value very
+quickly. By contrast, the list of tuples implementation is slow. If we
+wanted to find a value associated with a key, we would have to iterate
+over every tuple, checking the 0th element. What if the key wasn’t
+even in the list? We would have to get to the end of it to find out.
+
 
 
 \section{Key packages}
@@ -297,8 +362,12 @@ asdf asdfasdf ddddf aa
 \end{lstlisting}
 
 \begin{lstlisting}
-
+# Would like some code to read in .csv files...
+# Would like some code to read in .txt files...
+# Would like some code to read in .dat files...
 \end{lstlisting}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -332,7 +401,12 @@ a string format, otherwise it just barfs... \\
 
 
 \section{v2 vs. v3}
+\href{https://docs.python.org/3.0/library/2to3.html}{https://docs.python.org/3.0/library/2to3.html}\\
+\href{https://docs.python.org/3/howto/pyporting.html}{https://docs.python.org/3/howto/pyporting.html}\\
 \href{https://docs.python.org/3/howto/pyporting.html}{https://docs.python.org/3/howto/pyporting.html}
+\href{https://docs.python.org/2/library/2to3.html}{https://docs.python.org/2/library/2to3.html}\\
+\$ {\tt 2to3 -w example.py}\\
+
 
     \subsection{print}
     {\tt print a} vs. {\tt print (a)}
