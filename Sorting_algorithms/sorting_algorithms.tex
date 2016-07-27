@@ -1,0 +1,58 @@
+\documentclass{article}
+%\usepackage[utf8]{inputenc, hyperref}
+\usepackage{inputenc, hyperref}
+
+\title{Sorting Algorithms}
+\author{Nic Ross}
+\date{May 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\noindent
+\href{https://en.wikipedia.org/wiki/Sorting\_algorithm}{https://en.wikipedia.org/wiki/Sorting\_algorithm}
+
+
+\noindent
+\href{http://corte.si/posts/code/visualisingsorting/index.html}{http://corte.si/posts/code/visualisingsorting/index.html}
+
+%% https://www.reddit.com/r/cscareerquestions/comments/20ahfq/heres_a_pretty_big_list_of_programming_interview/
+
+%Implement bubble sort
+%Implement selection sort
+%Implement insertion sort
+%Implement merge sort
+%Implement quick sort
+
+
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{l ccc  ccc}
+    \hline\hline
+                 & Best  & Worst   & Average & Memory & Stable & Method \\
+                  \hline 
+Simple sorts   &          &              &              &               &   & \\
+\hspace{16pt}Insertion sort  &  $\mathcal{O}(n)$ & $\mathcal{O}(n^2)$ & $\mathcal{O}(n^2)$ & 1 & Yes& Insertion \\
+\hspace{16pt}Selection sort &  $\mathcal{O}(n^2)$ & $\mathcal{O}(n^2)$ & $\mathcal{O}(n^2)$ & 1 & No& Selection \\      Efficient sorts &          &              &              &               &   & \\
+\hspace{16pt} Merge sort    &  $n \log n$     &  $n \log n$           &  $n \log n$              &    n           & Yes   & Merging \\
+\hspace{16pt} Heapsort       &          &              &              &               &   & \\
+\hspace{16pt} Quicksort      &          &              &              &               &   & \\
+Bubble sort and variants &          &              &              &               &   & \\
+\hspace{16pt} Bubble sort  & $\mathcal{O}(n)$ & $\mathcal{O}(n^2)$ & $\mathcal{O}(n^2)$ & 1 & Yes& Exchanging \\
+\hspace{16pt} Shell sort     &          &              &              &               &   & \\
+\hspace{16pt} Comb sort   &          &              &              &               &   & \\
+Distribution sorts &           &              &              &               &   & \\
+\hspace{16pt} Counting sort  &          &              &              &               &   & \\
+\hspace{16pt} Bucket sort      &          &              &              &               &   & \\
+\hspace{16pt} Radix sort        &          &              &              &               &   & \\
+    \hline\hline
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
+
+\end{document}
