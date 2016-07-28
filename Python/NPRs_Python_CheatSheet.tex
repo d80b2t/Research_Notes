@@ -346,7 +346,11 @@ Key links:\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{INPUT}
-Just some general ways to get variables read-in and different 'tricks' to Python3 input. 
+Just some general ways to get variables read-in and different 'tricks' to Python3 input. \\
+\href{https://en.wikibooks.org/wiki/Non-Programmer\%27s\_Tutorial\_for\_Python\_3/File\_IO}{https://en.wikibooks.org/wiki/Non-Programmer\%27s\_Tutorial\_for\_Python\_3/File\_IO}\\
+\href{http://www.programiz.com/python-programming/file-operation}{http://www.programiz.com/python-programming/file-operation}\\
+\href{http://stackoverflow.com/questions/3925614/how-do-you-read-a-file-into-a-list-in-python}{http://stackoverflow.com/questions/3925614/how-do-you-read-a-file-into-a-list-in-python}\\
+
 
 \begin{lstlisting}
 >>> s = eval(input())
@@ -362,10 +366,19 @@ asdf asdfasdf ddddf aa
 \end{lstlisting}
 
 \begin{lstlisting}
-# Would like some code to read in .csv files...
-# Would like some code to read in .txt files...
 # Would like some code to read in .dat files...
+with open('million_nos.dat') as f:
+    lines = f.read().splitlines()
 \end{lstlisting}
+
+\begin{lstlisting}
+data = [line.strip() for line in open("million_nos.dat", 'r')]
+## Still need to test this...
+\end{lstlisting}
+
+%% # Would like some code to read in .csv files...
+%% # Would like some code to read in .txt files...
+
 
 
 
@@ -380,8 +393,22 @@ asdf asdfasdf ddddf aa
 \section{OUTPUT}
 For the ``write'' statement, I think you have to put everything into 
 a string format, otherwise it just barfs... \\
+\href{http://learnpythonthehardway.org/book/ex16.html}{http://learnpythonthehardway.org/book/ex16.html}
 
 \noindent
+\begin{lstlisting}
+import random
+
+size = 1000000
+lis = random.sample(range(size), size)
+
+outfile = open('temp.dat', 'w')
+for i in range(len(lis)):
+    outfile.write(str(lis[i])+'\n')
+    
+outfile.close()
+\end{lstlisting}
+
 \begin{lstlisting}
   outfile = open('WISE_spectra_triples_4wget_temp.dat', 'w') \\
   for i in range(len(ra)): 
@@ -392,6 +419,8 @@ a string format, otherwise it just barfs... \\
 
     outfile.write(plate_out+"/spec-"+plate_out+"-"+mjd_out+"-"+fiberid_out.zfill(4)+".fits \n")
 \end{lstlisting}
+
+
 
 
 
@@ -602,10 +631,15 @@ Borrows, begs and steals from: \\
 
 \subsection*{General Python Resources}
 http://docs.python.org/3.5/tutorial/\\
-http://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html
-http://www.scipy-lectures.org/intro/numpy/numpy.html
-https://sites.google.com/site/aslugsguidetopython/
-https://sites.google.com/site/aslugsguidetopython/data-analysis/array-manipulation
+http://docs.scipy.org/doc/numpy/reference/routines.array-manipulation.html\\
+http://www.scipy-lectures.org/intro/numpy/numpy.html\\
+https://sites.google.com/site/aslugsguidetopython/\\
+https://sites.google.com/site/aslugsguidetopython/data-analysis/array-manipulation\\
+
+\subsection*{Inter-active links}
+http://interactivepython.org/runestone/static/pythonds/SortSearch/TheBubbleSort.html\\
+http://pythoncentral.io/time-a-python-function/\\
+
 
 \subsection*{Teaching yourself Python}
 http://www.tutorialspoint.com/python/\\
@@ -613,6 +647,7 @@ http://www.tutorialspoint.com/python/python\_classes\_objects.htm\\
 http://codingbat.com/python\\
 https://wiki.python.org/moin/ProblemSets\\
 https://www.hackerrank.com/\\
+
 
 \subsection*{IDL to Python}
 http://www.astro.umd.edu/$sim$mbk/idl-numpy.html\\
