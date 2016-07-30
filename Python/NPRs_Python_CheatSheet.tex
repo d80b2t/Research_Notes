@@ -356,7 +356,128 @@ from \href{http://www.tutorialspoint.com/python/python\_classes\_objects.htm}{ht
 
 
 
-%Section heading
+\newpage
+\section{Function}
+{\bf N.B.} Straight from: \href{http://www.python-course.eu/python3\_functions.php}{http://www.python-course.eu/python3\_functions.php}. 
+
+The concept of a function is one of the most important ones in
+mathematics. A common usage of functions in computer languages is to
+implement mathematical functions. Such a function is computing one or
+more results, which are entirely determined by the parameters passed
+to it.
+
+In the most general sense, a function is a structuring element in
+programming languages to group a set of statements so they can be
+utilized more than once in a program. The only way to accomplish this
+without functions would be to reuse code by copying it and adapt it to
+its different context. Using functions usually enhances the
+comprehensibility and quality of the program. It also lowers the cost
+for development and maintenance of the software.
+
+Functions are known under various names in programming languages,
+e.g. as subroutines, routines, procedures, methods, or subprograms.
+
+A function in Python is defined by a def statement. The general syntax looks like this:
+\begin{lstlisting}
+def function-name(Parameter list):
+    statements, i.e. the function body
+\end{lstlisting}
+
+The parameter list consists of none or more parameters. Parameters are
+called arguments, if the function is called. The function body
+consists of indented statements. The function body gets executed every
+time the function is called.
+
+Parameter can be mandatory or optional. The optional parameters (zero
+or more) must follow the mandatory parameters.
+
+Function bodies can contain one or more return statement. They can be
+situated anywhere in the function body. A return statement ends the
+execution of the function call and "returns" the result, i.e. the
+value of the expression following the return keyword, to the
+caller. If the return statement is without an expression, the special
+value None is returned. If there is no return statement in the
+function code, the function ends, when the control flow reaches the
+end of the function body and the value value will be returned.
+Example:
+
+\begin{lstlisting}
+def fahrenheit(T_in_celsius):
+    """ returns the temperature in degrees Fahrenheit """
+    return (T_in_celsius * 9 / 5) + 32
+
+for t in (22.6, 25.8, 27.3, 29.8):
+    print(t, ": ", fahrenheit(t))
+\end{lstlisting}
+
+The output of this script looks like this:
+\begin{lstlisting}
+22.6 :  72.68
+25.8 :  78.44
+27.3 :  81.14
+29.8 :  85.64
+\end{lstlisting}
+
+\noindent
+Optional Parameters.\\
+Functions can have optional parameters, also called default
+parameters. Default parameters are parameters, which don't have to be
+given, if the function is called. In this case, the default values are
+used. We will demonstrate the operating principle of default
+parameters with an example. The following little script, which isn't
+very useful, greets a person. If no name is given, it will greet
+everybody:
+
+\begin{lstlisting}
+def Hello(name="everybody"):
+    """ Greets a person """
+    print("Hello " + name + "!")
+
+Hello("Peter")
+Hello()
+\end{lstlisting}
+
+\noindent
+The output looks like this:
+
+\begin{lstlisting}
+Hello Peter!
+Hello everybody!
+\end{lstlisting}
+
+\noindent
+Docstring.\\
+The first statement in the body of a function is usually a string, which can be accessed with {\tt function\_name.\_\_doc\_\_}. This statement is called Docstring. Example:
+
+\begin{lstlisting}
+def Hello(name="everybody"):
+    """ Greets a person """
+    print("Hello " + name + "!")
+
+print("The docstring of the function Hello: " + Hello.__doc__)
+\end{lstlisting}
+
+\noindent 
+The output:
+\begin{lstlisting}
+The docstring of the function Hello:  Greets a person 
+\end{lstlisting}
+
+
+
+
+
+\newpage
+\section{Errors and fixes}
+    \subsection{NameError}
+    Error message: ``NameError: name 'now' is not defined''\\
+    Solution: Use raw\_input() for python2 and input() in python3. In python2, input() is the same as saying eval(raw\_input()) \\ 
+%% http://stackoverflow.com/questions/15190632/nameerror-name-now-is-not-defined
+
+
+
+
+\newpage
 \section{IDL to Python}
 Key links:\\
 \href{http://www.johnny-lin.com/cdat_tips/tips_array/idl2num.html}{IDL to Numeric/numarray Mapping}\\
