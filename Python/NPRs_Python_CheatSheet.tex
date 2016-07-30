@@ -136,6 +136,64 @@ http://nbviewer.ipython.org/github/ipython/ipython/blob/1.x/examples/notebooks/P
 
 
 
+\newpage
+\section{A general code example ;-)} 
+
+\begin{lstlisting}
+"""
+Outline:
+
+You have a certain amount of credit to spend at a book store. You want to buy two books and you want to spend all of your store credit. However, you have to carry the books a far distance so you want to buy the lightest pair of books possible.
+Each book available in the bookstore is represented as a tuple of their price and weight. You are given a list of all books in the bookstore as follows:
+[(price0, weight0), (price1, weight1), etc, (priceN, weightN)]
+Print the indices of the two books you should buy and their combined weight.
+"""
+    
+    
+credit = 18
+books = [(17, 5), (3, 55), (5, 12), (14, 9), (16, 1), (9, 5),
+         (5, 6), (18, 13), (19, 7), (1, 20), (4, 12), (11, 1),
+         (8, 6), (8, 18), (3, 4), (13, 7), (17, 22), (20, 7)]
+
+
+# Point 1: Strong condition: PriceBookA + PriceBookB = 18. 
+
+# Want to take the LIST of books, it's not a long list, so happy to loop over -- indeed happy to loop over twice if needs be. 
+
+# Then generate a new list, goodPrice, of the pairs of books that have PriceBookA + PriceBookB = 18
+goodPrice=[]
+largeWeight = 100000.
+
+for i in range(len(books)):
+    PriceBookA =  books[i][0] 
+    for j in range(len(books)):
+        PriceBookB =  books[j][0] 
+        
+        if ((PriceBookA + PriceBookB) == 18) and (i != j):
+            # goodPrice becomes the sum of the weights 
+            # if the sum of the weights of the books is less than largeWeight then (i) keep that sum and (ii) keep the indicies and then (iiI) set largeWeight to the new min weight. 
+            
+            sumWeights = books[i][1]+books[j][1]
+            if (sumWeights < largeWeight):
+                largeWeight = sumWeights
+                goodIndexA = i     
+                goodIndexB = j            
+        
+#            goodPrice.append(books[i][1]+ )
+print(largeWeight) 
+print(goodIndexA)
+print(goodIndexB)
+
+
+# Figure out which (limited) combinations of books satifisy this price condition
+
+# Sort that set by sum of weights (WeightBookA + WeightBookB). Pick the minimum there. 
+
+\end{lstlisting}
+
+
+    
+
 
 \newpage
 \section{Britton's Classes :-)}
@@ -617,16 +675,46 @@ See 429 in history\_20150113.txt and onwards... :-)
  \end{lstlisting}
 
 
- 
 
-\section*{General Wee Tips}
+\newpage
+\section{OO fundamentals}
+This is (probably) a whole nother 'cheat sheet'/book, but I {\it really} need to know about at least the basics of this stuff, so here are me notes!!
+
+\smallskip
+\smallskip
+\noindent
+\href{http://codebetter.com/raymondlewallen/2005/07/19/4-major-principles-of-object-oriented-programming/}{http://codebetter.com/raymondlewallen/2005/07/19/4-major-principles-of-object-oriented-programming/}
+
+\smallskip
+\smallskip
+\noindent
+\href{http://www.jamesbooth.com/OOPBasics.htm}{http://www.jamesbooth.com/OOPBasics.htm}
+
+\smallskip
+\smallskip
+\noindent
+\href{http://www.bentodev.org/oo.html}{http://www.bentodev.org/oo.html}
+
+\smallskip
+\smallskip
+\noindent
+\href{http://www.johnloomis.org/ece538/notes/oop\_principles/oop\_wikipedia.html}{http://www.johnloomis.org/ece538/notes/oop\_principles/oop\_wikipedia.html}
+
+
+ 
+\newpage
+\section{General Wee Tips}
 Need points that are evenly spaced on a log scale? Use {\tt np.logscale(start, stop, base)} \\
 By convention, matplotlib is imported as mpl. Also by convention, matplotlib.pyplot is imported as plt.\\
 
 
 
 
-\section*{Useful Resources}
+
+
+
+\newpage
+\section{Useful Resources}
 Borrows, begs and steals from: \\
 
 \subsection*{General Python Resources}
@@ -651,6 +739,7 @@ https://www.hackerrank.com/\\
 
 \subsection*{IDL to Python}
 http://www.astro.umd.edu/$sim$mbk/idl-numpy.html\\
+\href{http://www.cv.nrao.edu/~aleroy/pytut/topic2/intro\_fits\_files.py}{http://www.cv.nrao.edu/~aleroy/pytut/topic2/intro\_fits\_files.py}
 http://www.johnny-lin.com/cdat\_tips/tips\_array/idl2num.html\\
 http://www.astrobetter.com/idl-vs-python/ \\
 http://www.astrobetter.com/wiki/tiki-index.php?page=Python+Switchers+Guide \\
@@ -659,7 +748,6 @@ http://mathesaurus.sourceforge.net/idl-numpy.html\\
 http://www.scicoder.org/mapping-idl-to-python/\\
 http://mathesaurus.sourceforge.net/idl-python-xref.pdf\\
 
-
 \noindent
 http://www.thelearningpoint.net/computer-science/learning-python-programming-and-data-structures/learning-python-programming-and-data-structures--tutorial-15--generators-and-list-comprehensions\\
 https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/\\
@@ -667,11 +755,39 @@ http://learnpythonthehardway.org/\\
 http://learnpythonthehardway.org/book/ex40.html\\
 
 
+\subsection*{Transitioning to Data Science}
 \noindent
-Also, 
-http://www.cv.nrao.edu/~aleroy/pytut/topic2/intro\_fits\_files.py
+Words and links from \href{http://insightdatascience.com/blog/transition\_to\_ds.html}{http://insightdatascience.com/blog/transition\_to\_ds.html}. 
 
+\smallskip
+\smallskip
 \noindent
+\textbf{\textsc{Programming:}}
+There are many languages for conducting data science work: Python, R,
+MATLAB, Stata, SAS, and so on. However, we've found the the general
+trend in data science is towards Python\footnote{See e.g.,
+\href{http://blog.codeeval.com/codeevalblog/2015\#.V5qxlpMrKRs}{CodeEval blog};
+\href{http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/}{Breakdown
+of the 9 Most In-Demand Programming Languages}; 
+\href{http://statisticstimes.com/tech/top-computer-languages.php}{http://statisticstimes.com/tech/top-computer-languages.php} and of course, 
+\href{http://www.tiobe.com/tiobe_index}{Tiobe}.}.
+Python is a general purpose programming language that has a growing
+number of modules for data analysis, including SciPy, Numpy, Pandas,
+StatsModels, and Scikit-learn, as well as many visualization tools
+like seaborn, matplotlib, and ggplot.
+
+\smallskip
+\smallskip
+\noindent
+Action Items:
+\begin{itemize}
+\item{To get started, Codecademy has an excellent python course that only
+takes an estimated 13 hours to complete.}  
+\item{Google's Python Class. remains a perennial favorite among Insight Fellows.}
+\item{If you have a bit more time, we recommend Zed Shaw's excellent Learn Python the Hard Way.}
+\item{Become familiar with the Jupyter notebook, which is increasingly popular among data scientists for sharing code and ideas.}
+\end{itemize}
+
 
 
 
