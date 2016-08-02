@@ -35,16 +35,20 @@
 \maketitle
 
 
-% Usually omit these for ApJ or MNRAS style files:
-%\tableofcontents
-%\listoffigures
-%\listoftables
+%% Usually omit these for ApJ or MNRAS style files:
+
 
 \begin{abstract}
 The is my (NPR's) version of a $\sim$Python ``Cheat Sheet'', 
 (including some parts for folks that want to migrate form 
 IDL). 
 \end{abstract}
+
+
+\newpage
+\tableofcontents
+%\listoffigures
+%\listoftables
 
 
 \newpage
@@ -339,6 +343,7 @@ nose \\
 pyds9\\
 pyFITS\\
 yt\\
+healpy\\
 }
 
 
@@ -374,6 +379,35 @@ from \href{http://www.tutorialspoint.com/python/python\_classes\_objects.htm}{ht
 \end{itemize}
 
 Maybe see also \href{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}. 
+
+
+    \subsection{Abstract Classes}
+    \href{https://www.hackerrank.com/challenges/30-abstract-classes/tutorial}{https://www.hackerrank.com/challenges/30-abstract-classes/tutorial} \\
+
+    \textbf{\textsc{Case Study: Abstraction:}}
+    This is is an essential feature of object-oriented programming. In essense, it's the separation between what a class does and how it's accomplished. 
+
+One real world example of this concept is a snack machine, where you
+give the machine money, make a selection, and the machine dispenses
+the snack. The only thing that matters is what the machine does (i.e.:
+dispenses the selected snack); you can easily buy a snack from any
+number of snack machines without knowing how the machine's internals
+are designed (i.e.: the implementation details).
+
+Abstract Class This type of class can have abstract methods as well as
+defined methods, but it cannot be instantiated (meaning you cannot
+create a new instance of it). To use an abstract class, you must
+create and instantiate a subclass that extends the abstract class. Any
+abstract methods declared in an abstract class must be implemented by
+its subclasses (unless the subclass is also abstract).
+
+ abc -- Abstract Base Classes
+Source code: Lib/abc.py
+
+This module provides the infrastructure for defining abstract base classes (ABCs) in Python, as outlined in PEP 3119; see the PEP for why this was added to Python. (See also PEP 3141 and the numbers module regarding a type hierarchy for numbers based on ABCs.)
+
+The collections module has some concrete classes that derive from ABCs; these can, of course, be further derived. In addition the collections.abc submodule has some ABCs that can be used to test whether a class or instance provides a particular interface, for example, is it hashable or a mapping.
+
 
 
 
@@ -579,6 +613,19 @@ data = [line.strip() for line in open("million_nos.dat", 'r')]
 %% # Would like some code to read in .csv files...
 %% # Would like some code to read in .txt files...
 
+    \subsection{e.g. running a script from the Command Line}
+    \begin{lstlisting}
+   from sys import argv
+   # I want the "argument vector" from the system module
+
+   # When running script, you now expect/need three (additional) inputs/arguments..
+   script, first, second, third = argv
+
+   print("The script is called:", script)
+   print("Your first variable is:", first)
+   print("Your second variable is:", second)
+   print("Your third variable is:", third)
+   \end{lstlisting}
 
 
 
