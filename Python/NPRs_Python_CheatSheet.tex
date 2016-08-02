@@ -114,12 +114,14 @@ http://nbviewer.ipython.org/github/ipython/ipython/blob/1.x/examples/notebooks/P
 \newpage
 \section{Data Types}
 
+\subsection{e.g. Data types}
 \begin{lstlisting}
 >>> n = 123
 >>> f = 123.
 >>> L = [1,2,3]
 >>> a = (1,2,3)
 >>> D = {1,2,3}
+>>> x = {'1': '2', '3': 45}
 >>> s = '1,2,3'
 
 >>> type(n)
@@ -132,9 +134,22 @@ http://nbviewer.ipython.org/github/ipython/ipython/blob/1.x/examples/notebooks/P
 <class 'tuple'>
 >>> type(D)
 <class 'set'>
+>>> type(x)
+<class 'dict'>
 >>> type(s)
 <class 'str'>
 \end{lstlisting}
+
+\subsection{Dictionaries}
+\begin{lstlisting}
+>>> x = {'hello': 'Zed', 'name': 45}
+>>> x['hello']
+'Zed'
+>>> 
+
+
+\end{lstlisting}
+
 
 
 
@@ -357,6 +372,8 @@ from \href{http://www.tutorialspoint.com/python/python\_classes\_objects.htm}{ht
 \item{Inheritance: The transfer of the characteristics of a class to
     other classes that are derived from it.}
 \end{itemize}
+
+Maybe see also \href{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}. 
 
 
 
@@ -632,6 +649,46 @@ The Python3 equivalent of the IDL Where command is...
     // = truncating div in P2.x, P3.x 
     
 
+     \subsection{Unbound Methods}
+     
+     As of Python 3.0: The concept of ``unbound methods'' has been
+removed from the language. When referencing a method as a class
+attribute, you now get a plain function object. So this example is
+valid python 3.X code, since there are no ``unbound methods'', just
+functions attached to class objects.  %% - Dagoth Ulen Sep 26 '13 at
+20:09
+
+     {\tt \$ python}
+    \begin{lstlisting}
+   Python 2.7.11 |Anaconda 2.5.0 (x86_64)| (default, Dec  6 2015, 18:57:58) 
+   [GCC 4.2.1 (Apple Inc. build 5577)] on darwin
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>> import mystuff
+   >>> mystuff.tangerine
+    'Living reflection of a dream'
+   >>> mystuff.MyStuff
+    <class 'mystuff.MyStuff'>
+   >>> mystuff.MyStuff.apple
+    <unbound method MyStuff.apple>
+     \end{lstlisting}
+
+     {\tt \$ python3}
+    \begin{lstlisting}
+   Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 26 2016, 10:47:25) 
+   [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>> import mystuff
+   >>> mystuff.tangerine
+    'Living reflection of a dream'
+   >>> mystuff.MyStuff
+    <class 'mystuff.MyStuff'>
+   >>> mystuff.MyStuff.apple
+    <function MyStuff.apple at 0x1013499d8>
+    \end{lstlisting}
+
+
+
+
 \newpage
 \section{Linear Algebra}
 \href{http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html}{http://docs.scipy.org/doc/scipy/reference/tutorial/linalg.html}
@@ -835,7 +892,55 @@ This is (probably) a whole nother 'cheat sheet'/book, but I {\it really} need to
     ''Parent'' is the superclass, the child is the ''subclass''. 
     A class that is derived from another class is called a subclass (also a derived class, extended class, or child class). The class from which the subclass is derived is called a superclass (also a base class or a parent class).
     
+    \subsection{The {\tt \_\_init\_\_} method}
+    \href{http://www.ibiblio.org/g2swap/byteofpython/read/class-init.html}{http://www.ibiblio.org/g2swap/byteofpython/read/class-init.html}\\
+    The {\tt \_\_init\_\_} method is run as soon as an object of a
+class is instantiated. The method is useful to do any initialization
+you want to do with your object. Notice the double underscore both in
+the beginning and at the end in the name.
+
+    \href{http://stackoverflow.com/questions/625083/python-init-and-self-what-do-they-do}{http://stackoverflow.com/questions/625083/python-init-and-self-what-do-they-do}\\
+   I'm learning the Python programming language, and I've come across
+    certain things I don't fully understand. I'm coming from a C
+    background, but I never went far with that either.
+    What I'm trying to figure out is:
+    In a method:
+    \begin{lstlisting}
+   def method(self, blah):
+     def __init__(?):
+        ...
+        ...
+  \end{lstlisting}
+    What does self do? what is it meant to be? and is it mandatory?\\
+    What does the {\tt \_\_init\_\_} method do? why is it necessary? etc\\
+
     
+    In this code:
+    \begin{lstlisting}
+   class A(object):
+      def __init__(self):
+          self.x = 'Hello'
+
+      def method_a(self, foo):
+          print self.x + ' ' + foo
+    \begin{lstlisting}
+... the self variable represents the instance of the object
+itself. Most object-oriented languages pass this as a hidden parameter
+to the methods defined on an object; Python does not. You have to
+declare it explicitly. When you create an instance of the A class and
+call its methods, it will be passed automatically, as in ...
+
+a = A()               # We do not pass any argument to the __init__ method
+a.method_a('Sailor!') # We only pass a single argument
+The __init__ method is roughly what represents a constructor in Python. When you call A() Python creates an object for you, and passes it as the first parameter to the __init__ method. Any additional parameters (e.g., A(24, 'Hello')) will also get passed as arguments--in this case causing an exception to be raised, since th
+     \begin{lstlisting}
+  \end{lstlisting}
+
+
+The {\tt \_\_init\_\_} method is analogous to a constructor in C++, C\#
+or Java.
+
+
 
 
  
