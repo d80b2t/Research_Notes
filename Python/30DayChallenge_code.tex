@@ -3,14 +3,37 @@
 \input{format}
 \setcounter{section}{-1} 
 
-
 \begin{document}
 
+
+\title{HackerRank: 30 Days of Code Challenge}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+%% Usually omit these for ApJ or MNRAS style files:
+
+
+\begin{abstract}
+The is my (NPR's) set of notes from the \href{www.hackerrank.com}{\tt
+HackerRank}
+\href{https://www.hackerrank.com/domains/tutorials/30-days-of-code}{
+``30 Days of Code Challenge''}.  The general idea here is to help my
+learn/brush up on my Python skillz.  The .tex and .pdf of thes notes
+can be found at: \\
+ \href{https://github.com/d80b2t/Research\_Notes}{\tt https://github.com/d80b2t/Research\_Notes}.
+\end{abstract}
+
+
+\newpage
 \tableofcontents
 
 
+\newpage
 \section*{General Notes}
 All in {\tt Python3}. 
+
 
 \newpage
 \section{Day 0: Hello, World.}
@@ -19,6 +42,7 @@ All in {\tt Python3}.
   inputString = input()
   print (inputString)
 \end{lstlisting}
+
 
 \newpage
 \section{Day 1: Data Types}
@@ -37,6 +61,7 @@ print(i + i2)
 print(d + d2)
 print(s + s2)
 \end{lstlisting}
+
 
 \newpage
 \section{Day 2: Operators}
@@ -193,10 +218,7 @@ arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
 
 # print(arr[::-1])
 print(" ".join(map(str, arr[::-1])))
-
 \end{lstlisting}
-
-
 
 
 \newpage
@@ -239,7 +261,6 @@ for i in lines:
 \end{lstlisting}
 
 
-
 \newpage
 \section{Day 9: Recursion}
 \begin{lstlisting}
@@ -263,7 +284,6 @@ def factorial(n):
 print((factorial(int(eval(input())))))
 
 \end{lstlisting}
-
 
 
 \newpage
@@ -293,7 +313,6 @@ max(bin(11111113)[2:].split('0'))
 
 print(len(max(bin(int(input().strip()))[2:].split('0'))))
 \end{lstlisting}
-
 
 
 \newpage
@@ -429,6 +448,7 @@ s.printPerson()
 print("Grade:", s.calculate())
 \end{lstlisting}
 
+
 \newpage
 \section{Day 13: Abstract Classes}
 
@@ -459,7 +479,7 @@ Output Format:: The void display() method should print and label the respective,
 Title:     $title
 Author: $author
 Price:     $price
-Note: The  is prepended to variable names to indicate they are placeholders for variables.
+Note: The $ is prepended to variable names to indicate they are placeholders for variables.
 
 Sample Input::
 The following input from stdin is handled by the locked stub code in your editor:
@@ -467,8 +487,6 @@ The Alchemist
 Paulo Coelho
 248
 '''
-
-
 
 from abc import ABCMeta, abstractmethod
 
@@ -495,13 +513,35 @@ author   =input()
 price    =int(input())
 new_novel=MyBook(title,author,price)
 new_novel.display()
-
 \end{lstlisting}
+
 
 \newpage
 \section{Day 14: Scope}
 \begin{lstlisting}
 \end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 \section{Day 15: Linked List}

@@ -1,35 +1,10 @@
 \documentclass[11pt,a4paper]{article}
-\bibliographystyle{apalike}
-\usepackage{epsfig, hyperref}
-\usepackage{amsmath}
-\usepackage{natbib}
-\usepackage{listings}
-\usepackage{color}
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-
-\lstset{frame=tb,
-  language=Python,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
-  numbers=none,
-  numberstyle=\tiny\color{gray},
-  keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
-  breaklines=true,
-  breakatwhitespace=true,
-  tabsize=3
-}
+\input{format}
 
 \begin{document}
 
-\title{Python ``Cheat Sheet''}
+\title{NPRs Python Notes}
 \author{Nicholas P. Ross}
 \date{\today}
 \maketitle
@@ -39,9 +14,12 @@
 
 
 \begin{abstract}
-The is my (NPR's) version of a $\sim$Python ``Cheat Sheet'', 
-(including some parts for folks that want to migrate form 
-IDL). 
+The is my (NPR's) set of Python notes.  Things started as wanting to
+just be an ``IDL to Python CheatSheet'', and have naturally snowballed
+from there.  You will be able to find the latest version of these notes
+and indeed the .tex file at:\\
+\href{https://github.com/d80b2t/Research\_Notes}{\tt
+https://github.com/d80b2t/Research\_Notes}.
 \end{abstract}
 
 
@@ -53,8 +31,6 @@ IDL).
 
 \newpage
 \section{Real basics}
-    \subsection{iPython}
-     \$ conda update ipython
 
     \subsection{Versions}
     \$ python3
@@ -78,9 +54,22 @@ IDL).
     \end{lstlisting}
  
 
-    \subsection{iPython from Fernando Perez}
-    Try: tmpnb.org  {\bf VERY USEFUL}\\
-    \href{http://www.pythonforbeginners.com/basics/ipython-a-short-introduction}{http://www.pythonforbeginners.com/basics/ipython-a-short-introduction}
+    \subsection{Style Guide for Python Code}
+    \href{https://www.python.org/dev/peps/pep-0008/}{PEP 8 -- Style Guide for Python Code}.\\
+    Use 4 spaces per indentation level.\\
+    Python 3 disallows mixing the use of tabs and spaces for indentation.\\
+    Code in the core Python distribution should always use \href{https://en.wikipedia.org/wiki/UTF-8}{UTF-8}. \\
+    Imports should usually be on separate lines. \\
+    Imports are always put at the top of the file, just after any module comments and docstrings, and before module globals and constants.\\
+    Avoid extraneous whitespace in the following situations: Immediately inside parentheses, brackets or braces; Immediately before a comma, semicolon, or colon; Immediately before the open parenthesis that starts the argument list of a function call; {\it More than one space around an assignment (or other) operator to align it with another.}\\
+
+
+
+
+
+
+
+
 
     \subsection{Notebook}
     Click on the NBviewer...\\
@@ -113,6 +102,31 @@ http://nbviewer.ipython.org/github/ipython/ipython/blob/1.x/examples/notebooks/P
     \end{figure}
 
 \href{https://github.com/profjsb/python-bootcamp}{https://github.com/profjsb/python-bootcamp}
+
+
+
+
+\newpage
+\section{iPython}
+\href{https://ipython.org/install.html}{https://ipython.org/install.html}\\
+
+\smallskip
+\smallskip
+\noindent
+{\tt \$ conda update ipython}\\
+
+\smallskip
+\smallskip
+\noindent
+{\tt \$ sudo pip3 install ipython[all] }\\
+Then
+{\tt \$ ipython3 notebook}\\
+
+    \subsection{iPython from Fernando Perez}
+    Try: tmpnb.org  {\bf VERY USEFUL}\\
+    \href{http://www.pythonforbeginners.com/basics/ipython-a-short-introduction}{http://www.pythonforbeginners.com/basics/ipython-a-short-introduction}
+
+
 
 
 \newpage
@@ -333,18 +347,29 @@ even in the list? We would have to get to the end of it to find out.
 
 \newpage
 \section{Key packages}
-{\tt matplotib\\
-numpy\\
-scipy \\
+{\tt
+astropy \\
+% astroscrappy \\
+healpy\\
 ipython \\ 
-pandas \\
-sympy \\ 
+matplotib\\
 nose \\
-pyds9\\
+numpy\\
+pandas \\
+reproject\\
+scipy \\
+sympy \\ 
+%pyds9\\
 pyFITS\\
 yt\\
-healpy\\
 }
+
+\smallskip
+\smallskip
+\noindent
+To install: \\
+{\tt python3 -m pip install somepackage}
+
 
 
 \newpage
@@ -522,12 +547,17 @@ The docstring of the function Hello:  Greets a person
 
 
 
+
+
 \newpage
 \section{Errors and fixes}
     \subsection{NameError}
     Error message: ``NameError: name 'now' is not defined''\\
     Solution: Use raw\_input() for python2 and input() in python3. In python2, input() is the same as saying eval(raw\_input()) \\ 
 %% http://stackoverflow.com/questions/15190632/nameerror-name-now-is-not-defined
+
+
+
 
 
 
@@ -550,6 +580,7 @@ Key links:\\
       IDL code   & Python code \\
       \hline 
       .run 'foo.pro'  & exec(open("./findSecondLargestNo.py").read())\\
+                            & \%run my\_script.py  ({\tt ipython} only??)\\
       \hline
       data=READFITS('file',header) 	 & data=pyfits.open('file')\\
       tdata  = mrdfits('SpIESch1ch2.fits',0, hdr) 	 & tdata = data[0].data \\
@@ -599,6 +630,7 @@ asdf asdfasdf ddddf aa
 >>> x, y, z, n = (int(eval(input())) for _ in range(4))
 \end{lstlisting}
 
+Would like some code to read in .dat files...
 \begin{lstlisting}
 # Would like some code to read in .dat files...
 with open('million_nos.dat') as f:
@@ -612,6 +644,16 @@ data = [line.strip() for line in open("million_nos.dat", 'r')]
 
 %% # Would like some code to read in .csv files...
 %% # Would like some code to read in .txt files...
+
+\smallskip
+\smallskip
+\noindent 
+Would like some code to read in .FITS files...
+\begin{lstlisting}
+\end{lstlisting}
+
+
+
 
     \subsection{e.g. running a script from the Command Line}
     \begin{lstlisting}
@@ -697,7 +739,6 @@ The Python3 equivalent of the IDL Where command is...
     
 
      \subsection{Unbound Methods}
-     
      As of Python 3.0: The concept of ``unbound methods'' has been
 removed from the language. When referencing a method as a class
 attribute, you now get a plain function object. So this example is
@@ -997,6 +1038,96 @@ Need points that are evenly spaced on a log scale? Use {\tt np.logscale(start, s
 By convention, matplotlib is imported as mpl. Also by convention, matplotlib.pyplot is imported as plt.\\
 
 
+
+
+\newpage
+\section{Glossary}
+
+\smallskip \smallskip
+\noindent
+\textbf{\textsc{Argument:}} The actual value of a parameter, e.g. in
+{\tt methodOne(5)}, the argument passed as variable {\tt x} is {\tt
+5}.
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Class:}} In OOP is an extensible
+program-code-template for creating objects, providing initial values
+for state (member variables) and implementations of behavior (member
+functions or methods). Class is a blueprint defining the
+charactaristics and behaviors of an object of that class type. Class
+names should be written in CamelCase, starting with a capital letter.
+
+\noindent
+Each class has two types of variables: class variables and instance variables; class variables point to the same (static) variable across all instances of a class, and instance variables have distinct values that vary from instance to instance. 
+
+\smallskip  \smallskip
+\noindent
+\textbf{\textsc{Class Constructor:}} is a 
+
+\smallskip \smallskip
+\noindent
+\textbf{\textsc{Class methods:}} are methods that are called on a
+class rather than an instance. They are typically used as part of an
+object meta-model. I.e, for each class defined an instance of the
+class object in the meta-model is created.
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Class variable:}} is a variable defined in a
+class of which a single copy exists, regardless of how many instances
+of the class exist.
+
+\smallskip \smallskip
+\noindent
+\textbf{\textsc{Getters:}} is a 
+
+\smallskip
+\noindent
+\textbf{\textsc{Instances:}} is a 
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Instance variable:}} is a variable defined
+in a class for which each instantiated object of the class has a
+separate copy, or instance. An instance variable is similar to a class
+variable.
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Method:}} in OOP is a procedure associated
+with an object.
+
+\noindent 
+The same dichotomy between instance and class members applies to
+methods as well; a class may have both instance methods and class
+methods.
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Object:}} can be a variable, a data
+structure, or a function, and as such, is a location in memory having
+a value and possibly referenced by an identifier.
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Package:}} is a group of similar types of
+classes. There are two main types of package; user-defined packages
+and built-in packages. We import packages to get access to classes, 
+methods, properties, etc. 
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Parameter:}} A parenthetical variable in a
+function or constructor declaration. e.g. in {\tt methodOne(int x)},
+the parameter is {\tt int x}.
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Scope:}} This term refers to the region of
+the program to which an identifier applies. While it is not good
+practice, you can declare multiple variables within a program that use
+the same identifier as long as the identifiers have differing scopes;
+some exceptions to this are: A constructor or method parameter will
+often have the same name as a class field it's intended to initialize
+or modify.  It is customary to use i as the condition variable in a
+for-loop (and, in cases of nested for-loops, to use j as the condition
+variable for the inner loop).
+
+\smallskip \smallskip
+\noindent \textbf{\textsc{Setters:}}
 
 
 
