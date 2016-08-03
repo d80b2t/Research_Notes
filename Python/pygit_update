@@ -1,10 +1,11 @@
 #!/bin/bash
 echo Hello World    
 
+gist
+
 git add 30DayChallenge_code.*
 git add NPRs_Python_CheatSheet.*
 
 git commit -m "Updating Python notes..."
 
 git push
-
