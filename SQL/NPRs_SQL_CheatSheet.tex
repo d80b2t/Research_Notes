@@ -1,0 +1,105 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{format}
+
+\begin{document}
+
+\title{NPRs SQL Notes}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+%% Usually omit these for ApJ or MNRAS style files:
+
+
+\begin{abstract}
+The is my (NPR's) set of SQL notes.  
+%% 
+You will be able to find the latest version of these notes
+and indeed the .tex file at:\\
+\href{https://github.com/d80b2t/Research\_Notes}{\tt
+https://github.com/d80b2t/Research\_Notes}.
+\end{abstract}
+
+
+\newpage
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+
+\newpage
+\section{Real basics}
+
+
+\newpage
+\section{Real basics}
+Straight from: \href{http://skyserver.sdss.org/dr8/en/help/docs/realquery.asp}{\tt http://skyserver.sdss.org/dr8/en/help/docs/realquery.asp}
+
+\begin{lstlisting}
+-- Determine area of sky targeted by v3_1_0 or later of the target selection algorithm 
+-- Note that the "min" just happens to work, it is not robust to changes in the min value.
+-- (from Gordon Richards). This query also contains examples of setting the output 
+-- precision of columns with STR. 
+
+select sum(area) 
+FROM Region 
+where regionid in (
+select b.boxid
+FROM region2box b JOIN tilinggeometry g on b.id = g.tilinggeometryid
+where b.boxtype = 'SECTOR'
+and b.regiontype = 'TIPRIMARY'
+group by b.boxid
+having min(g.targetversion) >= 'v3_1_0' 
+) 
+
+-- Extract all quasars and quasar candidates from that area 
+
+SELECT
+dbo.fSDSS(p.objId) as oid,
+p.objId,
+str(p.ra,10,6) as ra,
+str(p.dec,10,6) as dec,
+dbo.fHMS(p.ra) as raHMS,
+dbo.fDMS(p.dec) as decDMS,
+str(s.z,6,4) as z,
+r.area as regarea,
+r.regionid,
+ti.targetID,
+seg.segmentid,
+seg.photoVersion
+-- Start with list of all DR7 targeted objects (BESTDR7..Target) 
+FROM Target AS t
+-- Need the region info to restrict to >=v3_1_0
+inner JOIN Region as r on t.regionid = r.regionid
+-- Need targetobjid to get photometry. Must get this from targetInfo table
+inner JOIN TargetInfo as ti on t.targetid = ti.targetid
+inner join TARGDR7..PhotoTag as p on ti.targetobjid = p.objid
+-- Pull out spectral information
+left outer join SpecObj as s on s.targetid = t.targetid
+-- I want to know the photoVersion, so we need to join the next two tables
+inner join TARGDR7..field as f on p.fieldid = f.fieldid
+inner join TARGDR7..segment as seg on f.segmentid = seg.segmentid 
+WHERE 
+(
+-- restrict objects to be in regions where target selection was >=v3_1_0
+r.regionid in (
+select b.boxid
+FROM region2box b JOIN tilinggeometry g on b.id = g.tilinggeometryid
+where b.boxtype = 'SECTOR'
+and b.regiontype = 'TIPRIMARY'
+group by b.boxid
+having min(g.targetversion) >= 'v3_1_0'
+)
+AND
+-- primary objects only, since we are selecting from PhotoTag
+( (p.mode = 1) AND ((p.status & 0x10) > 0) AND ((p.status & 0x2000) > 0) )
+AND
+-- quasar candidates only
+((p.primTarget & 0x0000001f) > 0) 
+) 
+ORDER by p.ra 
+\end{lstlisting}
+
+\end{document}
