@@ -30,7 +30,7 @@ https://github.com/d80b2t/Research\_Notes}.
 
 
 \newpage
-\section{Real basics}
+\section{The REAL Basics}
 
     \subsection{Versions}
     \$ python3
@@ -65,12 +65,6 @@ https://github.com/d80b2t/Research\_Notes}.
 
 
 
-
-
-
-
-
-
     \subsection{Notebook}
     Click on the NBviewer...\\
     Then you can see the e.g. html of the notebook. \\
@@ -94,14 +88,126 @@ http://nbviewer.ipython.org/github/ipython/ipython/blob/1.x/examples/notebooks/P
 
 \begin{figure}
   \includegraphics[height=4.0cm,width=14.0cm]
-{iPython_NB_toolbar.pdf}
-      \centering
-      \caption[]
-              {Clicking on the Cell Toolbar ``Code'', ``Markdown'' etc. will power what happens in the Clells!!!}
-      \label{fig:fig1}
-    \end{figure}
-
+  {iPython_NB_toolbar.pdf}
+  \centering
+  \caption[]
+  {Clicking on the Cell Toolbar ``Code'', ``Markdown'' etc. will power what happens in the Clells!!!}
+  \label{fig:fig1}
+\end{figure}
 \href{https://github.com/profjsb/python-bootcamp}{https://github.com/profjsb/python-bootcamp}
+
+
+\newpage
+\section{The General Basics}
+HEAVILY BORROWED/COPIED FROM: 
+\href{http://shop.oreilly.com/product/0636920034919.do}{Python Data Science Handbook} by
+\href{https://jakevdp.github.io/}{Jake VanderPlas}\footnote{Who is awesome, so stop being stingy and go buy his book!!! :-)}. 
+
+\subsection*{Comments are marked by \#}
+
+\subsection*{End-of-line Terminates a Statement}
+\subsection*{Semicolon can Optionally Termnate a Statement}   
+
+    \subsection*{Indentation: Whitespace Matters!}
+    Indent code blocks by four spaces. 
+    \begin{lstlisting}
+      for i in range(100):
+          # indentation indicates code block 
+          total += i
+    \end{lstlisting}
+    
+    \subsection*{Whitespace Within Lines Does Not Matter}
+
+    \subsection*{Python Variables are Pointers}
+    So when you write {\tt x=4}, you are essentially defining a {\it pointer} named {\tt x} which points to some memory bucket containing the value 4. Note one consequence of this: because Python variables just point to various objects, there is no need to ``declare'' the variable, or even require the variable to always point to information of the same type.  This is the sense in which people say Python is {\it dynamically-typed}: variable names can point to objects of any type.
+    \begin{lstlisting}
+      >>> x=[1,2,3]
+      >>> y = x
+      >>> print(y)
+      [1, 2, 3]
+      >>> x.append(4)    # add 4 to the end of x
+      >>> print(y)           # y is modified as well!
+      [1, 2, 3, 4]
+      >>> x = 'something else'
+      >>> print(y)         # y is unchanged. 
+      [1, 2, 3, 4]
+      >>> 
+    \end{lstlisting}
+
+
+    \subsection*{Everything is an Object}
+    Python is an object-oriented programming language, and in Python
+    everything is an object. Python is NOT a type-free language. Python
+    has types; however, the types are linked not to the variable names but
+    {\bf to the objects themselves}. When we say that everything in Python
+    is an object, we really mean that everything is an object: even the
+    attributes and methods of objects are themselves objects with their
+    own type information:
+    \begin{lstlisting}
+      >>> x=4.0
+      >>> x
+      4.0
+      >>> x.is_integer()
+      True
+      >>> type(x.is_integer)
+      <class 'builtin_function_or_method'>
+      >>> 
+    \end{lstlisting}
+
+
+    \subsection*{Operators}
+    \subsubsection*{Identity Operators}
+    \begin{lstlisting}
+      >>> a = [1,2,3]
+      >>> b = [1,2,3]
+      >>> a == b
+      True
+      >>> a is b
+      False
+      >>> a is not b
+      True
+      >>> 
+   \end{lstlisting}
+
+
+    \subsection*{Conditional Statements: if-elif-else:}
+        \begin{lstlisting}
+          x=-15
+          if  x==0:
+              print(x, "is zero")
+          elifx>0:
+              print(x, "is positive")
+          elifx<0:
+              print(x, "is negative")
+          else:
+              print(x, "is unlike anything I've ever seen...")
+
+          -15 is negative
+      \end{lstlisting}
+
+
+    \subsection*{for loops}
+        \begin{lstlisting}
+          >>> for i in range(10): 
+          ...          print(i, end='  ')
+          0 1 2 3 4 5 6 7 8 9 >>> 
+          >>>
+          >>>for i in range(10):
+          ...        print(i, "\n")
+          ... 
+          0 
+          
+          1 
+          
+          2 
+          .
+          .
+          .
+          9 
+        \end{lstlisting}
+
+
+    \subsection*{}    
 
 
 
@@ -131,16 +237,21 @@ Then
 
 \newpage
 \section{Data Types}
+{\tt int}, {\tt float}, {\tt complex}, {\tt bool}, {\tt str} and {\tt NoneType} are simple/scaler types. \\
+{\tt list}, {\tt tuple}, {\tt dict} and {\tt set} are Data Structures. \\
 
-\subsection{e.g. Data types}
+%% \subsection{e.g. Data types}
 \begin{lstlisting}
->>> n = 123
->>> f = 123.
->>> L = [1,2,3]
+>>> n = 123               # int, integers
+>>> f = 123.               # floats,  floating-point: i.e. real numbers
+>>> L = [1,2,3]           
 >>> a = (1,2,3)
 >>> D = {1,2,3}
 >>> x = {'1': '2', '3': 45}
 >>> s = '1,2,3'
+
+>>> b = True               # boolean: True/False values
+>>> nt = None            # special object indicating nulls
 
 >>> type(n)
 <class 'int'>
@@ -156,17 +267,34 @@ Then
 <class 'dict'>
 >>> type(s)
 <class 'str'>
+
+>>> type(b)
+<class 'bool'>
+>>> type(nt)
+<class 'NoneType'>
 \end{lstlisting}
 
-\subsection{Dictionaries}
-\begin{lstlisting}
->>> x = {'hello': 'Zed', 'name': 45}
->>> x['hello']
-'Zed'
->>> 
+
+    \subsection{Lists}
+
+    \subsection{tuple}
+    
+    \subsection{Dictionaries}
+    \begin{lstlisting}
+      >>> x = {'hello': 'Zed', 'name': 45}
+      >>> x['hello']
+      'Zed'
+      >>> 
+    \end{lstlisting}
+    
+    \subsection{set}
 
 
-\end{lstlisting}
+    
+\newpage
+\section{String Manipulation and Regular Expressions}
+
+
 
 
 
@@ -715,9 +843,21 @@ outfile.close()
 
 \newpage
 \section{IDL Where}
-The Python3 equivalent of the IDL Where command is...
+As always (!! ;-) there are many different ways to do something in
+Python3 for the equivalent in IDL. The IDL Where command is no
+exception...
+
+    \subsection{{\tt a in b}}.
 
 
+    \subsection{numpy where}
+      Generating Indices: np.where
+    \begin{lstlisting}
+      import numpy as np
+      rand = np.random.RandomState(42)
+      X = rand.randint(10, size=(3, 4))
+      X[np.where(X % 2 == 0)]
+    \end{lstlisting}
 
 
 \newpage

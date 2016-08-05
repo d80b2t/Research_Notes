@@ -30,12 +30,80 @@ https://github.com/d80b2t/Research\_Notes}.
 
 
 \newpage
-\section{Real basics}
+\section{The VERY basics}
+SQL stands for Structured Query Language.\\
+SQL is pronounced ``sequel''.\\
+SQL is declarative language.\\
+SQL is used to access \& manipulate data in databases.\\
+Top SQL DBs are MS SQL Server, Oracle, DB2, and MySQL. \\
 
 
 \newpage
-\section{Real basics}
-Straight from: \href{http://skyserver.sdss.org/dr8/en/help/docs/realquery.asp}{\tt http://skyserver.sdss.org/dr8/en/help/docs/realquery.asp}
+\section{SQL Queries}
+\begin{lstlisting}
+SELECT x   --  <Column List>
+FROM y     -- <Table Name>
+WHERE z   -- <Search Condition>
+\end{lstlisting}
+
+\newpage
+\section{JOINS}
+{\bf READ
+\href{https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/}{{\tt THIS PAGE}} NOW}. 
+
+    \subsection{LEFT JOIN}
+    The LEFT JOIN keyword returns all rows from the left table
+    (table1), with the matching rows in the right table (table2). The
+    result is NULL in the right side when there is no match.
+    
+    \subsection{INNER vs. OUTER JOIN}
+    An INNER JOIN will only select records where the joined keys are in
+    both specified tables. A LEFT OUTER JOIN will select all records from
+    the first table, and any records in the second table that match the
+    joined keys.
+    
+    Example from \href{http://dba.stackexchange.com/questions/153/what-is-the-difference-between-an-inner-join-and-an-outer-join}{\tt here}: \\
+    I am new to SQL and wanted to know what is the difference between those two JOIN types?
+    \begin{lstlisting}
+      SELECT * 
+      FROM user u
+      INNER JOIN telephone t ON t.user_id = u.id
+
+      SELECT * 
+      FROM user u
+      LEFT OUTER JOIN telephone t ON t.user_id = u.id    
+   \end{lstlisting}
+   An inner join will only select records where the joined keys are in both specified tables.\\
+   A left outer join will select all records from the first table, and any records in the second table that match the joined keys.\\
+   A right outer join will select all records from the second table, and any records in the first table that match the joined keys.\\
+   
+   In the first example, you will only return a list of users and telephone numbers if at least one telephone record exists for the user.
+   
+   In the second example, you will return a list of all users, plus any telephone records if they are available (if they aren't available, you'll get NULL for the telephone values).
+   
+
+    
+    \subsection{NATURAL JOIN}
+
+
+\newpage
+\section{Keywords and Clauses}
+
+    \subsection*{FROM}
+    \subsection*{WHERE}
+    \subsection*{GROUP BY}
+    \subsection*{HAVING}
+    \subsection*{ORDER BY}
+    \subsection*{DISTINCT}
+    
+
+
+\newpage
+\section{SDSS SQL Queries}
+Straight from: \\
+\href{http://skyserver.sdss.org/dr8/en/help/docs/realquery.asp}{\tt http://skyserver.sdss.org/dr8/en/help/docs/realquery.asp}\\
+\href{http://cas.sdss.org/dr5/en/proj/advanced/quasars/query.asp}{http://cas.sdss.org/dr5/en/proj/advanced/quasars/query.asp}
+
 
 \begin{lstlisting}
 -- Determine area of sky targeted by v3_1_0 or later of the target selection algorithm 
