@@ -1,0 +1,134 @@
+\documentclass[11pt]{article}
+%\setlength {\textwidth}{180mm} 
+%\setlength {\textheight}{260mm}
+%\topmargin=-35.00mm
+%\oddsidemargin=-10.00mm
+%\pagestyle{empty}
+
+
+\input{format}
+
+\begin{document}
+
+\title{A Guide to Bayes}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+\begin{abstract}
+This is a simple document that discusses the basis and basics of Bayes. 
+\end{abstract}
+
+
+\tableofcontents
+
+
+\newpage
+\section{Bayes' Theorem}
+
+Bayes' theorem is:
+
+\begin{equation} 
+P(A|B) = \frac{ P(B|A)  \:   P(A)}  {P(B)}
+\end{equation}
+where\\
+
+\noindent
+$P(A)$ and $P(B)$ are the probabilities of observing A and B without regard to each other.\\
+
+\noindent
+$P(A | B)$, a conditional probability, {\it is the probability of observing event A given that B is true.}\\
+
+\noindent
+$P(B | A)$ is the probability {\it of observing event B given that A is true}.\\
+
+
+
+
+\newpage
+\section{Bayesian inference}
+
+Bayesian inference derives the posterior probability as a consequence
+of two antecedents, a prior probability and a ``likelihood function''
+derived from a statistical model for the observed data. Bayesian
+inference computes the posterior probability according to Bayes'
+theorem:
+
+\begin{equation} 
+P(H|E) = \frac{ P(E|H)  \:   P(H)}  {P(E)}
+\end{equation}
+where:\\
+
+\noindent
+$|$ denotes a conditional probability; more specifically, it means
+``given''.\\
+
+\noindent
+$H$ stands for any hypothesis whose probability may be affected by
+data (called evidence below). Often there are competing hypotheses,
+from which one chooses the most probable.\\
+
+\noindent
+the evidence $E$ corresponds to new data that were not used in
+computing the prior probability.\\
+
+\noindent
+$P(H)$, the prior probability, is the probability of $H$ before $E$ is
+observed. This indicates one's previous estimate of the probability
+that a hypothesis is true, before gaining the current evidence.\\
+
+\noindent
+$P(H | E)$ the posterior probability, is the probability of $H$ given
+$E$, i.e., after $E$ is observed. This tells us what we want to know:
+the probability of a hypothesis given the observed evidence.\\
+
+\noindent
+$P (E | H)$ is the probability of observing $E$ given $H$. As a
+function of $E$ with $H$ fixed, this is the likelihood. The likelihood
+function should {\bf not} be confused with $P(H | E)$ as a function of 
+$H$ rather than of $E$. It indicates the compatibility of the evidence with the given
+hypothesis.\\
+
+\noindent
+$P(E)$ is sometimes termed the marginal likelihood or ``model
+evidence''. This factor is the same for all possible hypotheses being
+considered. (This can be seen by the fact that the hypothesis $H$ does
+not appear anywhere in the symbol, unlike for all the other factors.)
+This means that this factor does not enter into determining the
+relative probabilities of different hypotheses. \\
+
+%Note that, for different values of {\displaystyle \textstyle H} \textstyle H, only the factors {\displaystyle \textstyle P(H)} \textstyle P(H) and {\displaystyle \textstyle P(E\mid H)} \textstyle P(E\mid H) affect the value of {\displaystyle \textstyle P(H\mid E)} \textstyle P(H\mid E). As both of these factors appear in the numerator, the posterior probability is proportional to both. In words:
+
+%(more precisely) The posterior probability of a hypothesis is determined by a combination of the inherent likeliness of a hypothesis (the prior) and the compatibility of the observed evidence with the hypothesis (the likelihood).
+
+%(more concisely) Posterior is proportional to likelihood times prior.
+
+\noindent
+Note that Bayes' rule can also be written as follows:
+\begin{equation}
+P(H\mid E)={\frac {P(E\mid H)}{P(E)}}\cdot P(H)
+\end{equation}
+where the factor $\frac {P(E\mid H)}{P(E)}$ represents the impact of
+$E$ on the probability of $H$.
+
+
+
+
+
+
+
+
+
+\newpage
+\section{References}
+\href{https://en.wikipedia.org/wiki/Bayesian\_inference}{https://en.wikipedia.org/wiki/Bayesian\_inference}\\
+\href{hrefhttps://en.wikipedia.org/wiki/Bayes\%27\_theorem}{https://en.wikipedia.org/wiki/Bayes\%27\_theorem}\\
+
+\citet{Croom04}
+
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+\end{document}
+
