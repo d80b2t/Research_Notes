@@ -1,6 +1,7 @@
 
 #TEXFILE=30DayChallenge_code
-TEXFILE=NPRs_Python_CheatSheet
+%TEXFILE=NPRs_Python_ResourceNotes
+
 default: all
 
 # just run it
