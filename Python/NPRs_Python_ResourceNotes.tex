@@ -22,7 +22,6 @@ Suffice to say, when this document reached 47 pages long (and I started to
 take notes on how to do pytests ;-), this was no long a Cheat Sheet, and became 
 something else; a general Python resource. \\
 
-\noindent
 You will be able to find the latest version of these notes
 and indeed the .tex file at:\\
 \href{https://github.com/d80b2t/Research\_Notes}{\tt
@@ -585,7 +584,7 @@ The collections module has some concrete classes that derive from ABCs; these ca
 
 
 \newpage
-\section{Function}
+\section{Functions}
 {\bf N.B.} Straight from: \href{http://www.python-course.eu/python3\_functions.php}{http://www.python-course.eu/python3\_functions.php}. 
 
 The concept of a function is one of the most important ones in
@@ -1032,6 +1031,74 @@ You can solve a linear system {\bf Ax = b} with {\tt linalg.solve(A, b)}.
 \begin{lstlisting}
 
 \end{lstlisting}
+
+
+
+
+
+\newpage
+\section{Pytests}
+\subsection{High-level Overview}
+pytest: helps you write better programs
+The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries.
+
+``pytest is a mature full-featured Python testing tool that helps you write better programs.''
+
+\href{http://docs.pytest.org/en/latest/}{http://docs.pytest.org/en/latest/}
+
+Getting started: \href{http://docs.pytest.org/en/latest/getting-started.html}{http://docs.pytest.org/en/latest/getting-started.html}
+
+\href{pytest Documentation (Release 3.0.2.dev)}{https://media.readthedocs.org/pdf/pytest/latest/pytest.pdf}
+
+\href{http://docs.pytest.org/en/latest/contents.html}{http://docs.pytest.org/en/latest/contents.html}
+
+\subsection{Example of a (very) simple test:}
+
+An example of a simple test:
+\begin{lstlisting}
+# content of test_sample.py
+def func(x):
+    return x + 1
+
+def test_answer():
+    assert func(3) == 5
+To execute it:
+\end{lstlisting}
+
+
+\begin{figure}
+  \includegraphics [height=14.0cm,width=10.0cm]
+  {pytest_screengrab.png}
+  \centering
+  \caption[]{}
+  \label{fig:fig2}
+\end{figure}
+
+
+\noindent
+{\tt \$ pytest}
+\begin{lstlisting}
+======= test session starts ========
+collected 1 items
+
+test_sample.py F
+
+======= FAILURES ========
+_______ test_answer ________
+
+    def test_answer():
+>       assert func(3) == 5
+E       assert 4 == 5
+E        +  where 4 = func(3)
+
+test_sample.py:5: AssertionError
+======= 1 failed in 0.12 seconds ========
+\end{lstlisting}
+
+Due to pytest‘s detailed assertion introspection, only plain assert
+statements are used. See Getting Started for more examples.
+
+
 
 
 \newpage

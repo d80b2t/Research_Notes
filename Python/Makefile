@@ -1,6 +1,6 @@
 
 #TEXFILE=30DayChallenge_code
-%TEXFILE=NPRs_Python_ResourceNotes
+TEXFILE=NPRs_Python_ResourceNotes
 
 default: all
 
