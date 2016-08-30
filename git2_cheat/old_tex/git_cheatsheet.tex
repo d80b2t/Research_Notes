@@ -1,0 +1,245 @@
+\documentclass[11pt,a4paper]{article}
+
+\bibliographystyle{apalike}
+
+\usepackage{epsfig, amsmath, natbib}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{{\tt git} ``Cheat Sheet''}
+\author{Nicholas P. Ross et al. (your name here....)}
+\date{\today}
+\maketitle
+
+
+% Usually omit these for ApJ or MNRAS style files:
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\begin{abstract}
+This is a simple few notes that will hopefully form something like a ``cheat sheet'' for 
+folks using git, and e.g. github. Slightly ``meta''-ly, I've uploaded this file to github:\\
+\href{https://github.com/d80b2t/git\_cheatsheet}{{\tt https://github.com/d80b2t/git\_cheatsheet/}}.
+\end{abstract}
+
+
+\section{My github accounts}
+d80b2t\\
+npr247\\
+
+
+
+\subsection{notes}
+On Jul 23, 2014, at 7:37 PM, Nic Ross $<$npross@lbl.gov$>$ wrote:\\
+
+Gang, \\
+
+In an effort to get our code repository going, here's my github details: \\
+	https://github.com/d80b2t \\
+	https://github.com/d80b2t/spies\\
+	https://github.com/d80b2t/group\_code\\
+
+So, after creating a repository, you can go to that repository, click 
+settings, and click "collaborators" to add collaborators. I have 
+done this for John and Rob for the https://github.com/d80b2t/group\_code
+repository. 
+
+Thanks, 
+Nic
+
+
+
+\section{git Notes}
+
+    \subsection{To Check-out:}
+   {\tt  $>$ git init\\
+    $>$ git clone [url]} \\
+     e.g.\\ 
+    {\tt $>$ git clone https://github.com/crazygirl9991/SeniorResearch\\
+   }
+
+    \subsection{Status check:}
+   {\tt $>$ git status}\\
+
+ 
+    \subsection{Update your local branch:}
+    {\tt $>$ git pull}\\
+
+
+    \subsection{To Add new files/material:}
+    {\tt $>$ git add\\
+     $>$ git commit -m "[descriptive message]" } \\
+
+   \subsection{To then place on repository:}
+   {\tt $>$ git push }\\
+
+
+   \subsection{Version Control Basics (1)}
+   %% https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+   {\tt  $>$ git log}\\
+   will give the log of commits, where the beginning of the hash
+   (which will be something a bit crazy like 80dd432df626ebf67d75adbd75bf0fad2a01f024E)
+   is also the `revision number', in this case: \\
+   Latest commit 80dd432 6 minutes ago \\
+
+   \noindent
+   {\tt $>$ git log --pretty=oneline}\\ 
+   looks better ;-), or even: \\
+
+   \noindent
+   {\tt $>$ git log --pretty=format:"\%h - \%an, \%ar : \%s"} \\
+
+
+\newpage
+\section{Git-Specific Commands}
+{\bf THESE NOTES ARE STRAIGHT FROM\\
+\href{http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/}{http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/}}.
+Since Git was designed with a big project like Linux in mind, there
+are a lot of Git commands. However, to use the basics of Git, you’ll
+only need to know a few terms. They all begin the same way, with the
+word ``git''.
+
+{\tt git init}: Initializes a new Git repository. Until you run this
+command inside a repository or directory, it’s just a regular
+folder. Only after you input this does it accept further Git commands.
+
+{\tt git config}: Short for ``configure'' this is most useful when
+you’re setting up Git for the first time.
+
+{\tt git status}: Check the status of your repository. See which files
+are inside it, which changes still need to be committed, and which
+branch of the repository you’re currently working on.
+
+{\tt git add}: This does not add new files to your
+repository. Instead, it brings new files to Git’s attention. After you
+add files, they’re included in Git's ``snapshots'' of the repository.
+
+{\tt git commit}: Git’s most important command. After you make any
+sort of change, you input this in order to take a ``snapshot'' of the
+repository. Usually it goes {\tt git commit -m ``Message here''}.  The
+{\tt -m} indicates that the following section of the command should be
+read as a message.
+
+{\tt git branch}: Working with multiple collaborators and want to make
+changes on your own? This command will let you build a new branch, or
+timeline of commits, of changes and file additions that are completely
+your own. Your title goes after the command. If you wanted a new
+branch called ``cats'', you'd type {\tt git branch cats}.
+
+{\tt git checkout:} Literally allows you to ``check out'' a repository
+that you are not currently inside. This is a navigational command that
+lets you move to the repository you want to check. You can use this
+command as {\tt git checkout master} to look at the master branch, or
+{\tt git checkout cats} to look at another branch.
+
+{\tt git merge}: When you’re done working on a branch, you can merge
+your changes back to the master branch, which is visible to all
+collaborators. {\tt git merge cats} would take all the changes you
+made to the ``cats'' branch and add them to the master.
+
+{\tt git push}: If you’re working on your local computer, and want
+your commits to be visible online on GitHub as well, you ``push'' the
+changes up to GitHub with this command.
+
+{\tt git pull}: If you’re working on your local computer and want the
+most up-to-date version of your repository to work with, you ``pull''
+the changes down from GitHub with this command.
+
+{\tt git help}: Forgot a command? Type this into the command line to
+bring up the 21 most common git commands. You can also be more
+specific and type ``git help init'' or another term to figure out how
+to use and configure a specific git command.
+
+{\bf 
+CONTINUE READING 
+http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/
+!!!
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Things to learn...}
+git remote add $<$name$>$ $<$ur$l>$\\
+%% http://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master
+
+\noindent
+https://help.github.com/articles/removing-a-remote/ \\
+
+\noindent
+\href{http://gitref.org/remotes/}{http://gitref.org/remotes/}\\
+
+
+
+
+\section{Useful URLs}
+\noindent
+\href{http://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master}{http://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master}
+
+\noindent
+\href{https://help.github.com/articles/git-cheatsheet}{https://help.github.com/articles/git-cheatsheet/}
+for the e.g. github-git-cheat-sheet.pdf \\
+
+\noindent
+\href{https://github.com/AlexZeitler/gitcheatsheet}{https://github.com/AlexZeitler/gitcheatsheet}
+
+
+
+
+
+
+\section*{Resources}
+
+\noindent
+\href{http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/}{http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/}\\
+
+\noindent
+\href{http://readwrite.com/2013/10/02/github-for-beginners-part-2/}{http://readwrite.com/2013/10/02/github-for-beginners-part-2/}\\
+
+
+    \subsection*{YouTube}
+    \noindent
+    \href{https://www.youtube.com/watch?v=OqmSzXDrJBk}{What is Git - A Quick Introduction to the Git Version Control System}\\
+    
+    \noindent
+    \href{https://www.youtube.com/watch?v=Y9XZQO1n_7c}{Learn Git in 20 Minutes}\\
+    
+    \noindent
+    \href{https://www.youtube.com/watch?v=O72FWNeO-xY}{Copying a GitHub Repository to Your Local Computer (Youtube)}\\
+    
+
+
+
+
+\end{document}
+

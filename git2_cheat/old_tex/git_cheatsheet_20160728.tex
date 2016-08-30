@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper]{article}
+
+\bibliographystyle{apalike}
+
+\usepackage{epsfig, amsmath, natbib}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{{\tt git} ``Cheat Sheet''}
+\author{Nicholas P. Ross et al. (your name here....)}
+\date{\today}
+\maketitle
+
+
+% Usually omit these for ApJ or MNRAS style files:
+%\tableofcontents
+%\listoffigures
+%\listoftables
+
+\begin{abstract}
+This is a simple few notes that will hopefully form something like a ``cheat sheet'' for 
+folks using git, and e.g. github. Slightly ``meta''-ly, I've uploaded this file to github:\\
+\href{https://github.com/d80b2t/git\_cheatsheet}{{\tt https://github.com/d80b2t/git\_cheatsheet/}}.
+\end{abstract}
+
+
+\section{My github accounts}
+npr247\\
+d80b2t\\
+
+
+\subsection{notes}
+On Jul 23, 2014, at 7:37 PM, Nic Ross $<$npross@lbl.gov$>$ wrote:\\
+
+Gang, \\
+
+In an effort to get our code repository going, here's my github details: \\
+	https://github.com/d80b2t \\
+	https://github.com/d80b2t/spies\\
+	https://github.com/d80b2t/group\_code\\
+
+So, after creating a repository, you can go to that repository, click 
+settings, and click "collaborators" to add collaborators. I have 
+done this for John and Rob for the https://github.com/d80b2t/group\_code
+repository. 
+
+Thanks, 
+Nic
+
+
+
+\section{git Notes}
+
+    \subsection{To Check-out:}
+   {\tt  $>$ git init\\
+    $>$ git clone [url]} \\
+     e.g.\\ 
+    {\tt $>$ git clone https://github.com/crazygirl9991/SeniorResearch\\
+   }
+
+    \subsection{Status check:}
+   {\tt $>$ git status}\\
+
+ 
+    \subsection{Update your local branch:}
+    {\tt $>$ git pull}\\
+
+
+    \subsection{To Add new files/material:}
+    {\tt $>$ git add\\
+     $>$ git commit -m "[descriptive message]" } \\
+
+   \subsection{To then place on repository:}
+   {\tt $>$ git push }\\
+
+
+   \subsection{Version Control Basics (1)}
+   %% https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+   {\tt  $>$ git log}\\
+   will give the log of commits, where the beginning of the hash
+   (which will be something a bit crazy like 80dd432df626ebf67d75adbd75bf0fad2a01f024E)
+   is also the `revision number', in this case: \\
+   Latest commit 80dd432 6 minutes ago \\
+
+   \noindent
+   {\tt $>$ git log --pretty=oneline}\\ 
+   looks better ;-), or even: \\
+
+   \noindent
+   {\tt $>$ git log --pretty=format:"\%h - \%an, \%ar : \%s"} \\
+
+
+
+
+\section{Things to learn...}
+git remote add $<$name$>$ $<$ur$l>$\\
+%% http://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master
+
+\noindent
+https://help.github.com/articles/removing-a-remote/ \\
+
+\noindent
+\href{http://gitref.org/remotes/}{http://gitref.org/remotes/}\\
+
+
+\section{Useful URLs}
+\noindent
+\href{http://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master}{http://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master}
+
+\noindent
+\href{https://help.github.com/articles/git-cheatsheet}{https://help.github.com/articles/git-cheatsheet/}
+for the e.g. github-git-cheat-sheet.pdf \\
+
+\noindent
+\href{https://github.com/AlexZeitler/gitcheatsheet}{https://github.com/AlexZeitler/gitcheatsheet}
+
+
+
+\end{document}
+
