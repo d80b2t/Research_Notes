@@ -295,8 +295,40 @@ Then
     
     \subsection{set}
 
+    \subsection{Pandas and {\tt DataFrames}}
+    \begin{lstlisting}
+      import numpy
+      import matplotlib.pyplot as plt
+      import re
+      import pandas as pd 
+      
+      # The data directory PATH
+      data_dir = "/cos_pc19a_npr/data/WISE/W4/"
+      
+      # The data directory FILENAME
+      data_file="WISE_W4_W4SNRge3_W4MPROlt4.0_nohdr.tbl"
+      
+      data_in = data_dir+data_file
+      
+      cols = ['designation', 'ra', 'dec', 'sigra', 'sigdec', 'w1mpro', 'w1sigmpro', 'w1snr', 'w2mpro', 'w2sigmpro', 'w2snr', 'w3mpro', 'w3sigmpro', 'w3snr', 'w4mpro', 'w4sigmpro', 'w4snr', 'w4rchi2']
+      
+      df = pd.read_table(data_in) 
+      
+      ##
+      print(list(df.columns.values))
+      
+      ## 
+      print(type(df))
+    \end{lstlisting}
+    
+    \begin{lstlisting}
+      In [5]: type(df)
+      Out[5]: pandas.core.frame.DataFrame
+    \end{lstlisting}
 
     
+
+
 \newpage
 \section{String Manipulation and Regular Expressions}
 
@@ -1120,9 +1152,13 @@ at the end.
 
 \newpage
 \section{Pandas}
-{\bf This might well get split off into its separate document...}
+{\bf (So.... this might well get split off into its separate
+document...)}
 
 
+\smallskip
+\smallskip
+\noindent 
 \begin{lstlisting}
 import numpy
 import matplotlib.pyplot as plt
@@ -1145,7 +1181,12 @@ cols = ['designation', 'ra', 'dec', 'sigra', 'sigdec', 'w1mpro', 'w1sigmpro', 'w
 df = pd.read_table(data_in) 
 \end{lstlisting}
 
+\smallskip
+\smallskip
+\noindent 
 So, pandas tends to work in these things called {\tt DataFrames}. 
+I (currently) don't understand DataFrames :-/
+
 
 
 
