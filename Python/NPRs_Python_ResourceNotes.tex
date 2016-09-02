@@ -922,7 +922,10 @@ numpy.histogram(decam_flux)
 
 plt.hist(decam_flux, bins='auto')
 plt.show()
+## or even
+plt.show(block=False)
 \end{lstlisting}
+
 
 
 
@@ -1153,7 +1156,9 @@ at the end.
 \newpage
 \section{Pandas}
 {\bf (So.... this might well get split off into its separate
-document...)}
+document...)}\\
+
+Pandas - Python Data Analysis Library\\
 
 
 \smallskip
@@ -1188,12 +1193,44 @@ So, pandas tends to work in these things called {\tt DataFrames}.
 I (currently) don't understand DataFrames :-/
 
 
+\smallskip
+\smallskip
+\noindent 
+This is useful: \\
+\href{http://pandas.pydata.org/pandas-docs/version/0.15.2/10min.html}{http://pandas.pydata.org/pandas-docs/version/0.15.2/10min.html}\\.
 
+\smallskip
+\smallskip
+\noindent 
+If you’re using IPython, tab completion for column names (as well as
+public attributes) is automatically enabled. Here’s a subset of the
+attributes that will be completed:
+In [10]: df.$<TAB>$...
 
+\begin{lstlisting}
+In [24]: type(df)
+Out[24]: pandas.core.frame.DataFrame
 
+In [25]: type(df.values)
+Out[25]: numpy.ndarray
 
+In [26]: type(df.values[0])
+Out[26]: numpy.ndarray
 
+In [27]: type(df.values[0][0])
+Out[27]: str
+\end{lstlisting}
 
+\smallskip
+\smallskip
+\noindent 
+\href{http://pandas.pydata.org/pandas-docs/version/0.18.1/basics.html}{http://pandas.pydata.org/pandas-docs/version/0.18.1/basics.html}
+
+\smallskip
+\smallskip
+\noindent 
+Okay, taking time-out to do this:\\
+\href{http://synesthesiam.com/posts/an-introduction-to-pandas.html}{http://synesthesiam.com/posts/an-introduction-to-pandas.html}
 
 
 
@@ -1652,6 +1689,11 @@ http://www.thelearningpoint.net/computer-science/learning-python-programming-and
 https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/\\
 http://learnpythonthehardway.org/\\
 http://learnpythonthehardway.org/book/ex40.html\\
+
+
+\subsection*{Astro Python}
+http://www.iac.es/sieinvens/siepedia/pmwiki.php?n=HOWTOs.EmpezandoPython \\
+http://danmoser.github.io/notes/python\_astro.html \\
 
 
 \subsection*{Transitioning to Data Science}
