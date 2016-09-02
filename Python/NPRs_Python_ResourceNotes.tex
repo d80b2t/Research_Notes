@@ -1186,52 +1186,55 @@ cols = ['designation', 'ra', 'dec', 'sigra', 'sigdec', 'w1mpro', 'w1sigmpro', 'w
 df = pd.read_table(data_in) 
 \end{lstlisting}
 
-\smallskip
-\smallskip
-\noindent 
-So, pandas tends to work in these things called {\tt DataFrames}. 
-I (currently) don't understand DataFrames :-/
 
-
-\smallskip
-\smallskip
-\noindent 
-This is useful: \\
-\href{http://pandas.pydata.org/pandas-docs/version/0.15.2/10min.html}{http://pandas.pydata.org/pandas-docs/version/0.15.2/10min.html}\\.
-
-\smallskip
-\smallskip
-\noindent 
-If you’re using IPython, tab completion for column names (as well as
-public attributes) is automatically enabled. Here’s a subset of the
-attributes that will be completed:
-In [10]: df.$<TAB>$...
-
-\begin{lstlisting}
-In [24]: type(df)
-Out[24]: pandas.core.frame.DataFrame
-
-In [25]: type(df.values)
-Out[25]: numpy.ndarray
-
-In [26]: type(df.values[0])
-Out[26]: numpy.ndarray
-
-In [27]: type(df.values[0][0])
-Out[27]: str
-\end{lstlisting}
-
-\smallskip
-\smallskip
-\noindent 
-\href{http://pandas.pydata.org/pandas-docs/version/0.18.1/basics.html}{http://pandas.pydata.org/pandas-docs/version/0.18.1/basics.html}
-
-\smallskip
-\smallskip
-\noindent 
-Okay, taking time-out to do this:\\
-\href{http://synesthesiam.com/posts/an-introduction-to-pandas.html}{http://synesthesiam.com/posts/an-introduction-to-pandas.html}
-
+    \subsection{DataFrames}
+    \smallskip
+    \smallskip
+    \noindent 
+    So, pandas tends to work in these things called {\tt DataFrames}. 
+    I (currently) don't understand DataFrames :-/
+    
+    
+    \smallskip
+    \smallskip
+    \noindent 
+    This is useful: \\
+    \href{http://pandas.pydata.org/pandas-docs/version/0.15.2/10min.html}{http://pandas.pydata.org/pandas-docs/version/0.15.2/10min.html}\\.
+    
+    \smallskip
+    \smallskip
+    \noindent 
+    If you’re using IPython, tab completion for column names (as well as
+    public attributes) is automatically enabled. Here’s a subset of the
+    attributes that will be completed:
+    In [10]: df.$<TAB>$...
+    
+    \begin{lstlisting}
+      In [24]: type(df)
+      Out[24]: pandas.core.frame.DataFrame
+      
+      In [25]: type(df.values)
+      Out[25]: numpy.ndarray
+      
+      In [26]: type(df.values[0])
+      Out[26]: numpy.ndarray
+      
+      In [27]: type(df.values[0][0])
+      Out[27]: str
+    \end{lstlisting}
+    
+    \smallskip
+    \smallskip
+    \noindent 
+    \href{http://pandas.pydata.org/pandas-docs/version/0.18.1/basics.html}{http://pandas.pydata.org/pandas-docs/version/0.18.1/basics.html}
+    
+    \smallskip
+    \smallskip
+    \noindent 
+    Okay, taking time-out to do this:\\
+    \href{http://synesthesiam.com/posts/an-introduction-to-pandas.html}{http://synesthesiam.com/posts/an-introduction-to-pandas.html}
+    
+    
 
 
 
