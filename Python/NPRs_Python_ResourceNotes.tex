@@ -1087,6 +1087,19 @@ functions attached to class objects.  %% - Dagoth Ulen Sep 26 '13 at
     <function MyStuff.apple at 0x1013499d8>
     \end{lstlisting}
 
+    \subsection{JSON objects}
+    \begin{lstlisting}
+      import json
+      path = 'ch02/usagov_bitly_data2012-03-16-1331923249.txt'
+      records = [json.loads(line) for line in open(path)]
+    \end{lstlisting}
+    having
+    \begin{lstlisting}
+      records = [json.loads(line) for line in open(path, 'rb')]
+      \end{lstlisting}
+      from e.g. python 2 gives an error in python 3. 
+
+
 
 
 
@@ -1278,6 +1291,42 @@ df = pd.read_table(data_in)
     
     
 
+    \subsection{``Counting Time Zones with Pandas''}
+    From the book and website:\\
+    \href{https://github.com/wesm/pydata-book}{https://github.com/wesm/pydata-book}
+    and ``Python for Data Analysis'' by Wes McKinney, published by O'Reilly Media. 
+
+    \begin{lstlisting}
+      %matplotlib inline
+      from __future__ import division
+      from numpy.random import randn
+      from pandas import DataFrame, Series
+      
+      import os
+      import json
+      import numpy as np
+      import matplotlib.pyplot as plt
+      import pandas as pd
+      
+      plt.rc('figure', figsize=(10, 6))
+      np.set_printoptions(precision=4)
+      
+      path = 'ch02/usagov_bitly_data2012-03-16-1331923249.txt'
+      lines = open(path).readlines()
+      records = [json.loads(line) for line in lines]
+
+      frame = DataFrame(records)
+
+      frame
+
+      frame.info()
+
+      frame.info
+
+    \end{lstlisting}
+
+
+    
 
 
 
