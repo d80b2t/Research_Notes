@@ -551,6 +551,48 @@ here\footnote{As of Fri Aug 5 13:37:24 PDT 2016.}.
 
 
 
+
+
+\newpage
+\section{{\tt matplotib}}
+From \href{http://matplotlib.org/}{{\tt http://matplotlib.org/}} \\
+
+matplotlib is a python 2D plotting library which produces publication
+quality figures in a variety of hardcopy formats and interactive
+environments across platforms. matplotlib can be used in python
+scripts, the python and ipython shell (ala MATLAB®* or Mathematica®†),
+web application servers, and six graphical user interface toolkits.
+
+
+matplotlib tries to make easy things easy and hard things
+possible. You can generate plots, histograms, power spectra, bar
+charts, errorcharts, scatterplots, etc, with just a few lines of
+code. For a sampling, see the screenshots, thumbnail gallery, and
+examples directory
+
+For simple plotting the pyplot interface provides a MATLAB-like
+interface, particularly when combined with IPython. For the power
+user, you have full control of line styles, font properties, axes
+properties, etc, via an object oriented interface or via a set of
+functions familiar to MATLAB users.\\
+
+\smallskip
+\smallskip
+\noindent
+From \href{http://stackoverflow.com/questions/12987624/confusion-between-numpy-scipy-matplotlib-and-pylab}{http://stackoverflow.com/questions/12987624/confusion-between-numpy-scipy-matplotlib-and-pylab}:\\
+
+- pylab is part of matplotlib (in matplotlib.pylab) and tries to give
+you a MatLab like environment. matplotlib has a number of
+dependencies, among them numpy which it imports under the common alias
+np. scipy is not a dependency of matplotlib.
+
+- If you run ipython --pylab an automatic import will put all symbols
+from matplotlib.pylab into global scope. Like you wrote numpy gets
+imported under the npalias. Symbols from matplotlib are available
+under the mpl alias.
+
+
+
 \newpage
 \section{Class vs. an Instance}
 Difference between a class and an instance is an Object Oriented (OO)
