@@ -4,7 +4,7 @@ echo Hello World
 git status
 
 git add 30DayChallenge_code.*
-git add NPRs_Python_CheatSheet.*
+git add NPRs_Python_ResourceNotes.*
 
 git commit -m "Updating Python notes..."
 
