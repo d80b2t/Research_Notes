@@ -889,9 +889,65 @@ Would like some code to read in .FITS files... -- see~\ref{sec:FITS}.
 
 
 \newpage
-\subsection{Pandas}
-\begin{lstlisting}
-\end{lstlisting}
+    \subsection{Pandas}
+    General idea: read the table using astropy.table and them transform it to a Pandas DataFrame with the method .to_pandas()
+    See \href{http://docs.astropy.org/en/stable/table/pandas.html}{\tt http://docs.astropy.org/en/stable/table/pandas.html}. 
+
+    \begin{lstlisting}
+      import pandas as pd
+      
+      data = pd.read_table(data_file, header=0, sep='\s+')
+      # header = 0 to indicate where the column names are (it also works with header = 'infer')
+      # sep = '\s+'  to indicate the way to split the columns, in this case separated with non constant white spaces
+
+      #To use a column, e.g. RA, just do:
+      data.RA or data['RA']
+
+      # Note, if you have a data file with a # in the first raw, you have to work on that to get it of it when splitting the columns, or go directly to the numpy solution np.loadtxt 
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+      from astropy.table import Table,Column
+      tdata = Table.read('filename',format='ascii')
+      firstcol = tdata.columns[0].data
+      
+      # or alternatively (though I think this might be deprecated now):
+      from astropy.io import ascii
+      tdata = ascii.read('filename')
+      firstcol = tdata.columns[0].data
+    \end{lstlisting}
+
+    \begin{lstlisting}
+      # If it helps, you can read a comma-separated list of numbers from an ASCII file into a numpy array like this
+
+      import numpy as np
+      data = np.loadtxt( filename )
+      
+      # You can then pick out individual columns by slicing the array
+       secondcolumn = data[:,1]
+       
+       #and then generate plots from that array using your favourite plotting package.
+      \end{lstlisting}
+
+    \begin{lstlisting}
+      import numpy as np
+      
+      x = np.zeros(99)
+      y = np.zeros(99)
+      
+      f = open('datums.dat', 'r')
+      
+      n=0
+      for line in f:
+          n=n+1
+          line = line.strip()
+          columns = line.split()
+          x[n-1]=float(columns[0])/1000.
+          y[n-1]=float(columns[1])/1000.
+          
+      f.close()
+    \end{lstlisting}
 
 
 
