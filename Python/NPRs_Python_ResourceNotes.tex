@@ -890,8 +890,47 @@ Would like some code to read in .FITS files... -- see~\ref{sec:FITS}.
 
 \newpage
     \subsection{Pandas}
-    General idea: read the table using astropy.table and them transform it to a Pandas DataFrame with the method .to_pandas()
-    See \href{http://docs.astropy.org/en/stable/table/pandas.html}{\tt http://docs.astropy.org/en/stable/table/pandas.html}. 
+
+    \smallskip
+    \noindent
+    {\it Many thanks to Esther M-Q., John P., Joey F., Dave E., Steven B. and Nathan B 
+    for replies and helps!!!}\\
+
+    \smallskip
+    \noindent
+    {\bf Original question:} So I have a very regular .tbl ASCII text
+    file (first few lines of which are given below) and all I want to do
+    is read this in (to an e.g. pandas DataFrame) and then just generate
+    some simple variables and plots, such as R.A. vs. Dec, or
+    color-magnitude plots. What would the general advice be here??\\
+
+    \smallskip
+    \smallskip
+    \noindent
+    General idea: read the table using astropy.table and them transform it to a Pandas DataFrame with the method .to\_pandas()
+    See \\
+    \href{http://docs.astropy.org/en/stable/table/pandas.html}{\tt http://docs.astropy.org/en/stable/table/pandas.html}. \\
+
+    \smallskip
+    \smallskip
+    \noindent
+    ``In this specific case I'm not exactly sure how you'd read in but
+    looking up on the {\tt read\_table} docs it looks alright, but once
+    you have the {\tt dataframe} you access the columns bya
+    {\tt data[column\_name]} which are (if it has been read in correctly) the
+    headers. \\
+    
+    \smallskip
+    \smallskip
+    \noindent
+    The way to find out what columns it has read in is just\\
+    {\tt print data.columns}\\
+
+    \noindent
+    If it doesn't show up the headers you expect then it probably
+    hasn't been read in properly and I'd recommend looking at the
+    {\tt read\_table} docs. 
+    
 
     \begin{lstlisting}
       import pandas as pd
@@ -905,6 +944,7 @@ Would like some code to read in .FITS files... -- see~\ref{sec:FITS}.
 
       # Note, if you have a data file with a # in the first raw, you have to work on that to get it of it when splitting the columns, or go directly to the numpy solution np.loadtxt 
     \end{lstlisting}
+    \medskip     \medskip     \medskip
 
 
     \begin{lstlisting}
@@ -917,6 +957,8 @@ Would like some code to read in .FITS files... -- see~\ref{sec:FITS}.
       tdata = ascii.read('filename')
       firstcol = tdata.columns[0].data
     \end{lstlisting}
+    \medskip     \medskip     \medskip
+
 
     \begin{lstlisting}
       # If it helps, you can read a comma-separated list of numbers from an ASCII file into a numpy array like this
@@ -927,12 +969,24 @@ Would like some code to read in .FITS files... -- see~\ref{sec:FITS}.
       # You can then pick out individual columns by slicing the array
        secondcolumn = data[:,1]
        
-       #and then generate plots from that array using your favourite plotting package.
+       #and then generate plots from that array using your favorite plotting package.
       \end{lstlisting}
+      \medskip     \medskip     \medskip
+
+      ``I think there are two ways to select columns in pandas. 
+       It’s on this page: 
+       \href{http://pandas.pydata.org/pandas-docs/stable/indexing.html\#selection-by-label}{\tt http://pandas.pydata.org/pandas-docs/stable/indexing.html\#selection-by-label}        \\
+       \begin{lstlisting}
+         data = np.loadtxt(path,skiprows=1)
+         #Then you can select, eg. the 3 column, with:
+       data[:,2]
+      \end{lstlisting}
+    \medskip     \medskip     \medskip
+
 
     \begin{lstlisting}
       import numpy as np
-      
+
       x = np.zeros(99)
       y = np.zeros(99)
       
@@ -948,6 +1002,8 @@ Would like some code to read in .FITS files... -- see~\ref{sec:FITS}.
           
       f.close()
     \end{lstlisting}
+
+
 
 
 
