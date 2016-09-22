@@ -1367,7 +1367,8 @@ df = pd.read_table(data_in)
     So, pandas tends to work in these things called {\tt DataFrames}. 
     I (currently) don't understand DataFrames :-/
 
-    \href{http://pandas.pydata.org/pandas-docs/stable/dsintro.html}{http://pandas.pydata.org/pandas-docs/stable/dsintro.html}
+    \href{http://pandas.pydata.org/pandas-docs/stable/dsintro.html}{http://pandas.pydata.org/pandas-docs/stable/dsintro.html}\\
+
     DataFrame is a 2-dimensional labeled data structure with columns of
     potentially different types. You can think of it like a spreadsheet or
     SQL table, or a dict of Series objects. It is generally the most
@@ -1389,9 +1390,33 @@ df = pd.read_table(data_in)
     
     If axis labels are not passed, they will be constructed from the input
     data based on common sense rules.
-    
+
+    \begin{lstlisting}
+      In [11]: data = pd.read_table(path, delimiter='\s+')
+      
+      In [12]: type(data)
+      Out[12]: pandas.core.frame.DataFrame
+      
+      In [13]: df = pd.DataFrame(data, columns=cols)
+      
+      In [14]: type(df)
+      Out[14]: pandas.core.frame.DataFrame
+
+      df = pd.DataFrame(data, columns=cols)
+    \end{lstlisting}
+
+    \begin{lstlisting}
+      In [1]: from pandas import Series, DataFrame
+
+      In [2]: import pandas as pd
+    \end{lstlisting}
+    ``Thus whenever you see {\tt pd.} in the code, it's referring to
+    pandas. Series and DataFrame are used so much that I find it easier to
+    import them into the local namespace.''
 
     
+
+
     \smallskip
     \smallskip
     \noindent 
@@ -1419,6 +1444,9 @@ df = pd.read_table(data_in)
       In [27]: type(df.values[0][0])
       Out[27]: str
     \end{lstlisting}
+
+
+
     
     \smallskip
     \smallskip
