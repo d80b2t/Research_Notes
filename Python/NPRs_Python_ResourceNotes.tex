@@ -326,7 +326,42 @@ Then
       Out[5]: pandas.core.frame.DataFrame
     \end{lstlisting}
 
+
+
+\newpage
+\section{What the outputs of type() mean...}
+Okay, so I'm getting a little frustrated when I do a {\tt type()} commad to see what the output is. 
+So, I'm going to collect a few things here and see if I can decipher the various responses. 
+
+\begin{lstlisting}
+In [6]: hdulist = fits.open('tractor-0298p005.fits')
+In [7]: data = fits.getdata('tractor-0298p005.fits',1)
+In [8]: T = Table(data)
+
+In [9]: type(hdulist)
+Out[9]: astropy.io.fits.hdu.hdulist.HDUList
+
+In [10]: type(data)
+Out[10]: astropy.io.fits.fitsrec.FITS_rec
+
+In [11]: type(T)
+Out[11]: astropy.table.table.Table
+
+In [12]: type(T['decam_apflux'])
+Out[12]: astropy.table.column.Column
+
+In [13]: i = np.argmin(np.hypot(T['ra'] - 29.9901, T['dec'] - 0.5530))
+
+In [14]: type(i)
+Out[14]: numpy.int64
+
+In [15]: ii = 64
+
+In [16]: type(ii)
+Out[16]: int
+\end{lstlisting}
     
+
 
 
 \newpage
