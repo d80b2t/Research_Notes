@@ -1,6 +1,7 @@
 
 #TEXFILE=30DayChallenge_code
 TEXFILE=NPRs_Python_ResourceNotes
+#TEXFILE=Coursera
 
 default: all
 
