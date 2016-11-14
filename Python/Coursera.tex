@@ -79,13 +79,163 @@ David Donoho, Professor of Statistics in Stanford., ``50 Years of Data Science''
 
 
 \subsection{The Coursera Jupyter Notebook System}
-
-
+All pretty standard, straighforward. 
 
 
 \subsection{Python Functions}
+Of course, Python has traditional software structures like
+functions. Here's an example, refactoring that previous code into a
+function. You'll see the def statement indicates that we're writing a
+function. Then each line that is part of the function needs to be
+indented with a tab character or a couple of spaces.
 
-\subsection{Python Types and Sequences}
+\begin{lstlisting}
+def add_numbers(x, y):
+    return x + y
+
+add_numbers(1, 2)
+\end{lstlisting}
+
+Okay, functions are great but they're a bit different than you might
+find in other languages and here are some of subtleties
+involved. First, since there's no typing, you don't have to set your
+return type. Second, you don't have to use a return statement at all
+actually. There's a special value called None that's returned. None is
+similar to null in Java and represents the absence of value.  Third,
+in Python, you can have default values for parameters.
+Here's an example.
+\begin{lstlisting}
+def add_numbers(x,y,z=None):
+    if (z==None):
+        return x+y
+    else:
+        return x+y+z
+
+print(add_numbers(1, 2))
+print(add_numbers(1, 2, 3))
+\end{lstlisting}
+ In this example, we can rewrite the add numbers function to take
+three parameters, but we could set the last parameter to be None by
+default. This means that you can call add numbers with just two values
+or with three, and you don't have to rewrite the function signature to
+overload it.
+
+\begin{lstlisting}
+def do_math(a, b, kind='add'):
+  if (kind=='add'):
+    return a+b
+  else:
+    return a-b
+
+do_math(1, 2)
+\end{lstlisting}
+
+
+    \subsection{Python Types and Sequences}
+    The absence of static typing in Python doesn't mean that there
+    aren't types. The Python language has a built in function called type
+    which will show you what type of given reference is. Some of the
+    common types includes strings, the type is discussed. Integers and
+    floating point variables. As we've seen you can have reference as to
+    function as well as a function type also exist.
+    
+    Typed objects have properties associated with them, and these
+    properties can be data or functions. A lot of Python's built around
+    different kinds of sequences or collection types. And there's three
+    native kinds of collections that we're going to talk about, {\it
+      tuples}, {\it lists}, and {\it dictionaries}.
+    
+        \subsubsection{Tuples}
+        {\it A tuple is a sequence of variables which itself is immutable.}
+        That means that a tuple has items in an ordering, but that it cannot
+        be changed once created. We write tuples using parentheses, and we can
+        mix types for the contents for the tuples. Here's a tuple which has
+        four items. Two are numbers, and two are strings.
+        \begin{lstlisting}
+          x = (1, 'a', 2, 'b')
+          type(x)
+        \end{lstlisting}
+        
+        \subsubsection{Lists}
+        Lists are very similar, but they can be mutable, so you can
+        change their length, number of elements, and the element values. A
+        list is declared using the square brackets.
+        \begin{lstlisting}
+          x = [1, 'a', 2, 'b']
+          type(x)
+        \end{lstlisting}
+        There are a couple of different ways to change the contents of a
+        list. One is through the append function which allows you to append
+        new items to the end of the list.  
+        \begin{lstlisting}
+          x.append(3.3)
+          print(x)
+          \end{lstlisting}
+          
+        Both lists in tuple are iterable
+        types, so you can write loops to go through every value they hold. The
+        norm, if you want to look each item in the list is to use a {\tt for} 
+        statement. This is similar to the for each loop in languages like Java
+        and C\# but note that there's no typing required.
+        \begin{lstlisting}
+          for item in x:
+          print(item)
+        \end{lstlisting}
+
+        List and tuples can also be accessed as arrays might in other
+        languages, by using the square brackets operator, which is called the
+        indexing operator. The first item of the list starts at position zero
+        and to get the length of the list, we use the built in lan
+        function. There are some other common functions that you might expect
+        like min and max which will find the minimum or maximum values in a
+        given list or tuple.
+        \begin{lstlisting}
+          i=0
+          while( i != len(x) ):
+              print(x[i])
+              i = i + 1
+          \end{lstlisting}
+
+          
+
+       
+        
+        
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Python More on Strings}
 
