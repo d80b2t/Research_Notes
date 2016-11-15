@@ -196,63 +196,181 @@ do_math(1, 2)
               i = i + 1
           \end{lstlisting}
 
-          
+        \subsubsection{Other, really useful, {\tt string} stuff}
+        \begin{lstlisting}
+           firstname = 'Christopher'
+           lastname = 'Brooks'
+           print(firstname + ' ' + lastname)
+           print(firstname*3)
+           print('Chris' in firstname)
+        \end{lstlisting}
+        {\tt split} returns a list of all the words in a string, or a list split on a specific character.
+        \begin{lstlisting}
+          firstname = 'Christopher Arthur Hansen Brooks'.split(' ')[0] # [0] selects the first element of the list
+          lastname = 'Christopher Arthur Hansen Brooks'.split(' ')[-1] # [-1] selects the last element of the list
+          print(firstname)
+          print(lastname)
+          \end{lstlisting}
 
+
+        \subsubsection{Dictionaries}
+        Dictionaries are similar to lists and tuples in that they hold
+        a collection of items, but they're labeled collections which do not
+        have an ordering. This means that for each value you insert into the
+        dictionary, you must also give a key to get that value out. In other
+        languages the structure is often called a map. And in Python we use
+        curly braces to denote a dictionary. Here is an example where we might
+        link names to email addresses. You can see that we indicate each item
+        of the dictionary when creating it using a pair of values separated by
+        colons. That you can retrieve a value for a given label using the
+        indexing operator.
+        \begin{lstlisting}
+          x = {'Christopher Brooks': 'brooksch@umich.edu', 'Bill Gates': 'billg@microsoft.com'}
+          x['Christopher Brooks'] # Retrieve a value by using the indexing operator
+
+          x['Kevyn Collins-Thompson'] = None
+          x['Kevyn Collins-Thompson']
+
+          ## Iterate over all of the keys:
+          for name in x:
+               print(x[name])
+
+          brooksch@umich.edu
+          None
+          billg@microsoft.com
+
+          ## Iterate over all of the values:
+          for email in x.values():
+              print(email)
+          
+         ## Iterate over all of the items in the list:
+
+         ## You can unpack a sequence into different variables:
+         x = ('Christopher', 'Brooks', 'brooksch@umich.edu')
+         fname, lname, email = x
+        \end{lstlisting}
+        This last example is a little bit different, and it's an
+        example of something called unpacking. In Python you can have
+        sequence, that's a list or a tuple of values, and you can unpack those
+        items into different variables through assignment in one statement.
+
+    \subsection{Python More on Strings}
+    In Python 3 strings are Unicode based, which led to the 256
+    characters in ASCII.  But the world doesn't just run on Latin
+    characters and there's a need to support non-English languages as well
+    as characters which are not commonly used in words, but are commonly
+    used elsewhere like mathematical operators. The Unicode Transformation
+    Format, or UTF, is an attempt to solve this. It can be used to
+    represent over a million different characters. This includes not only
+    human languages like you might expect, but symbols like emojis
+    too. Python 3 uses Unicode by default so there is no problem in
+    dealing with international character sets.
+    \begin{lstlisting}
+      sales_record = {
+        'price': 3.24,
+        'num_items': 4,
+        'person': 'Chris'}
+      
+      sales_statement = '{} bought {} item(s) at a price of {} each for a total of {}'
+      
+      print(sales_statement.format(sales_record['person'],
+                                    sales_record['num_items'],
+                                    sales_record['price'],
+                                    sales_record['num_items']*sales_record['price']))
+    \end{lstlisting}
+
+      
+\newpage
+    \subsection{Python Demonstration: Reading and Writing CSV files}
+    \begin{lstlisting}
+      import csv
+      % precision 2
+      with open('mpg.csv') as csvfile:
+          mpg = list(csv.DictReader(csvfile))
+          
+       mpg[:3] # The first three dictionaries in our list.
+    \end{lstlisting}
+    {\tt csv.Dictreader} has read in each row of our csv file as a
+    dictionary. {\tt len} shows that our list is comprised of 234
+    dictionaries.
+    {\tt keys} gives us the column names of our csv:
+    \begin{lstlisting}
+      mpg[0].keys()
+    \end{lstlisting}
+    This is how to find the average cty fuel economy across all cars. All values in the dictionaries are strings, so we need to convert to float.
+    \begin{lstlisting}
+      sum(float(d['cty']) for d in mpg) / len(mpg)
+      ## Wondering if `d' here is some universal shorthand for the dict...??
+    \end{lstlisting}
+
+    \noindent
+    Here's a more complex example where we are grouping the cars by
+    number of cylinder, and finding the average cty mpg for each group.
+    \begin{lstlisting}
+      cylinders = set(d['cyl'] for d in mpg)
+      cylinders
+      
+      CtyMpgByCyl = []
+      
+      for c in cylinders: # iterate over all the cylinder levels
+          summpg = 0
+          cyltypecount = 0
+          for d in mpg: # iterate over all dictionaries
+              if d['cyl'] == c: # if the cylinder level type matches,
+                  summpg += float(d['cty']) # add the cty mpg
+                  cyltypecount += 1 # increment the count
+
+          CtyMpgByCyl.append((c, summpg / cyltypecount)) # append the tuple ('cylinder', 'avg mpg')
+
+      CtyMpgByCyl.sort(key=lambda x: x[0])
+      CtyMpgByCyl
+     \end{lstlisting}
+
+    \subsection{Python Dates and Times}
+     \begin{lstlisting}
+       import datetime as dt
+       import time as tm
+
+       # time returns the current time in seconds since the Epoch. (January 1st, 1970)
+       tm.time()
        
-        
-        
-        
+       # Convert the timestamp to datetime.
+       dtnow = dt.datetime.fromtimestamp(tm.time())
+       dtnow
+
+       # get year, month, day, etc.from a datetime
+       dtnow.year, dtnow.month, dtnow.day, dtnow.hour, dtnow.minute, dtnow.second 
+
+       # create a timedelta of 100 days
+       delta = dt.timedelta(days = 100)  
+       delta
+
+       today = dt.date.today()
+       
+       today - delta # the date 100 days ago
+
+       datetime.date(2016, 8, 7)
+
+       today > today-delta # compare dates
+     \end{lstlisting}
+
+
+    
+    \subsection{Advanced Python Objects map()}
+    
+    \subsection{Advanced Python Lambda and List Comprehensions}
+    
+    \subsection{Advanced Python Demonstration: The Numerical Python Library (Numpy)}
+    
     
 
 
 
+\section{Week Two}
 
+\section{Week Three}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Python More on Strings}
-
-\subsection{Python Demonstration: Reading and Writing CSV files}
-
-\subsection{Python Dates and Times}
-
-\subsection{Advanced Python Objects map()}
-
-\subsection{Advanced Python Lambda and List Comprehensions}
-
-\subsection{Advanced Python Demonstration: The Numerical Python Library (Numpy)}
-
-
-
-
-
+\section{Week Four}
 
 
 
