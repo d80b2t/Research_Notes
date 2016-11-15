@@ -480,33 +480,128 @@ do_math(1, 2)
 
     \newpage
     \subsection{Advanced Python Lambda and List Comprehensions}
+    Lambda's are Python's way of creating anonymous functions. These are the same as other functions, but they have no name. The intent is that they're simple or short lived and it's easier just to write out the function in one line instead of going to the trouble of creating a named function.
+    
+    \smallskip \smallskip \noindent
+    Convert this function in a lambda:
+    \begin{lstlisting}
+      people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+
+      def split_title_and_name(person):
+          return person.split()[0] + ' ' + person.split()[-1]
+      
+          #option 1
+          for person in people:
+              print(split_title_and_name(person) == (lambda person:???))
+
+              #option 2
+              #list(map(split_title_and_name, people)) == list(map(???))
+    \end{lstlisting}
+
+    Something like this works well...
+    \begin{lstlisting}
+      people = ['Dr. Christopher Brooks', 'Dr. Kevyn Collins-Thompson', 'Dr. VG Vinod Vydiswaran', 'Dr. Daniel Romero']
+      
+      def split_title_and_name(person):
+          return person.split()[0] + ' ' + person.split()[-1]
+      
+          #option 1
+          for person in people:
+              print(split_title_and_name(person) == (lambda x: x.split()[0] + ' ' + x.split()[-1])(person))
+
+          #option 2
+          list(map(split_title_and_name, people)) == list(map(lambda person: person.split()[0] + ' ' + person.split()[-1], people))
+    \end{lstlisting}
+    Noting the double ``=='' signs just to check the logic (vs. actually printing something out). 
 
 
+    \smallskip     \smallskip \noindent
+    {\bf List Comprehensions.}\\
+    \begin{lstlisting}
+      my_list = []
+      for number in range(0, 1000):
+          if number % 2 == 0:
+              my_list.append(number)
+     my_list
+    \end{lstlisting}
+      vs. 
 
+    \begin{lstlisting}
+      my_list = [number for number in range(0,1000) if number % 2 == 0]
+      my_list
+    \end{lstlisting}
 
+    Exercise: Convert function into a lise comprehension:
+    \begin{lstlisting}
+      def times_tables():
+          lst = []
+          for i in range(10):
+              for j in range (10):
+                  lst.append(i*j)
+          return lst
+      
+      times_tables() == [???]
+    \end{lstlisting}
 
+    \begin{lstlisting}
+      def times_tables():
+          lst = []
+          for i in range(10):
+              for j in range (10):
+                  lst.append(i*j)
+          return lst
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      times_tables() == [j*i for i in range(10) for j in range(10)]
+    \end{lstlisting}
+    Noting the double ``=='' signs just to check the logic (vs. actually printing something out). 
 
 
     \newpage    
     \subsection{Advanced Python Demonstration: The Numerical Python Library (Numpy)}
+    \begin{lstlisting}
+      ## Difference between 
+      np.array([1, 2, 3] * 3) 
+      np.repeat([1, 2, 3], 3)
+    \end{lstlisting}
+
+    \begin{lstlisting}
+      a = np.array([-4, -2, 1, 3, 5])
+      a.sum()
+      a.max()
+      a.min()
+    \end{lstlisting}
+
+
+
     
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
