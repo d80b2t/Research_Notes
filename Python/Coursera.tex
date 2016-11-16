@@ -654,8 +654,11 @@ When you create a lambda, what type is returned? A function.\\
 
 
     \subsection{The Series Data Structure}
-    {\tt pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)}
     
+    \smallskip\smallskip\noindent
+    {\tt pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)}
+
+    \smallskip\smallskip\noindent
     If we create a list of strings and we have one element, a None
     type, pandas inserts it as a None and uses the type object for the
     underlying array:
@@ -672,6 +675,7 @@ When you create a lambda, what type is returned? A function.\\
       dtype: object
     \end{lstlisting}
     
+    \smallskip\smallskip\noindent
     If we create a list of numbers, integers or floats, and put in the
     None type, pandas automatically converts this to a special floating
     point value designated as NAN, which stands for not a number:
@@ -689,38 +693,164 @@ When you create a lambda, what type is returned? A function.\\
     \end{lstlisting}
     {\it N.B the NaN; {\bf NAN is not none and when we try the equality test, it's false.}}
 
+    \begin{lstlisting}
+     import numpy as np
+     np.nan == None
+     False
 
+     np.nan == np.nan
+     False  # Watch Out!!!!
 
+     np.isnan(np.nan)
+     True
+    \end{lstlisting}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    What happens if your list of values in the index object are not aligned with the keys in your dictionary for creating the series? Well, pandas overrides the automatic creation to favor only and all of the indices values that you provided. So it will ignore it from your dictionary, all keys, which are not in your index, and pandas will add non type or NAN values for any index value you provide, which is not in your dictionary key list. e.g.:
+    \begin{lstlisting}
+    sports = {'Archery': 'Bhutan',
+          'Golf': 'Scotland',
+          'Sumo': 'Japan',
+          'Taekwondo': 'South Korea'}
+        s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
+        s
+        
+        Golf      Scotland
+        Sumo         Japan
+        Hockey         NaN
+        dtype: object
+    \end{lstlisting}
 
 
     \subsection{Querying a Series}
+    \smallskip \smallskip \noindent
+    A panda.Series can be queried, either by the index position or the
+    index label. As we saw, if you don't give an index to the series, the
+    position and the label are effectively the same values. To query by
+    numeric location, starting at zero, use the iloc attribute. To query
+    by the index label, you can use the loc attribute.
+
+    \smallskip \smallskip \noindent
+    Keep in mind that iloc and loc are not methods, they are
+    attributes. So you don't use parentheses to query them, but square
+    brackets instead, which we'll call the indexing operator. Though in
+    Python, this calls get and set an item methods depending on the
+    context of its use.
+
+    \begin{lstlisting}
+      sports = {99: 'Bhutan',
+                     100: 'Scotland',
+                     101: 'Japan',
+                     102: 'South Korea'}
+      s = pd.Series(sports)
+
+      s[0] 
+      # Gives a KeyError!!! Use instead:
+      s.iloc[0]
+        
+      'Bhutan'
+    \end{lstlisting}
+    
+    Slow...
+    \begin{lstlisting}
+    total = 0
+    for item in s:
+        total+=item
+        print(total)
+    \end{lstlisting}
+
+    \begin{lstlisting}
+     import numpy as np
+     
+     total = np.sum(s)
+     print(total)
+    \end{lstlisting}
+
+    \begin{lstlisting}
+    #this creates a big series of random numbers
+    s = pd.Series(np.random.randint(0,10000,10000))
+    s.head()
+    
+    %%timeit -n 100
+    summary = 0
+    for item in s:
+        summary+=item
+    100 loops, best of 3: 1.7 ms per loop
+       
+    %%timeit -n 100
+    summary = np.sum(s)    
+    100 loops, best of 3: 164 µs per loop
+    \end{lstlisting}
+
+    \smallskip\smallskip\noindent
+    Up until now I've shown only examples of a series where the index
+    values were unique. I want to end this lecture by showing an example
+    where index values are not unique, and this makes data frames
+    different, conceptually, that a relational database might be. 
+
+    Revisiting the issue of countries and their national sports, it
+    turns out that many countries seem to like this game cricket. We go
+    back to our original series on sports. It's possible to create a new
+    series object with multiple entries for cricket, and then use append
+    to bring these together. There are a couple of important
+    considerations when using append. First, Pandas is going to take your
+    series and try to infer the best data types to use. In this example,
+    everything is a string, so there's no problems here.
+    
+    Second, the append method doesn't actually change the underlying
+    series. It instead returns a new series which is made up of the two
+    appended together. We can see this by going back and printing the
+    original series of values and seeing that they haven't changed.
+    ...\\
+    ...\\
+    ...\\
+
+    \smallskip\smallskip\noindent
+    In this lecture, we focused on one of the primary data types of
+    the Pandas library, the series. There are many more methods associated
+    with this series object that we haven't talked about. But with these
+    basics down, we'll move on to talking about the Panda's
+    two-dimensional data structure, the data frame. The data frame is very
+    similar to the series object, but includes multiple columns of data,
+    and is the structure that you'll spend the majority of your time
+    working with when cleaning and aggregating data.  
+
+
     \subsection{The DataFrame Data Structure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     \subsection{DataFrame Indexing and Loading}
     \subsection{Querying a DataFrame}
     \subsection{Indexing Dataframes}
