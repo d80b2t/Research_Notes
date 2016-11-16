@@ -648,7 +648,77 @@ When you create a lambda, what type is returned? A function.\\
 \section{Week Two: Basic Data Processing with Pandas}
 
     \subsection{Introduction}
+    GoTo:  \href{StackOverflow}{http://stackoverflow.com/}. \\
+    Good RSS: \href{http://planetpython.org/}{Planet Python}. \\
+    Podcast: {\href http://dataskeptic.com/}{http://dataskeptic.com/}\\
+
+
     \subsection{The Series Data Structure}
+    {\tt pd.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)}
+    
+    If we create a list of strings and we have one element, a None
+    type, pandas inserts it as a None and uses the type object for the
+    underlying array:
+    \begin{lstlisting}
+      animals = ['Tiger', 'Bear', None]
+      print(type(pd.Series(animals)))
+      pd.Series(animals)
+      
+      <class 'pandas.core.series.Series'>
+
+      0    Tiger
+      1    Bear
+      2    None
+      dtype: object
+    \end{lstlisting}
+    
+    If we create a list of numbers, integers or floats, and put in the
+    None type, pandas automatically converts this to a special floating
+    point value designated as NAN, which stands for not a number:
+    \begin{lstlisting}
+      numbers = [1, 2, None]
+      print(type(pd.Series(numbers)))
+      pd.Series(numbers)
+
+      <class 'pandas.core.series.Series'>
+
+      0    1.0
+      1    2.0
+      2    NaN
+      dtype: float64
+    \end{lstlisting}
+    {\it N.B the NaN; {\bf NAN is not none and when we try the equality test, it's false.}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     \subsection{Querying a Series}
     \subsection{The DataFrame Data Structure}
     \subsection{DataFrame Indexing and Loading}
