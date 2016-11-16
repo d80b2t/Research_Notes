@@ -569,11 +569,65 @@ do_math(1, 2)
       a.sum()
       a.max()
       a.min()
+      a.mean()
+      a.std
+      ## argmax and argmin return the index of the maximum and minimum values in the array
+      a.argmax()
+      a.argmin()
     \end{lstlisting}
 
 
+    \begin{lstlisting}
+      test = np.random.randint(0, 10, (4,3))
+      test
+      array(
+      [[8, 5, 3],
+       [6, 0, 8],
+       [3, 0, 0],
+       [1, 8, 0]])
 
-    
+       test[0]
+       array([8, 5, 3])
+
+       test[0][0]
+       8
+
+       test[0,0]
+       8
+
+       test[1]
+       array([6, 0, 8])
+
+       test[0][1]
+       5
+
+       test[0, 1]
+       5
+
+       for i, row in enumerate(test):
+           print('row', i, 'is', row)
+           
+       row 0 is [8 5 3]
+       row 1 is [6 0 8]
+       row 2 is [3 0 0]
+       row 3 is [1 8 0]
+
+       # Use `zip` to iterate over multiple iterables.
+
+       test2 = test**2
+       for i, j in zip(test, test2):
+           print(i,'+',j,'=',i+j)
+       
+       [8 5 3] + [64 25  9] = [72 30 12]
+       [6 0 8] + [36  0 64] = [42  0 72]
+       [3 0 0] + [9 0 0] = [12  0  0]
+       [1 8 0] + [ 1 64  0] = [ 2 72  0]
+    \end{lstlisting}
+
+Week One quiz notes:
+Python is an example of an Interpreted language. \\
+In Python, strings are considered INmutable.\\
+When you create a lambda, what type is returned? A function.\\
 
 
 
@@ -581,42 +635,83 @@ do_math(1, 2)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%
+%%    W E E K     T W O    
+%%
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{Week Two}
+\section{Week Two: Basic Data Processing with Pandas}
+
+    \subsection{Introduction}
+    \subsection{The Series Data Structure}
+    \subsection{Querying a Series}
+    \subsection{The DataFrame Data Structure}
+    \subsection{DataFrame Indexing and Loading}
+    \subsection{Querying a DataFrame}
+    \subsection{Indexing Dataframes}
+    \subsection{Missing Values}
+    \subsection{Discussion Prompt: The Ethics of Using Hacked Data}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
 \section{Week Three}
 
+    \subsection{Merging Dataframes}
+    \subsection{Pandas Idioms}
+    \subsection{Group by}
+    \subsection{Scales}
+    \subsection{Pivot Tables}
+    \subsection{Date Functionality}
+
+
+
 
 \newpage
-\section{Week Four}
+\section{Week Four: Statistical Analysis in Python and Project}
+    \subsection{Introduction}
+    \subsection{Distributions}
+    \subsection{More Distributions}
+    \subsection{Hypothesis Testing in Python}
 
+    %Discussion Prompt: The End of Theory35 min
+    %Discussion Prompt: Science Isn't Broken: p-hacking activity45 min
+    %Week 4 Slides
 
 
 
