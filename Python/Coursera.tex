@@ -880,7 +880,65 @@ When you create a lambda, what type is returned? A function.\\
 
     \subsection{Querying a DataFrame}
     \smallskip     \smallskip     \noindent
+    {\bf This is all very close to the ol' IDL Where function...  :-) }
+    
+    \smallskip     \smallskip     \noindent
+    One more thing to keep in mind if you're not used to Boolean or
+    bit masking for data reduction. The output of two Boolean masks being
+    compared with logical operators is another Boolean mask. This means
+    that you can chain together a bunch of and/or statements in order to
+    create more complex queries, and the result is a single Boolean mask. 
 
+    For instance, we could create a mask for all of those countries
+    who have received a gold in the summer Olympics and logically order
+    that with all of those countries who have received a gold in the
+    winter Olympics. If we apply this to the data frame and use the length
+    function to see how many rows there are, we see that there are 101
+    countries which have won a gold metal at some time.
+    
+    Another example for fun. Have there been any countries who have
+    only won a gold in the winter Olympics and never in the summer
+    Olympics? Here's one way to answer that.  Poor
+    Liechtenstein. Thankfully the Olympics come every four years. I know
+    who I'll be cheering for in 2020 to win their first summer gold.
+    
+    Extremely important, and often an issue for new users, is to remember
+    that each Boolean mask needs to be encased in parenthesis because of
+    the order of operations. This can cause no end of frustration if
+    you're not used to it, so be careful.
+    \begin{lstlisting}
+      only_gold = df.where(df['Gold'] > 0)
+      
+      only_gold = only_gold.dropna()
+      
+      only_gold = df[df['Gold'] > 0]
+      
+      len(df[(df['Gold'] > 0) | (df['Gold.1'] > 0)])
+      
+      df[(df['Gold.1'] > 0) & (df['Gold'] == 0)]
+    \end{lstlisting}
+
+    Write a query to return all the names of people who bought products worth more than \$3.00.
+    \begin{lstlisting}
+     purchase_1 = pd.Series({'Name': 'Chris',
+                                             'Item Purchased': 'Dog Food',
+                                             'Cost': 22.50})
+     purchase_2 = pd.Series({'Name': 'Kevyn',
+                                            'Item Purchased': 'Kitty Litter',
+                                            'Cost': 2.50})
+     purchase_3 = pd.Series({'Name': 'Vinod',
+                                            'Item Purchased': 'Bird Seed',
+                                            'Cost': 5.00})
+
+     df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+     
+    # df['Name'[df['Cost'] >3.00]] does not work...
+
+    df['Name'][df['Cost']>3.0]
+    \end{lstlisting}
+
+     
+    \subsection{Indexing Dataframes}
     \begin{lstlisting}
     \end{lstlisting}
 
@@ -911,15 +969,13 @@ When you create a lambda, what type is returned? A function.\\
 
 
 
-
-
-
-
-
-
-    \subsection{Indexing Dataframes}
     \subsection{Missing Values}
+    \begin{lstlisting}
+    \end{lstlisting}
+
     \subsection{Discussion Prompt: The Ethics of Using Hacked Data}
+    \begin{lstlisting}
+    \end{lstlisting}
 
 
 
