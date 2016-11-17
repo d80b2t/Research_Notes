@@ -799,7 +799,7 @@ When you create a lambda, what type is returned? A function.\\
     Second, the append method doesn't actually change the underlying
     series. It instead returns a new series which is made up of the two
     appended together. We can see this by going back and printing the
-    original series of values and seeing that they haven't changed.
+    original series of values and seeing that they haven't changed.\\
     ...\\
     ...\\
     ...\\
@@ -816,43 +816,107 @@ When you create a lambda, what type is returned? A function.\\
 
 
     \subsection{The DataFrame Data Structure}
+    \smallskip\smallskip\noindent
+    {\bf N.B.} Since {\tt iloc} and {\tt loc} are used for row
+    selection, the Panda's developers reserved indexing operator directly
+    on the DataFrame for column selection. In a Panda's DataFrame, columns
+    always have a name.
 
+    As we saw, {\tt .loc} does row selection, and it can take two
+    parameters, the row index and the list of column names. {\tt .loc} also
+    supports slicing. If we wanted to select all rows, we can use a column
+    to indicate a full slice from beginning to end. And then add the
+    column name as the second parameter as a string. In fact, if we wanted
+    to include multiply columns, we could do so in a list. And Pandas will
+    bring back only the columns we have asked for. Here's an example,
+    where we ask for all of the name and cost values for all stores using
+    the {\tt .loc} operator. e.g.  
+    \begin{lstlisting}
+      df['Cost']
+      
+      df.loc['Store 1']['Cost']
+      
+      df.loc[:,['Name', 'Cost']]
+    \end{lstlisting}
+    Also, consider the issue of chaining carefully, and try to avoid
+    it, it can cause unpredictable results. Where your intent was to
+    obtain a view of the data, but instead Pandas returns to you a
+    copy. In the Panda's world, friends don't let friends chain calls. So
+    if you see it, point it out, and share a less ambiguous solution.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Also, consider the issue of chaining carefully, and try to avoid
+    it, it can cause unpredictable results. Where your intent was to
+    obtain a view of the data, but instead Pandas returns to you a
+    copy. In the Panda's world, friends don't let friends chain calls. So
+    if you see it, point it out, and share a less ambiguous solution.
+    \begin{lstlisting}
+      df['Location'] = None
+      df
+      
+      # Update the Cost column with a 20\% discount.
+      df['Cost'] = df['Cost'] * 0.8   
+      # or... 
+      df['Cost'] *= 0.8
+    \end{lstlisting}
 
 
     \subsection{DataFrame Indexing and Loading}
+    \smallskip     \smallskip     \noindent
+    Pandas has built-in support for delimited files such as CSV files
+    as well as a variety of other data formats including relational
+    databases Excel and HTML tables.  I've saved a CSV file called
+    olympics.csv, which has data from Wikipedia that contains a summary
+    list of the medal various countries have won at the Olympics.
+    
+    \smallskip     \smallskip     \noindent
+    We can take a look at this file using the shell command cat. Which
+    we can invoke directly using the exclamation point.
+    \begin{lstlisting}
+      !cat olympics.csv
+      df = pd.read_csv('olympics.csv', index_col = 0, skiprows=1)
+      df.head()
+    \end{lstlisting}
+
+
     \subsection{Querying a DataFrame}
+    \smallskip     \smallskip     \noindent
+
+    \begin{lstlisting}
+    \end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     \subsection{Indexing Dataframes}
     \subsection{Missing Values}
     \subsection{Discussion Prompt: The Ethics of Using Hacked Data}
