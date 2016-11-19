@@ -939,42 +939,86 @@ When you create a lambda, what type is returned? A function.\\
 
      
     \subsection{Indexing Dataframes}
+
     \begin{lstlisting}
+      df['country'] = df.index
+      ##  manually create a new column and copy into it values from the index attribute. 
+      ##  (preserve the country information into a new column)
+
+      df = df.set_index('Gold')
+
+      df = df.reset_index()
+      # We can get rid of the ``blank'' entries by calling reset_index
     \end{lstlisting}
 
+    Pandas can do multi-level indexing. 
+    \begin{lstlisting}
+     df = pd.read_csv('census.csv')
+     df['SUMLEV'].unique()
+     df=df[df['SUMLEV'] == 50]    #Careful, this is ``destructive''....
+     columns_to_keep = ['STNAME',
+                                      'CTYNAME',
+                                      'BIRTHS2010',
+                                      'BIRTHS2011, 
+                                      ....
+                                      'POPESTIMATE2014',
+                                      'POPESTIMATE2015']
+    df = df[columns_to_keep]
 
+    df = df.set_index(['STNAME', 'CTYNAME'])
+    \end{lstlisting}
+    When you use a multi-index, you must provide the arguments in
+    order by the level you wish to query. Inside of the index, each column
+    is called a level and the outermost column is level zero. For
+    instance, if we want to see the population results from Washenaw
+    county...
+    \begin{lstlisting}
+      df.loc['Michigan', 'Washtenaw County']
+      
+      df.loc[ [('Michigan', 'Washtenaw County'),
+                  ('Michigan', 'Wayne County')] ]
+    \end{lstlisting}
+    
+    Reindex the purchase records DataFrame to be indexed
+    hierarchically, first by store, then by person. Name these indexes
+    ``Location'' and ``Name''. Then add a new entry to it with the value
+    of: 
+    {\tt Name: 'Kevyn', Item Purchased: 'Kitty Food', Cost: 3.00 Location': 'Store 2'.}
+    \begin{lstlisting}
+      purchase_1 = pd.Series({'Name': 'Chris',
+                                             'Item Purchased': 'Dog Food',
+                                             'Cost': 22.50})
+      purchase_2 = pd.Series({'Name': 'Kevyn',
+                                             'Item Purchased': 'Kitty Litter',
+                                             'Cost': 2.50})
+      purchase_3 = pd.Series({'Name': 'Vinod',
+                                             'Item Purchased': 'Bird Seed',
+                                             'Cost': 5.00})
 
+      df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      # Your answer here
+      df = df.set_index([df.index, 'Name'])
+      df.index.names = ['Location', 'Name']
+      df = df.append(pd.Series(data={'Cost': 3.00, 'Item Purchased': 'Kitty Food'}, name=('Store 2', 'Kevyn')))
+df
+    \end{lstlisting}
 
 
     \subsection{Missing Values}
     \begin{lstlisting}
-    \end{lstlisting}
+      df.fillna?
 
-    \subsection{Discussion Prompt: The Ethics of Using Hacked Data}
-    \begin{lstlisting}
+      ## Promote the time stamp to an index, then sort on the index. 
+      df = df.set_index('time')
+      df = df.sort_index()
+
+      ## Reset the index, using some multi-level indexing instead,
+      ## promote the user name to a second level of the index
+      df = df.reset_index()
+      df = df.set_index(['time', 'user'])
+
+      df = df.fillna(method='ffill')
     \end{lstlisting}
 
 
