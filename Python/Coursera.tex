@@ -953,19 +953,21 @@ When you create a lambda, what type is returned? A function.\\
 
     Pandas can do multi-level indexing. 
     \begin{lstlisting}
-     df = pd.read_csv('census.csv')
-     df['SUMLEV'].unique()
-     df=df[df['SUMLEV'] == 50]    #Careful, this is ``destructive''....
+     census_df = pd.read_csv('census.csv')
+     census_df['SUMLEV'].unique()
+     census_df=census_df[census_df['SUMLEV'] == 50]   
+     #Careful, this is ``destructive''....
+
      columns_to_keep = ['STNAME',
                                       'CTYNAME',
                                       'BIRTHS2010',
-                                      'BIRTHS2011, 
+                                      'BIRTHS2011', 
                                       ....
                                       'POPESTIMATE2014',
                                       'POPESTIMATE2015']
-    df = df[columns_to_keep]
+    census_df = census_df[columns_to_keep]
 
-    df = df.set_index(['STNAME', 'CTYNAME'])
+    census_df = census_df.set_index(['STNAME', 'CTYNAME'])
     \end{lstlisting}
     When you use a multi-index, you must provide the arguments in
     order by the level you wish to query. Inside of the index, each column
@@ -973,12 +975,23 @@ When you create a lambda, what type is returned? A function.\\
     instance, if we want to see the population results from Washenaw
     county...
     \begin{lstlisting}
-      df.loc['Michigan', 'Washtenaw County']
+      census_df.loc['Michigan', 'Washtenaw County']
       
-      df.loc[ [('Michigan', 'Washtenaw County'),
-                  ('Michigan', 'Wayne County')] ]
+      census_df.loc[[('Michigan', 'Washtenaw County'),
+                              ('Michigan', 'Wayne County')] ]
     \end{lstlisting}
-    
+    Other interesting census-related links:\\
+    \href{http://rlhick.people.wm.edu/stories/python-pandas-primer.html}{http://rlhick.people.wm.edu/stories/python-pandas-primer.html}\\
+    \href{http://stackoverflow.com/questions/28933220/us-census-api-get-the-population-of-every-city-in-a-state-using-python}{http://stackoverflow.com/questions/28933220/us-census-api-get-the-population-of-every-city-in-a-state-using-python}\\
+    \href{https://pypi.python.org/pypi/us}{https://pypi.python.org/pypi/us}\\
+    \href{
+
+
+
+
+
+
+    {\bf Challenge!!}
     Reindex the purchase records DataFrame to be indexed
     hierarchically, first by store, then by person. Name these indexes
     ``Location'' and ``Name''. Then add a new entry to it with the value
