@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\title{A Guide to Bayes}
+\title{Some baby (Software/Electrical) Engineering Notes}
 \author{Nicholas P. Ross}
 \date{\today}
 \maketitle
@@ -62,8 +62,40 @@ From:
 \noindent
 ``In computer programming, an application programming interface (API) is a set of subroutine definitions, protocols, and tools for building software and applications. A good API makes it easier to develop a program by providing all the building blocks, which are then put together by the programmer. An API may be for a web-based system, operating system, database system, computer hardware, or software library. An API specification can take many forms, but often include specifications for routines, data structures, object classes, variables, or remote calls. POSIX, Microsoft Windows API, the C++ Standard Template Library, and Java APIs are examples of different forms of APIs. Documentation for the API is usually provided to facilitate usage. The status of APIs in intellectual property law is controversial.''
 
+    \subsection{soapui: SOAP vs. REST challenges}
+\href{https://www.soapui.org/testing-dojo/world-of-api-testing/soap-vs--rest-challenges.html}{https://www.soapui.org/testing-dojo/world-of-api-testing/soap-vs--rest-challenges.html}
 
+\newpage
+\section{``How to access Web services''}
+\href{http://blog.smartbear.com/apis/understanding-soap-and-rest-basics/}{http://blog.smartbear.com/apis/understanding-soap-and-rest-basics/}\\
+Simple Object Access Protocol (SOAP) and Representational State Transfer (REST) are two answers to the same question: how to access Web services. The choice initially may seem easy, but at times it can be surprisingly difficult.
 
+\subsection{SOAP (Simple Object Access Protocol)} 
+SOAP (Simple Object Access Protocol) is a protocol specification for
+exchanging structured information in the implementation of web
+services in computer networks. Its purpose is to induce extensibility,
+neutrality and independence. It uses XML Information Set for its
+message format, and relies on application layer protocols, most often
+Hypertext Transfer Protocol (HTTP) or Simple Mail Transfer Protocol
+(SMTP), for message negotiation and transmission.
+
+SOAP allows processes running on disparate operating systems (such as
+Windows and Linux) to communicate using Extensible Markup Language
+(XML). Since Web protocols like HTTP are installed and running on all
+Operating systems, SOAP allows clients to invoke web services and
+receive responses independent of language and platforms.
+
+SOAP provides the Messaging Protocol layer of a web services protocol stack for web services. It is an XML-based protocol consisting of three parts:
+
+(1) an envelope, which defines the message structure and how to process it\\
+(2) a set of encoding rules for expressing instances of application-defined datatypes\\
+(3) a convention for representing procedure calls and responses\\
+
+SOAP has three major characteristics:
+
+(1) extensibility (security and WS-routing are among the extensions under development)\\
+(2) neutrality (SOAP can operate over any protocol such as HTTP, SMTP, TCP, UDP, or JMS)
+(3) independence (SOAP allows for any programming model)
 
 
 
