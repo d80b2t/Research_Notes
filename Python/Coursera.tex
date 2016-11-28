@@ -1085,9 +1085,57 @@ df
        \begin{itemize}
          \item{To add new data}
            \begin{itemize}
-             \item{- {\tt df[column] = [a,b,c]}}
+             \item{{\tt df[column] = [a,b,c]}}
+           \end{itemize}
+         \item{To set default data}
+           \begin{itemize}
+             \item{{\tt df[column] = 2}}
            \end{itemize}
        \end{itemize}
+
+
+    \begin{lstlisting}
+      df = pd.DataFrame([{'Name': 'Chris', 'Item Purchased': 'Sponge', 'Cost': 22.50},
+                                      {'Name': 'Kevyn', 'Item Purchased': 'Kitty Litter', 'Cost': 2.50},
+                                      {'Name': 'Filip', 'Item Purchased': 'Spoon', 'Cost': 5.00}],
+                                      index=['Store 1', 'Store 1', 'Store 2'])
+
+    df['Date'] = ['December 1', 'January 1', 'mid-May']   ## Is fine
+    df['Delivered'] = True        ## Is fine
+    df['Feedback'] = ['Positive', None, 'Negative']   ## Also OK, but have to add the none.
+    \end{lstlisting}
+
+    Some CRITICAL NOTES!!! \\
+    \begin{table}
+      \begin{center}
+        \begin{tabular}{l l l}
+          \hline              \hline
+          Venn Description  & Math Description  & DB Description \\
+          \hline
+          Everything' & Union & Full OUTER JOIN \\
+          Overlap of both  & Intersection & INNER JOIN \\
+          ``Everything on the Left'' & &   LEFT (OUTER) JOIN \\
+          ``Everything on the Right & &   Right (OUTER) JOIN \\
+          Only in A, but not in  B, & & LEFT OUTER JOIN \\
+                                                & & B is {\tt null}\\
+          In A, In B, NOT in both A\&B & & FULL OUTER JOIN \\
+                                                        & & A is  {\tt null}, B is {\tt null}\\
+          \hline             \hline
+          \label{tab:The_LRG_numbers}
+        \end{tabular}
+        \caption{But see also: \href{https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/}{https://blog.jooq.org/2016/07/05/say-no-to-venn-diagrams-when-explaining-joins/}}
+      \end{center}
+    \end{table}
+
+    `` Importantly, both DataFrames are indexed along the value we want to merge them on, which is called Name. ''
+          
+    \begin{lstlisting}
+
+    \end{lstlisting}
+
+    \begin{lstlisting}
+    \end{lstlisting}
+
 
 
     \subsection{Pandas Idioms}
