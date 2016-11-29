@@ -136,3 +136,47 @@
 \newcommand{\alii}{Al\,{\sc ii}\ }
 \newcommand{\aliii}{Al\,{\sc iii}\ }
 \newcommand{\siiii}{Si\,{\sc iii}]\ }
+
+
+
+%%  For Octave code inclusions...
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Octave,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%% http://texblog.org/2008/04/02/include-source-code-in-latex-with-listings/
+%%
+%% language=Octave -> choose the language of the code
+%% basicstyle=\footnotesize -> the size of the fonts used for the code
+%% numbers=left -> where to put the line-numbers
+%% numberstyle=\footnotesize -> size of the fonts used for the line-numbers
+%% stepnumber=2 -> the step between two line-numbers.
+%% numbersep=5pt -> how far the line-numbers are from the code
+%% backgroundcolor=\color{white} -> sets background color (needs package)
+%% showspaces=false -> show spaces adding particular underscores
+%% showstringspaces=false -> underline spaces within strings
+%% showtabs=false -> show tabs within strings through particular underscores
+%% frame=single -> adds a frame around the code
+%% tabsize=2 -> sets default tab-size to 2 spaces
+%% captionpos=b -> sets the caption-position to bottom
+%% breaklines=true -> sets automatic line breaking
+%% breakatwhitespace=false -> automatic breaks happen at whitespace
+%% morecomment=[l]{//} -> displays comments in italics (language dependent)

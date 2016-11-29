@@ -1,5 +1,5 @@
 
-TEXFILE=MachineLearning
+TEXFILE=MachineLearning_Coursera
 default: all
 
 # just run it
