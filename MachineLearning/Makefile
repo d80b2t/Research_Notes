@@ -1,5 +1,5 @@
 
-TEXFILE=MachineLearning_Coursera
+TEXFILE=MachineLearning_generalnotes
 default: all
 
 # just run it
@@ -11,10 +11,10 @@ bib:
 all :
 	pdflatex  ${TEXFILE}
 	pdflatex  ${TEXFILE}
-	bibtex ${TEXFILE}
-	bibtex ${TEXFILE}
-	bibtex ${TEXFILE}
-	pdflatex  ${TEXFILE}
+#	bibtex ${TEXFILE}
+#	bibtex ${TEXFILE}
+#	bibtex ${TEXFILE}
+#	pdflatex  ${TEXFILE}
 	pdflatex  ${TEXFILE}
 	pdflatex  ${TEXFILE}
 #	dvipdf ${TEXFILE}
