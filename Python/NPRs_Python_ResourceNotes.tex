@@ -36,6 +36,7 @@ https://github.com/d80b2t/Research\_Notes}.
 
 
 \newpage
+%% \chapter{The Real and General Basics}
 \section{The REAL Basics}
 
     \subsection{Versions}
@@ -71,7 +72,7 @@ https://github.com/d80b2t/Research\_Notes}.
 
 
 
-    \subsection{Notebook}
+    \subsection{(Jupyter) Notebook}
     Click on the NBviewer...\\
     Then you can see the e.g. html of the notebook. \\
     But to change/execute it, then all you have to do is click the download button...\\
@@ -488,14 +489,16 @@ TypeError: 'int' object is not subscriptable
 
 
 \subsection{Dictionaries and Maps}
-From: \href{http://learnpythonthehardway.org/book/ex39.html}{http://learnpythonthehardway.org/book/ex39.html}: 
+From:
+\href{http://learnpythonthehardway.org/book/ex39.html}{http://learnpythonthehardway.org/book/ex39.html}:
 You are now going to learn about the Dictionary data structure in
 Python. A Dictionary (or "dict") is a way to store data just like a
 list, but instead of using only numbers to get the data, you can use
 almost anything. This lets you treat a dict like it's a database for
 storing and organizing data.
 
-From: \href{https://docs.python.org/3/tutorial/datastructures.html\#dictionaries}{https://docs.python.org/3/tutorial/datastructures.html\#dictionaries}: 
+From:
+\href{https://docs.python.org/3/tutorial/datastructures.html\#dictionaries}{https://docs.python.org/3/tutorial/datastructures.html\#dictionaries}:
 Another useful data type built into Python is the dictionary (see
 Mapping Types — dict). Dictionaries are sometimes found in other
 languages as “associative memories” or “associative arrays”. Unlike
@@ -529,10 +532,15 @@ print("dict['Alice']: ", dict['Alice]')
 \end{lstlisting}
 
 \noindent
-From: \href{http://openbookproject.net/thinkcs/python/english3e/dictionaries.html}{http://openbookproject.net/thinkcs/python/english3e/dictionaries.html}:
+From:
+\href{http://openbookproject.net/thinkcs/python/english3e/dictionaries.html}{http://openbookproject.net/thinkcs/python/english3e/dictionaries.html}:
 
-Hashing. The order of the pairs may not be what was expected. Python uses complex algorithms, designed for very fast access, to determine where the key:value pairs are stored in a dictionary. For our purposes we can think of this ordering as unpredictable.
-You also might wonder why we use dictionaries at all when the same concept of mapping a key to a value could be implemented using a list of tuples:
+Hashing. The order of the pairs may not be what was expected. Python
+uses complex algorithms, designed for very fast access, to determine
+where the key:value pairs are stored in a dictionary. For our purposes
+we can think of this ordering as unpredictable.  You also might wonder
+why we use dictionaries at all when the same concept of mapping a key
+to a value could be implemented using a list of tuples:
 \begin{lstlisting}
 >>> {"apples": 430, "bananas": 312, "oranges": 525, "pears": 217}
 {'pears': 217, 'apples': 430, 'oranges': 525, 'bananas': 312}
@@ -576,7 +584,6 @@ pyFITS\\
 yt\\
 }
 
-
 \subsection{PyPI - the Python Package Index}
 \noindent
 \href{https://pypi.python.org/pypi}{https://pypi.python.org/pypi}
@@ -588,10 +595,8 @@ here\footnote{As of Fri Aug 5 13:37:24 PDT 2016.}.
 
 
 
-
-
 \newpage
-\section{{\tt matplotib}}
+\section{matplotib}
 From \href{http://matplotlib.org/}{{\tt http://matplotlib.org/}} \\
 
 \noindent
@@ -634,6 +639,62 @@ import matplotlib.pyplot as plt
 
 \end{lstlisting}
 
+From \href{http://stackoverflow.com/questions/16522380/python-pandas-plot-is-a-no-show}{http://stackoverflow.com/questions/16522380/python-pandas-plot-is-a-no-show}: 
+Put
+\begin{lstlisting}
+import matplotlib.pyplot as plt
+\end{lstlisting}
+at the top, and
+\begin{lstlisting}
+plt.show()
+\end{lstlisting}
+at the end.
+
+
+
+
+\newpage
+\section{{AstroPy}}
+All from \href{http://www.astropy.org/}{\tt http://www.astropy.org/}.
+This research made use of Astropy, a community-developed core Python
+package for Astronomy \citep{Astropy13}. 
+
+\smallskip
+\smallskip
+\noindent
+The Astropy Project is a community effort to develop a core package
+for astronomy using the Python programming language and improve
+usability, interoperability, and collaboration between astronomy
+Python packages. The core astropy package contains functionality aimed
+at professional astronomers and astrophysicists, but may be useful to
+anyone developing astronomy software. The Astropy Project also
+includes "affiliated packages," Python packages that are not
+necessarily developed by the core development team, but share the
+goals of Astropy, and often build from the core package's code and
+infrastructure.
+
+\subsection{Tables} 
+\smallskip
+\smallskip
+\noindent
+\href{http://docs.astropy.org/en/stable/table/}{\tt http://docs.astropy.org/en/stable/table/}
+
+\subsection{{\tt astropy.coordinate} Matching Catalogs}
+
+\smallskip
+\smallskip
+\noindent
+\href{http://docs.astropy.org/en/stable/coordinates/matchsep.html}{\tt http://docs.astropy.org/en/stable/coordinates/matchsep.html}
+
+\smallskip
+\smallskip
+\noindent
+\href{http://docs.astropy.org/en/v0.3/coordinates/matching.html}{\tt http://docs.astropy.org/en/v0.3/coordinates/matching.html}
+
+jsviewer gives you the html output (for a table...)
+
+
+
 
 \newpage
 \section{Seaborn}
@@ -662,51 +723,6 @@ The plotting functions try to do something useful when called with a minimal set
     \begin{lstlisting}
       
     \end{lstlisting}
-
-
-\newpage
-\section{{AstroPy}}
-All from \href{http://www.astropy.org/}{\tt http://www.astropy.org/}.
-This research made use of Astropy, a community-developed core Python
-package for Astronomy \citep{Astropy13}. 
-
-\smallskip
-\smallskip
-\noindent
-The Astropy Project is a community effort to develop a core package
-for astronomy using the Python programming language and improve
-usability, interoperability, and collaboration between astronomy
-Python packages. The core astropy package contains functionality aimed
-at professional astronomers and astrophysicists, but may be useful to
-anyone developing astronomy software. The Astropy Project also
-includes "affiliated packages," Python packages that are not
-necessarily developed by the core development team, but share the
-goals of Astropy, and often build from the core package's code and
-infrastructure.
-
-
-\subsection{Tables} 
-\smallskip
-\smallskip
-\noindent
-\href{http://docs.astropy.org/en/stable/table/}{\tt http://docs.astropy.org/en/stable/table/}
-
-
-
-\subsection{{\tt astropy.coordinate} Matching Catalogs}
-
-\smallskip
-\smallskip
-\noindent
-\href{http://docs.astropy.org/en/stable/coordinates/matchsep.html}{\tt http://docs.astropy.org/en/stable/coordinates/matchsep.html}
-
-\smallskip
-\smallskip
-\noindent
-\href{http://docs.astropy.org/en/v0.3/coordinates/matching.html}{\tt http://docs.astropy.org/en/v0.3/coordinates/matching.html}
-
-jsviewer gives you the html output (for a table...)
-
 
 
 
@@ -745,65 +761,27 @@ Examples:
 
 
 \newpage
-\section{Class vs. an Instance}
-Difference between a class and an instance is an Object Oriented (OO)
-concept.
+\section{numba}
+\href{http://numba.pydata.org/}{\tt http://numba.pydata.org/}. \\
+Numba gives you the power to speed up your applications with high
+performance functions written directly in Python. With a few
+annotations, array-oriented and math-heavy Python code can be
+just-in-time compiled to native machine instructions, similar in
+performance to C, C++ and Fortran, without having to switch languages
+or Python interpreters.
 
-Python and Ruby both recommend {\tt UpperCamelCase} for class names,
-{\tt CAPITALIZED\_WITH\_UNDERSCORES} for constants, and {\tt
-lowercase\_separated\_by\_underscores} for other names.  
-%% see also https://en.wikipedia.org/wiki/Naming_convention\_(programming)
+Numba works by generating optimized machine code using the LLVM
+compiler infrastructure at import time, runtime, or statically (using
+the included pycc tool). Numba supports compilation of Python to run
+on either CPU or GPU hardware, and is designed to integrate with the
+Python scientific software stack.
 
-And {\tt snake\_case} for variable names, function names, and method names. 
+The Numba project is supported by Continuum Analytics and The Gordon
+and Betty Moore Foundation (Grant GBMF5423).
 
-Generally speaking, instance variables are for data unique to each instance and class variables are for attributes and methods shared by all instances of the class:
-
-Definitions: 
-from \href{http://www.tutorialspoint.com/python/python\_classes\_objects.htm}{http://www.tutorialspoint.com/python/python\_classes\_objects.htm}
-\begin{itemize}
-\item{Class: A user-defined prototype for an object that defines a set of
-    attributes that characterize any object of the class. The attributes
-    are data members (class variables and instance variables) and methods,
-    accessed via dot notation.}
-
-  %A blueprint defining the charactaristics and behaviors of an object of that class type. Class names should be written in CamelCase, starting with a capital letter.
-
-\item{Instance variable: A variable that is defined inside a method
-    and belongs only to the current instance of a class.}
-
-\item{Inheritance: The transfer of the characteristics of a class to
-    other classes that are derived from it.}
-\end{itemize}
-
-Maybe see also \href{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}. 
-
-
-    \subsection{Abstract Classes}
-    \href{https://www.hackerrank.com/challenges/30-abstract-classes/tutorial}{https://www.hackerrank.com/challenges/30-abstract-classes/tutorial} \\
-
-    \textbf{\textsc{Case Study: Abstraction:}}
-    This is is an essential feature of object-oriented programming. In essense, it's the separation between what a class does and how it's accomplished. 
-
-One real world example of this concept is a snack machine, where you
-give the machine money, make a selection, and the machine dispenses
-the snack. The only thing that matters is what the machine does (i.e.:
-dispenses the selected snack); you can easily buy a snack from any
-number of snack machines without knowing how the machine's internals
-are designed (i.e.: the implementation details).
-
-Abstract Class This type of class can have abstract methods as well as
-defined methods, but it cannot be instantiated (meaning you cannot
-create a new instance of it). To use an abstract class, you must
-create and instantiate a subclass that extends the abstract class. Any
-abstract methods declared in an abstract class must be implemented by
-its subclasses (unless the subclass is also abstract).
-
- abc -- Abstract Base Classes
-Source code: Lib/abc.py
-
-This module provides the infrastructure for defining abstract base classes (ABCs) in Python, as outlined in PEP 3119; see the PEP for why this was added to Python. (See also PEP 3141 and the numbers module regarding a type hierarchy for numbers based on ABCs.)
-
-The collections module has some concrete classes that derive from ABCs; these can, of course, be further derived. In addition the collections.abc submodule has some ABCs that can be used to test whether a class or instance provides a particular interface, for example, is it hashable or a mapping.
+    \begin{lstlisting}
+      
+    \end{lstlisting}
 
 
 
@@ -1491,19 +1469,6 @@ statements are used. See Getting Started for more examples.
 
 
 
-\newpage
-\section{Plots}
-
-From \href{http://stackoverflow.com/questions/16522380/python-pandas-plot-is-a-no-show}{http://stackoverflow.com/questions/16522380/python-pandas-plot-is-a-no-show}: 
-Put
-\begin{lstlisting}
-import matplotlib.pyplot as plt
-\end{lstlisting}
-at the top, and
-\begin{lstlisting}
-plt.show()
-\end{lstlisting}
-at the end.
 
 
 
@@ -1943,10 +1908,66 @@ The __init__ method is roughly what represents a constructor in Python. When you
 The {\tt \_\_init\_\_} method is analogous to a constructor in C++, C\#
 or Java.
 
+\section{Class vs. an Instance}
+Difference between a class and an instance is an Object Oriented (OO)
+concept.
+
+Python and Ruby both recommend {\tt UpperCamelCase} for class names,
+{\tt CAPITALIZED\_WITH\_UNDERSCORES} for constants, and {\tt
+lowercase\_separated\_by\_underscores} for other names.  
+%% see also https://en.wikipedia.org/wiki/Naming_convention\_(programming)
+
+And {\tt snake\_case} for variable names, function names, and method names. 
+
+Generally speaking, instance variables are for data unique to each instance and class variables are for attributes and methods shared by all instances of the class:
+
+Definitions: 
+from \href{http://www.tutorialspoint.com/python/python\_classes\_objects.htm}{http://www.tutorialspoint.com/python/python\_classes\_objects.htm}
+\begin{itemize}
+\item{Class: A user-defined prototype for an object that defines a set of
+    attributes that characterize any object of the class. The attributes
+    are data members (class variables and instance variables) and methods,
+    accessed via dot notation.}
+
+  %A blueprint defining the charactaristics and behaviors of an object of that class type. Class names should be written in CamelCase, starting with a capital letter.
+
+\item{Instance variable: A variable that is defined inside a method
+    and belongs only to the current instance of a class.}
+
+\item{Inheritance: The transfer of the characteristics of a class to
+    other classes that are derived from it.}
+\end{itemize}
+
+Maybe see also \href{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}{http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static}. 
 
 
-\newpage
-\section{Jupyter Notebooks}
+    \subsection{Abstract Classes}
+    \href{https://www.hackerrank.com/challenges/30-abstract-classes/tutorial}{https://www.hackerrank.com/challenges/30-abstract-classes/tutorial} \\
+
+    \textbf{\textsc{Case Study: Abstraction:}}
+    This is is an essential feature of object-oriented programming. In essense, it's the separation between what a class does and how it's accomplished. 
+
+One real world example of this concept is a snack machine, where you
+give the machine money, make a selection, and the machine dispenses
+the snack. The only thing that matters is what the machine does (i.e.:
+dispenses the selected snack); you can easily buy a snack from any
+number of snack machines without knowing how the machine's internals
+are designed (i.e.: the implementation details).
+
+Abstract Class This type of class can have abstract methods as well as
+defined methods, but it cannot be instantiated (meaning you cannot
+create a new instance of it). To use an abstract class, you must
+create and instantiate a subclass that extends the abstract class. Any
+abstract methods declared in an abstract class must be implemented by
+its subclasses (unless the subclass is also abstract).
+
+ abc -- Abstract Base Classes
+Source code: Lib/abc.py
+
+This module provides the infrastructure for defining abstract base classes (ABCs) in Python, as outlined in PEP 3119; see the PEP for why this was added to Python. (See also PEP 3141 and the numbers module regarding a type hierarchy for numbers based on ABCs.)
+
+The collections module has some concrete classes that derive from ABCs; these can, of course, be further derived. In addition the collections.abc submodule has some ABCs that can be used to test whether a class or instance provides a particular interface, for example, is it hashable or a mapping.
+
 
 
 
