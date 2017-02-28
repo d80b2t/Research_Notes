@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\setlength {\textwidth}{180mm} 
+\setlength {\textheight}{260mm}
+\topmargin=-35.00mm
+\oddsidemargin=-10.00mm
+\pagestyle{empty}
+
+\input{format}
+
+\begin{document}
+
+\title{A Guide to DockerLiberty and the Pursuit of Happiness}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+\begin{abstract}
+This is a simple document which will give some overviews, NPR-style
+notes and general things-to-remember for {\tt Docker}. Docker is an
+open platform for developers and sysadmins to build, ship, and run
+distributed applications, whether on laptops, data center VMs, or the
+cloud.
+\end{abstract}
+
+
+%Section heading
+\section{Docker}
+
+Purpose: This document is a place where we/I (NPR) will keep notes on
+how to use Docker \href{https://www.docker.com/}{\tt
+(https://www.docker.com/}.\\
+
+\noindent
+``Docker is the world's leading software containerization platform''.\\
+
+\noindent
+``Docker containers wrap a piece of software in a complete filesystem that contains everything needed to run: code, runtime, system tools, system libraries – anything that can be installed on a server. This guarantees that the software will always run the same, regardless of its environment.''\\
+
+
+Definition (from,of course Wikipedia): 
+Docker is an open-source project that automates the deployment of applications inside software containers.  
+
+Operating-system-level virtualization is a server virtualization method in which the kernel of an operating system allows the existence of multiple isolated user-spaceinstances, instead of just one. Such instances, which are sometimes called containers, software containers,[1] virtualization engines (VEs) or jails (FreeBSD jail or chroot jail), may look and feel like a real server from the point of view of its owners and users.
+
+User_space: A modern computer operating system usually segregates virtual memory into kernel space and user space.[a] Primarily, this separation serves to provide memory protection and hardware protection from malicious or errant software behaviour.
+Kernel space is strictly reserved for running a privileged operating system kernel, kernel extensions, and most device drivers. In contrast, user space is the memory area where application software and some drivers execute.
+
+\newpage
+\section{Glossary (from one of the Cheat Sheets)}
+
+\begin{itemize}					
+\item{Layer - a set of read-only les to provision the system.}
+\item{Image - a read-only layer that is the base of your container. Might have a parent image.}
+\item{Container - a runnable instance of the image.}
+\item{Registry / Hub - central place where images live.}
+\item{Docker machine - a VM to run Docker containers (Linux does this natively).}
+\item{Docker compose - a utility to run multiple containers as a system.}
+\end{itemize}					
+			
+		
+
+
+Initial Download, installation and tests:
+
+~> docker --version
+Docker version 1.12.5, build 7392c3b
+~> docker-compose --version
+docker-compose version 1.9.0, build 2585387
+~> docker-machine --version
+docker-machine version 0.8.2, build e18a919
+~> 
+
+
+~ > docker ps  %Lists the running containers:
+CONTAINER ID  IMAGE   COMMAND     CREATED  STATUS PORTS NAMES
+fd68d79e8ad8  nginx   "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   webserver
+
+~ > docker stop webserver 
+webserver
+~ > docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+~ > docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+~ > docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                         PORTS               NAMES
+fd68d79e8ad8        nginx               "nginx -g 'daemon off"   3 hours ago         Exited (0) About an hour ago                       webserver
+09ebf86dba83        hello-world         "/hello"                 3 hours ago         Exited (0) 3 hours ago                             drunk_colden
+3a49afffde73        hello-world         "/hello"                 5 hours ago         Exited (0) 5 hours ago                             dreamy_swanson
+1008b9c91a71        ubuntu              "bash"                   5 hours ago         Exited (0) 5 hours ago                             lonely_golick
+9cbf9f6c9ec1        hello-world         "/hello"                 5 hours ago         Exited (0) 5 hours ago                             compassionate_thompson
+
+
+
+> docker run -it -p 8889:8889 opennetworkinsight/oni-demo
+
+> docker ps
+CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                    NAMES
+b9bd7c28792f        opennetworkinsight/oni-demo   "/bin/sh -c /oni-o..."   11 seconds ago      Up 9 seconds        0.0.0.0:8889->8889/tcp   optimistic_feynman
+
+> docker exec -it b9bd7c28792f /bin/bash
+
+
+Docker Cheat Sheets
+
+Docker_CheatSheet_08.09.2016_0.pdf
+https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/
+https://www.cheatography.com/aabs/cheat-sheets/docker-and-friends/
+
+https://github.com/docker/docker/issues/3285
+
+
+
+Other Docker links and resources
+
+https://valdhaus.co/writings/docker-misconceptions/
+https://developer.ibm.com/dwblog/2016/what-is-docker-containers/
+
+
+https://docs.docker.com/engine/reference/run/
+https://docs.docker.com/engine/reference/run/#/expose-incoming-ports
+
+
+
+\end{document}
+
