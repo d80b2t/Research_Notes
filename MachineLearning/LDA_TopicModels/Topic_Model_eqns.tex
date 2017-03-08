@@ -1,0 +1,95 @@
+\documentclass[11pt,a4paper]{article}
+\input{format}
+
+\begin{document}
+
+   \title{Topic Model Equations}
+  \author{npr}
+ \date{\today}
+\maketitle
+
+
+The normalizing constant is the multivariate Beta function, which can be expressed in terms of the gamma function:
+
+\begin{equation}
+\mathrm {B} ({\boldsymbol {\alpha }})={\frac {\prod _{i=1}^{K}\Gamma (\alpha _{i})}{\Gamma \left(\sum _{i=1}^{K}\alpha _{i}\right)}},\qquad {\boldsymbol {\alpha }}=(\alpha _{1},\cdots ,\alpha _{K}).
+\end{equation}
+where $K\geq 2$ number of categories (integer) and \\
+$\alpha_{1},\cdots ,\alpha_{K}$ concentration parameters, where $\alpha_{i}>0 \alpha_{i}>0$.
+
+\begin{equation}
+P(\mathbf{p}| \alpha m) =  \frac{\Gamma(\sum_{k}\; \alpha \, m_k) }{\prod_{k}\Gamma(\alpha \, m_k)}\prod_{k} \, p_{k}^{\alpha m_k -1}
+\end{equation}
+
+\smallskip
+\smallskip
+\noindent
+e.g. Slide at 13:02 in the \href{https://www.youtube.com/watch?v=yK7nN3FcgUs&t=715s}{\tt Topic Models} Youtube video:
+\begin{eqnarray}
+p(\phi | \alpha, {\bf w})  & \propto & p({\bf w} | \phi) \;  p(\phi|\alpha) \\
+                                       & \propto & \prod_{k} \phi^{n_{k}}  \; \prod_{k} \phi^{\alpha_{k}-1}\\ 
+                                       & \propto & \prod_{k} \phi^{n_{k} + \alpha_{k}-1}
+\end{eqnarray}
+$K$ topics\\
+
+
+
+
+
+\subsection{LDA Plate Notation}
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{Latent_Dirichlet_allocation_graphical.pdf}
+        \caption{}
+      \label{tab:LDA_PlateNotation}
+%  \end{center}
+\end{figure}
+
+With plate notation, the dependencies among the many variables can be captured concisely. The boxes are “plates” representing replicates. The outer plate represents documents, while the inner plate represents the repeated choice of topics and words within a document. M denotes the number of documents, N the number of words in a document. Thus:
+
+\begin{itemize}
+\item{$\alpha$ is the parameter of the Dirichlet prior on the per-document topic distributions;}
+\item{$\beta$ is the parameter of the Dirichlet prior on the per-topic word distribution;}
+\item{$\theta _{m}$ is the topic distribution for document $m$;}
+\item{$\varphi_{k}$ is the word distribution for topic $k$;}
+\item{$z_{mn}$ is the topic for the $n$th word in document $m$, and;}
+\item{$w_{mn}$ is the specific word.}
+\end{itemize}
+
+Plate notation for smoothed LDA::\\
+The $w_{ij}$ are the only observable variables, and the other variables are latent variables. Mostly, the basic LDA model will be extended to a smoothed version to gain better results (cite??). The plate notation is shown in Figure~\ref{tab:LDA_PlateNotation}, where $K$ denotes the number of topics considered in the model and:
+
+$\varphi$ is a $\mathbf{K} \times \mathbf{V}$ ($\mathbf{V}$ is the dimension of the vocabulary) Markov matrix (transition matrix), and each row of which denotes the word distribution of a topic.
+
+
+\subsubsection{Generative Process}
+The generative process is as follows. Documents are represented as
+random mixtures over latent topics, where each topic is characterized
+by a distribution over words. LDA assumes the following generative
+process for a corpus $D$ consisting of $M$ documents each of
+length $N_{i}$:
+
+\begin{itemize}
+\item{1. Choose $\theta _{i}\,   sim \,\mathrm{Dir} (\alpha)$    where $i\in \{1,\dots ,M\}$ and $\mathrm{Dir}(\alpha)$ is the Dirichlet distribution for parameter $\alpha$.}
+\item{2. Choose $\varphi _{k}\,\sim \,\mathrm {Dir} (\beta ),$  where $k\in \{1,\dots ,K\}$}.
+\item{3. For each of the word positions $i,j$ where 
+$j\in \{1,\dots ,N_{i}\} j\in \{1,\dots ,N_{i}\}$, and 
+$i\in \{1,\dots ,M\}$:
+}
+\begin{itemize}
+       \item{ (a) Choose a topic $z_{i,j}\,\sim \,\mathrm{Multinomial} (\theta _{i})$.} 
+       \item{ (b) Choose a word $w_{i,j}\,\sim \,\mathrm{Multinomial} (\varphi _{z_{i,j}})$.}
+         (Note that the Multinomial distribution here refers to the Multinomial with only one trial. It is formally equivalent to the categorical distribution.)
+\end{itemize}
+\end{itemize}
+The lengths $N_{i}$ are treated as independent of all the other data
+generating variables ($w$ and $z$). The subscript is often dropped, as
+in the plate diagrams shown here.
+
+
+ 
+
+
+\end{document}
+
+
