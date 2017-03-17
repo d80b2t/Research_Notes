@@ -12,11 +12,11 @@ bib:
 all :
 	pdflatex  ${TEXFILE}
 	pdflatex  ${TEXFILE}
-	bibtex ${TEXFILE}
-	bibtex ${TEXFILE}
-	bibtex ${TEXFILE}
-	pdflatex  ${TEXFILE}
-	pdflatex  ${TEXFILE}
+#	bibtex ${TEXFILE}
+#	bibtex ${TEXFILE}
+#	bibtex ${TEXFILE}
+#	pdflatex  ${TEXFILE}
+#	pdflatex  ${TEXFILE}
 	pdflatex  ${TEXFILE}
 #	dvipdf ${TEXFILE}
 	rm -f  ${TEXFILE}.aux
