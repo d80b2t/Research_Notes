@@ -983,32 +983,6 @@ Key links:\\
 \end{table}
 
 
-    \subsection{IDL Where}
-    ``First idea'', use the {\tt in} operator to check if something is inside a list.
-    \begin{lstlisting}
-      1 in [1, 2, 3]
-      True
-     \end{lstlisting}
-
-     \smallskip
-     \smallskip
-     \noindent
-     numpy {\tt where} might well be the way to go:
-     \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html}{https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html}\\
-
-    \smallskip  
-    \smallskip 
-    \noindent
-    Also using e.g. Pandas DataFrame's : 
-    \begin{lstlisting}
-      df['Gold'] > 0
-    \end{lstlisting}
-
-
-    \href{http://mathesaurus.sourceforge.net/idl-numpy.html}{http://mathesaurus.sourceforge.net/idl-numpy.html}\\
-    \href{http://idl2python.blogspot.co.uk/2010/09/filtering-data-where-function.html}{http://idl2python.blogspot.co.uk/2010/09/filtering-data-where-function.html}\\
-    Hmmm, none of this was terribly helpful... //
-    
 
 
 
@@ -1323,14 +1297,43 @@ outfile.close()
 
 
 
-
-
 \newpage
 \section{IDL Where}
 As always (!! ;-) there are many different ways to do something in
 Python3 for the equivalent in IDL. The IDL Where command is no
 exception...
 
+\smallskip \smallskip 
+\noindent
+``First idea'', use the {\tt in} operator to check if something is inside a list.
+\begin{lstlisting}
+  1 in [1, 2, 3]
+  True
+\end{lstlisting}
+
+\smallskip
+\smallskip
+\noindent
+numpy {\tt where} might well be the way to go:\\
+\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html}{https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html}\\
+
+
+\smallskip  
+\smallskip 
+\noindent
+Also using e.g. Pandas DataFrame's : 
+\begin{lstlisting}
+  df['Gold'] > 0
+\end{lstlisting}
+
+\href{http://mathesaurus.sourceforge.net/idl-numpy.html}{http://mathesaurus.sourceforge.net/idl-numpy.html}\\
+\href{http://idl2python.blogspot.co.uk/2010/09/filtering-data-where-function.html}{http://idl2python.blogspot.co.uk/2010/09/filtering-data-where-function.html}\\
+Hmmm, none of this was terribly helpful... //
+    
+\smallskip \smallskip 
+\noindent
+\subsection{astroML example :-)}
+Okay!! Think I've got it:: \\
 In: $\sim$/programs/Python/astroML/chapter6::
 
 \begin{lstlisting}
@@ -1354,6 +1357,7 @@ setup_text_plots(fontsize=8, usetex=True)
 data = fetch_sdss_specgals()
 m_max = 17.7
 
+## KEY ``WHERE'' LINES!! :-)
 # redshift and magnitude cuts
 data = data[data['z'] > 0.08]
 data = data[data['z'] < 0.12]
@@ -1361,8 +1365,8 @@ data = data[data['petroMag_r'] < m_max]
 \end{lstlisting}
 
 
-    \subsection{{\tt a in b}}.
-
+    \subsection{{\tt a in b}}
+    $<$section has no content...$>$
 
     \subsection{numpy where}
       Generating Indices: np.where
