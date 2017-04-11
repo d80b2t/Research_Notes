@@ -1557,33 +1557,33 @@ Pandas - Python Data Analysis Library\\
 Pandas puts things into a spreadsheet-like format.  But it's friggin
 fast, with a whole bunch of pre-made commands and functions.
 
+
 Okay, some real basics...
 \smallskip
 \smallskip
 \noindent 
 \begin{lstlisting}
 '''
-https://www.youtube.com/watch?v=0UA49Ds1XXo&index=2&list=PLQVvvaa0QuDc-3szzjeP6N6b0aDrrKyL-
-https://pythonprogramming.net/basics-data-analysis-python-pandas-tutorial/
+www.youtube.com/watch?v=0UA49Ds1XXo&index=2&list=PLQVvvaa0QuDc-3szzjeP6N6b0aDrrKyL-
+pythonprogramming.net/basics-data-analysis-python-pandas-tutorial/
 '''
+
 import pandas as pd
 
 ## Start with a dictionary: 
-
 web_stats = {'Day':[1,2,3,4,5,6],
-  'Visitors':[43,34,65,56,29,76],
-  'Bounce Rate':[65,67,78,65,45,52]}
+    'Visitors':[43,34,65,56,29,76],
+    'Bounce Rate':[65,67,78,65,45,52]}
 
-## We can turn this dictionary to a dataframe by doing the following:
-
+## Can turn this dictionary into a dataframe with:
 df = pd.DataFrame(web_stats)
 
-## Now what can we do? As seen before, you can call for a quick initial snippit by doing:
+## Print the first five lines:
 print(df.head())
 
-##You may also want the last few lines instead. For this, you can do something like:
+## Print the last five lines::
 print(df.tail())
-## Finally, you can also put the number of the head or tail you want, like so:
+## Print the last two lines:: 🖥😉🖥️️😉🖥️
 print(df.tail(2))
 
 ## change the index, and keep it changed (with inplace)!! 
