@@ -1696,14 +1696,209 @@ print(df.head())
 
 
 
-\subsubsection{Building dataset} 
+\subsubsection{Building dataset, p4} 
 
 \smallskip
 \smallskip
 \noindent 
 \begin{lstlisting}
-\end{lstlisting}
+'''
+www.youtube.com/watch?v=3GpvWlVinf0&index=4&list=PLQVvvaa0QuDc-3szzjeP6N6b0aDrrKyL-
+pythonprogramming.net/dataset-data-analysis-python-pandas-tutorial/?completed=/input-output-data-analysis-python-pandas-tutorial/
 
+Also::
+https://www.quandl.com/tools/python
+http://help.quandl.com/article/205-how-do-i-download-a-dataset-using-python
+
+'''
+import quandl
+import pandas as pd
+
+# Not necessary, do this so you do not show my API key
+api_key = open('quandlapikey.txt','r').read()
+
+#df = quandl.get("FMAC/HPI_TX", authtoken=api_key)
+df = quandl.get("FMAC/HPI_TX")
+print(df.head())
+
+
+fiddy_states = pd.read_html('https://simple.wikipedia.org/wiki/List_of_U.S._states')
+## this is gonna be a whole **list** of DataFrames
+print(fiddy_states)
+
+## This is a DataFrames
+print(fiddy_states[0])
+
+## And now we want column zero... is a DataFrames
+print(fiddy_states[0][0])
+
+## Of column zero, we want everything from row one onward...
+for abbv in fiddy_states[0][0][1:]:
+    print("FMAC/HPI_"+str(abbv))
+
+\end{lstlisting}
+\clearpage
+
+
+\subsubsection{Concate\_Append\_dfs\_p5} 
+\smallskip
+\smallskip
+\noindent 
+\begin{lstlisting}
+'''
+https://www.youtube.com/watch?v=ylIRlTFt_Fk&index=5&list=PLQVvvaa0QuDc-3szzjeP6N6b0aDrrKyL-
+https://pythonprogramming.net/concatenate-append-data-analysis-python-pandas-tutorial/?completed=/dataset-data-analysis-python-pandas-tutorial/
+'''
+import pandas as pd
+
+## Note, df1 and df3 have the same index, but not the same columns
+## df2 and df3 have different indexes (and different columns).
+df1 = pd.DataFrame({'HPI':[80,85,88,85],
+                    'Int_rate':[2, 3, 2, 2],
+                    'US_GDP_Thousands':[50, 55, 65, 55]},
+                   index = [2001, 2002, 2003, 2004])
+
+df2 = pd.DataFrame({'HPI':[80,85,88,85],
+                    'Int_rate':[2, 3, 2, 2],
+                    'US_GDP_Thousands':[50, 55, 65, 55]},
+                   index = [2005, 2006, 2007, 2008])
+
+df3 = pd.DataFrame({'HPI':[80,85,88,85],
+                    'Int_rate':[2, 3, 2, 2],
+                    'Low_tier_HPI':[50, 52, 50, 53]},
+                   index = [2001, 2002, 2003, 2004])
+
+## Fine, since they have the same columns; becomes a single DataFrame
+concat = pd.concat([df1,df2])
+
+## Try with df3, and get some NaNs
+concat = pd.concat([df1,df2, df3])
+print(concat)
+
+df4 = df1.append(df2)
+print(df4)
+## Note, DataFrames are not really meant to be updated. 
+## Meant to be manipulated, analysed, just not really changed...
+#df5 = df1.append(df3)
+
+## Doesn't really help...
+s = pd.Series([80,2,50])
+df6 = df1.append(s, ignore_index=True)
+
+s = pd.Series([80,2,50], index=['HPI', 'Int_rate', 'US_GDP_Thousands'])
+df6 = df1.append(s, ignore_index=True)
+print(df6)
+## 4   80         2                50, is the series s
+\end{lstlisting}
+\clearpage
+
+
+
+\subsubsection{Joining\_Merging\_dfs\_p6.py}
+\smallskip
+\smallskip
+\noindent 
+\begin{lstlisting}
+'''
+https://www.youtube.com/watch?v=XMjSGGej9y8&list=PLQVvvaa0QuDc-3szzjeP6N6b0aDrrKyL-&index=6
+
+https://pythonprogramming.net/join-merge-data-analysis-python-pandas-tutorial/?completed=/concatenate-append-data-analysis-python-pandas-tutorial/
+'''
+import pandas as pd
+
+df1 = pd.DataFrame({'HPI':[80,85,88,85],
+                    'Int_rate':[2, 3, 2, 2],
+                    'US_GDP_Thousands':[50, 55, 65, 55]},
+                    index = [2001, 2002, 2003, 2004])
+   
+df2 = pd.DataFrame({'HPI':[80,85,88,85],
+                    'Int_rate':[2, 3, 2, 2],
+                    'US_GDP_Thousands':[50, 55, 65, 55]},
+                   index = [2005, 2006, 2007, 2008])
+
+df3 = pd.DataFrame({'HPI':[80,85,88,85],
+                    'Unemployment':[7, 8, 9, 6],
+                    'Low_tier_HPI':[50, 52, 50, 53]},
+                   index = [2001, 2002, 2003, 2004])
+
+## Merging
+#print(pd.merge(df1,df2, on='HPI'))
+## Gives duplicated data...
+##print(pd.merge(df1,df2, on=['HPI']))
+
+#print(pd.merge(df1,df2, on=['HPI', 'Int_rate']))
+
+## Joining
+df1.set_index('HPI', inplace=True)
+df3.set_index('HPI', inplace=True)
+
+joined = df1.join(df3)
+#print(joined)
+## Still got some data duplication
+
+
+## Merging...
+df1 = pd.DataFrame({
+                    'Int_rate':[2, 3, 2, 2],
+                    'US_GDP_Thousands':[50, 55, 65, 55],
+                    'Year':[2001, 2002, 2003, 2004]
+                    })
+
+df3 = pd.DataFrame({
+                    'Unemployment':[7, 8, 9, 6],
+                    'Low_tier_HPI':[50, 52, 50, 53],
+                    'Year':[2001, 2003, 2004, 2005]})
+
+merged = pd.merge(df1,df3, on='Year')
+## Only picks out Years in common:: 2001, 2003, 2004
+merged.set_index('Year', inplace=True)
+#print(merged)
+
+## Four choices for the databases/merging::
+## Left, Right, Outer, Inner.
+##
+## merged = pd.merge(Left, Right)
+#merged = pd.merge(df1,df3, on='Year', how='left')
+#merged = pd.merge(df1,df3, on='Year', how='right')
+#merged.set_index('Year', inplace=True)
+#print(merged)
+
+## Outer is a Union of the keys.
+merged = pd.merge(df1,df3, on='Year', how='outer')
+merged.set_index('Year', inplace=True)
+print(merged)
+
+## Inner is the default
+merged = pd.merge(df1,df3, on='Year', how='inner')
+merged.set_index('Year', inplace=True)
+print(merged)
+
+## In summary::
+## With Join, index is honoured.
+## With Merge (and Cat and Append) index really doesn't come into it.
+## The key to Merge is to merge on a common column (name)
+\end{lstlisting}
+\clearpage
+
+
+
+\subsubsection{Pickling\_p7.py} 
+\smallskip
+\smallskip
+\noindent 
+\begin{lstlisting}
+\end{lstlisting}
+\clearpage
+
+
+
+
+\subsubsection{PercentChange\_Correlation\_p8.py} 
+\smallskip
+\smallskip
+\noindent 
+\begin{lstlisting}
+\end{lstlisting}
 \clearpage
 
 
