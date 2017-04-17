@@ -790,6 +790,15 @@ Examples:
     http://matplotlib.org/basemap/users/mapsetup.html
 
 
+\newpage
+\section{General Notes on Plotting and data viz}
+
+\href{http://www.randalolson.com/2014/06/28/how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/}{how-to-make-beautiful-data-visualizations-in-python-with-matplotlib/}\\
+
+\href{http://www.synergy.com/wordpress_650164087/kaleidagraph/}{Kaleidagraph}\\
+
+
+
 
 \newpage
 \section{numba}
@@ -934,10 +943,20 @@ The docstring of the function Hello:  Greets a person
 \newpage
 \section{Errors and fixes}
     \subsection{NameError}
-    Error message: ``NameError: name 'now' is not defined''\\
+    {\tt Error message: ``NameError: name 'now' is not defined''}\\
     Solution: Use raw\_input() for python2 and input() in python3. In python2, input() is the same as saying eval(raw\_input()) \\ 
-%% http://stackoverflow.com/questions/15190632/nameerror-name-now-is-not-defined
+    %% http://stackoverflow.com/questions/15190632/nameerror-name-now-is-not-defined
 
+    \subsection{ValueError}
+    {\tt ValueError: could not convert string to float: '+0.1\%'}
+    Solution:
+
+
+    \subsection{TypeError}
+    {\tt TypeError: 'DataFrame' object is not callable}\\
+
+
+    {\tt TypeError: unorderable types: str() < float()}
 
 
 
@@ -2281,6 +2300,31 @@ df = pd.read_table(data_in)
 
 
 
+    \subsection{Pandas and Histograms}
+    \begin{lstlisting}
+      df = pd.read_csv(data_path, names=cols)
+
+      type(df)
+      #pandas.core.frame.DataFrame
+
+      df.plot('dur','sbytes')
+      #<matplotlib.axes._subplots.AxesSubplot at 0x122df9588>
+
+      df.plot.hexbin(x='dur', y='sbytes')
+      #<matplotlib.axes._subplots.AxesSubplot at 0x122df9b70>
+      
+      df.plot.hexbin(x='dur', y='sbytes',xscale='log',yscale='log', gridsize=15 )
+      # <matplotlib.axes._subplots.AxesSubplot at 0x122ddd240>
+
+      df.hist('dur',  log=True, bins=200, bottom=0.1) 
+      # array([[<matplotlib.axes._subplots.AxesSubplot object at 0x11f56f5c0>]], dtype=object)
+      
+      df.plot.hist('dur', log=True, bins=200, bottom=0.1) 
+      #<matplotlib.axes._subplots.AxesSubplot at 0x1295a59e8>
+    \end{lstlisting}
+
+
+
 
 
 
@@ -2740,6 +2784,10 @@ http://www.tutorialspoint.com/python/python\_classes\_objects.htm\\
 http://codingbat.com/python\\
 https://wiki.python.org/moin/ProblemSets\\
 https://www.hackerrank.com/\\
+
+\subsection*{Pandas}
+http://www.gregreda.com/2013/10/26/working-with-pandas-dataframes/
+http://hamelg.blogspot.co.uk/2015/11/python-for-data-analysis-part-19.html
 
 
 \subsection*{IDL to Python}
