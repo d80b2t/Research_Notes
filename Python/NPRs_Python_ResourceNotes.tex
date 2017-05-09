@@ -977,37 +977,51 @@ The docstring of the function Hello:  Greets a person
 \newpage
 \section{IDL to Python}
 Key links:\\
+The \href{http://www.astrobetter.com/wiki/Python+Switchers+Guide}{{\bf AstroBetter Guide}.} \\
 \href{http://www.johnny-lin.com/cdat_tips/tips_array/idl2num.html}{IDL to Numeric/numarray Mapping}\\
 \href{http://www.astro.umd.edu/~mbk/idl-numpy.html}{NumPy for IDL users}\\
-
 \href{http://mathesaurus.sourceforge.net/idl-numpy.html}{http://mathesaurus.sourceforge.net/idl-numpy.html}\\
-
 \href{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}\\
 
-\begin{table}
+
+\begin{table}[h]
   \begin{center}
     \setlength{\tabcolsep}{4pt}
     \begin{tabular}{ll}
       \hline\hline
       IDL code   & Python code \\
       \hline 
-      .run 'foo.pro'  & exec(open("./findSecondLargestNo.py").read())\\
-                            & \%run my\_script.py  ({\tt ipython} only??)\\
-      \hline
-      data=READFITS('file',header) 	 & data=pyfits.open('file')\\
-      tdata  = mrdfits('SpIESch1ch2.fits',0, hdr) 	 & tdata = data[0].data \\
-      tbdata = mrdfits('SpIESch1ch2.fits',1, hdr) 	 & tdata = data[1].data \\
-      help, tbdata, /str     & info(tbdata)\\
-      print, size(tbdata)  & shape(tbdata)\\
-      print, tbdata[0].flux\_aper\_1 & print tbdata.FLUX\_APER\_1[0]\\
-      help, tbdata.flux\_aper\_1        & tbdata.FLUX\_APER\_1? \\
-      fluxaper = tbdata.flux\_aper\_1[2] & fluxaper = ??? \\
+      .run 'foo.pro'  & exec(open("./findLargestNo.py").read())\\
+                            & \%run my\_script.py  $^{a}$\\
+%     \hline
+      \multicolumn{2}{l}{\bf FITS I/O} \\
+      data=READFITS('file',header) 	                  & data=pyfits.open('file')\\
+      tdata  = mrdfits('SpIESch1ch2.fits',0, hdr)   & tdata = data[0].data \\
+      tbdata = mrdfits('SpIESch1ch2.fits',1, hdr)  & tdata = data[1].data \\
+      (Using {\tt fitsio})                                          & d = fitsio.read('SpIESch1ch2.fits',1) \\
+      & \\
+      WRITEFITS(data,'newfile')	                          & data.writeto('newfile')	\\
+      CHECKFITS	                                          & data[0].verify()	\\
+      SXPAR()                                                        & data[0].header['KEY']	\\
+      SXADDPAR()	                                          &  data[0].header['KEY']='value' \\
+%                                                                          & data[0].header.update('KEY','value', 'comment')	\\
+      SXDELPAR                          & del data[0].header['KEY']	\\ 
+      SXADDHIST	                & data[0].header.add\_history('history')	\\
+      SXADDHIST,/Comment	& data[0].header.add\_comment('comment')	\\
+      & \\
+      help, tbdata, /str                                  & info(tbdata)\\
+      print, size(tbdata)                                 & shape(tbdata)\\
+                                                                   & len(tbdata)\\
+      print, tbdata[0].flux\_aper\_1               & print tbdata.FLUX\_APER\_1[0]\\
+      help, tbdata.flux\_aper\_1                   & tbdata.FLUX\_APER\_1? \\
+      fluxaper = tbdata.flux\_aper\_1[2]      & fluxaper = ??? \\
       \hline 
-     {\it (using fitsio)} & d = fitsio.read('SpIESch1ch2.fits',1) \\
       \hline
       \label{tab:IDL2Python}
     \end{tabular}
-    \caption{IDL to Python}
+    \caption{IDL to Python. \\
+       $^{a}$ipython only?
+       }
     \label{table:idl_vs_python}
   \end{center}
 \end{table}
