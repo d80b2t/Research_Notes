@@ -4,8 +4,9 @@ echo Hello World
 git status
 
 git add NPRs_Python_ResourceNotes.*
+git add NPRs_Python_ResourceNotes_Pandas.*
 git add Coursera.*
 
-git commit -m "Updating Python notes..."
+git commit -m "Updating Python (and Pandas) notes..."
 
 git push
