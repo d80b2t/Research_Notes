@@ -135,9 +135,12 @@ df[0][0]       ## is an error
 
 df["srcip"]       ## gives the srcip column
 df["srcip"][0]   ## gives the first entry in the  
+                      ## single quotes are absolutely fine too. 
 
 df.iloc[0]         ## gives the first row, and is a pandas.core.series.Series
 df.iloc[i]          ## returns the ith row of df
+
+print(df['srcip'][0:20], type(df['srcip']))   ## will print the first 20 rows of the scrip colum
 
 \end{lstlisting}
 
@@ -146,6 +149,25 @@ The recommended methods of indexing are:
 \item{{\tt .loc} if you want to label index}
 \item{{\tt .iloc} if you want to positionally index.}
 \end{itemize}
+
+
+\begin{lstlisting}
+print(type(df))
+print(type(df["dur"]))
+
+x_tup =(df["dur"], df['sbytes'], df['dbytes'], df['Sload'], df['Dload'],
+        df['ct_flw_http_mthd'], df['ct_srv_dst'], df['ct_src_ltm'])
+x_lis =[df["dur"], df['sbytes'], df['dbytes'], df['Sload'], df['Dload'],
+    df['ct_flw_http_mthd'], df['ct_srv_dst'], df['ct_src_ltm']]
+
+print(type(x_tup))
+print(type(x_lis))
+
+<class 'pandas.core.frame.DataFrame'>
+<class 'pandas.core.series.Series'>
+<class 'tuple'>
+<class 'list'>
+\end{lstlisting}
 
 
 
