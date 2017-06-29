@@ -1,8 +1,0 @@
-#!/bin/bash
-echo Hello World    
-
-git status
-
-git add General_DataScience.*
-git commit -m "Updating  General_DataScience notes..."
-git push
