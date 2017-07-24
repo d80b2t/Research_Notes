@@ -1439,6 +1439,9 @@ data = data[data['petroMag_r'] < m_max]
       X = rand.randint(10, size=(3, 4))
       X[np.where(X % 2 == 0)]
     \end{lstlisting}
+    \begin{lstlisting}
+     b = t[np.where(np.logical_and(t['ra']>=6, t['ra']<=10))]
+    \end{lstlisting}
 
 
 \newpage
