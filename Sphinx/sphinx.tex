@@ -1,0 +1,20 @@
+\documentclass[11pt]{article}
+\setlength {\textwidth}{180mm} 
+\setlength {\textheight}{260mm}
+\topmargin=-35.00mm
+\oddsidemargin=-10.00mm
+\pagestyle{empty}
+
+\input{format}
+
+\begin{document}
+
+\href{https://www.youtube.com/watch?feature=player\_embedded\&v=oJsUvBQyHBs}{https://www.youtube.com/watch?feature=player\_embedded\&v=oJsUvBQyHBs}
+
+
+git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA' \
+--prune-empty --tag-name-filter cat -- --all
+
+\end{document}
+
