@@ -315,6 +315,10 @@ Then
 
 
     \subsection{Lists}
+    Convert lists to list to numpy.ndarray::
+    \begin{lstlisting}
+
+    \end{lstlisting}
 
     \subsection{tuple}
     
@@ -682,6 +686,10 @@ plt.show()
 \end{lstlisting}
 at the end.
 
+\subsection{matplotlibrc}
+\href{https://matplotlib.org/users/customizing.html\#matplotlibrc-sample}{\href https://matplotlib.org/users/customizing.html\#matplotlibrc-sample}\\
+{\href https://matplotlib.org/users/dflt\_style\_changes.html}{https://matplotlib.org/users/dflt\_style\_changes.html}\\
+{\href https://github.com/matplotlib/matplotlib/blob/master/matplotlibrc.template}{https://github.com/matplotlib/matplotlib/blob/master/matplotlibrc.template}\\
 
 
 
@@ -946,6 +954,59 @@ The output:
 The docstring of the function Hello:  Greets a person 
 \end{lstlisting}
 
+
+
+
+\subsection{{\tt if \_\_name\_\_ == "\_\_main\_\_":}}
+\href{http://effbot.org/pyfaq/tutor-what-is-if-name-main-for.htm}{effbot.org/pyfaq/tutor-what-is-if-name-main-for.htm}\\
+(See also https://www.youtube.com/watch?v=sugvnHA7ElY)\\
+
+The {\tt if \_\_name\_\_ == "\_\_main\_\_":} ... trick exists in Python so that our
+Python files can act as either reusable modules, or as standalone
+programs. As a toy example, let’s say that we have two files:
+
+\begin{lstlisting}
+> cat mymath.py
+
+def square(x):
+    return x * x
+
+if __name__ == ''__main__'':
+    print "test: square(42) ==", square(42)
+\end{lstlisting}
+
+\begin{lstlisting}
+> cat mygame.py
+
+import mymath
+
+print "this is mygame."
+print mymath.square(17)
+\end{lstlisting}
+
+In this example, we’ve written mymath.py to be both used as a utility
+module, as well as a standalone program. We can run mymath standalone
+by doing this:\\
+
+\noindent
+{\tt 
+> python mymath.py \\
+test: square(42) == 1764 \\
+}
+
+But we can also use mymath.py as a module; let’s see what happens when we run mygame.py: \\
+
+\noindent
+{\tt 
+> python mygame.py \\
+this is mygame. \\
+289 \\
+}
+
+Notice that here we don’t see the ‘test’ line that mymath.py had near
+the bottom of its code. That's because, in this context, mymath is not
+the main program. That's what the {\tt if \_\_name\_\_ ==
+"\_\_main\_\_":} ... trick is used for.
 
 
 
