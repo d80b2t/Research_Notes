@@ -1483,10 +1483,26 @@ outfile.close()
 
 
 \newpage
-\section{IDL Where}
+\section{(IDL) Where}
 As always (!! ;-) there are many different ways to do something in
 Python3 for the equivalent in IDL. The IDL Where command is no
 exception...
+
+\subsection{\bf  T H I S ::}
+\begin{lstlisting}
+
+print(type(data_sdss))
+print(type(ra_in))
+print(type(data_sdss['RA']))
+
+<class 'astropy.io.fits.fitsrec.FITS_rec'>
+<class 'float'>
+<class 'numpy.ndarray'>
+
+w = data[np.where(
+    (data['RA']>=(ra_in-tol)) & (data['RA']<=(ra_in+tol)) & (data['DEC']>=(dec_in-tol)) & (data['DEC']<=(dec_in+tol))
+    )]
+\end{lstlisting}
 
 \smallskip \smallskip 
 \noindent
@@ -1564,6 +1580,11 @@ data = data[data['petroMag_r'] < m_max]
     \begin{lstlisting}
      b = t[np.where(np.logical_and(t['ra']>=6, t['ra']<=10))]
     \end{lstlisting}
+
+
+
+
+
 
 
 \newpage
