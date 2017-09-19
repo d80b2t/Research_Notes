@@ -1596,6 +1596,7 @@ data = data[data['petroMag_r'] < m_max]
 \href{https://docs.python.org/3/howto/pyporting.html}{https://docs.python.org/3/howto/pyporting.html}\\
 \href{https://docs.python.org/3/howto/pyporting.html}{https://docs.python.org/3/howto/pyporting.html}
 \href{https://docs.python.org/2/library/2to3.html}{https://docs.python.org/2/library/2to3.html}\\
+
 \$ {\tt 2to3 -w example.py}\\
 
 
@@ -1607,6 +1608,9 @@ data = data[data['petroMag_r'] < m_max]
     / = truncating (integer floor) division in P2.x when using ints; float division in P3.x
     // = truncating div in P2.x, P3.x 
     
+    \subsection{`xrange' is not defined}
+    {\tt xrange()} was renamed to {\tt range()} in Python 3.
+
 
      \subsection{Unbound Methods}
      As of Python 3.0: The concept of ``unbound methods'' has been
