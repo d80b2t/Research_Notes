@@ -902,8 +902,9 @@ Examples can be found here:
 
 \newpage
 \section{Functions}
-{\bf N.B.} Straight from: \href{http://www.python-course.eu/python3\_functions.php}{http://www.python-course.eu/python3\_functions.php}. 
+{\bf N.B.} Straight from: \href{http://www.python-course.eu/python3\_functions.php}{http://www.python-course.eu/python3\_functions.php}. \\
 
+\noindent
 The concept of a function is one of the most important ones in
 mathematics. A common usage of functions in computer languages is to
 implement mathematical functions. Such a function is computing one or
@@ -919,6 +920,7 @@ its different context. Using functions usually enhances the
 comprehensibility and quality of the program. It also lowers the cost
 for development and maintenance of the software.
 
+\noindent
 Functions are known under various names in programming languages,
 e.g. as subroutines, routines, procedures, methods, or subprograms.
 
@@ -1019,6 +1021,36 @@ The docstring of the function Hello:  Greets a person
 \end{lstlisting}
 
 
+\noindent
+{\bf NOTA BENE!!}
+\href{https://stackoverflow.com/questions/1132941/least-astonishment-and-the-mutable-default-argument}{https://stackoverflow.com/questions/1132941/least-astonishment-and-the-mutable-default-argument}\\
+\begin{lstlisting}
+def foo(a=[]):
+    a.append(5)
+    return a
+
+>>> foo()
+[5]
+>>> foo()
+[5, 5]
+>>> foo()
+[5, 5, 5]
+>>> foo()
+[5, 5, 5, 5]
+>>> foo()
+\end{lstlisting}
+``Actually, this is not a design flaw, and it is not because of
+internals, or performance.  It comes simply from the fact that
+functions in Python are first-class objects, and not only a piece of
+code.  As soon as you get to think into this way, then it completely
+makes sense: a function is an object being evaluated on its
+definition; default parameters are kind of "member data" and therefore
+their state may change from one call to the other - exactly as in any
+other object.  In any case, Effbot has a very nice explanation of the
+reasons for this behavior in \href{Default Parameter
+Values}{http://effbot.org/zone/default-values.htm} in Python.  I found
+it very clear, and I really suggest reading it for a better knowledge
+of how function objects work.''
 
 
 \subsection{{\tt if \_\_name\_\_ == "\_\_main\_\_":}}
