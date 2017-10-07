@@ -1539,6 +1539,37 @@ w = data[np.where(
     )]
 \end{lstlisting}
 
+\subsection{\bf  AND THIS  (for pandas)  ::}
+\begin{lstlisting}
+import pandas as pd
+
+datafile = 'data_20171007.dat'
+table = pd.read_table(datafile, na_values="-")
+
+## Select rows with highest rankings less than two
+table.loc[(table['highest_rank']) < 2]
+
+## Select rows with highest rankings equal to one
+table.loc[(table['highest_rank']) == 1]
+\end{lstlisting}
+
+\subsection{\bf  OR THIS (for pandas) ::}
+\begin{lstlisting}
+import pandas as pd
+datafile = 'data_20171007.dat'
+table = pd.read_table(datafile, na_values="-")
+
+## Select rows with highest rankings equal to one
+table.loc[(table['highest_rank']) == 1]
+
+## Order rows by highest_rank (ascending) and (then?) 'highest_rating' desending 
+result = table.sort_values(['highest_rank', 'highest_rating'], ascending=[1, 0])
+
+\end{lstlisting}
+
+
+
+
 \smallskip \smallskip 
 \noindent
 ``First idea'', use the {\tt in} operator to check if something is inside a list.
