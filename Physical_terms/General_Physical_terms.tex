@@ -158,6 +158,64 @@ formation and evolution.
 \section{R}
 \subsection{Reddening}
 
+\subsection{Rosseland opacities}
+(from scienceworld.wolfram.com/physics/RosselandMeanOpacity.html) \\   	
+The Rosseland mean opacity $\langle \kappa \rangle$  is defined as
+\begin{equation}
+\frac{1}{\kappa} = \frac{1}{B} \int^{\infty}_{0} \frac{B_{\nu}}{\kappa_{\nu}} d\nu
+\end{equation}
+where $B$ is the total brightness (intensity), $B_{\nu}$ is the
+specific brightness, and $\kappa_{\nu}$ is the specific opacity. \\
+
+\noindent
+(from Wikipedia) \\
+It is customary to define the average opacity, calculated using a
+certain weighting scheme. Planck opacity uses the normalized Planck
+black body radiation energy density distribution, $B_{\nu }(T)$ as the
+weighting function, and averages $\kappa _{\nu}$ directly:
+\begin{eqnarray}
+\kappa _{Pl} & =& {\int _{0}^{\infty }\kappa _{\nu }B_{\nu }(T)d\nu \over
+                  \int _{0}^{\infty }B_{\nu }(T)d\nu } \\ 
+                 & = &{\Big (}{\pi \over \sigma
+                  T^{4}}{\Big )}\int _{0}^{\infty }\kappa _{\nu }B_{\nu }(T)d\nu ,
+\end{eqnarray}
+\noindent
+where $\sigma$ is the Stefan-Boltzmann constant.\\ 
+
+\noindent
+The Rosseland opacity (after Svein Rosseland), on the other hand, uses a
+temperature derivative of the Planck distribution,$u(\nu ,T)=\partial
+B_{\nu }(T)/\partial T$ as the weighting function, and averages $\kappa
+_{\nu }^{-1}$,
+\begin{equation}
+\frac  {1}{\kappa} =\frac  {\int _{0}^{{\infty }}\kappa _{{\nu }}^{{-1}}u(\nu ,T)d\nu }{\int _{0}^{{\infty }}u(\nu ,T)d\nu}.
+\end{equation}
+\noindent
+The photon mean free path is $\lambda _{\nu }=(\kappa _{\nu }\rho
+)^{-1}$. The Rosseland opacity is derived in the diffusion
+approximation to the radiative transport equation. It is valid
+whenever the radiation field is isotropic over distances comparable to
+or less than a radiation mean free path, such as in local thermal
+equilibrium. In practice, the mean opacity for Thomson electron
+scattering is:
+\begin{equation}
+\kappa _{{{\rm {es}}}}=0.20(1+X){{\rm {\,cm}}}^{2}{{\rm {\,g}}}^{{-1}}
+\end{equation}
+\noindent
+where $X$ is the hydrogen mass fraction. For nonrelativistic thermal
+bremsstrahlung, or free-free transitions, assuming solar metallicity,
+it is:
+\begin{equation}
+\kappa _{{{\rm {ff}}}}(\rho ,T)=0.64\times 10^{{23}}(\rho [{{\rm {g}}}~{{\rm {\,cm}}}^{{-3}}])(T[{{\rm {K}}}])^{{-7/2}}{{\rm {\,cm}}}^{2}{{\rm {\,g}}}^{{-1}}.[1]
+\end{equation}
+
+\noindent
+The Rosseland mean attenuation coefficient is:
+\begin{equation}
+{\frac  {1}{\kappa }}={\frac  {\int _{0}^{{\infty }}(\kappa _{{\nu ,{{\rm {es}}}}}+\kappa _{{\nu ,{{\rm {ff}}}}})^{{-1}}u(\nu ,T)d\nu }{\int _{0}^{{\infty }}u(\nu ,T)d\nu }}]
+\end{equation}
+
+
 \section{S}
 \subsection{Salpeter time}
 \begin{equation}
