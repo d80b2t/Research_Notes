@@ -2115,9 +2115,16 @@ The collections module has some concrete classes that derive from ABCs; these ca
 
  
 \newpage
-\section{General Wee Tips}
-Need points that are evenly spaced on a log scale? Use {\tt np.logscale(start, stop, base)} \\
-By convention, matplotlib is imported as mpl. Also by convention, matplotlib.pyplot is imported as plt.\\
+\section{General Wee Tips and trikcs}
+\begin{itemize}
+\item Need points that are evenly spaced on a log scale? Use {\tt np.logscale(start, stop, base)} 
+\item By convention, matplotlib is imported as mpl. Also by convention, matplotlib.pyplot is imported as plt.
+\item In Pandas, adding {\tt parse\_dates=True} when doing a {\tt pd.read\_csv} is usually enough to magically parse dates. 
+\item Also in Pandas, you can parse ``-'' as a NaN-value on read-in:: pd.read\_table(infile, na_values=``-'')
+\item' 
+\end{itemize}
+
+
 
 
 \newpage
