@@ -162,6 +162,7 @@ print(df['srcip'][0:20], type(df['srcip']))   ## will print the first 20 rows of
 Some notes and videos here::
 \href{https://github.com/chendaniely/scipy-2017-tutorial-pandas}{https://github.com/chendaniely/scipy-2017-tutorial-pandas}
 
+\noindent
 The recommended methods of indexing are:
 \begin{itemize}
 \item{{\tt .loc} if you want to {\it label} index.}
@@ -179,7 +180,10 @@ Thus:
   df.iloc[99]    # will find the 100th row
   df.iloc[-1]    # {\it will} find the last row
 \end{lstlisting}
-Don't use {\it df.ix[0]}, it's becoming deprecated.
+Don't use {\tt df.ix[0]}, it's becoming deprecated. \\
+
+\begin{lstlisting}
+\end{lstlisting}
 
 
 \begin{lstlisting}
