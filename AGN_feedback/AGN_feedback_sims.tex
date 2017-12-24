@@ -1,0 +1,82 @@
+\documentclass[11pt,a4paper]{article}
+%\input{format}
+
+\usepackage{multirow}
+\usepackage{graphicx,fancyhdr,natbib,subfigure}
+\usepackage{epsfig, epsf}
+\usepackage{amsmath, cancel, amssymb}
+\usepackage{lscape, longtable, caption}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{hyperref,ifthen}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+
+\input{format}
+
+\begin{document}
+
+
+
+\section{TNG}
+\citet{Weinberger2017}, 
+\citet{Weinberger2017b}, 
+\citet{Pillepich2017}
+\citet{Pillepich2018}
+\begin{equation}
+  \dot{M}_{\rm BH} = \frac{4 \pi \alpha G^2 M_{\rm BH}^2 \rho}{(c^2_s + v^2)^{3/2}} 
+\end{equation}
+\begin{equation}
+  \dot{M}_{\rm Edd} = \frac{4 \pi \alpha \, G \, M_{\rm BH} \, m_{p}}{\epsilon_{\rm r} \sigma_{\rm T} c  }
+\end{equation}
+
+\section{EAGLE}
+\citet{Schaye2015}, 
+\citet{Crain2015}
+
+\section{FIRE-2}
+
+
+\section{{\sc mufasa}}
+
+
+
+\begin{landscape}
+  \begin{table}[]
+    \centering
+    \label{my-label}
+    \begin{tabular}{  p{65mm}   p{70mm}  p{70mm} }  %% 3 pretty-side columns
+%    \begin{tabular}{lrr}
+      \hline
+      \hline
+      &                    &  \\
+      & ILLUSTRIS    & TNG \\
+                  &                     &  \\
+      \hline
+                  &                     &  \\
+      BH Seed Mass                             &  $1\times10^{5} h^{-1}$ M$_{\odot}$ &   $1\times10^{5} h^{-1}$ M$_{\odot}$\\
+      FoF Halo Mass for BH seeding    & $5\times10^{10} h^{-1}$ M$_{\odot}$ &   $5\times10^{10} h^{-1}$ M$_{\odot}$\\
+      BH accretion & $\alpha=100$ Boosted Bondi-Holye   & Unboosted Bondi-Hoyle $({\rm w} / v_{A})$  \\
+      BH accretion & parent gas cell, Eddington limited & nearby cells, Eddington limited  \\
+      BH positioning & fixed to halo potential minimum & fixed to halo potential minimum \\
+    \hline
+    \hline
+\end{tabular}
+    \caption{What are the similiarties and differences between 
+      Proto-stellar and AGN accretion disks?
+    }
+    \label{BH Feedback: BH seeding and accretion.  
+BHs are usually placed by hand as``sink particles'':
+they can grow in mass by `accreting' material from the surroundings
+(Pillepich Edinburgh talk, 20171011).   }
+\end{table}
+\end{landscape}
+
+
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+\end{document}
+
