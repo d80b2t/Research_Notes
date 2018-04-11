@@ -172,6 +172,23 @@ Also note/recall,
 \end{equation}
 with units of ergs s$^{-1}$ cm$^{-2}$. 
 
+\subsection{Assef et al. 2010}
+To go from Table 1 (F$_{\nu}$ in erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$) to Figure 3 (with y-axis $\nu$ F$_{\nu}$) I did:: 
+
+\begin{lstlisting}
+lam = wave * 1e-6
+nu = 3e8/lam
+ax1.plot(Assef_wave, Assef_AGN*nu*1e-17,  color='black')
+ax2.plot(Assef_wave, Assef_E   *nu *1e-19,   color='red')
+ax3.plot(Assef_wave, Assef_Sbc *nu *4e-20,  color='green')
+ax4.plot(Assef_wave, Assef_Im  *nu *1e-19,   color='cyan')
+
+## Noting the 1e-17,  1e-19, 4e-20 and 1e-19 factors here 
+## are 'completely' arbitary and just to get things on the 
+## same plot...
+\end{lstlisting}
+
+
 \section{Unit Conversions}
     \subsection{Flux density to AB}
     The flux density in Jy can be converted to a magnitude basis:\\
@@ -182,6 +199,8 @@ with units of ergs s$^{-1}$ cm$^{-2}$.
     \end{eqnarray}
 
 %% https://en.wikipedia.org/wiki/Luminosity
+
+
 
 \section{WISE}
 The source flux density, in Jansky [Jy] units, is computed from the calibrated WISE (Vega) magnitudes, $m_{\rm Vega}$ using:
@@ -200,7 +219,10 @@ where $f^{*}_{\nu, 0}$ is the zero magnitude flux density derived for sources wi
 
 
 \section{Links}
+Some of these are old/broken... :-( \\
+
 %% Using \\ and square brackets seems to crash with [2] !!
+\noindent
 [1] \href{http://www.iasf-milano.inaf.it/$\sim$polletta/templates/images/new\_Arp220\_template.jpg}{http://www.iasf-milano.inaf.it/$\sim$polletta/templates/images/new\_Arp220\_template.jpg}
 
 \noindent
@@ -217,6 +239,19 @@ where $f^{*}_{\nu, 0}$ is the zero magnitude flux density derived for sources wi
 
 \noindent
 [6] \href{http://xingxinghuang.blogspot.co.uk/2013/06/hello-everybody-if-you-still-get.html}{http://xingxinghuang.blogspot.co.uk/2013/06/hello-everybody-if-you-still-get.html}
+
+\noindent
+\href{http://ssb.stsci.edu/doc_tmp/stsci_python_dev/pysynphot.doc/html/units.html}{http://ssb.stsci.edu/doc\_tmp/stsci\_python\_dev/pysynphot.doc/html/units.html}
+
+\noindent
+\href{http://www.stsci.edu/~strolger/docs/UNITS.txt}{http://www.stsci.edu/$\sim$strolger/docs/UNITS.txt}
+
+\noindent
+\href{https://github.com/spacetelescope/pysynphot/blob/master/doc/source/units.rst}{https://github.com/spacetelescope/pysynphot/blob/master/doc/source/units.rst}
+
+\noindent
+\href{https://www.astro.umd.edu/~ssm/ASTR620/mags.html}{https://www.astro.umd.edu/$\sim$ssm/ASTR620/mags.html}
+
 
 
 \bibliographystyle{mn2e}

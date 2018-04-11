@@ -1,13 +1,15 @@
 \usepackage{graphicx,fancyhdr,natbib,subfigure}
 \usepackage{epsfig, epsf}
+\usepackage{multirow, lscape}
 \usepackage{amsmath, cancel, amssymb}
-\usepackage{lscape, longtable, caption, multirow, lscape}
+\usepackage{lscape, longtable, caption}
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
 \usepackage{hyperref,ifthen}
 \usepackage{verbatim}
 \usepackage{color}
 \usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
 %% http://en.wikibooks.org/wiki/LaTeX/Colors
 
 
@@ -22,6 +24,7 @@
 \def\npbps{NUC.~Phys.~B~Proc.~Suppl.} \def\prep{Phys.~Rep.}
 \def\pasp{PASP} \def\aap{Astron.~\&~Astrophys.} \def\araa{ARA\&A}
 \def\jcap{\ref@jnl{J. Cosmology Astropart. Phys.}}%
+\def\physrep{Phys.~Rep.}
 
 \newcommand{\preep}[1]{{\tt #1} }
 
@@ -113,7 +116,6 @@
 \newcommand{\ciii}{C\,{\sc iii}]\ }
 \newcommand{\civ}{C\,{\sc iv}\ }
 \newcommand{\SiIV}{Si\,{\sc iv}\ }
-%\newcommand{\siiv}{Si\,{\sc iv}\ }
 \newcommand{\mgii}{Mg\,{\sc ii}\ }
 \newcommand{\feii}{Fe\,{\sc ii}\ }
 \newcommand{\feiii}{Fe\,{\sc iii}\ }
@@ -125,10 +127,34 @@
 \newcommand{\oi}{[O\,{\sc i}]\ }
 \newcommand{\oii}{[O\,{\sc ii}]\ }
 \newcommand{\oiii}{[O\,{\sc iii}]\ }
-\newcommand{\ovi}{[O\,{\sc vi}]\ }
 \newcommand{\heii}{[He\,{\sc ii}]\ }
 \newcommand{\nv}{N\,{\sc v}\ }
 \newcommand{\nev}{Ne\,{\sc v}\ }
 \newcommand{\neiii}{[Ne\,{\sc iii}]\ }
 \newcommand{\aliii}{Al\,{\sc iii}\ }
 \newcommand{\siiii}{Si\,{\sc iii}]\ }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              define Listings                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
