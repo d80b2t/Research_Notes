@@ -1,8 +1,9 @@
 \documentclass[11pt]{article}
-\setlength {\textwidth}{180mm} 
-\setlength {\textheight}{260mm}
-\topmargin=-35.00mm
-\oddsidemargin=-10.00mm
+
+\setlength {\textwidth}{170mm} 
+\setlength {\textheight}{250mm}
+\topmargin=-25.00mm
+\oddsidemargin=-5.00mm
 \pagestyle{empty}
 
 \input{format}
@@ -25,12 +26,13 @@ e.g. the Emission Line document...
 
 
 \section*{A}
-\subsection*{Advection Dominated Accretion Flows}
+\subsection*{Advection}
 %% www.astronomy.ohio-state.edu/~dhw/A825/notes5.pdf
 Advection is the transport of a substance by bulk motion, 
 and more specifically, the transfer of heat or matter by the flow of a fluid,
-especially horizontally in the atmosphere or the sea.
+especially horizontally in the/an atmosphere or the sea.
 
+\subsection*{Advection Dominated Accretion Flows}
 The Eddington accretion rate is the accretion rate for which the black
 hole radiates at the Eddington luminosity:
 \begin{equation} 
@@ -113,7 +115,7 @@ AGN Accrete from the ISM, Via Bondi accretion:
     \end{equation}
  $M_{\Theta}$ should be $M_{\odot}$??!!
 
-\subsection{Bremsstrahlung}
+\subsection*{Bremsstrahlung}
 Bremsstrahlung (German for ‘braking radiation’), a.k.a.`Free-free' emission arises when a charged particle (i.e., an electron) is accelerated though the Coulomb interaction with another charged particle (i.e., an ion of charge $Ze$). Effectively what happens is that the two charges make up an electric dipole which, due to the motion of the charges, is time variable. A variable dipole is basically an antenna, and emits electromagnetic waves. The energy in these EM waves (photons) emitted is lost to the electron, which therefore loses (kinetic) energy (the electron is ‘braking’).
 
    
@@ -182,6 +184,8 @@ Continuum radiation is any radiation that forms a continuous spectrum and is not
     The fraction of the time that an AGN/QSO is active.
 
 \section*{E}
+    \subsection*{Entropy}
+
     \subsection*{Extinction}
     Extinction is the absorption and scattering of electromagnetic
 radiation by dust and gas between an emitting astronomical object and
@@ -251,7 +255,69 @@ galaxy formation and evolution.
 \subsection*{Navier-Stokes equations}
 In physics, the Navier-Stokes equations, named after Claude-Louis Navier and George Gabriel Stokes, describe the motion of viscous fluid substances. These balance equations arise from applying Newton's second law to fluid motion, together with the assumption that the stress in the fluid is the sum of a diffusing viscous term (proportional to the gradient of velocity) and a pressure term - hence describing viscous flow. The main difference between them and the simpler Euler equations for inviscid flow is that Navier-Stokes equations also factor in the Froude limit (no external field) and are not conservation equations, but rather a dissipative system, in the sense that they cannot be put into the quasilinear homogeneous form:
 
+
+\section*{P}
+    \subsection*{Planck's law}
+    %% https://en.wikipedia.org/wiki/Planck%27s_law 
+    Planck's law describes the spectral density of electromagnetic
+    radiation emitted by a black body in thermal equilibrium at a given
+    temperature $T$.  The spectral radiance of a body, $B_{\nu}$, describes the
+    amount of energy given off as radiation of different 
+    frequencies. It is measured in terms of the power emitted per unit
+    area of the body, per unit solid angle that the radiation is measured
+    over, per unit frequency. 
+    The SI units of $B_{\nu}$ are W sr$^{-1}$m$^{-2}$Hz$^{-1}$,
+    while those of $_{\lambda}$ are W sr$^{-1}$ m$^{-3}$.
+
+    Planck showed that the spectral radiance of a body for frequency $\nu$ at absolute temperature $T$ is given by
+    \begin{equation}
+      B_{\nu }(\nu ,T)={\frac {2h\nu ^{3}}{c^{2}}}{\frac {1}{e^{\frac {h\nu }{k_{\mathrm {B} }T}}-1}}
+    \end{equation}
+    where $k_{\rm B}$ is the Boltzmann constant, $h$ is the Planck constant, and $c$ is the speed of light in the medium. 
+
+    The spectral radiance can also be expressed per unit wavelength
+    $\lambda$ instead of per unit frequency.  In this case, it is given by
+    \begin{equation}
+      B_{\lambda }(\lambda ,T)={\frac {2hc^{2}}{\lambda ^{5}}}{\frac {1}{e^{\frac {hc}{\lambda k_{\mathrm {B} }T}}-1}} 
+    \end{equation}
+    The law may also be expressed in other terms, such as the number
+of photons emitted at a certain wavelength, or the energy density in a
+volume of radiation.
+
+
 \section*{R}
+
+\subsection*{Radiative cooling}
+Radiative cooling is the process by which a body loses heat by thermal radiation.
+
+\subsection*{Rayleigh-Jeans Law}
+%% From Wikipedia, the free encyclopedia, 
+%% https://en.wikipedia.org/wiki/Rayleigh%E2%80%93Jeans_law
+%% Accessed, 2018-Sep-18
+In physics, the Rayleigh-Jeans Law is an approximation to the spectral
+radiance of electromagnetic radiation as a function of wavelength from
+a black body at a given temperature through classical arguments. For
+wavelength $\lambda$, it is:
+\begin{equation}
+B_{\lambda }(T)={\frac {2ck_{\mathrm {B} }T}{\lambda ^{4}}} 
+\end{equation}
+where $B_{\lambda }$ is the spectral radiance; the power emitted per
+unit emitting area, per steradian, per unit wavelength, $c$ is the speed of light, 
+$k_{\mathrm {B}}$ is the Boltzmann constant and $T$ is 
+the temperature in Kelvin. For frequency $\nu$
+the expression is instead
+\begin{equation}
+B_{\nu }(T)={\frac {2\nu ^{2}k_{\mathrm {B} }T}{c^{2}}}.
+\end{equation}
+The Rayleigh-Jeans law agrees with experimental results at large
+wavelengths (low frequencies) but strongly disagrees at short
+wavelengths (high frequencies). This inconsistency between
+observations and the predictions of classical physics is commonly
+known as the {\it Ultraviolet Catastrophe}. Its resolution in 1900
+with the derivation by Max Planck of Planck's law, which gives the
+correct radiation at all frequencies, was a foundational aspect of the
+development of quantum mechanics in the early 20th century.
+
 \subsection*{Rayleigh-Taylor instability}
 The Rayleigh-Taylor instability, or RT instability (after Lord
 Rayleigh and G. I. Taylor), is an instability of an interface between
@@ -340,17 +406,29 @@ The Rosseland mean attenuation coefficient is:
 \section*{S}
 \subsection*{Salpeter time}
 \begin{equation}
-  t_{S} = M/\dot{M} = 4.5 \times10^{7} \left( \frac{\epsilon}{0.1}\right ) \left( \frac{L}{L_{\rm Edd}}\right )^{-1}
+  t_{\rm Sal} = M/\dot{M} = 4.5 \times10^{7} \left( \frac{\epsilon}{0.1}\right ) \left( \frac{L}{L_{\rm Edd}}\right )^{-1}
 \end{equation}
-where $\epsilon = L/\dot{M} c^{2}$ is the radiative efficiency for a QSO radiating at a fraction $L/LEdd$ of the Eddington luminosity. Commonly accepted values of these two key parameters for luminous QSOs are $\epsilon= 0.1$ and $L/LEdd = 1$. 
-Martini, P. (QSO Lifetimes; http://adsabs.harvard.edu/abs/2004cbhg.symp..169M). 
+where $\epsilon = L/\dot{M} c^{2}$ is the radiative efficiency for a
+QSO radiating at a fraction $L/L_{\rm Edd}$ of the Eddington
+luminosity. Commonly accepted values of these two key parameters for
+luminous QSOs are $\epsilon= 0.1$ and $L/LEdd = 1$.  Martini, P. (QSO
+Lifetimes; http://adsabs.harvard.edu/abs/2004cbhg.symp..169M).
 
-This critical accretion rate, [the Eddington mass accretion rate], is proportional to the mass of the accreting object, which implies that the mass of an object that is growing at the maximal (Eddington) accretion grows exponentially on a timescale known as the Salpeter time,
-\begin{equation}
-  t_{Sal} = \frac{\epsilon \sigma_{T} c}{4\pi G m_{p}} \approx 45 \epsilon_{0.1} 10^6 \, {\rm years}
-\end{equation}
+This critical accretion rate, [the Eddington mass accretion rate], is
+proportional to the mass of the accreting object, which implies that
+the mass of an object that is growing at the maximal (Eddington)
+accretion grows exponentially on a timescale known as the Salpeter
+time,
+\begin{eqnarray}
+  t_{\rm Sal} & = &  \frac{\epsilon \sigma_{T} c}{4\pi G m_{p}}  \\
+                 & = & \frac{\epsilon  6.65\times10^{-29} \cdot 3\times10^{8}} {4\pi \cdot 1.6726\times10^{-27} \cdot 6.674\times10^{-11}}  \;\; {\rm seconds}\\
+                 & \approx & 45 \epsilon_{0.1} 10^6 \, {\rm years}
+\end{eqnarray}
 from ``Massive Black Hole Growth and Formation'' from Paolo Coppi. 
 %%tSal = εσT c ≈ 45ε0.1106 years, (1) 4πGmp
+
+\subsection*{Specific entropy}
+
 
 \subsection*{Soft Xrays}
 See:: X-rays, Soft. 
@@ -370,6 +448,33 @@ www.aei.mpg.de/~pau/conf\_vid/Miralda.pdf\\
 www.bo.astro.it/~vignali/PhD.../Merloni\_PhD\_Bologna\_Tuesday.pptx
 www.astro.yale.edu/coppi/pubs/bhgrowth4.pdf
 http://ned.ipac.caltech.edu/level5/March02/Ferrarese/Fer2.html
+
+\subsection*{Stefan–Boltzmann law}
+%% https://en.wikipedia.org/wiki/Stefan%E2%80%93Boltzmann_law
+%% accessed 2018-Sep-18
+The Stefan–Boltzmann law describes the power radiated from a black
+body in terms of its temperature. Specifically, the Stefan–Boltzmann
+law states that the total energy radiated per unit surface area of a
+black body across all wavelengths per unit time
+
+$j^{\star}$ (also known as the black-body radiant emittance)
+is directly proportional to the fourth power of the black body's
+thermodynamic temperature T:
+\begin{equation}
+ j^{\star} = \sigma T^{4},
+\end{equation}
+The constant of proportionality $\sigma$, called the Stefan–Boltzmann
+constant, is derived from other known physical constants. The value of
+the constant is
+\begin{equation}
+  \sigma ={\frac {2\pi ^{5}k^{4}}{15c^{2}h^{3}}}=5.670373\times 10^{-8} \, \mathrm {W\,m^{-2}K^{-4}} 
+\end{equation}
+where $k$ is the Boltzmann constant, $h$ is Planck's constant, and $c$ is the speed of light in a vacuum. 
+
+The radiance (watts per square metre per steradian) is given by
+\begin{equation}
+ L = \frac{j^{\star}}\pi = \frac\sigma\pi T^{4}.
+\end{equation}
 
 \subsection*{Synchrotron Radiation}
 
@@ -400,16 +505,86 @@ For an electron:
 
 \subsection*{Thomson scattering} 
 %%http://en.wikipedia.org/wiki/Thomson_scattering
-Thomson scattering is the elastic scattering of electromagnetic radiation by a free charged particle. It is just the low-energy limit of Compton scattering: the particle kinetic energy and photon frequency are the same before and after the scattering. This limit is valid as long as the photon energy is much less than the mass energy of the particle: $\nu\ll mc^2/h$.
+Thomson scattering is the elastic scattering of electromagnetic
+radiation by a free charged particle. It is just the low-energy limit
+of Compton scattering: the particle kinetic energy and photon
+frequency are the same before and after the scattering. This limit is
+valid as long as the photon energy is much less than the mass energy
+of the particle: $\nu\ll mc^2/h$.
+
+\section*{V}
+\subsection*{Virial Temperature}
+%% http://dictionary.obspm.fr/index.php?showAll=1&formSearchTextfield=virial+temperature
+The mean temperature at which a gravitationally bound system would
+satisfy the {\it virial theorem}. For a system of mass M and radius R
+with constant density, the gravitational energy per unit mass is $W =
+GM/R$. The kinetic energy per unit mass is $E = (3/2) k_{B} T_{\rm
+vir}/\mu$, where $k$ is Boltzmann's constant and $\mu$ the mean
+molecular weight. According to the virial theorem, $E = W/2$, which
+leads to the virial temperature
+\begin{equation}
+  T_{\rm vir}  =  (1/3) (GM/kR).
+\end{equation}
+
+\subsection*{Virial Theorem}
+%% http://hosting.astro.cornell.edu/academics/courses/astro201/vt.htm
+The virial theorem states that, for a stable, self-gravitating,
+spherical distribution of equal mass objects (stars, galaxies, etc),
+the total kinetic energy of the objects is equal to minus 1/2 times
+the total gravitational potential energy. In other words, the
+potential energy must equal the kinetic energy, within a factor of
+two.
+
+%%https://en.wikipedia.org/wiki/Virial_theorem
+
+%% ASTR 610 Theory of Galaxy Formation - Yale University
+%% www.astro.yale.edu/vdbosch/astro610_lecture14.pdf
 
 
+\section*{W}
+
+    \subsection*{Wien's Approximation Law}
+    Wien's Approximation, also sometimes called Wien's law or the Wien
+    Distribution law, is a law of physics used to describe the spectrum of
+    thermal radiation (frequently called the blackbody function). The equation does
+    accurately describe the short wavelength (high frequency) spectrum of
+    thermal emission from objects, but it fails to accurately fit the
+    experimental data for long wavelengths (low frequency) emission.
+    The law may be written as
+    \begin{equation}
+      I(\nu ,T)={\frac  {2h\nu ^{3}}{c^{2}}}e^{{-{\frac  {h\nu }{kT}}}}
+    \end{equation}
+    The Wien approximation may be derived from Planck's law by assuming $h\nu \gg kT$. When this is true, then
+    \begin{equation}
+      {\frac {1}{e^{\frac {h\nu }{kT}}-1}}\approx e^{-{\frac {h\nu }{kT}}} 
+    \end{equation}
+    and so Planck's law approximately equals the Wien approximation at high frequencies.
+    
+    \subsection*{Wien's Displacement Law}
+    Wien's Displacement law states that the black body radiation curve for
+    different temperature peaks at a wavelength that is inversely
+    proportional to the temperature. The shift of that peak is a direct
+    consequence of the Planck radiation law, which describes the spectral
+    brightness of black body radiation as a function of wavelength at any
+    given temperature.
+
+    Formally, Wien's displacement law states that the spectral
+    radiance of black body radiation per unit wavelength, peaks at the
+    wavelength λmax given by:
+    \begin{equation}
+      \lambda _{\text{max}}={\frac {b}{T}}
+    \end{equation}
+    where $T$ is the absolute temperature in Kelvins. $b$ is a constant of
+    proportionality called Wien's displacement constant, equal to
+    $2.8977729(17)\times10^{-3}$ m K. 
+    
 \section*{X}
     \subsection*{X-rays, Hard}
 
     \subsection*{X-rays, Soft}
 
 
-
+\clearpage
 \bibliographystyle{mn2e}
 \bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
 
