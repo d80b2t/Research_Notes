@@ -1,8 +1,11 @@
 \documentclass[11pt,a4paper]{article}
 
-\usepackage{epsfig}
 \usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{multicol}
 \usepackage{natbib}
+
+
 
 \input{format}
 
@@ -21,14 +24,17 @@
 
 \begin{abstract}
 %{\bf The} definitive document, 
-``README'' and ``Cheat Sheet'' to SEDs, $f_{\nu}$ and $f_{\lambda}$ and all that carry-on...
+``README'' and ``Cheat Sheet'' to SEDs, $f_{\nu}$ and $f_{\lambda}$
+and all that carry-on...
 \end{abstract}
 
 
-%Section heading
-\section{Definitions, terms and Units}
 
-%%\cite{Richards06b}, \citet{Richards06b}, \citep{Richards06b}
+\clearpage
+\section{Definitions, terms and Units}
+Starting off with just some basic definitions, terms and units. A big
+push here will be to be consistent and also as comprehensive as
+possible.
 
 \begin{table*}
   \begin{center}
@@ -38,12 +44,12 @@
       \hline
       Physical Quantity & symbol & Unit name & Units & e.g. $\log$(OoM)   \\
       \hline
-      spectral flux density$^{a}$ &  $f_{\nu}$        &             & W                  m$^{-2}$ Hz$^{-1}$                  & -27 -- -35 \\
-      spectral flux density          &  $f_{\nu}$        &             & erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$                  & -24 -- -32 \\
-      spectral flux density          &  $f_{\nu}$        & Janksy  & $10^{-26}$ W     m$^{-2}$ Hz$^{-1}$              & $\mu$ to 10's of milli \\
-      spectral flux density          &  $f_{\nu}$        & Jansky  & $10^{-23}$ erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$ & $\mu$ to 10's of milli \\
-      spectral flux density          &  $f_{\lambda}$  &             &  W                  m$^{-2}$ m$^{-1}$                  &  \\
-      spectral flux density          &  $f_{\lambda}$  &             &  W                  m$^{-2}$ $\mu$m$^{-1}$                  &  \\
+      spectral flux density$^{a}$ &  $f_{\nu}$        &             & W                  m$^{-2}$ Hz$^{-1}$                      & -27 -- -35 \\
+      spectral flux density          &  $f_{\nu}$        & Janksy  & W                   m$^{-2}$ Hz$^{-1}$  $10^{-26}$   & $\mu$ to 10's of milli \\
+      spectral flux density          &  $f_{\nu}$        &             & erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$                      & -24 -- -32 \\
+      spectral flux density          &  $f_{\nu}$        & Jansky  & erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$  $10^{-23}$   & $\mu$ to 10's of milli \\
+      spectral flux density          &  $f_{\lambda}$  &             &  W                  m$^{-2}$ m$^{-1}$                       &  \\
+      spectral flux density          &  $f_{\lambda}$  &             &  W                  m$^{-2}$ $\mu$m$^{-1}$             &  \\
                                                 &                       &             &                        & \\
       $^{a}$energy density         & $\nu f_{\nu}$   &  erg s$^{-1}$ cm$^{-2}$       &        & -12 -- -16 \\
      $^{b}$ --                            & $\nu F_{\nu}$ &                                            &        &      \\
@@ -80,9 +86,11 @@
       Radiant energy	                      &  $Q_{\rm e}$                 & Joule                              &	J             & M L$^{2}$    T$^{-2}$     & Energy of electromagnetic radiation. \\
       Radiant energy density            & w$_{\rm e}$	             & Joule per cubic metre    & J/m$^3$	      & M L$^{-1}$  T$^{-2}$     & Radiant energy per unit volume. \\
       Radiant flux                             & $\phi_{\rm e}$              & Watt	                              & W = J/s         & M L$^{2}$    T$^{-3}$    & Radiant energy emitted per unit time$^{a}$. \\
-      \multirow{3}{*}{Spectral flux}  &  $\phi_{{\rm e}, \nu}$       & Watt per hertz                & W/Hz            & M L$^{2}$    T$^{−2}$    & Radiant flux per unit frequency or wavelength.  \\
+                                                      &&&&& \\
+      \multirow{3}{*}{Spectral flux}  &  $\phi_{{\rm e}, \nu}$       & Watt per hertz                & W/Hz            & M L$^{2}$    T$^{−2}$    & \multirow{3}{*}{Radiant flux per unit frequency or wavelength.}  \\
                                                      &  or                                & or                                   & or                 & or                                & \\
                                                      & $\phi_{{\rm e}, \lambda}$  & Watt per metre                 & W/m            & M L             T$^{-3}$   & \\
+                                                      &&&&& \\
       \hline
       \hline
     \end{tabular}
@@ -95,6 +103,33 @@
 \end{table*}
 \end{landscape} 
 
+\section{Some examples}
+\begin{figure*}
+\begin{multicols}{2}
+    \includegraphics[width=\linewidth]{Glikman_2006_ApJ_640_579_Fig7.jpeg}\par 
+    \includegraphics[width=\linewidth]{Vanden_Berk_2001_AJ_122_549_Fig3.jpeg}\par 
+    \end{multicols}
+\begin{multicols}{2}
+    \includegraphics[width=\linewidth]{Jiang_2006_AJ_132_2127_Fig2.jpeg}\par
+    \includegraphics[width=\linewidth]{Jiang_2010_Nature_464_380_Fig1.jpeg}\par
+\end{multicols}
+    \includegraphics[width=\linewidth]{Richards_2006_ApJS_166_470_Fig10_bottomhalf.pdf}\par
+\caption{
+{\it Top Left:} Fig. 7 from \citet{Glikman2006}. $y$-axis is F$_{\nu}$; 
+Power-law plus blackbody fit to their composite quasar spectrum plotted in F$_{\nu}$-$\lambda$ on logarithmic axes. 
+The combined fit is shown in red, the power-law component with a best-fit spectral index of $\alpha_{\nu}=-0.92$ is shown in green, and the blackbody with the best-fit dust temperature of $T_{\rm dust}=1260$K  is shown in blue.\\
+%%
+{\it Top Right:} Fig. 3 from \citet{VdB2001}. $y$-axis is f$_{\lambda}$ Composite quasar spectrum using median combining. Power-law fits to the estimated continuum Ñux are shown. The resolution of the input spectra is $\approx$1800, which gives a wavelength resolution of about 1\AA\ in the rest frame. \\
+%%
+{\it Middle Left:} Fig. 2 from \citet{Jiang2006}. $y$-axis is $\nu$f$_{\nu}$.  SEDs of the 13 quasars from the {\it Spitzer} observations. The dotted and dashed lines represent the average SEDs of type I low-redshift quasars from Elvis et al. (1994) and Richards et al. (2006),  respectively, and have been normalized at rest frame 1450\AA\. Circles with downward arrows represent 2$\sigma$ upper limits. The measurement uncertainties are also given in the figure.\\
+%%
+{\it Middle Right:} Fig. 1 from \citet{Jiang2010}. $y$-axis is $\lambda$F$_{\lambda}$;  Spitzer SEDs of z < 6 quasars. Filled circles, rest-frame SEDs of six representative quasars from our sample in the four IRAC channels, the IRS PUI blue band (15.6$\mu$m) and the MIPS 24 $\mu$m band. 
+Typical on-source integration time of the Spitzer observations was 10-30 min per source per band. The integration time for J0005-0006 at 15.6 and 24$\mu$m was about four hours and for J0303-0019 at 24$\mu$m was 50 min. The IRAC 4.5$\mu$m bandpass includes the strong H$\alpha$ emission line (6563) 
+at this redshift, enhancing the flux. Open circle (in J0303-0019), problematic photometry due to contamination from heavily blended neighbours. Circles with downward arrows, 2$\sigma$ upper limits; error bars, measurement uncertainties (1$\sigma$). Grey lines, template formed from the average of a large number of low- redshift type 1 quasar SEDs, and normalized to each object at $\lambda$=3.6$\mu$m. Blue and green lines, respectively disk and hot-dust components from the best model fits (the IRAC data are used to fit the disk emission, and the IRS PUI and MIPS data are then used to constrain the hot dust emission); red lines, sum of the two. In J0005-0006 and J0303-0019, a power law is not a good description for the disk emission at $\lambda > 1\mu$m.\\
+%%
+{\it Bottom Row:} Bottom half of \citet{Richards2006b}, giving $\nu$f$_{\nu}$. Yellow box is $\sim$the wavelength coverage in the Jiang et al. plots. Shown in gray are the Elvis et al. (1994) radio-quiet (solid) and radio-loud (dashed) mean SEDs. The colored lines indicate typical spectral indices in the radio, optical, and X-ray using the same sign convention. Also shown is the typical radio-to-optical spectral index for radio-loud quasars and the range of optical–to–X-ray spectral indices. Studies in different bands tend to use different sign conventions for spectral indices and jargon to describe them (e.g., steep/red/soft). 
+}
+\end{figure*}
 
 
 
