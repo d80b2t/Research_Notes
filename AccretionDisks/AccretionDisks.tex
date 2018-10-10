@@ -26,6 +26,155 @@ The rate of accretion can be give as::
 \end{equation}
 
 
+\section{System physics and model properties} \label{sec:phys}
+{\bf STRAIGHT FROM Camilo Fontecilla, Zoltán Haiman, Jorge Cuadra, https://arxiv.org/abs/1810.02857v1}. 
+In this section, we first explain the relevant physics in our study,
+then we discuss the simplifications needed to implement a 1D
+simulation, and finally give details of our numerical code.
+
+We model the inner-- and circumbinary discs assuming their scale
+height $h$ is much smaller than the distance to the centre $r$, so the
+system behaves as a standard, two-dimensional thin disc. Furthermore,
+we consider the primary black hole to be at the center of mass of the
+system, ignore the individual disc around the secondary, and assume
+that the secondary and both accretion discs follow circular, co-planar
+and prograde paths around the primary black hole. These assumptions
+allow us to model the system in one dimension, with all disc
+properties functions of the radial coordinate $r$ only.
+
+\subsection{Viscosity, thickness and energetics} \label{sec:visc}
+
+Viscosity acts as an angular momentum transport mechanism, which
+produces a torque between contiguous rings of the disc. The standard
+$\alpha$-disc model \citep{shakura73} parametrizes the turbulent
+kinematic viscosity as a function of the sound speed $c_s$ and the
+thickness of the disc $h$. While $c_s$ depends on the total pressure,
+in this study we implement an alternative viscosity prescription
+called a $\beta$-disc model, which ensures thermal and viscous
+stability:
+%
+\begin{equation}
+\nu = \alpha c_s h \beta, \label{eq:nu}.
+\end{equation}
+%
+This allows us to put all the uncertainties in the constant $\alpha
+\leq 1$. Here, $\beta$ is the ratio between the gas pressure $p_{\rm
+gas}$ and total pressure $p_{\rm tot} = p_{\rm gas} + p_{\rm rad}$
+(with $p_{\rm rad}$ the radiation pressure). For simplicity, we
+consider the pressures to be determined by the mid-plane temperature
+of the disc $T_c$: $p_{\rm rad} = 4 \sigma T_c^4 / (3 c)$ and $p_{\rm
+gas} = \rho k T_c / (\mu m_p)$, with $k$ the Boltzmann constant,
+$\sigma$ the Stefan-Boltzmann constant, and $\mu = 0.615$ the mean
+particle mass in units of the proton mass $m_p$ for a plasma of solar
+metallicity.
+
+The sound speed in the disc is given by $c_s^2 = p_{\rm tot} / \rho$
+with $\rho = \Sigma / (2 h)$ the volumetric density and $\Sigma$ the
+surface density of the discs. Assuming hydrostatic equilibrium in the
+vertical direction, we can express the sound speed as a function of
+thickness $h$ and angular velocity: $c_s = \Omega h$, with $\Omega =
+(GM(1+q)/r^3)^{1/2}$ the angular velocity of the material.
+
+To close this system of equations, we relate the central temperature
+$T_c$ to the surface density $\Sigma$, assuming photons are
+transported to the disc surface by vertical diffusion: $F = 8 \sigma
+T_c^4 / (3 \Sigma \kappa)$ (where $\kappa$ is the opacity due to
+electron scattering), and that viscous and tidal heating are
+dissipated in the form of radiation \citep{lodato09, kocsis12a},
+%
+\begin{equation}
+F = D_\nu + D_\Lambda = \frac{9}{8} \nu \Sigma \Omega^2 - \frac{1}{2} \Lambda \Sigma (\Omega - \Omega_s). \label{eq:F}
+\end{equation}
+%
+The tidal term $D_\Lambda$, as explained in \citet{lodato09}, comes
+from angular momentum conservation and from the assumption that orbits
+remain circular.
+
+Using the above formulation leads to a system of equations, uniquely
+determining the disc properties at each radius and time:
+%
+\begin{equation} 
+\begin{aligned}
+T_c &= \Bigg[\dfrac{3 \kappa \Sigma^2 \big(9 \alpha c_s^2 \Omega \beta - 4 \Lambda(\Omega - \Omega_s)\big)}{64 \sigma}\Bigg]^{\frac{1}{4}},\\
+\beta &= \left[1 + \frac{8 \sigma \mu m_p T_c^3 c_s}{3 c k \Sigma \Omega}\right]^{- 1},\\
+c_s &= \frac{8 \sigma T_c^4}{3 c \Omega \Sigma (1 - \beta)}.
+\end{aligned}\label{eq:solution}
+\end{equation}
+%
+It can be shown that there is only one real and positive solution for
+the central temperature. Solving the equations allows us to obtain the
+sound speed $c_s$, the thickness $h$ of the disc, and finally the
+viscosity itself \citep{fontecilla17}. Having the central temperature
+at each radius and assuming that the discs emit as a multi-temperature
+blackbody \citep{frank02}, we can obtain the spectral energy
+distribution (SED) and the bolometric luminosity ($L_{\rm bol}$) of
+the system as a function of time.
+
+\subsection{Surface Density evolution}
+
+At least two mechanisms will make the surface density of the discs
+evolve over time: viscosity, already explained in the previous
+subsection, and the tidal torque produced by the changing
+gravitational potential of the rotating binary. The latter is a 2D
+effect, and cannot be implemented directly in a 1D simulation. To
+bypass this, we adopt a commonly used recipe that models its effect on
+the accretion discs. Following the literature \citep{armitage02},
+\footnote{See \citet{dong11a, dong11b, petrovich12, rafikov16} for
+discussion about the tidal prescription.}  we define an orbit-averaged
+torque,
+%
+\begin{align}
+\Lambda = \begin{cases}
+- \dfrac{f}{2} q^2 \Omega^2 r^2 \bigg(\dfrac{r}{\Delta}\bigg)^4, & \mbox{if } r < a \\[12pt]
+\enskip \dfrac{f}{2} q^2 \Omega^2 r^2 \bigg(\dfrac{a}{\Delta}\bigg)^4, & \mbox{if } r \geq a \\
+\end{cases}\label{eq:smooth}
+\end{align}
+%
+whose functional form depends on whether we are in the inner ($r < a$)
+or circumbinary ($r \geq a$) discs. Here $f = 0.01$ is a
+dimensionless parameter that controls the strength of the torque,
+$\Delta = \max \{R_h,~h,~|r - a|\}$ is a smoothing term, and $R_h = a
+(q / 3)^{1 / 3}$ is the Hill radius of the secondary black hole. While
+this model was originally proposed for $q \ll 1$, it has been widely
+used for binaries up to $q = 0.3$ \citep{lodato09, chang10, kocsis12a,
+kocsis12b, tazzari15}.
+
+While viscosity always transfers the angular momentum of the disc
+outwards, the tidal effect depends on the position. Inside the binary
+orbit ($r < a$) the tidal torque $\Lambda$ adds angular momentum to
+the binary, producing an inward acceleration on the elements of the
+disc. On the other hand, for the circumbinary disc ($r \geq a$), this
+effect will add angular momentum to the gas, preventing it to cross
+the binary orbit. Here, the balance between the tidal effect and the
+viscous mechanism will produce a low density region called cavity or
+gap, which depends on the mass ratio of the binary.
+
+As pointed out by \citet{tazzari15}, for $q \geq 0.1$,
+eq. (\ref{eq:smooth}) gives an unphysically large tidal contribution
+on the discs outside the Lindblad resonances, which will alter the
+migration velocity of the binary and the surface density of the
+discs. Following their work we added an exponential cutoff for the
+tidal torque outside this region,
+%
+\begin{align}
+\Lambda = \begin{cases}
+- \dfrac{f}{2} q^2 \Omega^2 r^2 \bigg(\dfrac{r}{\Delta}\bigg)^4 \exp\left[- \left(\dfrac{r - r_{\rm IMLR}}{w_{\rm IMLR}}\right)^2\right] & \mbox{if } r \leq r_{\rm IMLR}, \\[18pt]
+\enskip \dfrac{f}{2}q^{2}\Omega^{2}r^{2}\bigg(\dfrac{a}{\Delta}\bigg)^4 \exp\left[-\left(\dfrac{r-r_{\rm OMLR}}{w_{\rm OMLR}}\right)^2\right] & \mbox{if } r\geq r_{\rm OMLR}.
+\raisetag{38pt}
+\end{cases}\label{eq:smooth2}
+\end{align}
+%
+Here, $r_{\rm IMLR} = 0.63 a$ and $r_{\rm OMLR} = 1.59 a$ are the radius of the innermost and outermost Lindblad resonances, while $w_{\rm IMLR} = 370 h$ and $w_{\rm OMLR} = 75 h$ are the widths of the Gaussian smoothing. These values were used by \citet{tazzari15} to reproduce the gap sizes of a $q = 0.11$ binary from \citet{artymowicz94}.
+
+Following \citet{frank02}, considering the mass continuity and angular momentum conservation equations in the discs, adding the viscous and tidal torques (eq. \ref{eq:smooth}), the surface density evolution can be written as:
+%
+\begin{equation}
+\frac{\partial \Sigma}{\partial t} = - \frac{1}{r}\frac{\partial}{\partial r}\left( - 3 r^{1 / 2}\frac{\partial}{\partial r}\left(\nu \Sigma r^{1 / 2}\right) + 2 \frac{\Sigma \Lambda}{\Omega}\right), \label{eq:sigma}
+\end{equation}
+%
+where the first term at the right hand side is the effect of viscosity and the second one is produced by the tidal interaction between the binary and the discs. 
+
+
 
 \section{What's the difference, (``If Any!!'') between Proto-stellar disks \& AGN disks ???!!!!}
 \begin{landscape}
