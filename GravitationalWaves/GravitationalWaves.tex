@@ -10,8 +10,75 @@
 
 
 \section{Very General Equations}
-e.g., notes from COTB 2014, Holz. \\
+From \href{https://en.wikipedia.org/wiki/Stress-Energy_tensor}{Wikipedia}:: \\
 
+In general relativity, the stress tensor is studied in the context of the Einstein field equations which are often written as
+
+\begin{equation}
+  R_{\mu \nu }-{\tfrac {1}{2}}R\,g_{\mu \nu }+\Lambda g_{\mu \nu }={8\pi G \over c^{4}}T_{\mu \nu } 
+\end{equation}
+where $R_{\mu \nu}$ is the Ricci tensor, $R$ is the Ricci scalar (the
+tensor contraction of the Ricci tensor), $g_{\mu \nu }$ is the metric
+tensor, $\Lambda$ is the cosmological constant (negligible at the
+scale of a galaxy or smaller), and $G$ is the universal gravitational
+constant.
+
+For starters, have $\Lambda = 0$ and $\kappa = \frac{8\pi G}{c^{4}}$:  
+\begin{equation}
+  R_{\mu \nu }-{\tfrac {1}{2}}R\,g_{\mu \nu } = \kappa T_{\mu \nu }.
+\end{equation}
+then (from [1]) and by assuming that the metric $g_{\mu \nu }$
+representing the gravitational field has the form of a slightly
+perturbed Minkowski metric $\eta_{\mu \nu }$
+\begin{equation}
+  g_{\mu \nu } = \eta_{\mu \nu } + \epsilon h_{\mu \nu }
+\end{equation}
+Here $0< \epsilon \ll 1$, and this linearization simply means that we
+develope the left hand side of (0.1) in powers of $\epsilon$ and
+neglected all terms involving $\epsilon^k$ with $k > 1$. As a result of this
+linearization Einstein found the field equations of linearized general
+relativity, which can conveniently be written for an unknown
+\begin{equation}
+    \bar{h}_{\mu \nu } = h_{\mu \nu } - \frac{1}{2} \, \eta_{\mu \nu } \, h_{\alpha \beta } \, \eta^{\alpha \beta } 
+\end{equation}
+as
+\begin{equation}
+    \Box \bar{h}_{\mu \nu } = 2 \kappa T_{\mu \nu },   \; \quad \quad \Box = \eta_{\mu \nu } \,  \partial^{\mu} \partial^{\nu} .
+\end{equation}
+These equations, outside the sources where 
+\begin{equation}
+  T_{\mu \nu } = 0 
+\end{equation}
+constitute a system of decoupled relativistic wave equations: 
+\begin{equation}
+ \Box {h}_{\mu \nu }  = 0
+\end{equation}
+for each component of $h_{\mu \nu }$. This enabled Einstein to conclude that
+{\it linearized} general relativity theory admits solutions in which the
+perturbations of Minkowski spacetime $h_{\mu \nu }$ are plane waves traveling
+with the speed of light. Because of the {\it linearity}, by superposing
+plane wave solutions with different propagation vectors $k_\mu$ one can
+get waves having any desirable wave front. Einstein named these
+gravitational waves. He also showed that within the linearized theory
+these waves carry energy, and he found a formula for the energy loss
+in terms of the third time derivative of the quadrupole moment of the
+sources.  
+
+Since far from the sources the gravitational field is very
+weak, solutions from the linearized theory should coincide with
+solutions from the full theory. Actually the wave detected by the
+LIGO/Virgo team was so weak that it was treated as if it were a
+gravitational plane wave from the linearized theory. We also mention
+that essentially all visualizations of gravitational waves presented
+during popular lectures or in the news are obtained using linearized
+theory only.
+
+
+
+
+\smallskip
+\smallskip
+e.g., notes from COTB 2014, Holz. \\
 
 \begin{equation}
   g_{\alpha \beta}(x) = \eta_{\alpha \beta} + h_{\alpha \beta}(x)
@@ -39,8 +106,104 @@ Luminosity of GW sources:
  L_{\rm GW} \sim \frac{c^5}{G} \sim \frac{2\times 10^{42}} {7\times 10^{-11}} \sim 10^{52} \;  {\rm Joules}
 \end{equation}
 
+\smallskip
+\smallskip
+
+Notes from THE MATHEMATICS OF GRAVITATIONAL WAVES
+A Two-Part Feature;\\ 
+\lbrack 1\rbrack: Part One: How the Green Light Was Given for Gravitational Wave Search by C. Denson Hill and Paweł Nurowski p.686 \\  
+\lbrack 2\rbrack: Part Two: Gravitational Waves and Their Mathematics, by Lydia Bieri, David Garfinkle, and Nicolás Yunes, p 693 \\
+{\tt DOI: http://dx.doi.org/10.1090/noti1551}. 
 
 
+
+\href{https://www.quora.com/What-is-the-wave-equation-of-gravitational-waves}{Quora}\\
+Final paragraph:: 
+In other words, we solve the penultimate wave equation and the
+solution represents plane gravitational waves traveling at the speed
+of light: transverse and longitudinal but only the transverse carry
+energy.
+
+Also from 
+\href{https://www.quora.com/Why-are-gravitational-waves-transverse}{Quora} 
+
+
+\section{Gravitational waves demystified}
+Straight from:: 
+\href{http://www.tapir.caltech.edu/~teviet/Waves/index.html}{Teviet Creighton's Caltech page}.\\
+
+\section{The strength of the (gravitational) quadrupole field}
+The strength of the quadrupole field, i.e. the amplitude of gravitational radiation, scales as:
+\begin{eqnarray}
+g' & \sim & \frac{\ddddot{I}}{r} \\
+g' & \sim & \frac{GM}{c^4}\frac{f^4 s^2}{r} \\
+    & \sim & GM \frac{s^2}{\lambda^4 r} \\
+\end{eqnarray}
+where $s$ is the mass (charge in EM) separation, 
+
+\section{Dimensionless amplitude}
+\begin{equation}
+  g'  = \frac{\Delta g}{d}  
+\end{equation}
+where $\Delta g$ is the change in gravity and $d$ is displacement.
+
+The tidal field $g'$ is the physically measurable part of
+gravitational phenomena: it represents an observable relative
+acceleration or force between two displaced ``test masses''. However,
+when discussing gravitational waves, the most common parameter
+describing the amplitude is a dimensionless {\it strain},
+\begin{equation}
+  h = 2 \int\int g' dt^2 .
+\end{equation}
+
+What does this quantity mean? Remember that $g'$ is a gravity
+gradient, so $g' \, d$ gives the difference in gravity, i.e. the
+differential acceleration, between two objects separated by a small
+displacement $d$. Two time integrals of acceleration give us the
+instantaneous change in this displacement as a function of time. Thus
+$h$ is twice the fractional change in displacement between two nearby
+masses due to the gravitational wave. This change in displacement
+occurs in the plane {\it transverse to the direction of radiation},
+and causes a stretch along one axis and a squeeze along the orthogonal
+axis.
+%% this is illustrated below, showing how a ring of freely-floating masses would be disturbed by a passing gravitational wave. 
+The net distortion is twice as much as a stretching or squeezing
+alone, which is the reason for the factor of 2 in the equations for
+$h$.
+
+$h$ is not itself directly observeable. A constant $h$, or an $h$ that
+varies linearly with time, is exactly equivalent to starting the
+masses at slightly different positions, or with a slight relative
+velocity. {\it Only the second and higher derivatives of $h$ produce
+accelerations that would indicate the presence of gravitational
+radiation.}
+
+From the above scaling for $g'$ we get $h \sim GMs^2/ \lambda^{2} r$
+or:
+\begin{equation}
+h \sim \frac{GM}{c^2}\frac{1}{r}(\frac{v}{c})^2 .
+\end{equation}
+The first term is roughly the size of a black hole of mass $M$, so the
+distance $r$ to the system must clearly be much greater. Similarly, $v/c$ 
+is the ratio of the speeds of masses in the system to the speed of
+light, which must be less than (usually much less than) unity. Thus $h$ 
+approaches unity when one is standing in the immediate vicinity of
+black holes moving about at lightspeed, and is less for any other
+circumstance.
+
+In particular, the length scale of a ``typical'' black hole 10$\times$
+as massive as our Sun is 14~km, and such objects achive speeds around $c$ 
+only when they collide, which might occur on a yearly basis within a
+volume of radius 6$\times10^{20}$km (20 Megaparsecs). So the strongest
+waves we expect to observe passing the Earth will have $h\sim
+10^{-20}$ or less. This is enough to distort the shape of the Earth by
+10$^{-13}$ metres, or about 1\% of the size of an atom. By contrast,
+the (nonradiative) tidal field of the Moon raises a tidal bulge of
+about 1 metre on the Earth's oceans.
+ 
+
+
+\newpage
 \section{Detecting GWs}
 
 \subsection{Pulsar timing arrays }
