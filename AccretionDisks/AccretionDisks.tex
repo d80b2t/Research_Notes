@@ -1,17 +1,17 @@
 \documentclass[11pt,a4paper]{article}
 
-\usepackage{multirow}
-\usepackage{graphicx,fancyhdr,natbib,subfigure}
+\usepackage{amsmath, amssymb}
+\usepackage{caption, cancel, color}
+\usepackage{graphicx, fancyhdr, natbib, subfigure}
 \usepackage{epsfig, epsf}
-\usepackage{amsmath, cancel, amssymb}
-\usepackage{lscape, longtable, caption}
+\usepackage{lscape, longtable,listings}
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
 \usepackage{hyperref,ifthen}
+\usepackage{multirow}
 \usepackage{verbatim}
-\usepackage{color}
 \usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{listings}
+
 
 \input{format}
 
@@ -180,7 +180,7 @@ where the first term at the right hand side is the effect of viscosity and the s
 \begin{landscape}
 \begin{table}[]
   \centering
-  \caption{What are the similiarties and differences between 
+  \caption{What are the similarities and differences between 
     Proto-stellar and AGN accretion disks?
 }
   \label{my-label}
@@ -262,7 +262,7 @@ see reviews by Quataert [2001]; Narayan [2005]; early versions of RIAF models we
       angular velocity                               & generally  Keplerian                                    & sub-Keplerian \\
       &  &  \\
       Outflows? Jets?                               & Yes? No.                                          & Yes, Yes \\
-      Feedback mode                               & ``Radiative/Wind/Tranistionn''                 & ``Jet/Kinetic/Maintenances'' \\
+      Feedback mode                               & ``Radiative/Wind/Transition''                 & ``Jet/Kinetic/Maintenances'' \\
       & & \\
     Named examples                           &   ``Slim''                        & advection dominated accretion flow (ADAF)\\
                                                            &                                             & (adiabatic inflow-outflow solution; ADIOS) \\
@@ -331,6 +331,79 @@ T(R) = \left ( \frac{3 G M \dot{M}}{8 \pi \sigma R^{3}_{*}}  \right )^{1/4}
 
 \section{This, THIS, THIS!!!!}
 \href{http://www.scholarpedia.org/article/Accretion\_discs}{http://www.scholarpedia.org/article/Accretion\_discs}
+
+
+\newpage
+\section{Astrophysics of accretion disks - Charles Gammie}
+
+``Disk's are at the heart of many of the most interesting problems in
+theoretical astrophysics.''
+\href{https://www.youtube.com/watch?v=5qwyU3_JWE0}{YouTube video}.
+
+\subsection{Examples of Astro-disks}
+\begin{equation}
+    h / R \ll 1 
+\end{equation}
+where $h$ is the scale-height and $R$ is the (local) radius.  This is
+$\sim10^{-3}$ for NGC 4258.  This ratio is proportional to sound
+speed in the disk / rotational velocity, which is $\sim 1 {\rm km
+s}^{-1} / 1000 {\rm km s}^{-1}$.
+
+$T$ is 1 billion degrees, and $n_{\rm e} \sim 10^6$ means m.f.p. for
+Columbo scattering is very large.  Introduce the ``Knuddson number'':
+\begin{equation} \kappa_{\rm n} = \lambda{\rm mfp}/R
+\end{equation} where $R$ is the general 'scale of the system and
+$\kappa_{\rm n}$ for Sgr A$^*$ is around $10^5$.  Evolution of
+turbulence in collisionless plasmas.
+
+Two more dimensionless numbers.  Magnetic Reynolds number, which
+allows you to asses the non-ideal effects in the plasma around a
+young star 
+\begin{equation} Re_{m} = \frac{ c_{s} h} {\eta}
+\end{equation} $\eta$ is the electrical resistivity.
+
+Toomre $Q$ parameter, measures the importance of self-gravity in the
+disk.
+\begin{equation} Q = \frac{ c_{s} \Omega } {\pi G \Sigma}
+\end{equation} where $\Sigma$ is the surface density of the disk.
+When $Q\lesssim1$ then self-gravity becomes important in the disk.
+
+
+\subsection{Disk Evolution}
+All about ANGULAR MOMENTUM. 
+
+Disk Equilibrium. 
+\begin{itemize}
+\item dynamical equilibrium: 
+\end{itemize}
+\begin{equation}
+\Omega = (GM / R^3)^(1/2)  + O(H/R)^{2}          \;\;\;\;\;\; v_{z} = 0
+\end{equation}
+and $\Delta t \sim \Omega^{-1}$. 
+%%
+{\it Nota bene} the scale height is proportional to the sound speed divided 
+by the rotational frequency: $H = c_{s} / \Omega$. 
+
+In a PROTOPLANETARY disk, this is a GAS pressure dominated disk. 
+Whereas in an AGN accretion disk, the pressure is dominated by the
+RADIATION pressure. 
+Got to 31m
+
+\begin{itemize}
+\item thermal equilibrium:   $Q^{+}=Q^{-}$
+\end{itemize}
+ $Q^{+}$ is heating rate,  $Q^{-}$ is radiative cooling rate. 
+\begin{equation}
+\Delta t \sim \Sigma c_{s}^{2} / Q^{+} \sim (\alpha \Omega)^{-1}
+\end{equation}
+Got to 31m45secs. 
+
+\begin{itemize}
+\item inflow equilibrium:   $\dot{M} =$ const. 
+\end{itemize}
+\begin{equation}
+\Delta t \sim M_{\rm disk}/\dot{M}   \sim  (\alpha \Omega)^{-1} (R/H)^2. 
+\end{equation}
 
 
 
