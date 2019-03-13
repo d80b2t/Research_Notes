@@ -351,7 +351,8 @@ s}^{-1} / 1000 {\rm km s}^{-1}$.
 
 $T$ is 1 billion degrees, and $n_{\rm e} \sim 10^6$ means m.f.p. for
 Columbo scattering is very large.  Introduce the ``Knuddson number'':
-\begin{equation} \kappa_{\rm n} = \lambda{\rm mfp}/R
+\begin{equation} 
+  \kappa_{\rm n} = \lambda_{\rm mfp}/R
 \end{equation} where $R$ is the general 'scale of the system and
 $\kappa_{\rm n}$ for Sgr A$^*$ is around $10^5$.  Evolution of
 turbulence in collisionless plasmas.
@@ -359,12 +360,14 @@ turbulence in collisionless plasmas.
 Two more dimensionless numbers.  Magnetic Reynolds number, which
 allows you to asses the non-ideal effects in the plasma around a
 young star 
-\begin{equation} Re_{m} = \frac{ c_{s} h} {\eta}
+\begin{equation} 
+  Re_{m} = \frac{ c_{s} h} {\eta}
 \end{equation} $\eta$ is the electrical resistivity.
 
 Toomre $Q$ parameter, measures the importance of self-gravity in the
 disk.
-\begin{equation} Q = \frac{ c_{s} \Omega } {\pi G \Sigma}
+\begin{equation} 
+  Q = \frac{ c_{s} \Omega } {\pi G \Sigma}
 \end{equation} where $\Sigma$ is the surface density of the disk.
 When $Q\lesssim1$ then self-gravity becomes important in the disk.
 
@@ -372,38 +375,48 @@ When $Q\lesssim1$ then self-gravity becomes important in the disk.
 \subsection{Disk Evolution}
 All about ANGULAR MOMENTUM. 
 
-Disk Equilibrium. 
+First, disk Equilibrium.  
 \begin{itemize}
-\item dynamical equilibrium: 
+  \item Dynamical equilibrium: 
 \end{itemize}
 \begin{equation}
-\Omega = (GM / R^3)^(1/2)  + O(H/R)^{2}          \;\;\;\;\;\; v_{z} = 0
+  \Omega = (GM / R^3)^(1/2)  + O(H/R)^{2}          \;\;\;\;\;\; v_{z} = 0
 \end{equation}
 and $\Delta t \sim \Omega^{-1}$. 
 %%
 {\it Nota bene} the scale height is proportional to the sound speed divided 
 by the rotational frequency: $H = c_{s} / \Omega$. 
 
-In a PROTOPLANETARY disk, this is a GAS pressure dominated disk. 
+In a PROTOPLANETARY disk, this is a GAS pressure dominated disk.
 Whereas in an AGN accretion disk, the pressure is dominated by the
-RADIATION pressure. 
-Got to 31m
+RADIATION pressure.
 
 \begin{itemize}
-\item thermal equilibrium:   $Q^{+}=Q^{-}$
+  \item Thermal equilibrium:   $Q^{+}=Q^{-}$
 \end{itemize}
  $Q^{+}$ is heating rate,  $Q^{-}$ is radiative cooling rate. 
 \begin{equation}
-\Delta t \sim \Sigma c_{s}^{2} / Q^{+} \sim (\alpha \Omega)^{-1}
+  \Delta t \sim \Sigma c_{s}^{2} / Q^{+} \sim (\alpha \Omega)^{-1}
 \end{equation}
-Got to 31m45secs. 
+The heating in some disks is dominated by internal friction related to
+the dissipation of turbulence.  And in an optically thick disk, $Q^{+}
+\sim \sigma T^{4}$ (just like a star).  $\alpha$ describes the
+intensity of turbulence inside the disk.  So the $Q^{+} \propto$ local
+dynamical time with constant of proportionality being $\alpha$.
+Typically, $\alpha \sim 1/10 - 1/100$ which is substantially longer
+than $t$ for dynamical equilibrium.
 
 \begin{itemize}
-\item inflow equilibrium:   $\dot{M} =$ const. 
+  \item Viscous equilibrium:   $\dot{M} =$ const. 
 \end{itemize}
+Time for which {\it inflow} equilibrium is reached. 
 \begin{equation}
-\Delta t \sim M_{\rm disk}/\dot{M}   \sim  (\alpha \Omega)^{-1} (R/H)^2. 
+  \Delta t \sim M_{\rm disk}/\dot{M}   \sim  (\alpha \Omega)^{-1} (R/H)^2. 
 \end{equation}
+e.g. protoplanatary disks, Viscous timescale maybe a factor 100 longer
+than Thermal timescale. 
+
+\subsection{Disk Evolution}
 
 
 
