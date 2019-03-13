@@ -1,5 +1,8 @@
 \documentclass[11pt]{article}
 
+\input{format}
+
+
 \setlength {\textwidth}{180mm} 
 \setlength {\textheight}{260mm}
 \topmargin=-35.00mm
@@ -25,14 +28,149 @@ with e.g. $M_{\rm BH}$.
 
 %Section heading
 \section{Accreting BH timescales}
+General notes: a 1$\times10^{8}$ M$_{\odot}$ has a Schwarzschild Radius of $R_{\rm
+Schwarz}=2.954 \times10^{8}$ km. \\
+And 1 AU is 1.496$\times10^{8}$ km.  \\ 
+Light travel time across this $R_{S}$ is 984.77 seconds.
+%% https://www.omnicalculator.com/physics/schwarzschild-radius 
 
-\begin{itemize}
-\item{  {\bf Mechanical:} }
-\item{  {\bf Viscous:} }
-\end{itemize}
 
-\citet{Croom04}
-\noindent
+\subsection{Light crossing}
+The light crossing timescale; variations in light output cannot occur on timescales less than this.
+
+\begin{table}
+  \begin{center}
+    % \begin{tabular}{l ccc c } 
+    \begin{tabular}{l l l l l l} 
+      \hline
+      \hline 
+      Timescale         &     Equation    &  Ref  \\
+      \hline  
+       &&& \\
+       light crossing  &  {\boldmath $t_{\rm lt} = R/c$}       &  \multirow{4}{*}{FKR2002, Eqn~(7.4) }      \\
+                               &   $ \geq 2GM /c^{3}$                                 &  \\
+                               &  $= 0.98\times10^{-5} (M/M_{\odot})$ secs   &  \\
+                                &   = 980 seconds (for the 1e8 $M_{\odot}$ given above ;-) & \\ 
+        &&& \\
+         \hline
+         \hline 
+       \end{tabular}
+      \caption{Light Crossing timescale; variations in light output cannot occur on timescales less than this.}
+      \label{tab:lightcrossing}
+    \end{center}
+\end{table}
+
+
+\subsection{Dynamical}
+The shortest characteristic timescale of the disc is the dynamical timescale. 
+
+\begin{table}
+  \begin{center}
+    % \begin{tabular}{l ccc c } 
+    \begin{tabular}{l l l l l l} 
+      \hline
+      \hline 
+      Timescale   & Equation    &  Ref  \\
+      \hline  
+       &&& \\
+       dynamical  & $t_{\rm dyn} = \sqrt{R^{3}/c}$ &     \\
+                          &  $\sim R/v_{\phi}$           &  \multirow{3}{*}{FKR2002, Eqn~(5.63) }  \\
+                          & $t_{\phi} \sim \Omega_{K}^{-1}$                                             &  \\
+        &&& \\
+         \hline
+         \hline 
+       \end{tabular}
+      \caption{The shortest characteristic timescale of the disc is the dynamical timescale.}
+      \label{tab:lightcrossing}
+    \end{center}
+\end{table}
+
+
+\subsection{Sound}
+The general sound crossing timescale. 
+Sound speed, given as:
+\begin{equation}
+     c_{s} =  \left (\frac{d P}{d \rho} \right)^{1/2}_{0}.
+\end{equation}. 
+$\gamma = 5/3$ is adiabatic, while $\gamma = 1$ is isothermal.
+with (from e.g. FKR2002) both $c_{s}^{\rm ad}$ and $c_{s}^{\rm iso}$
+the order of the mean thermal speed of the ions of the gas,
+\begin{equation}
+c_{s} \approx 10 (T/10^{4} K)^{1/2} km s^{-1}
+\end{equation}
+
+\begin{table}
+  \begin{center}
+    % \begin{tabular}{l ccc c } 
+    \begin{tabular}{l l l l l l} 
+      \hline
+      \hline 
+      Timescale           &                       Equation    &  Ref  \\
+      \hline  
+       &&& \\
+       Sound  &  $t_{\rm snd} = R/c_{\rm s}$                                                 &      \\
+        &&& \\
+         \hline
+         \hline 
+       \end{tabular}
+      \caption{Light Crossing timescale; large variations in light output cannot occur on timescales less than this.}
+      \label{tab:lightcrossing}
+    \end{center}
+\end{table}
+
+\subsection{Thermal}
+From e.g. FKR2002, the {\it thermal timescale:}
+\begin{equation}
+t_{th} = \frac{\rm heat \; content \; per \; unit \; disc \; area}{\rm dissipation \;  rate \; per \; unit \; disc \; area}.
+\end{equation}
+i.e. a timescale for an ``energy spike'' to dissipate within disc. 
+
+\begin{table}
+  \begin{center}
+    % \begin{tabular}{l ccc c } 
+    \begin{tabular}{l l l l l l} 
+      \hline
+      \hline 
+      Timescale           &                       Equation    &  Ref  \\
+      \hline  
+       &&& \\
+       Thermal  &     $t_{\rm th} = \mathcal{M} / t_{\rm visc}$                                                 &  \multirow{3}{*}{FKR2002}      \\
+                  &                                   &  \\
+                  &       &  \\
+        &&& \\
+         \hline
+         \hline 
+       \end{tabular}
+      \caption{Time for an ``energy spike'' to dissipate within the disc.}
+      \label{tab:lightcrossing}
+    \end{center}
+\end{table}
+where $\mathcal{M}$ is Mach number,  $v/c_{s}$. 
+
+
+\subsection{Viscous}
+\begin{table}
+  \begin{center}
+    % \begin{tabular}{l ccc c } 
+    \begin{tabular}{l l l l l l} 
+      \hline
+      \hline 
+      Timescale           &                       Equation    &  Ref  \\
+      \hline  
+       &&& \\
+       Viscous  &     $t_{\rm visc} = R^{2}/\nu$                                                 &  \multirow{3}{*}{FKR2002 }      \\
+                  &     &  \\
+              &   &  \\
+        &&& \\
+         \hline
+         \hline 
+       \end{tabular}
+      \caption{where $\nu$ is {\it kinematic viscosity}. This is the ``diffusion through disc'' timescale from viscous torques.}
+      \label{tab:lightcrossing}
+    \end{center}
+\end{table}
+
+
 
 %\begin{landscape}
 \begin{figure}
@@ -47,10 +185,9 @@ with e.g. $M_{\rm BH}$.
 %\end{landscape}
 
 
-
 %\begin{landscape}
 \begin{table}
-  \caption{The Lines}
+  \caption{Timescales and how the scale with $M$, $R$, $T$ etc.}
   \label{tab:the_lines}
   \begin{center}
     \begin{tabular}{lr} 
@@ -65,6 +202,9 @@ with e.g. $M_{\rm BH}$.
   \end{center}
 \end{table}
 %\end{landscape}
+
+\citet{Croom2004}
+\noindent
 
 
 
@@ -248,19 +388,19 @@ P$_{\rm orb}$ is the orbital period in s;\\
 $R$ is the distance from the central black hole in cm;\\
 $R_{\rm 1000}$ = is $R$ in units of 1000 Schwarzschild radii, $rg = 2GM/c2$; \\
 $ri,13$ is ri the initial radius of a condensing cloud in units of 1013 cm;\\
-$rc$ is the radius of the condensed cloud, = ri .χ-1/3, for a density ratio of χ; i.e. 0.22 ri for a density ratio of 100;\\
+$rc$ is the radius of the condensed cloud, = ri $\chi$1/3, for a density ratio of $\chi$; i.e. 0.22 $\chi$ for a density ratio of 100; (double check this!!!)\\
 $T_{\rm i,6}$ is the initial temperature of the wind in units of 106 K; \\
 $v_{\rm 1000}$ = initial radial WA velocity in units of 1000 km s-1; \\
-$v_{\rm esc}$ = (2GM/R)1/2 is the escape velocity from radius R = 9500 R1000-1⁄2 km s-1 = √2×6700 R1000-1⁄2 km s-1;\\
+$v_{\rm esc}$ = (2GM/R)1/2 is the escape velocity from radius  %R = 9500 R1000 km s$^{-1}$ = $\sqrt$2$\times$6700 -  1000 km s$^{-1}$; \\
 $Z/Z$ is gas metallicity relative to solar (section 2.1); \\
-$\Lambda(Τ)$ is the cooling coefficient (erg s-1 cm3) ; \\
-$\Lambda_{\rm b}(T)$ is the cooling coefficient for bremsstrahlung; \\
-$\Lambda (Τ)/\Lambda_{\rm b}(T)$ is the factor increase in the cooling
+$\Lambda$ is the cooling coefficient (erg s-1 cm3) ; \\
+$\Lambda_{\rm b} (T)$ is the cooling coefficient for bremsstrahlung; \\
+$\Lambda (T) /\Lambda_{\rm b}$  is the factor increase in the cooling
 coefficient in a thermal plasma due to line cooling over
 bremsstrahlung at solar metallicity, which has values of $\sim$35 for 
-T =105 - 106 K, ~100forT=104.5 K, andpeaksat~500forT=105–5.5 K;\\
-$\gamma$ is the ideal gas adiabatic index = 5/3; \\
-$\mu$ is the mean molecular weight of the gas (~0.6); and\\
+T =105 - 106 K, ~100forT=104.5 K, and peaks at$\sim$500 for $T=10^{5-5.5}$ K;\\
+$\gamma$ is the ideal gas adiabatic index $= 5/3$; \\
+$\mu$ is the mean molecular weight of the gas ($\sim$0.6); and\\
 $\chi$ is the ratio of the cloud density to the ambient medium density.
 
 
