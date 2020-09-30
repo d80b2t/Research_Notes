@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{format}
+
+\begin{document}
+
+\title{NPRs Python Notes}
+\author{Nicholas P. Ross}
+\date{\today}
+\maketitle
+
+
+%% Usually omit these for ApJ or MNRAS style files:
+
+
+\begin{abstract}
+The is my (NPR's) set of {\tt matplotlib} notes.  
+%% Things started as wanting to just be an ``IDL to Python CheatSheet'', and have naturally and organically snowballed from there. Suffice to say, when this document reached 47 pages long (and I started to  take notes on how to do pytests ;-), this was no long a Cheat Sheet, and became something else; a general Python resource. \\
+
+You will be able to find the latest version of these notes
+and indeed the .tex file at:\\
+\href{https://github.com/d80b2t/Research\_Notes}{\tt
+https://github.com/d80b2t/Research\_Notes}.
+\end{abstract}
+
+
+\section{Avoid-overlapping-in-scatterplot-with-2d-density}
+From::
+\href{https://python-graph-gallery.com/86-avoid-overlapping-in-scatterplot-with-2d-density/}{Python
+Graph Gallery}.
+
+\begin{lstlisting}
+# Libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import kde
+ 
+# Create data: 200 points
+data = np.random.multivariate_normal([0, 0], [[1, 0.5], [0.5, 3]], 200)
+x, y = data.T
+ 
+# Create a figure with 6 plot areas
+fig, axes = plt.subplots(ncols=6, nrows=1, figsize=(21, 5))
+ 
+# Everything sarts with a Scatterplot
+axes[0].set_title('Scatterplot')
+axes[0].plot(x, y, 'ko')
+# As you can see there is a lot of overplottin here!
+ 
+# Thus we can cut the plotting window in several hexbins
+nbins = 20
+axes[1].set_title('Hexbin')
+axes[1].hexbin(x, y, gridsize=nbins, cmap=plt.cm.BuGn_r)
+ 
+# 2D Histogram
+axes[2].set_title('2D Histogram')
+axes[2].hist2d(x, y, bins=nbins, cmap=plt.cm.BuGn_r)
+ 
+# Evaluate a gaussian kde on a regular grid of nbins x nbins over data extents
+k = kde.gaussian_kde(data.T)
+xi, yi = np.mgrid[x.min():x.max():nbins*1j, y.min():y.max():nbins*1j]
+zi = k(np.vstack([xi.flatten(), yi.flatten()]))
+ 
+# plot a density
+axes[3].set_title('Calculate Gaussian KDE')
+axes[3].pcolormesh(xi, yi, zi.reshape(xi.shape), cmap=plt.cm.BuGn_r)
+ 
+# add shading
+axes[4].set_title('2D Density with shading')
+axes[4].pcolormesh(xi, yi, zi.reshape(xi.shape), shading='gouraud', cmap=plt.cm.BuGn_r)
+ 
+# contour
+axes[5].set_title('Contour')
+axes[5].pcolormesh(xi, yi, zi.reshape(xi.shape), shading='gouraud', cmap=plt.cm.BuGn_r)
+axes[5].contour(xi, yi, zi.reshape(xi.shape) )
+
+\end{lstlisting}
+
+
+
+\newpage
+\section{Good links}
+https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/
+
+\end{document}

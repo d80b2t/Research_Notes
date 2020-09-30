@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Baldwin_luminosities.aux
+The style file: mn2e.bst
+Database file #1: /cos_pc19a_npr/LaTeX/tester_mnras.bib
+You've used 4 entries,
+            2601 wiz_defined-function locations,
+            625 strings with 4491 characters,
+and the built_in function-call counts, 1548 in all, are:
+= -- 163
+> -- 92
+< -- 2
++ -- 31
+- -- 30
+* -- 140
+:= -- 291
+add.period$ -- 0
+call.type$ -- 4
+change.case$ -- 24
+chr.to.int$ -- 3
+cite$ -- 4
+duplicate$ -- 44
+empty$ -- 65
+format.name$ -- 36
+if$ -- 284
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 4
+newline$ -- 15
+num.names$ -- 16
+pop$ -- 14
+preamble$ -- 1
+purify$ -- 28
+quote$ -- 0
+skip$ -- 54
+stack$ -- 0
+substring$ -- 93
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 10
+top$ -- 0
+type$ -- 36
+warning$ -- 0
+while$ -- 16
+width$ -- 0
+write$ -- 42

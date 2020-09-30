@@ -1,0 +1,95 @@
+\documentclass[11pt,a4paper]{article}
+\input{format}
+
+\begin{document}
+
+   \title{Baldwin Luminosites}
+ \date{\today}
+\maketitle
+
+
+\section{Baldwin plots}
+\citet{Hamann2017} provide:: \\
+
+\noindent
+$f_{1450}$, the
+flux in the uncorrected BOSS spectrum at 1450\AA\ rest ($10^{−17}$
+ergs s$^{−1}$ cm$^{-2}$ \AA$^{-1}$ ) used to anchor the power-law
+continuum fits beneath \civ and \nv, e.g. $f_{\lambda}$ = $f_{1450} (\lambda/1450$\AA\ $)^{\alpha}$. \\
+The quasar redshift and cosmology are also given. 
+
+\begin{lstlisting}
+from astropy.cosmology import FlatLambdaCDM
+
+## Setting up the cosmology
+cosmo = FlatLambdaCDM(H0=71, Om0=0.27, Tcmb0=2.725)                                                    
+
+##  Luminosity  = 4 * pi * (D_L^2) * F      
+##   where  L  is in W   and  F is in W/m^2
+##   D_L is Luminosity Distance 
+
+## Set-up the Luminosity Distance 
+DL       = cosmo.luminosity_distance(redshift)             
+DL_incm = DL.value * 3.08567758128e24
+
+## DL in cm;   f in 10-17 ergs s-1 cm-2 Å-1
+Lum     = (4 * np.pi * (DL_incm*DL_incm) * 1e-17 * f_lam) * 1450.
+log_Lum = np.log10(Lum)
+\end{lstlisting}
+
+
+
+\section{Dyer et al. (2019)}
+
+\subsection*{2.2. Quasar Properties}
+Our analysis uses luminosity, spectral index, and \textsc{C~iv}
+$W_\lambda$ to explore the intrinsic spectral variability of quasars
+and to assess the impact of quasar variability on Lyman-$\alpha$
+forest clustering studies. We compute $L_{\mathrm{bol}}$,
+$\alpha_{\lambda}$, and \textsc{C~iv} $W_\lambda$ from the spectrum of
+every epoch of every quasar. The median $\log{L_{\mathrm{bol}}}$,
+$\alpha_\lambda$, and \textsc{C~iv} $W_\lambda$ for each quasar are
+considered to represent the quasar's steady state properties.
+
+The bolometric luminosity of each spectrum is estimated from the
+monochromatic luminosity at 1740~\AA\ (i.e., the median flux in the
+range 1680~-- 1800~\AA) corrected for luminosity distance under a
+$\Lambda \mathrm{CDM}$ cosmology with $H_0 = 70\ \mathrm{km \, s^{-1}
+\, Mpc}$, $\Omega_{M} = 0.3$, and $\Omega_{\Lambda} = 0.7$. We
+approximate $L_{\mathrm{bol}}=A*L_{1740}$, where we compute the
+bolometric luminosity at 1450 \AA\ with the correction factor
+suggested by \citet{Runnoe2012, Runnoe2012Erratum} and determine the scaling factor
+$A=4.28$ that minimizes the residual between the bolometric
+luminosities computed at 1740~\AA\ and 1450~\AA.  We note that the
+analysis that follows uses the fractional change in luminosity, so the
+choice of scaling of monochromatic flux to bolometric luminosity does
+not impact any of the results.
+
+The spectral index of each spectrum is determined by fitting a power
+law to the quasar continuum in the wavelength ranges 1680~-- 1800~\AA\
+and 2000~-- 2050~\AA. These ranges were chosen for their lack of
+emission lines (except broadband iron which we assume is negligible)
+according to a high S/N composite spectrum \citep{Harris2016}. Every
+spectrum in our sample is observed over this wavelength range. Only
+unmasked pixels with flux within three standard deviations of the
+median are used for this fit to mitigate the influence of intervening
+absorption from the intergalactic medium.
+
+To calculate \textsc{C~iv} $W_\lambda$ for each spectrum, we first
+estimate the continuum around \textsc{C~iv} emission with a linear fit
+to the spectrum in the wavelength ranges 1450~-- 1465~\AA\ and 1685~--
+1700~\AA. We model the \textsc{C~iv} emission using a double Gaussian
+fit to the continuum-subtracted spectrum over the wavelength range
+1500~-- 1580~\AA. Only unmasked flux measurements within three
+standard deviations of the best fit are used. \textsc{C~iv}
+$W_\lambda$ is finally computed by taking the integral of the
+estimated emission flux relative to the estimated continuum flux over
+1520~-- 1580~\AA.
+
+
+
+
+\bibliographystyle{mn2e}
+\bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
+
+\end{document}
