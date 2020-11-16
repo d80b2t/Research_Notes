@@ -2,8 +2,7 @@
 
 \bibliographystyle{apalike}
 
-\usepackage{epsfig, amsmath, natbib}
-\usepackage{hyperref}
+\input{format}
 
 \begin{document}
 
@@ -25,29 +24,18 @@ folks using git, and e.g. github. Slightly ``meta''-ly, I've uploaded this file 
 \end{abstract}
 
 
+\section{General introductions}
+
+\subsection{}
+ \href{https://www.youtube.com/watch?v=HkdAHXoRtos}{Git It? How to use Git and Github}.
+
+
+ 
+
 \section{My github accounts}
 d80b2t\\
 npr247\\
 
-
-
-\subsection{notes}
-On Jul 23, 2014, at 7:37 PM, Nic Ross $<$npross@lbl.gov$>$ wrote:\\
-
-Gang, \\
-
-In an effort to get our code repository going, here's my github details: \\
-	https://github.com/d80b2t \\
-	https://github.com/d80b2t/spies\\
-	https://github.com/d80b2t/group\_code\\
-
-So, after creating a repository, you can go to that repository, click 
-settings, and click "collaborators" to add collaborators. I have 
-done this for John and Rob for the https://github.com/d80b2t/group\_code
-repository. 
-
-Thanks, 
-Nic
 
 
 
@@ -95,58 +83,69 @@ Nic
 \newpage
 \section{Git-Specific Commands}
 {\bf THESE NOTES ARE STRAIGHT FROM\\
-\href{http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/}{http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/}}.
+\href{http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1/}{``Understanding Github a-journey for beginners-part-1/}}.
 Since Git was designed with a big project like Linux in mind, there
 are a lot of Git commands. However, to use the basics of Git, you’ll
 only need to know a few terms. They all begin the same way, with the
 word ``git''.
 
+\weeskip
 {\tt git init}: Initializes a new Git repository. Until you run this
 command inside a repository or directory, it’s just a regular
 folder. Only after you input this does it accept further Git commands.
 
+\weeskip
 {\tt git config}: Short for ``configure'' this is most useful when
 you’re setting up Git for the first time.
 
+\weeskip
 {\tt git status}: Check the status of your repository. See which files
 are inside it, which changes still need to be committed, and which
 branch of the repository you’re currently working on.
 
+\weeskip
 {\tt git add}: This does not add new files to your
 repository. Instead, it brings new files to Git’s attention. After you
 add files, they’re included in Git's ``snapshots'' of the repository.
 
+\weeskip
 {\tt git commit}: Git’s most important command. After you make any
 sort of change, you input this in order to take a ``snapshot'' of the
 repository. Usually it goes {\tt git commit -m ``Message here''}.  The
 {\tt -m} indicates that the following section of the command should be
 read as a message.
 
+\weeskip
 {\tt git branch}: Working with multiple collaborators and want to make
 changes on your own? This command will let you build a new branch, or
 timeline of commits, of changes and file additions that are completely
 your own. Your title goes after the command. If you wanted a new
 branch called ``cats'', you'd type {\tt git branch cats}.
 
+\weeskip
 {\tt git checkout:} Literally allows you to ``check out'' a repository
 that you are not currently inside. This is a navigational command that
 lets you move to the repository you want to check. You can use this
 command as {\tt git checkout master} to look at the master branch, or
 {\tt git checkout cats} to look at another branch.
 
+\weeskip
 {\tt git merge}: When you’re done working on a branch, you can merge
 your changes back to the master branch, which is visible to all
 collaborators. {\tt git merge cats} would take all the changes you
 made to the ``cats'' branch and add them to the master.
 
+\weeskip
 {\tt git push}: If you’re working on your local computer, and want
 your commits to be visible online on GitHub as well, you ``push'' the
 changes up to GitHub with this command.
 
+\weeskip
 {\tt git pull}: If you’re working on your local computer and want the
 most up-to-date version of your repository to work with, you ``pull''
 the changes down from GitHub with this command.
 
+\weeskip
 {\tt git help}: Forgot a command? Type this into the command line to
 bring up the 21 most common git commands. You can also be more
 specific and type ``git help init'' or another term to figure out how

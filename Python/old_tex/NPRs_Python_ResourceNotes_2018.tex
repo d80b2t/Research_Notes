@@ -692,6 +692,78 @@ here\footnote{As of Fri Aug 5 13:37:24 PDT 2016.}.
 
 
 
+\newpage
+\section{matplotib}
+From \href{http://matplotlib.org/}{{\tt http://matplotlib.org/}} \\
+
+\noindent
+matplotlib is a python 2D plotting library which produces publication
+quality figures in a variety of hardcopy formats and interactive
+environments across platforms. matplotlib can be used in python
+scripts, the python and ipython shell (ala MATLAB* or Mathematica†),
+web application servers, and six graphical user interface toolkits.
+
+matplotlib tries to make easy things easy and hard things
+possible. You can generate plots, histograms, power spectra, bar
+charts, errorcharts, scatterplots, etc, with just a few lines of
+code. For a sampling, see the screenshots, thumbnail gallery, and
+examples directory
+
+For simple plotting the pyplot interface provides a MATLAB-like
+interface, particularly when combined with IPython. For the power
+user, you have full control of line styles, font properties, axes
+properties, etc, via an object oriented interface or via a set of
+functions familiar to MATLAB users.\\
+
+The real introduction is here::\\
+\href{https://www.labri.fr/perso/nrougier/teaching/matplotlib/}{\tt https://www.labri.fr/perso/nrougier/teaching/matplotlib/}
+
+and here:: \\
+\href{https://www.oreilly.com/learning/simple-line-plots-with-matplotlib}{\tt https://www.oreilly.com/learning/simple-line-plots-with-matplotlib} 
+
+
+\smallskip
+\smallskip
+\noindent
+From \href{http://stackoverflow.com/questions/12987624/confusion-between-numpy-scipy-matplotlib-and-pylab}{http://stackoverflow.com/questions/12987624/confusion-between-numpy-scipy-matplotlib-and-pylab}:\\
+
+- pylab is part of matplotlib (in matplotlib.pylab) and tries to give
+you a MatLab like environment. matplotlib has a number of
+dependencies, among them numpy which it imports under the common alias
+np. scipy is not a dependency of matplotlib.
+
+- If you run ipython --pylab an automatic import will put all symbols
+from matplotlib.pylab into global scope. Like you wrote numpy gets
+imported under the npalias. Symbols from matplotlib are available
+under the mpl alias.
+
+{\tt > ipython --pylab}\\
+\begin{lstlisting}
+import matplotlib.pyplot as plt
+
+\end{lstlisting}
+
+From \href{http://stackoverflow.com/questions/16522380/python-pandas-plot-is-a-no-show}{http://stackoverflow.com/questions/16522380/python-pandas-plot-is-a-no-show}: 
+Put
+\begin{lstlisting}
+import matplotlib.pyplot as plt
+\end{lstlisting}
+at the top, and
+\begin{lstlisting}
+plt.show()
+\end{lstlisting}
+at the end.
+
+\subsection{matplotlibrc}
+\href{https://matplotlib.org/users/customizing.html\#matplotlibrc-sample}{\href https://matplotlib.org/users/customizing.html\#matplotlibrc-sample}\\
+{\href https://matplotlib.org/users/dflt\_style\_changes.html}{https://matplotlib.org/users/dflt\_style\_changes.html}\\
+{\href https://github.com/matplotlib/matplotlib/blob/master/matplotlibrc.template}{https://github.com/matplotlib/matplotlib/blob/master/matplotlibrc.template}\\
+
+
+\subsection{ColorMaps}
+\href{A Better Default Colormap for Matplotlib (SciPy 2015; Nathaniel Smith and Stéfan van der Walt)}{https://www.youtube.com/watch?v=xAoljeRJ3lU} (a.k.a. ``introducing viridis''). 
+
+
 
 
 \newpage
@@ -1812,8 +1884,8 @@ See 429 in history\_20150113.txt and onwards... :-)
 
 
 \newpage
-\section{A Few General Notes}
-    \subsection{What's the difference between {\tt raw\_input()} and {\tt\ input()?}}
+\section{A few General Notes}
+    \subsection{What's the difference between raw\_input() and input()?}
     The difference is that {\tt raw\_input()} does not exist in Python 3.x,
     while {\tt input()} does. Actually, the old {\tt raw\_input()} has been renamed to
      {\tt input()}, and the old  {\tt input()} is gone (but can easily be simulated by
@@ -1821,15 +1893,6 @@ See 429 in history\_20150113.txt and onwards... :-)
     Reference: \href{http://stackoverflow.com/questions/4915361/whats-the-difference-between-raw-input-and-input-in-python3-x}{http://stackoverflow.com/questions/4915361/whats-the-difference-between-raw-input-and-input-in-python3-x}. 
    
 
-    \subsection{What's the difference between {\tt =} and {\tt ==}}
-    {\tt =} is an assignment operator, {\tt ==} is a comparison operator.
-    You can use {\tt ==} to see whether any two items as
-    long they are the same type are equivalent:
-    \begin{lstlisting}
-    if a == 2: # Compares    whether a is equal to 2 print a.
-    \end{lstlisting}
-
-    
     \subsection{Loops}
     \begin{lstlisting}
    n = eval(input())

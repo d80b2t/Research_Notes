@@ -1,0 +1,219 @@
+\usepackage{ae, aecompl, amsmath, amssymb}
+\usepackage{bm}           %%  bold math
+\usepackage{cancel, color}
+\usepackage{dcolumn}  %%  Align table columns on decimal point
+\usepackage{epsfig, epsf, etoolbox}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{listings, longtable, lscape}
+\usepackage{mathptmx, multirow}
+\usepackage{newtxtext, newtxmath}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{subfigure}
+\usepackage{tabu}  %% I think the tikz package gives an `options clash'  with  xcolor..?
+\usepackage{verbatim}
+\usepackage[usenames, dvipsnames]{xcolor}
+
+
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       define Journal abbreviations      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\nat{Nat} \def\apjl{ApJ~Lett.} \def\apj{ApJ}
+\def\apjs{ApJS} \def\aj{AJ} \def\mnras{MNRAS}
+\def\prd{Phys.~Rev.~D} \def\prl{Phys.~Rev.~Lett.}
+\def\plb{Phys.~Lett.~B} \def\jhep{JHEP}
+\def\npbps{NUC.~Phys.~B~Proc.~Suppl.} \def\prep{Phys.~Rep.}
+\def\pasp{PASP} \def\aap{Astron.~\&~Astrophys.} \def\araa{ARA\&A}
+\def\jcap{\ref@jnl{J. Cosmology Astropart. Phys.}} 
+\def\nar{New~A.R.} 
+
+\newcommand{\preep}[1]{{\tt #1} }
+\newcommand{\weeskip}{\smallskip \smallskip \noindent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              define symbols                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \Mpc {~{\rm Mpc} }
+\def \Om {\Omega_0}
+\def \Omb {\Omega_{\rm b}}
+\def \Omcdm {\Omega_{\rm CDM}}
+\def \Omlam {\Omega_{\Lambda}}
+\def \Omm {\Omega_{\rm m}}
+\def \ho {H_0}
+\def \qo {q_0}
+\def \lo {\lambda_0}
+\def \kms {{\rm ~km~s}^{-1}}
+\def \kmsmpc {{\rm ~km~s}^{-1}~{\rm Mpc}^{-1}}
+\def \hmpc{~\;h^{-1}~{\rm Mpc}} 
+\def \hkpc{\;h^{-1}{\rm kpc}} 
+\def \hmpcb{h^{-1}{\rm Mpc}}
+\def \dif {{\rm d}}
+\def \mlim {m_{\rm l}}
+\def \bj {b_{\rm J}}
+\def \mb {M_{\rm b_{\rm J}}}
+\def \mg {M_{\rm g}}
+\def \mi {M_{\rm i}}
+\def \qso {_{\rm QSO}}
+\def \lrg {_{\rm LRG}}
+\def \gal {_{\rm gal}}
+\def \xibar {\bar{\xi}}
+\def \xis{\xi(s)}
+\def \xisp{\xi(\sigma, \pi)}
+\def \Xisig{\Xi(\sigma)}
+\def \xir{\xi(r)}
+\def \max {_{\rm max}}
+\def \gsim { \lower .75ex \hbox{$\sim$} \llap{\raise .27ex \hbox{$>$}} }
+\def \lsim { \lower .75ex \hbox{$\sim$} \llap{\raise .27ex \hbox{$<$}} }
+\def \deg {^{\circ}}
+%\def \sqdeg {\rm deg^{-2}}
+\def \deltac {\delta_{\rm c}}
+\def \mmin {M_{\rm min}}
+\def \mbh  {M_{\rm BH}}
+\def \mdh  {M_{\rm DH}}
+\def \msun {M_{\odot}}
+\def \z {_{\rm z}}
+\def \edd {_{\rm Edd}}
+\def \lin {_{\rm lin}}
+\def \nonlin {_{\rm non-lin}}
+\def \wrms {\langle w_{\rm z}^2\rangle^{1/2}}
+\def \dc {\delta_{\rm c}}
+\def \wp {w_{p}(\sigma)}
+\def \PwrSp {\mathcal{P}(k)}
+\def \DelSq {$\Delta^{2}(k)$}
+\def \WMAP {{\it WMAP \,}}
+\def \cobe {{\it COBE }}
+\def \COBE {{\it COBE \;}}
+\def \HST  {{\it HST \,\,}}
+\def \Spitzer  {{\it Spitzer \,}}
+\def \ATLAS {VST-AA$\Omega$ {\it ATLAS} }
+\def \BEST   {{\tt best} }
+\def \TARGET {{\tt target} }
+\def \TQSO   {{\tt TARGET\_QSO}}
+\def \HIZ    {{\tt TARGET\_HIZ}}
+\def \FIRST  {{\tt TARGET\_FIRST}}
+\def \zc {z_{\rm c}}
+\def \zcz {z_{\rm c,0}}
+
+
+\newcommand{\sqdeg}{deg$^{-2}$}
+\newcommand{\lya}{Ly$\alpha$\ }
+%\newcommand{\lya}{Ly\,$\alpha$\ }
+\newcommand{\lyaf}{Ly\,$\alpha$\ forest}
+%\newcommand{\eg}{e.g.~}
+%\newcommand{\etal}{et~al.~}
+\newcommand{\cii}{C\,{\sc ii}\ }
+\newcommand{\ciii}{C\,{\sc iii}]\ }
+\newcommand{\civ}{C\,{\sc iv}}
+\newcommand{\siiv}{Si\,{\sc iv}\ }
+\newcommand{\mgii}{Mg\,{\sc ii}\ }
+\newcommand{\feii}{Fe\,{\sc ii}\ }
+\newcommand{\feiii}{Fe\,{\sc iii}\ }
+\newcommand{\caii}{Ca\,{\sc ii}\ }
+\newcommand{\halpha}{H\,$\alpha$\ }
+\newcommand{\hbeta}{H\,$\beta$\ }
+\newcommand{\oi}{[O\,{\sc i}]\ }
+\newcommand{\oii}{[O\,{\sc ii}]\ }
+\newcommand{\oiii}{[O\,{\sc iii}]\ }
+\newcommand{\heii}{He\,{\sc ii}\ }
+\newcommand{\nii}{N\,{\sc ii}\ }
+\newcommand{\nv}{N\,{\sc v}\ }
+
+%% From:: /cos_pc19a_npr/LaTeX/proposals/JWST/JWST_ERS/Proposal/lines.tex
+%%  
+\newcommand{\imw}{$i$--$W3$}
+\newcommand{\imwf}{$i$--$W4$}
+\newcommand{\rmwf}{$r$--$W4$}
+\newcommand{\imwt}{$i$--$W2$}
+\newcommand{\wtmwf}{$W3$--$W4$}
+\newcommand{\cmN}{cm$^{-2}$}
+\newcommand{\cmn}{cm$^{-3}$}
+\newcommand{\lsun}{L$_{\odot}$}
+\newcommand{\lam}{$\lambda$}
+\newcommand{\mum}{$\mu$m}
+\newcommand{\ebv}{$E(B$$-$$V)$}
+\newcommand{\cv}{\mbox{C\,{\sc v}}}
+\newcommand{\niv}{\mbox{N\,{\sc iv}}}
+\newcommand{\niii}{\mbox{N\,{\sc iii}}}
+\newcommand{\oiv}{\mbox{O\,{\sc iv}}}
+\newcommand{\ov}{\mbox{O\,{\sc v}}}
+\newcommand{\ovi}{\mbox{O\,{\sc vi}}}
+\newcommand{\ovii}{\mbox{O\,{\sc vii}}}
+
+\newcommand{\neii}{[Ne\,{\sc ii}]\ }
+\newcommand{\neiii}{[Ne\,{\sc ii}]\ }
+\newcommand{\nev}{Ne\,{\sc v}\ }
+\newcommand{\nevi}{[Ne\,{\sc vi}]\ }
+\newcommand{\neviii}{\mbox{Ne\,{\sc viii}}}
+\newcommand{\aliii}{\mbox{Al\,{\sc iii}}}
+\newcommand{\siii}{\mbox{Si\,{\sc ii}}}
+\newcommand{\siiii}{\mbox{Si\,{\sc iii}}}
+\newcommand{\hi}{\mbox{H\,{\sc i}}}
+\newcommand{\snine}{\mbox{[S\,{\sc ix}]}}
+\newcommand{\sivi}{\mbox{[Si\,{\sc vi}]}}
+\newcommand{\sivii}{\mbox[{Si\,{\sc vii}]}}
+\newcommand{\siix}{\mbox{[Si\,{\sc ix}]}}
+\newcommand{\six}{\mbox{[Si\,{\sc x}]}}
+\newcommand{\sixi}{\mbox{[Si\,{\sc xi}]}}
+\newcommand{\caviii}{\mbox{[Ca\,{\sc viii}]}}
+\newcommand{\arii}{\mbox{[Ar\,{\sc ii}]}}
+
+%%[Ar II] 6.97
+%% [S IX] 1.252 μm 328 
+% [Si X] 1.430 μm 351 
+% [Si XI] 1.932 μm 401 
+% [Si VI] 1.962 μm 167 
+% [Ca VIII] 2.321 μm 128 
+% [Si VII] 2.483 μm 205 
+% [Si IX] 3.935 μm 303
+% [Ar II] 6.97
+
+
+%\snine\ at 1.252$\mu$m, \six\ at 1.430$\mu$m, \sixi\ at 1.932$\mu$m, \sivi\ at
+%1.962$\mu$m, \caviii\ at 2.321$\mu$m, \sivi\ at 2.483$\mu$m \siix\ at
+%3.935$\mu$m and \arii\ at 6.97$\mu$m. 
+%%
+%% such as [Ne ii]12.8 μm, [Ne v]14.3 μm, [Ne iii]15.5 μm, [S iii]18.7 μm and 33.48 μm, [O iv]25.89 μm and [Si ii]34.8 μm (e.g
+%%
+%% MIR emission lines like [NeII] and [NeV] are ..
+%%
+%% Also,  arXiv:astro-ph/0003457v1 
+%% [NeV] 14.32um & 24.32um and [NeVI] 7.65um imply an A(V)>160 towards the NLR...
+%% [NeIII]15.56um/[NeII]12.81um
+%%
+%% [Ne V] 14.3, 24.2 μm 97.
+%% [Ne II] 12.8 μm
+%% [OIV] 26μm
+%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              define Listings                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
