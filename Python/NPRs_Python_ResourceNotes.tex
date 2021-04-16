@@ -134,7 +134,7 @@ HEAVILY BORROWED/COPIED FROM:
 \subsection*{Comments are marked by \#}
 
 \subsection*{End-of-line Terminates a Statement}
-\subsection*{Semicolon can Optionally Termnate a Statement}   
+\subsection*{Semicolon can Optionally Terminate a Statement}   
 
     \subsection*{Indentation: Whitespace Matters!}
     Indent code blocks by four spaces. 
@@ -182,7 +182,7 @@ HEAVILY BORROWED/COPIED FROM:
       >>> 
     \end{lstlisting}
 
-    \subsection{{\tt math} — Mathematical functions}
+    \subsection{{\tt math} -- Mathematical functions}
     \href{https://docs.python.org/3/library/math.html}{https://docs.python.org/3/library/math.html}\\
         \begin{lstlisting}
           import math
@@ -246,8 +246,8 @@ HEAVILY BORROWED/COPIED FROM:
         \end{lstlisting}
 
 
-    \subsection*{}    
-
+    \subsection*{Analytics Vidhya: quick notes on the basics of python and the numpy library}    
+\href{https://www.analyticsvidhya.com/blog/2021/02/quick-notes-on-the-basics-of-python-and-the-numpy-library/}{www.analyticsvidhya.com/blog/2021/02/quick-notes-on-the-basics-of-python-and-the-numpy-library/}
 
 
 
@@ -1087,58 +1087,6 @@ the main program. That's what the {\tt if \_\_name\_\_ ==
 
 
 
-
-\newpage
-\section{IDL to Python}
-Key links:\\
-The \href{http://www.astrobetter.com/wiki/Python+Switchers+Guide}{{\bf AstroBetter Guide}.} \\
-\href{http://www.johnny-lin.com/cdat_tips/tips_array/idl2num.html}{IDL to Numeric/numarray Mapping}\\
-\href{http://www.astro.umd.edu/~mbk/idl-numpy.html}{NumPy for IDL users}\\
-\href{http://mathesaurus.sourceforge.net/idl-numpy.html}{http://mathesaurus.sourceforge.net/idl-numpy.html}\\
-\href{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}\\
-
-
-\begin{table}[h]
-  \begin{center}
-    \setlength{\tabcolsep}{4pt}
-    \begin{tabular}{ll}
-      \hline\hline
-      IDL code   & Python code \\
-      \hline 
-      .run 'foo.pro'  & exec(open("./findLargestNo.py").read())\\
-                            & \%run my\_script.py  $^{a}$\\
-%     \hline
-      \multicolumn{2}{l}{\bf FITS I/O} \\
-      data=READFITS('file',header) 	                  & data=pyfits.open('file')\\
-      tdata  = mrdfits('SpIESch1ch2.fits',0, hdr)   & tdata = data[0].data \\
-      tbdata = mrdfits('SpIESch1ch2.fits',1, hdr)  & tdata = data[1].data \\
-      (Using {\tt fitsio})                                          & d = fitsio.read('SpIESch1ch2.fits',1) \\
-      & \\
-      WRITEFITS(data,'newfile')	                          & data.writeto('newfile')	\\
-      CHECKFITS	                                          & data[0].verify()	\\
-      SXPAR()                                                        & data[0].header['KEY']	\\
-      SXADDPAR()	                                          &  data[0].header['KEY']='value' \\
-%                                                                          & data[0].header.update('KEY','value', 'comment')	\\
-      SXDELPAR                          & del data[0].header['KEY']	\\ 
-      SXADDHIST	                & data[0].header.add\_history('history')	\\
-      SXADDHIST,/Comment	& data[0].header.add\_comment('comment')	\\
-      & \\
-      help, tbdata, /str                                  & info(tbdata)\\
-      print, size(tbdata)                                 & shape(tbdata)\\
-                                                                   & len(tbdata)\\
-      print, tbdata[0].flux\_aper\_1               & print tbdata.FLUX\_APER\_1[0]\\
-      help, tbdata.flux\_aper\_1                   & tbdata.FLUX\_APER\_1? \\
-      fluxaper = tbdata.flux\_aper\_1[2]      & fluxaper = ??? \\
-      \hline 
-      \hline
-      \label{tab:IDL2Python}
-    \end{tabular}
-    \caption{IDL to Python. \\
-       $^{a}$ipython only?
-       }
-    \label{table:idl_vs_python}
-  \end{center}
-\end{table}
 
 
 
@@ -2104,20 +2052,28 @@ The collections module has some concrete classes that derive from ABCs; these ca
 
 
 
+\newpage
+\section{PyTorch}
+PyTorch is an optimized tensor library primarily used for Deep Learning applications using GPUs and CPUs. It is an open-source machine learning library for Python, mainly developed by the Facebook AI Research team. It is one of the widely used Machine learning libraries, others being TensorFlow and Keras. Here is the Google Search Trends which shows that the popularity of the PyTorch library is relatively higher compared to TensorFlow and Keras.
+
+The following tutorial assumes some basic knowledge about Python programming language and high school mathematics. No prior knowledge of Deep learning is required. This article covers basic knowledge and working of PyTorch required to get started with Deep Learning. Follow along with the tutorial to get hands-on experience.
+\href{https://www.analyticsvidhya.com/blog/2021/04/a-gentle-introduction-to-pytorch-library/}{https://www.analyticsvidhya.com/blog/2021/04/a-gentle-introduction-to-pytorch-library/}.
 
 
 
  
 \newpage
-\section{General Wee Tips and trikcs}
+\section{General Wee Tips and tricks}
 \begin{itemize}
 \item Need points that are evenly spaced on a log scale? Use {\tt np.logscale(start, stop, base)} 
 \item By convention, matplotlib is imported as mpl. Also by convention, matplotlib.pyplot is imported as plt.
 \item In Pandas, adding {\tt parse\_dates=True} when doing a {\tt pd.read\_csv} is usually enough to magically parse dates. 
 \item Also in Pandas, you can parse ``-'' as a NaN-value on read-in:: {\tt pd.read\_table(infile, na\_values=``-'')}
-\item' 
 \end{itemize}
 
+\subsection{How to manipulate a large (e.g. 20GB) CSV file efficiently}
+
+\href{https://www.analyticsvidhya.com/blog/2021/04/how-to-manipulate-a-20g-csv-file-efficiently/}{https://www.analyticsvidhya.com/blog/2021/04/how-to-manipulate-a-20g-csv-file-efficiently/}
 
 
 
@@ -2135,6 +2091,7 @@ The collections module has some concrete classes that derive from ABCs; these ca
 \noindent
 Also: \\
 \href{http://texfigure.readthedocs.io/en/latest/}{http://texfigure.readthedocs.io/en/latest/}\\
+
 
 
 
@@ -2341,6 +2298,62 @@ takes an estimated 13 hours to complete.}
 \item{Become familiar with the Jupyter notebook, which is increasingly popular among data scientists for sharing code and ideas.}
 \end{itemize}
 
+
+\newpage
+\appendix
+\begin{appendices}
+  \section{IDL to Python}
+Key links:\\
+The \href{http://www.astrobetter.com/wiki/Python+Switchers+Guide}{{\bf AstroBetter Guide}.} \\
+\href{http://www.johnny-lin.com/cdat_tips/tips_array/idl2num.html}{IDL to Numeric/numarray Mapping}\\
+\href{http://www.astro.umd.edu/~mbk/idl-numpy.html}{NumPy for IDL users}\\
+\href{http://mathesaurus.sourceforge.net/idl-numpy.html}{http://mathesaurus.sourceforge.net/idl-numpy.html}\\
+\href{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}{http://mathesaurus.sourceforge.net/idl-python-xref.pdf}\\
+
+
+\begin{table}[h]
+  \begin{center}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{ll}
+      \hline\hline
+      IDL code   & Python code \\
+      \hline 
+      .run 'foo.pro'  & exec(open("./findLargestNo.py").read())\\
+                            & \%run my\_script.py  $^{a}$\\
+%     \hline
+      \multicolumn{2}{l}{\bf FITS I/O} \\
+      data=READFITS('file',header) 	                  & data=pyfits.open('file')\\
+      tdata  = mrdfits('SpIESch1ch2.fits',0, hdr)   & tdata = data[0].data \\
+      tbdata = mrdfits('SpIESch1ch2.fits',1, hdr)  & tdata = data[1].data \\
+      (Using {\tt fitsio})                                          & d = fitsio.read('SpIESch1ch2.fits',1) \\
+      & \\
+      WRITEFITS(data,'newfile')	                          & data.writeto('newfile')	\\
+      CHECKFITS	                                          & data[0].verify()	\\
+      SXPAR()                                                        & data[0].header['KEY']	\\
+      SXADDPAR()	                                          &  data[0].header['KEY']='value' \\
+%                                                                          & data[0].header.update('KEY','value', 'comment')	\\
+      SXDELPAR                          & del data[0].header['KEY']	\\ 
+      SXADDHIST	                & data[0].header.add\_history('history')	\\
+      SXADDHIST,/Comment	& data[0].header.add\_comment('comment')	\\
+      & \\
+      help, tbdata, /str                                  & info(tbdata)\\
+      print, size(tbdata)                                 & shape(tbdata)\\
+                                                                   & len(tbdata)\\
+      print, tbdata[0].flux\_aper\_1               & print tbdata.FLUX\_APER\_1[0]\\
+      help, tbdata.flux\_aper\_1                   & tbdata.FLUX\_APER\_1? \\
+      fluxaper = tbdata.flux\_aper\_1[2]      & fluxaper = ??? \\
+      \hline 
+      \hline
+      \label{tab:IDL2Python}
+    \end{tabular}
+    \caption{IDL to Python. \\
+       $^{a}$ipython only?
+       }
+    \label{table:idl_vs_python}
+  \end{center}
+\end{table}
+
+\end{appendices}
 
 \bibliographystyle{mn2e}
 \bibliography{/cos_pc19a_npr/LaTeX/tester_mnras}
